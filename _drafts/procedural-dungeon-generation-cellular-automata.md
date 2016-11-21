@@ -268,20 +268,20 @@ Looks good! Kinda small, though.
 
 The snippet above runs our code on a little `40x40` grid because this implementation of the algorithm is *really, really slow*, and it takes forever if you run it on e.g. a `100x100` grid. This speed issue is also the reason that these snippets use `4` as their default number of iterations --- in real life, I find that a value around `12` makes for smoother caves.
 
-I've written  an alternate version of this code that's much faster, and that's what powers the bigger caves in this article. I learned a lot about ClojureScript performance in the process, and will write a future post where we start with this article's version of the code and arrive at the optimized implementation.
+In a future article, we'll revisit this code and figure out how to make it much faster, and we'll learn a little bit about ClojureScript in the process.
 
 ## Wrapping up ##
 
-I learned about today's algorithm from [Kyzrati's post on the topic](http://www.gridsagegames.com/blog/2014/06/mapgen-cellular-automata/). His implementation has an additional step: before running the birth/survival/death rules on all cells at once, he starts by running them on **random, individual cells** a bunch of times.
+I learned about today's algorithm from [Kyzrati's post on the topic](http://www.gridsagegames.com/blog/2014/06/mapgen-cellular-automata/). His implementation is a bit different from ours --- he starts by running these birth/survival/death rules on **random, individual cells** a bunch of times, rather than applying them to all cells on the grid at the same time. He then performs several smoothing passes, in which he applies cellular automata rules to the entire grid at once like we've been doing, in order to remove straggling single-cell pillars and cavelets.
 
-I have an implementation that does this as well, and I *think* I like the results it gives, but I've been playing with it for a couple of weeks and frankly I still have no idea what actual effect it has. It does *something*, and it doesn't seem to make the levels worse, so I'm keeping it for now. Give it a shot yourself using [my visualization tool]({{site.baseurl}}/cellular-automata-tool.html).
+I have an implementation that tries to mimic his, and I *think* I like the results it gives, but I've been playing with it for a couple of weeks and frankly I still have no idea what actual effect this run-on-individual-cells-many-times approach has. It does *something*, and it doesn't seem to make the levels worse, so I'm keeping it for now. Give it a shot yourself using [my visualization tool]({{site.baseurl}}/cellular-automata-tool.html).
 
 ## Future work ##
 
 There's a lot left to do before these levels are super fun and playable:
 
 * If we generate one of these caves, place the player at one end, and put his goal at the other end, he'll have to do a ton of backtracking along the way in his search for the exit, and that isn't very fun. [Kyzrati's solution](http://www.gridsagegames.com/blog/2014/06/mapgen-cellular-automata/) is to tweak the boundaries of the input grid so that the algorithm generates longer, narrower caves that require less backtracking.
-* The algorithm often generates small "island" caves that are completely disconnected from the main cave; I need to write a post-processing step that detects them and fills them in.
+* The algorithm often generates small "island" caves that are completely disconnected from the main cave; I need to write a post-processing step that [detects them](https://en.wikipedia.org/wiki/Flood_fill) and fills them in.
 
 This seems like a good stopping point for now, though. We've written some code that generates neato caves! We'll make it better in future posts.
 
