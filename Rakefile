@@ -9,8 +9,6 @@ require "jekyll"
 
 GITHUB_REPONAME = "jrheard/jrheard.github.io"
 
-# TODO jekyll env production
-
 desc "Generate blog files"
 task :generate do
   Jekyll::Site.new(Jekyll.configuration({
