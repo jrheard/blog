@@ -293,7 +293,7 @@ This seems like a good stopping point for now, though. We've written some code t
 * [Cellular Automata Method for Generating Random Cave-Like Levels](http://www.roguebasin.com/index.php?title=Cellular_Automata_Method_for_Generating_Random_Cave-Like_Levels)
 * [Generate Random Cave Levels Using Cellular Automata](https://gamedevelopment.tutsplus.com/tutorials/generate-random-cave-levels-using-cellular-automata--gamedev-9664)
 
-[^1]: Can we talk about how crazy this is? How many blogs have you ever seen with interactive code snippets like this? [KLIPSE](https://github.com/viebel/klipse/) rules. It's super-easy to use, *and* it can run python, ruby, javascript, plus [other languages too](http://blog.klipse.tech/klipse/2016/09/09/klipse-languages.html). Give it a shot in your blog! It's great for [documentation websites](http://viebel.github.io/gadjett/gadjett.collections.html), too!
+[^1]: Can we talk about how crazy this is? How many blogs have you ever seen with interactive code snippets like this? [KLIPSE](https://github.com/viebel/klipse/) rules. It's super-easy to use, *and* it can run python, ruby, javascript, plus [other languages too](http://blog.klipse.tech/klipse/2016/09/09/klipse-languages.html). Give it a shot in your blog!
 [^2]: This algorithm will seem very familiar to you if you've ever seen [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life).
 
 {% javascript seedrandom.min %}
