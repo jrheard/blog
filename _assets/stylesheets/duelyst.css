@@ -7,6 +7,10 @@ body {
     font-size: 19px;
 }
 
+#app {
+    width: 1440px;
+}
+
 h1 {
     font-size: 30px;
     margin: 10px 0;
@@ -42,7 +46,7 @@ input.demo {
 
 .progress-bar {
     margin:5px 0;
-    width: 550px;
+    width: 615px;
 }
 
 div.legend {
@@ -124,7 +128,9 @@ border: solid 1px #DDD;
 
 ul.missing-cards {
     margin-top: 20px;
-    columns: 3;
+    columns: 2;
+    width: 94%;
+    font-size: 21px;
 }
 
 .card-name {
