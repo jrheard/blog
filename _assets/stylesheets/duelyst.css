@@ -4,6 +4,7 @@ body {
     font-family: helvetica, sans-serif;
     color: #333;
     background-color: #EEE;
+    font-size: 19px;
 }
 
 h1 {
@@ -41,7 +42,7 @@ input.demo {
 
 .progress-bar {
     margin:5px 0;
-    width: 485px;
+    width: 550px;
 }
 
 div.legend {
@@ -123,8 +124,7 @@ border: solid 1px #DDD;
 
 ul.missing-cards {
     margin-top: 20px;
-    columns: 2;
-    width: 94%;
+    columns: 3;
 }
 
 .card-name {
