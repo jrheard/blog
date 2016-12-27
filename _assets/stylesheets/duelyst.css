@@ -1,0 +1,151 @@
+/* some style */
+
+body {
+    font-family: helvetica, sans-serif;
+    color: #333;
+    background-color: #EEE;
+}
+
+h1 {
+    font-size: 30px;
+    margin: 10px 0;
+}
+
+h2 {
+    font-size: 20px;
+    margin: 4px 0;
+}
+
+strong {
+    font-weight: bold;
+}
+
+.initial-ui {
+    width: 500px;
+    margin: 0 auto;
+}
+
+.initial-ui p {
+    margin: 15px 0;
+    line-height: 1.05;
+}
+
+input[type=file] {
+    width: 100%;
+}
+
+p.demo,
+input.demo {
+    display: inline-block;
+}
+
+.progress-bar {
+    margin:5px 0;
+    width: 485px;
+}
+
+div.legend {
+    margin-top: 15px;
+    background-color: #DDD;
+    padding: 10px;
+}
+
+div.legend p {
+    margin: 5px 0;
+}
+
+.section.abyssian h1 {
+    color: #cb3bd8;
+}
+
+.section.lyonar h1 {
+    color: #1db8d7;
+}
+
+.section.magmar h1 {
+    color: #27b45d;
+}
+
+.section.songhai h1 {
+    color: #e7421d;
+}
+
+.section.vanar h1 {
+    color: #0a7aeb;
+}
+
+.section.vetruvian h1 {
+    color: #d4ab08;
+}
+
+.completion-bars {
+    overflow: hidden;
+}
+
+.completion-bar {
+    float: left;
+    margin-right: 50px;
+}
+
+progress {
+    width: 400px;
+    height: 30px;
+    background-color: blue;
+}
+
+.progress-bar p.percentage {
+display: inline-block;
+font-size:28px;
+vertical-align:bottom;
+padding-left:10px;
+}
+
+progress::-webkit-progress-bar {
+    background-color: #e0eaf0;
+    border: solid 1px #CCC;
+}
+
+progress::-webkit-progress-value {
+    background-color: #329ad1;
+}
+
+progress::-moz-progress-bar {
+    background-color: #329ad1;
+}
+
+.missing-count {
+}
+
+.section {
+padding: 20px;
+border: solid 1px #DDD;
+}
+
+ul.missing-cards {
+    margin-top: 20px;
+    columns: 2;
+    width: 94%;
+}
+
+.card-name {
+    text-decoration: none;
+}
+
+.card-name.rare {
+    color: #4aa3de;
+}
+
+.card-name.epic {
+    color: #a61fe0;
+}
+
+.card-name.legendary {
+    color: #eaa861;
+}
+
+.card-name.common {
+    color: #444;
+}
+
+
+
