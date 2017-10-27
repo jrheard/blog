@@ -102,7 +102,7 @@ print("Hello".find("llo"))
 print("Hello".find("potatoes"))
 </code></pre>
 
-Here's one slightly tricky thing about this part: my last name is `"Heard"`, and the password `5YaHeArD!` is invalid, but:
+Here's one slightly tricky thing about this part of the project: my last name is `"Heard"`, and the password `5YaHeArD!` is invalid, but:
 
 <pre><code class="py">
 print("Heard" == "HeArD")
