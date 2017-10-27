@@ -121,6 +121,12 @@ Submitting your project
 
 Submit two files: `password_generator.py` and `password_checker.py`.
 
+Notes
+=====
+
+* [Don't share your password with other people.](http://bash.org/?244321)
+* [In reality, the passwords generated in this project aren't all that secure!](https://xkcd.com/936/)
+
 
 <script>
 window.klipse_settings = {
