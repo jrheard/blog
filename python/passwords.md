@@ -91,6 +91,17 @@ One other thing: passwords should not contain your name or your student ID. So i
 
 Your password checker should print out `"BAD"` if the user gives it a password containing **your** name or student ID. We'll be checking to make sure you did this right!
 
+You can check to see if one string is in another string by using `.find()`, like this:
+
+<pre><code class="py">
+# "llo" is in "Hello", starting at index 2.
+print("Hello".find("llo"))
+
+# a_string.find(another_string) returns -1
+# if another_string isn't in a_string.
+print("Hello".find("potatoes"))
+</code></pre>
+
 Here's one slightly tricky thing about this part: my last name is `"Heard"`, and the password `5YaHeArD!` is invalid, but:
 
 <pre><code class="py">
@@ -103,10 +114,7 @@ Your password checker should be able to tell if a password contains your name, e
 print("HeArD".lower())
 </code></pre>
 
-
-
-
-
+That should be everything you need to get started. Good luck!
 
 
 
