@@ -373,7 +373,7 @@ span.CodeMirror-selectedtext { background: none; }
 	color: #389AD9;
 }
 .cm-s-friendship-bracelet .cm-def {
-	font-style: italic;
+	/*font-style: italic;*/
 }
 .cm-s-friendship-bracelet .cm-string {
 	color: #F3F99A;
