@@ -3,6 +3,8 @@ layout: page
 title:  "Madison CS 3-4: Password generator and checker"
 ---
 
+In this project, you'll write two programs: a password **generator** and a password **checker**.
+
 Password Generator
 ==================
 
