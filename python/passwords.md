@@ -63,9 +63,9 @@ Your generator should generate passwords that meet the PPS standard: they should
 Password Strength Checker
 =========================
 
-The password strength checker is a program which asks the user for a password and prints out `"GOOD"` if it meets the PPS standard mentioned above, or prints out `"BAD"` if the password does not meet the PPS standard.
+The password strength checker is a program which asks the user for a password and prints out `"GOOD"` if it meets the PPS standard mentioned above, or prints out `"BAD"` if the password does not meet the PPS standard. Remember that you can use `input()` to ask the user for a password.
 
-In order to check these things, you'll want to loop over each character of the password and write some code that keeps track of how many lowercase letters, uppercase letters, etc are contained in the string. For instance, here's a bit of code that checks to see how many times the letter `"l"` is in the word `"Hello"`:
+In order to check that it meets the PPS criteria, you'll want to loop over each character of the password and write some code that keeps track of how many lowercase letters, uppercase letters, etc are contained in the string. For instance, here's a bit of code that checks to see how many times the letter `"l"` is in the word `"Hello"`:
 
 <pre><code class="py">
 word = "Hello"
@@ -116,6 +116,10 @@ print("HeArD".lower())
 
 That should be everything you need to get started. Good luck!
 
+Submitting your project
+=======================
+
+Submit two files: `password_generator.py` and `password_checker.py`.
 
 
 <script>
