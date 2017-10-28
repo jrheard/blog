@@ -157,5 +157,5 @@ window.klipse_settings = {
 	}
 };
 </script>
-{% javascript klipse.min %}
 {% javascript asciinema-player %}
+{% javascript klipse.min %}
