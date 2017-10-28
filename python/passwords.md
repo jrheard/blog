@@ -8,7 +8,7 @@ In this project, you'll write two programs: a password **generator** and a passw
 Password Generator
 ==================
 
-The password generator is a little Python program that prints a string like "Fj3io19aA" to the screen and then exits. Every time you run the program, it'll print out a different string - so maybe the next time you run it, you'll see an output of "1LPoxA25Pq", you get the idea.
+Write a program that prints a randomly generated password like "Fj3io19aA" to the screen and then exits. Every time you run the program, it'll print out a different password - so maybe the next time you run it, you'll see an output of "1LPoxA25Pq", you get the idea.
 
 You already know that you can print something to the screen by writing code like `print("Hello there!")`, but we'll need to do some thinking if we want to figure out how to actually generate a password from scratch. I'll give you a few useful bits of code that might come in handy.
 
@@ -71,7 +71,7 @@ Your generator should generate passwords that meet the PPS standard: they should
 Password Strength Checker
 =========================
 
-The password strength checker is a program which asks the user for a password and prints out `"GOOD"` if it meets the PPS standard mentioned above, or prints out `"BAD"` if the password does not meet the PPS standard. Remember that you can use `input()` to ask the user for a password.
+Write a program that asks the user for a password and prints out `"GOOD"` if it meets the PPS standard mentioned above, or prints out `"BAD"` if the password does not meet the PPS standard. Remember that you can use `input()` to ask the user for a password.
 
 In order to check that it meets the PPS criteria, you'll want to loop over each character of the password and write some code that keeps track of how many lowercase letters, uppercase letters, etc are contained in the string. For instance, here's a bit of code that checks to see how many times the letter `"z"` is in the word `"Pizza"`:
 
