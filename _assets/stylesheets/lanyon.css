@@ -545,3 +545,7 @@ asciinema-player {
 	display: block;
 	margin: 30px auto;
 }
+
+.page img {
+	display: block;
+	margin: 0 auto;

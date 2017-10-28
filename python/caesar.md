@@ -37,13 +37,17 @@ The Caesar Cipher
 
 The key for the Caesar Cipher will be a number from 1 to 26. Unless you know the key (that is, know the number used to encrypt the message), you won’t be able to decrypt the secret code.
 
-The Caesar Cipher was one of the earliest ciphers ever invented. In this cipher, you encrypt a message by taking each letter in the message (in cryptography, these letters are called symbols because they can be letters, numbers, or any other sign) and replacing it with a “shifted” letter. If you shift the letter A by one space, you get the letter B. If you shift the letter A by two spaces, you get the letter C. Here's a picture of some letters shifted over by three spaces:
+The Caesar Cipher was one of the earliest ciphers ever invented. In this cipher, you encrypt a message by taking each letter in the message (in cryptography, these letters are called symbols because they can be letters, numbers, or any other sign) and replacing it with a “shifted” letter. If you shift the letter A by one space, you get the letter B. If you shift the letter A by two spaces, you get the letter C.
 
-<img style="display: block; margin: 0 auto;" src="https://inventwithpython.com/chapter14_files/image002.jpg" />
+Here's a picture of some letters shifted over by three spaces:
 
-To get each shifted letter, draw out a row of boxes with each letter of the alphabet. Then draw a second row of boxes under it, but start a certain number (this number is the key) of spaces over. After the letters at the end, wrap around back to the start of the boxes. Here is an example with the letters shifted by three spaces:
+{% img caesar_1.jpg %}
 
-<img style="display: block; margin: 0 auto;" src="https://inventwithpython.com/chapter14_files/image003.png" />
+To get each shifted letter, draw out a row of boxes with each letter of the alphabet. Then draw a second row of boxes under it, but start a certain number (this number is the key) of spaces over. After the letters at the end, wrap around back to the start of the boxes.
+
+Here's an example with the letters shifted by three spaces:
+
+{% img caesar_2.jpg %}
 
 **The number of spaces you shift is the key in the Caesar Cipher**. The example above shows the letter translations for the key 3.
 
@@ -68,9 +72,9 @@ We will keep any non-letter characters the same. To decrypt `“Krzgb”` with t
 ASCII, and Using Numbers for Letters
 ====================================
 
-How do we implement this shifting of the letters as code? We can do this by representing each letter as a number called an **ordinal**, and then adding or subtracting from this number to form a new ordinal (and a new letter). ASCII (pronounced “ask-ee” and stands for American Standard Code for Information Interchange) is a code that connects each character to **a number between 32 and 126**.
+How do we implement this shifting of the letters as code? We can do this by representing each letter as a number called an **ordinal**, and then adding or subtracting from this number to form a new ordinal (and a new letter). ASCII (pronounced “ask-ee” and stands for American Standard Code for Information Interchange) is a code that **connects each character to a number between 32 and 126**.
 
-The capital letters “A” through “Z” have the ASCII numbers **65 through 90**. The lowercase letters “a” through “z” have the ASCII numbers **97 through 122**. The numeric digits “0” through “9” have the ASCII numbers **48 through 57**.
+The capital letters “A” through “Z” have the ASCII numbers 65 through 90. The lowercase letters “a” through “z” have the ASCII numbers 97 through 122. The numeric digits “0” through “9” have the ASCII numbers 48 through 57.
 
 So if you wanted to shift “A” by three spaces, you would do the following:
 
@@ -82,10 +86,10 @@ So if you wanted to shift “A” by three spaces, you would do the following:
 <p>Copy-pasting complete. Thanks, Al!</p>
 </div>
 
-Converting letters to numbers and back again
-============================================
+Converting between letters and numbers
+======================================
 
-Fortunately, Python comes with the `ord()` function, which lets you convert a letter to its corresponding ordinal number:
+Python comes with the `ord()` function, which lets you convert a letter to its corresponding ordinal number:
 
 <pre><code class="py">
 print(ord('j'))
