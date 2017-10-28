@@ -12,7 +12,7 @@ Write a program that prints a randomly generated password like "Fj3io19aA" to th
 
 It should behave like this:
 
-<asciinema-player src="{{ site.baseurl }}/password_generator_cast.json" rows="10" cols="80" autoplay="true" loop="true"></asciinema-player>
+<asciinema-player src="{{ site.baseurl }}/password_generator_cast.json" rows="8" cols="80" autoplay="true" loop="true"></asciinema-player>
 
 You already know that you can print something to the screen by writing code like `print("Hello there!")`, but we'll need to do some thinking if we want to figure out how to actually generate a password from scratch. I'll give you a few useful bits of code that might come in handy.
 
