@@ -23,12 +23,18 @@ random_letter = random.choice(lowercase_letters)
 print(random_letter)
 </code></pre>
 
+Interactive Snippets
+--------------------
+
 The code snippet above is interactive, which means:
 
 1. You can re-run it by clicking on it and then pressing `Ctrl+Enter` (hold down the Control key, then press the Enter key). Try doing that now. Notice that it prints out a different letter almost every time you run it!
 1. You can change that snippet's Python code yourself, or even write your own code in there. Try changing it so that it says `lowercase_letters = 'ABCDE'` and see what happens. Press `Ctrl+Enter` a few more times while you're at it.
 
 When we give you assignments in this class, they'll often have interactive code snippets like these because you can learn a lot by playing around with the example code yourself instead of just reading it. You should mess around with every one of these code snippets yourself; it makes the whole experience less intimidating, and it's really fun!
+
+Back to the assignment!
+-----------------------
 
 OK, so we know how to pick a random lowercase letter using the [random module](https://docs.python.org/2/library/random.html). You can also use the same approach in order to pick a random uppercase letter, or number, or symbol.
 
@@ -67,17 +73,17 @@ Password Strength Checker
 
 The password strength checker is a program which asks the user for a password and prints out `"GOOD"` if it meets the PPS standard mentioned above, or prints out `"BAD"` if the password does not meet the PPS standard. Remember that you can use `input()` to ask the user for a password.
 
-In order to check that it meets the PPS criteria, you'll want to loop over each character of the password and write some code that keeps track of how many lowercase letters, uppercase letters, etc are contained in the string. For instance, here's a bit of code that checks to see how many times the letter `"l"` is in the word `"Hello"`:
+In order to check that it meets the PPS criteria, you'll want to loop over each character of the password and write some code that keeps track of how many lowercase letters, uppercase letters, etc are contained in the string. For instance, here's a bit of code that checks to see how many times the letter `"z"` is in the word `"Pizza"`:
 
 <pre><code class="py">
-word = "Hello"
-number_of_ls = 0
+word = "Pizza"
+number_of_zs = 0
 
 for letter in word:
-    if letter == 'l':
-	    number_of_ls = number_of_ls + 1
+    if letter == 'z':
+	    number_of_zs = number_of_zs + 1
 
-print(number_of_ls)
+print(number_of_zs)
 </code></pre>
 
 Also, remember that you can check the length of a string by calling the `len()` function:
