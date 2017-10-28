@@ -12,7 +12,7 @@ Don't worry, you're about to learn what all those words meant!
 <div class="message">
 <p>All of the words and pictures between this gray box and the next gray box have been copy-pasted directly from Al Swiegart's excellent book "Invent Your Own Computer Games With Python", except for a few very minor edits.</p>
 
-<p>This is OK because Al has graciously made this book available under a <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/us/">Creative Commons license</a>.</p>
+<p>This is OK because Al has graciously made his book available under a <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/us/">Creative Commons license</a>.</p>
 </div>
 
 Encryption
@@ -45,7 +45,7 @@ To get each shifted letter, draw out a row of boxes with each letter of the alph
 
 <img style="display: block; margin: 0 auto;" src="https://inventwithpython.com/chapter14_files/image003.png" />
 
-The number of spaces you shift is the key in the Caesar Cipher. The example above shows the letter translations for the key 3.
+**The number of spaces you shift is the key in the Caesar Cipher**. The example above shows the letter translations for the key 3.
 
 If you encrypt the plaintext `“Howdy”` with a key of 3, then:
 
@@ -81,3 +81,48 @@ So if you wanted to shift “A” by three spaces, you would do the following:
 <div class="message">
 <p>Copy-pasting complete. Thanks, Al!</p>
 </div>
+
+Converting letters to numbers and back again
+============================================
+
+Fortunately, Python comes with the `ord()` function, which lets you convert a letter to its corresponding ordinal number:
+
+<pre><code class="py">
+print(ord('j'))
+</code></pre>
+
+To go from an ordinal number back to a letter, you can use the `chr()` function.
+
+<pre><code class="py">
+print(chr(106))
+</code></pre>
+
+Let's try shifting the letter `H` over by 3, like we did in the `"Howdy"` example above:
+
+<pre><code class="py">
+h_ordinal = ord('H')
+h_ordinal_shifted = h_ordinal + 3
+
+print(chr(h_ordinal_shifted))
+</code></pre>
+
+It turns into `K`, just like we expected!
+
+
+
+
+
+
+<script>
+window.klipse_settings = {
+	selector_eval_python_client: '.py',
+	codemirror_options_in: {
+		theme: "friendship-bracelet"
+	},
+	codemirror_options_out: {
+		theme: "friendship-bracelet"
+	}
+};
+</script>
+{% javascript asciinema-player %}
+{% javascript klipse.min %}
