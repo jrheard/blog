@@ -91,7 +91,7 @@ Also, remember that you can check the length of a string by calling the `len()` 
 print(len("jfioaewofweijaewiof8a9wef"))
 </code></pre>
 
-One other thing: passwords should not contain your name or your student ID. So if my first name is `"JR"`, my last name is `"Heard"`, and my student ID is `12345`, then these are all bad passwords:
+One other thing: passwords **should not contain your name or your student ID**. So if my first name is `"JR"`, my last name is `"Heard"`, and my student ID is `12345`, then these are all bad passwords:
 
 * CarlsjR1234.
 * 5YaHeArD!
