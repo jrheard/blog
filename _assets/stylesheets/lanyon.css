@@ -540,3 +540,8 @@ div.message.update {
 div.message p:last-of-type {
 	margin-bottom: 0;
 }
+
+asciinema-player {
+	display: block;
+	margin: 30px auto;
+}

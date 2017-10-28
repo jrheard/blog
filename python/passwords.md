@@ -10,6 +10,10 @@ Password Generator
 
 Write a program that prints a randomly generated password like "Fj3io19aA" to the screen and then exits. Every time you run the program, it'll print out a different password - so maybe the next time you run it, you'll see an output of "1LPoxA25Pq", you get the idea.
 
+It should behave like this:
+
+<asciinema-player src="{{ site.baseurl }}/password_generator_cast.json" rows="10" cols="80" autoplay="true" loop="true"></asciinema-player>
+
 You already know that you can print something to the screen by writing code like `print("Hello there!")`, but we'll need to do some thinking if we want to figure out how to actually generate a password from scratch. I'll give you a few useful bits of code that might come in handy.
 
 Here's how to write some code that chooses a random lower-case letter every time it's run:
@@ -71,7 +75,7 @@ Your generator should generate passwords that meet the PPS standard: they should
 Password Strength Checker
 =========================
 
-Write a program that asks the user for a password and prints out `"GOOD"` if it meets the PPS standard mentioned above, or prints out `"BAD"` if the password does not meet the PPS standard. Remember that you can use `input()` to ask the user for a password.
+Write a program that asks the user for a password and prints out `"GOOD"` if it meets the PPS standard mentioned above, or `"BAD"` if the password does not meet the PPS standard. Remember that you can use `input()` to ask the user for a password.
 
 In order to check that it meets the PPS criteria, you'll want to loop over each character of the password and write some code that keeps track of how many lowercase letters, uppercase letters, etc are contained in the string. For instance, here's a bit of code that checks to see how many times the letter `"z"` is in the word `"Pizza"`:
 
@@ -148,3 +152,4 @@ window.klipse_settings = {
 };
 </script>
 {% javascript klipse.min %}
+{% javascript asciinema-player %}
