@@ -12,7 +12,7 @@ The password generator is a little Python program that prints a string like "Fj3
 
 You already know that you can print something to the screen by writing code like `print("Hello there!")`, but we'll need to do some thinking if we want to figure out how to actually generate a password from scratch. I'll give you a few useful bits of code that might come in handy.
 
-Here's how to write some code that prints out a random lower-case letter:
+Here's how to write some code that chooses a random lower-case letter every time it's run:
 
 <pre><code class="py">
 import random
