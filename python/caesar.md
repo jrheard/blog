@@ -5,12 +5,14 @@ title:  "Madison CS 3-4: Caesar Cipher"
 
 In this project, you'll write a program that takes a plaintext sentence like "The weather is nice today" and converts it to a ciphertext sentence like "Znk ckgznkx oy toik zujge".
 
-The program can also convert ciphertext *back* to plaintext, when given the right key; and if not given the right key, the program can attempt to brute-force decode the ciphertext.
+The program can also convert ciphertext *back* to plaintext, when given the right key. The program can also attempt to brute-force decode the ciphertext.
 
-<div class="message warning">
-<p>All of the words and pictures inbetween this red box and the next red box have been directly copy-pasted from Al Swiegart's excellent book "Invent Your Own Computer Games With Python", except for a few very minor wording changes.</p>
+Don't worry, you're about to learn what all those words meant!
 
-<p>This is OK because Al has graciously made this book available under a <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/us/">Creative Commons license</a>. Thanks, Al!</p>
+<div class="message">
+<p>All of the words and pictures between this gray box and the next gray box have been copy-pasted directly from Al Swiegart's excellent book "Invent Your Own Computer Games With Python", except for a few very minor edits.</p>
+
+<p>This is OK because Al has graciously made this book available under a <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/us/">Creative Commons license</a>.</p>
 </div>
 
 Encryption
@@ -66,9 +68,16 @@ We will keep any non-letter characters the same. To decrypt `“Krzgb”` with t
 ASCII, and Using Numbers for Letters
 ====================================
 
-How do we implement this shifting of the letters as code? We can do this by representing each letter as a number called an ordinal, and then adding or subtracting from this number to form a new ordinal (and a new letter). ASCII (pronounced “ask-ee” and stands for American Standard Code for Information Interchange) is a code that connects each character to a number between 32 and 126.
+How do we implement this shifting of the letters as code? We can do this by representing each letter as a number called an **ordinal**, and then adding or subtracting from this number to form a new ordinal (and a new letter). ASCII (pronounced “ask-ee” and stands for American Standard Code for Information Interchange) is a code that connects each character to **a number between 32 and 126**.
 
-The capital letters “A” through “Z” have the ASCII numbers 65 through 90. The lowercase letters “a” through “z” have the ASCII numbers 97 through 122. The numeric digits “0” through “9” have the ASCII numbers 48 through 57. Table 14-1 shows all the ASCII characters and ordinals.
+The capital letters “A” through “Z” have the ASCII numbers **65 through 90**. The lowercase letters “a” through “z” have the ASCII numbers **97 through 122**. The numeric digits “0” through “9” have the ASCII numbers **48 through 57**.
 
-Modern computers use UTF-8 instead of ASCII. But UTF-8 is backwards compatible with ASCII, so the UTF-8 ordinals for ASCII characters are the same as ASCII’s ordinals.
+So if you wanted to shift “A” by three spaces, you would do the following:
 
+* Convert “A” to an ordinal (65).
+* Add 3 to 65, to get 68.
+* Convert the ordinal 68 back to a letter (“D”).
+
+<div class="message">
+<p>Copy-pasting complete. Thanks, Al!</p>
+</div>
