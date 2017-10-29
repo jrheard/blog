@@ -139,6 +139,13 @@ Submitting your project
 
 Submit two files: `password_generator.py` and `password_checker.py`.
 
+Remember to follow this class's [style guide](https://docs.google.com/document/d/1UbyhIkxOdhpf-MGna_5dwh0yHXe02HTZ69CfEuYv76Y/edit).
+
+The part about descriptive variable names is really important! For instance:
+
+* `n` is a bad variable name, `first_name` is a good one.
+* `ns` is a bad variable name, `number_of_symbols` is a good one.
+
 Notes
 =====
 
