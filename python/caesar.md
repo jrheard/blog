@@ -7,7 +7,7 @@ In this project, you'll write a program that takes a plaintext sentence like "Th
 
 The program can also convert ciphertext *back* to plaintext, when given the right key. The program can also attempt to brute-force decode the ciphertext.
 
-Don't worry, you're about to learn what all those words meant!
+Don't worry, you're about to learn what all those words mean!
 
 <div class="message">
 <p>All of the words and pictures between this gray box and the next gray box have been copy-pasted directly from Al Swiegart's excellent book "Invent Your Own Computer Games With Python", except for a few very minor edits.</p>
@@ -18,7 +18,7 @@ Don't worry, you're about to learn what all those words meant!
 Encryption
 ==========
 
-The science of writing secret codes is called **cryptography**. For thousands of years cryptography has made secret messages that only the sender and recipient could read, even if someone captured the messenger and read the coded message. A secret code system is called a **cipher**. The cipher used by the program in this chapter is called the Caesar cipher.
+The science of writing secret codes is called **cryptography**. For thousands of years cryptography has made secret messages that only the sender and recipient could read, even if someone captured the messenger and read the coded message. A secret code system is called a **cipher**. The cipher used by the program you're about to build is called the Caesar cipher.
 
 In cryptography, we call the message that we want to be secret the **plaintext**. The plaintext could look like this:
 
@@ -47,7 +47,7 @@ To get each shifted letter, draw out a row of boxes with each letter of the alph
 
 Here's an example with the letters shifted by three spaces:
 
-{% img caesar_2.jpg %}
+{% img caesar_2.png %}
 
 **The number of spaces you shift is the key in the Caesar Cipher**. The example above shows the letter translations for the key 3.
 
@@ -104,10 +104,7 @@ print(chr(106))
 Let's try shifting the letter `H` over by 3, like we did in the `"Howdy"` example above:
 
 <pre><code class="py">
-h_ordinal = ord('H')
-h_ordinal_shifted = h_ordinal + 3
-
-print(chr(h_ordinal_shifted))
+print(chr(ord('H') + 3))
 </code></pre>
 
 It turns into `K`, just like we expected!
