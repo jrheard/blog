@@ -127,7 +127,7 @@ Debugging Tip
 
 As you're working on your program, you might find it useful to add some extra `print()` calls that print out what programmers call "debug information" to help you understand what your program's actually doing. For instance:
 
-<asciinema-player src="{{ site.baseurl }}/password_checker_debug_cast.json" rows="20" cols="90" autoplay="true" loop="true"></asciinema-player>
+<asciinema-player src="{{ site.baseurl }}/password_checker_debug_cast.json?v=1" rows="20" cols="90" autoplay="true" loop="true"></asciinema-player>
 
 It's OK if you leave those `print()` calls in there, you don't need to remove them before submitting your project.
 
