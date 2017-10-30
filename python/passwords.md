@@ -57,7 +57,7 @@ Finally, here's a useful bit of code that you can use to randomly shuffle a stri
 <pre><code class="py">
 import random
 
-my_name = 'jrheard'
+my_name = 'JR Heard'
 shuffled_name = ''.join(random.sample(my_name, len(my_name)))
 
 print(shuffled_name)
@@ -95,13 +95,12 @@ Also, remember that you can check the length of a string by calling the `len()` 
 print(len("jfioaewofweijaewiof8a9wef"))
 </code></pre>
 
-One other thing: passwords **should not contain your name or your student ID**. So if my first name is `"JR"`, my last name is `"Heard"`, and my student ID is `12345`, then these are all bad passwords:
+One other thing: passwords **should not contain your username or your student ID**. So if my username is `jrheard` and my student ID is `12345`, then these are bad passwords:
 
-* CarlsjR1234.
-* 5YaHeArD!
+* CarlsjRHeard!
 * Password12345
 
-Your password checker should print out `"BAD"` if the user gives it a password containing **your** name or student ID. We'll be checking to make sure you did this right!
+Your password checker should print out `"BAD"` if the user gives it a password containing **your** username or student ID. We'll be checking to make sure you did this right!
 
 You can check to see if one string is in another string by using Python's `in` operator, like this:
 
@@ -111,16 +110,16 @@ print('llo' in 'Hello')
 print('potatoes' in 'Hello')
 </code></pre>
 
-Here's one slightly tricky thing about this part of the project: my last name is `"Heard"`, and the password `5YaHeArD!` is invalid, but:
+Here's one slightly tricky thing about this part of the project: my username is `"jrheard"`, and the password `CarlsjRHeard!` is invalid, but:
 
 <pre><code class="py">
-print("Heard" == "HeArD")
+print("jrheard" == "jRHeard")
 </code></pre>
 
-Your password checker should be able to tell if a password contains your name, even if the password's capitalization is all funky like that and doesn't exactly match how you capitalize your own name. Here's a relevant bit of code that you might find handy when you start thinking about how to handle this problem:
+Your password checker should be able to tell if a password contains your username, even if the password's capitalization is all funky like that. Here's a relevant bit of code that you might find handy when you start thinking about how to handle this problem:
 
 <pre><code class="py">
-print("HeArD".lower())
+print("jRHeard".lower())
 </code></pre>
 
 Debugging Tip
@@ -143,7 +142,7 @@ Remember to follow this class's [style guide](https://docs.google.com/document/d
 
 The part about descriptive variable names is really important! For instance:
 
-* `n` is a bad variable name, `first_name` is a good one.
+* `n` is a bad variable name, `username` is a good one.
 * `ns` is a bad variable name, `number_of_symbols` is a good one.
 
 Notes
@@ -151,7 +150,6 @@ Notes
 
 * [Don't share your password with other people.](http://bash.org/?244321)
 * [In reality, the passwords generated in this project aren't all that secure!](https://xkcd.com/936/)
-
 
 <script>
 window.klipse_settings = {
