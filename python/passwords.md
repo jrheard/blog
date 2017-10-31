@@ -90,6 +90,21 @@ for letter in word:
 print(number_of_zs)
 </code></pre>
 
+The above snippet teaches you how to loop over every character of a string — `'P'`, `'i'`, `'z'`, `'z'`, then `'a'` — and do something based on the value of that character. Remember, though, that we don't care about (for instance) *how many* uppercase letters are in a password; we just care about whether or not there *are any*.
+
+You can check to see if one string is in another string by using Python's `in` operator, like this:
+
+<pre><code class="py">
+# `in` works for single letters like 'z' and 'f'...
+print('z' in 'Pizza')
+print('f' in 'Pizza')
+
+# ...and also for longer strings like 'llo' and 'potatoes'.
+print('llo' in 'Hello')
+print('potatoes' in 'Hello')
+</code></pre>
+
+
 Also, remember that you can check the length of a string by calling the `len()` function:
 <pre><code class="py">
 print(len("jfioaewofweijaewiof8a9wef"))
@@ -102,14 +117,6 @@ One other thing: passwords **should not contain your username or your student ID
 
 Your password checker should print out `"BAD"` if the user gives it a password containing **your** username or student ID. We'll be checking to make sure you did this right!
 
-You can check to see if one string is in another string by using Python's `in` operator, like this:
-
-<pre><code class="py">
-print('llo' in 'Hello')
-
-print('potatoes' in 'Hello')
-</code></pre>
-
 Here's one slightly tricky thing about this part of the project: my username is `"jrheard"`, and the password `CarlsjRHeard!` is invalid, but:
 
 <pre><code class="py">
@@ -121,6 +128,10 @@ Your password checker should be able to tell if a password contains your usernam
 <pre><code class="py">
 print("jRHeard".lower())
 </code></pre>
+
+When it's all done, your password checker should behave just like this:
+
+TODO asciinema rec
 
 Debugging Tip
 -------------
