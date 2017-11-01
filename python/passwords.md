@@ -77,7 +77,11 @@ Password Strength Checker
 
 Write a program that asks the user for a password and prints out `"GOOD"` if it meets the PPS standard mentioned above, or `"BAD"` if the password does not meet the PPS standard. Remember that you can use `input()` to ask the user for a password.
 
-In order to check that it meets the PPS criteria, you'll want to loop over each character of the password and write some code that keeps track of how many lowercase letters, uppercase letters, etc are contained in the string. For instance, here's a bit of code that checks to see how many times the letter `"z"` is in the word `"Pizza"`:
+When it's done, your password checker should behave just like this:
+
+<asciinema-player src="{{ site.baseurl }}/password_checker_cast.json?v=1" rows="12" cols="90" autoplay="true" loop="true"></asciinema-player>
+
+In order to check that a password meets the PPS criteria, you'll want to loop over each character of the password and write some code that keeps track of whether it has any lowercase letters, uppercase letters, symbols, or numbers. For instance, here's a bit of code that checks to see how many times the letter `"z"` is in the word `"Pizza"`:
 
 <pre><code class="py">
 word = "Pizza"
@@ -90,7 +94,7 @@ for letter in word:
 print(number_of_zs)
 </code></pre>
 
-The above snippet teaches you how to loop over every character of a string — `'P'`, `'i'`, `'z'`, `'z'`, then `'a'` — and do something based on the value of that character. Remember, though, that we don't care about (for instance) *how many* uppercase letters are in a password; we just care about whether or not there *are any*.
+The above snippet teaches you how to loop over every character of a string — `'P'`, `'i'`, `'z'`, `'z'`, then `'a'` — and do something based on the value of that character. Remember, though, that we don't care about *how many* uppercase letters are in a password; we just care about whether or not there *are any*.
 
 You can check to see if one string is in another string by using Python's `in` operator, like this:
 
@@ -110,7 +114,9 @@ Also, remember that you can check the length of a string by calling the `len()` 
 print(len("jfioaewofweijaewiof8a9wef"))
 </code></pre>
 
-One other thing: passwords **should not contain your username or your student ID**. So if my username is `jrheard` and my student ID is `12345`, then these are bad passwords:
+One other thing: passwords **should not contain your username or your student ID**. At the start of your program, ask the user for their username and student ID so that you can check to make sure that those things aren't in their password.
+
+So if my username is `jrheard` and my student ID is `12345`, then these are bad passwords:
 
 * CarlsjRHeard!
 * Password12345
@@ -129,16 +135,12 @@ Your password checker should be able to tell if a password contains your usernam
 print("jRHeard".lower())
 </code></pre>
 
-When it's all done, your password checker should behave just like this:
-
-TODO asciinema rec
-
 Debugging Tip
 -------------
 
 As you're working on your program, you might find it useful to add some extra `print()` calls that print out what programmers call "debug information" to help you understand what your program's actually doing. For instance:
 
-<asciinema-player src="{{ site.baseurl }}/password_checker_debug_cast.json?v=1" rows="20" cols="90" autoplay="true" loop="true"></asciinema-player>
+<asciinema-player src="{{ site.baseurl }}/password_checker_debug_cast.json?v=2" rows="18" cols="90" autoplay="true" loop="true"></asciinema-player>
 
 It's OK if you leave those `print()` calls in there, you don't need to remove them before submitting your project.
 
