@@ -57,7 +57,7 @@ Finally, here's a useful bit of code that you can use to randomly shuffle a stri
 <pre><code class="py">
 import random
 
-my_name = 'jrheard'
+my_name = 'JR Heard'
 shuffled_name = ''.join(random.sample(my_name, len(my_name)))
 
 print(shuffled_name)
@@ -90,45 +90,55 @@ for letter in word:
 print(number_of_zs)
 </code></pre>
 
+The above snippet teaches you how to loop over every character of a string — `'P'`, `'i'`, `'z'`, `'z'`, then `'a'` — and do something based on the value of that character. Remember, though, that we don't care about (for instance) *how many* uppercase letters are in a password; we just care about whether or not there *are any*.
+
+You can check to see if one string is in another string by using Python's `in` operator, like this:
+
+<pre><code class="py">
+# `in` works for single letters like 'z' and 'f'...
+print('z' in 'Pizza')
+print('f' in 'Pizza')
+
+# ...and also for longer strings like 'llo' and 'potatoes'.
+print('llo' in 'Hello')
+print('potatoes' in 'Hello')
+</code></pre>
+
+
 Also, remember that you can check the length of a string by calling the `len()` function:
 <pre><code class="py">
 print(len("jfioaewofweijaewiof8a9wef"))
 </code></pre>
 
-One other thing: passwords **should not contain your name or your student ID**. So if my first name is `"JR"`, my last name is `"Heard"`, and my student ID is `12345`, then these are all bad passwords:
+One other thing: passwords **should not contain your username or your student ID**. So if my username is `jrheard` and my student ID is `12345`, then these are bad passwords:
 
-* CarlsjR1234.
-* 5YaHeArD!
+* CarlsjRHeard!
 * Password12345
 
-Your password checker should print out `"BAD"` if the user gives it a password containing **your** name or student ID. We'll be checking to make sure you did this right!
+Your password checker should print out `"BAD"` if the user gives it a password containing **your** username or student ID. We'll be checking to make sure you did this right!
 
-You can check to see if one string is in another string by using Python's `in` operator, like this:
-
-<pre><code class="py">
-print('llo' in 'Hello')
-
-print('potatoes' in 'Hello')
-</code></pre>
-
-Here's one slightly tricky thing about this part of the project: my last name is `"Heard"`, and the password `5YaHeArD!` is invalid, but:
+Here's one slightly tricky thing about this part of the project: my username is `"jrheard"`, and the password `CarlsjRHeard!` is invalid, but:
 
 <pre><code class="py">
-print("Heard" == "HeArD")
+print("jrheard" == "jRHeard")
 </code></pre>
 
-Your password checker should be able to tell if a password contains your name, even if the password's capitalization is all funky like that and doesn't exactly match how you capitalize your own name. Here's a relevant bit of code that you might find handy when you start thinking about how to handle this problem:
+Your password checker should be able to tell if a password contains your username, even if the password's capitalization is all funky like that. Here's a relevant bit of code that you might find handy when you start thinking about how to handle this problem:
 
 <pre><code class="py">
-print("HeArD".lower())
+print("jRHeard".lower())
 </code></pre>
+
+When it's all done, your password checker should behave just like this:
+
+TODO asciinema rec
 
 Debugging Tip
 -------------
 
 As you're working on your program, you might find it useful to add some extra `print()` calls that print out what programmers call "debug information" to help you understand what your program's actually doing. For instance:
 
-<asciinema-player src="{{ site.baseurl }}/password_checker_debug_cast.json" rows="20" cols="90" autoplay="true" loop="true"></asciinema-player>
+<asciinema-player src="{{ site.baseurl }}/password_checker_debug_cast.json?v=1" rows="20" cols="90" autoplay="true" loop="true"></asciinema-player>
 
 It's OK if you leave those `print()` calls in there, you don't need to remove them before submitting your project.
 
@@ -139,12 +149,18 @@ Submitting your project
 
 Submit two files: `password_generator.py` and `password_checker.py`.
 
+Remember to follow this class's [style guide](https://docs.google.com/document/d/1UbyhIkxOdhpf-MGna_5dwh0yHXe02HTZ69CfEuYv76Y/edit).
+
+The part about descriptive variable names is really important! For instance:
+
+* `n` is a bad variable name, `username` is a good one.
+* `ns` is a bad variable name, `number_of_symbols` is a good one.
+
 Notes
 =====
 
 * [Don't share your password with other people.](http://bash.org/?244321)
 * [In reality, the passwords generated in this project aren't all that secure!](https://xkcd.com/936/)
-
 
 <script>
 window.klipse_settings = {
