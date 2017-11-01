@@ -121,7 +121,7 @@ So if my username is `jrheard` and my student ID is `12345`, then these are bad 
 * CarlsjRHeard!
 * Password12345
 
-Here's one slightly tricky thing about this part of the project: my username is `"jrheard"`, and the password `CarlsjRHeard!` is invalid, but:
+Here's one slightly tricky thing about this part of the project: my username is `jrheard`, and the password `CarlsjRHeard!` is invalid, but:
 
 <pre><code class="py">
 print("jrheard" == "jRHeard")
