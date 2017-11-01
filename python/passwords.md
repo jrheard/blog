@@ -8,15 +8,13 @@ In this project, you'll write two programs: a password **generator** and a passw
 Password Generator
 ==================
 
-Write a program that prints a randomly generated password like "Fj3io19aA" to the screen and then exits. Every time you run the program, it'll print out a different password - so maybe the next time you run it, you'll see an output of "1LPoxA25Pq", you get the idea.
-
-It should behave like this:
+Write a program that prints a randomly generated password like "Fj3io19aA" to the screen and then exits. Every time you run the program, it'll print out a different password, like this:
 
 <asciinema-player src="{{ site.baseurl }}/password_generator_cast.json" rows="8" cols="80" autoplay="true" loop="true"></asciinema-player>
 
 You already know that you can print something to the screen by writing code like `print("Hello there!")`, but we'll need to do some thinking if we want to figure out how to actually generate a password from scratch. I'll give you a few useful bits of code that might come in handy.
 
-Here's how to write some code that chooses a random lower-case letter every time it's run:
+Here's how to use the `choice()` function from the `random` library to choose a random lower-case letter every time it's run:
 
 <pre><code class="py">
 import random
@@ -33,7 +31,7 @@ Interactive Snippets
 The code snippet above is interactive, which means:
 
 1. You can re-run it by clicking on it and then pressing `Ctrl+Enter` (hold down the Control key, then press the Enter key). Try doing that now. Notice that it prints out a different letter almost every time you run it!
-1. You can change that snippet's Python code yourself, or even write your own code in there. Try changing it so that it says `lowercase_letters = 'ABCDE'` and see what happens. Press `Ctrl+Enter` a few more times while you're at it.
+1. You can change that snippet's Python code yourself, or even write your own code in there. Try changing it so that it says `lowercase_letters = 'ABCDE'` and see what happens. (NOTE: calling the variable `lowercase_letters` doesn't automatically force it to hold only lowercase letters!) Press `Ctrl+Enter` a few more times while you're at it.
 
 When we give you assignments in this class, they'll often have interactive code snippets like these because you can learn a lot by playing around with the example code yourself instead of just reading it. You should mess around with every one of these code snippets yourself; it makes the whole experience less intimidating, and it's really fun!
 
@@ -52,7 +50,12 @@ a_number = "6"
 print(a_lowercase_letter + an_uppercase_letter + a_number)
 </code></pre>
 
-Finally, here's a useful bit of code that you can use to randomly shuffle a string:
+Remember that you can check the length of a string by calling the `len()` function:
+<pre><code class="py">
+print(len("jfioaewofweijaewiof8a9wef"))
+</code></pre>
+
+Finally, here's how to use `random.sample()` from the `random` library to shuffle a string:
 
 <pre><code class="py">
 import random
@@ -110,11 +113,7 @@ print('llo' in 'Hello')
 print('potatoes' in 'Hello')
 </code></pre>
 
-
-Also, remember that you can check the length of a string by calling the `len()` function:
-<pre><code class="py">
-print(len("jfioaewofweijaewiof8a9wef"))
-</code></pre>
+Notice that you get a result of `true` or `false`, so you could use this code as a condition in an `if` statement.
 
 Disallowing Student Info In Passwords
 -------------------------------------
@@ -124,13 +123,13 @@ If my username is `jrheard` and my student ID is `12345`, then per the rules men
 * CarlsjRHeard!
 * Password12345
 
-Here's one slightly tricky thing about this part of the project: my username is `jrheard`, and the password `CarlsjRHeard!` is invalid, but:
+Here's one slightly tricky thing about this part of the project: my username is `"jrheard"`, and the password `"CarlsjRHeard!"` is invalid, but Python strings are case sensitive:
 
 <pre><code class="py">
 print("jrheard" == "jRHeard")
 </code></pre>
 
-Your password checker should be able to tell if a password contains your username, even if the password's capitalization is all funky like that. Here's a relevant bit of code that you might find handy when you start thinking about how to handle this problem:
+Your password checker should be able to tell if a password contains your username, even if the password's capitalization is all funky like that. One way to handle this problem is to use the `.lower()` or `.upper()` function:
 
 <pre><code class="py">
 print("jRHeard".lower())
