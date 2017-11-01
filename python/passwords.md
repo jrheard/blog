@@ -14,7 +14,7 @@ Write a program that prints a randomly generated password like "Fj3io19aA" to th
 
 You already know that you can print something to the screen by writing code like `print("Hello there!")`, but we'll need to do some thinking if we want to figure out how to actually generate a password from scratch. I'll give you a few useful bits of code that might come in handy.
 
-Here's how to use the `choice()` function from the `random` library to choose a random lower-case letter every time it's run:
+Here's how to use the `choice()` function from the [random](https://docs.python.org/2/library/random.html) library to choose a random lower-case letter:
 
 <pre><code class="py">
 import random
@@ -38,7 +38,7 @@ When we give you assignments in this class, they'll often have interactive code 
 Back to the assignment!
 -----------------------
 
-OK, so we know how to pick a random lowercase letter using the [random module](https://docs.python.org/2/library/random.html). You can also use the same approach in order to pick a random uppercase letter, or number, or symbol.
+OK, so we know how to pick a random lowercase letter. You can also use the same approach in order to pick a random uppercase letter, or number, or symbol.
 
 Another useful thing to remember is that you can add strings together (we call this "concatenating" them) by using the `+` sign:
 
@@ -55,7 +55,7 @@ Remember that you can check the length of a string by calling the `len()` functi
 print(len("jfioaewofweijaewiof8a9wef"))
 </code></pre>
 
-Finally, here's how to use `random.sample()` from the `random` library to shuffle a string:
+Finally, here's how to use the `sample()` function from the `random` library to shuffle a string:
 
 <pre><code class="py">
 import random
@@ -113,7 +113,7 @@ print('llo' in 'Hello')
 print('potatoes' in 'Hello')
 </code></pre>
 
-Notice that you get a result of `true` or `false`, so you could use this code as a condition in an `if` statement.
+Notice that you get a result of `True` or `False`, so you could use this code as a condition in an `if` statement.
 
 Disallowing Student Info In Passwords
 -------------------------------------
@@ -129,10 +129,11 @@ Here's one slightly tricky thing about this part of the project: my username is 
 print("jrheard" == "jRHeard")
 </code></pre>
 
-Your password checker should be able to tell if a password contains your username, even if the password's capitalization is all funky like that. One way to handle this problem is to use the `.lower()` or `.upper()` function:
+Your password checker should be able to tell if a password contains your username, even if the password's capitalization is all funky like that. One way to handle this problem is to call a string's `.lower()` or `.upper()` method, like this:
 
 <pre><code class="py">
 print("jRHeard".lower())
+print("jRHeard".upper())
 </code></pre>
 
 Debugging Tip
