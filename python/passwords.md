@@ -121,8 +121,6 @@ So if my username is `jrheard` and my student ID is `12345`, then these are bad 
 * CarlsjRHeard!
 * Password12345
 
-Your password checker should print out `"BAD"` if the user gives it a password containing **your** username or student ID. We'll be checking to make sure you did this right!
-
 Here's one slightly tricky thing about this part of the project: my username is `"jrheard"`, and the password `CarlsjRHeard!` is invalid, but:
 
 <pre><code class="py">
