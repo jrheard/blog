@@ -77,6 +77,8 @@ Password Strength Checker
 
 Write a program that asks the user for a password and prints out `"GOOD"` if it meets the PPS standard mentioned above, or `"BAD"` if the password does not meet the PPS standard. Remember that you can use `input()` to ask the user for a password.
 
+In addition to the requirements mentioned above, passwords **should not contain your username or your student ID**. At the start of your program, ask the user for their username and student ID so that you can check to make sure that those things aren't in their password.
+
 When it's done, your password checker should behave just like this:
 
 <asciinema-player src="{{ site.baseurl }}/password_checker_cast.json?v=1" rows="12" cols="90" autoplay="true" loop="true"></asciinema-player>
@@ -114,9 +116,10 @@ Also, remember that you can check the length of a string by calling the `len()` 
 print(len("jfioaewofweijaewiof8a9wef"))
 </code></pre>
 
-One other thing: passwords **should not contain your username or your student ID**. At the start of your program, ask the user for their username and student ID so that you can check to make sure that those things aren't in their password.
+Disallowing Student Info In Passwords
+-------------------------------------
 
-So if my username is `jrheard` and my student ID is `12345`, then these are bad passwords:
+If my username is `jrheard` and my student ID is `12345`, then per the rules mentioned above, these are bad passwords:
 
 * CarlsjRHeard!
 * Password12345
