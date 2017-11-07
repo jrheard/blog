@@ -152,6 +152,12 @@ Submitting your project
 
 Submit two files: `password_generator.py` and `password_checker.py`.
 
+On the first line of each of those two files, write a comment with your name on it, like this:
+
+```
+# JR Heard
+```
+
 Remember to follow this class's [style guide](https://docs.google.com/document/d/1UbyhIkxOdhpf-MGna_5dwh0yHXe02HTZ69CfEuYv76Y/edit).
 
 The part about descriptive variable names is really important! For instance:
