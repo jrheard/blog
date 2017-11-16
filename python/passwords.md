@@ -143,7 +143,7 @@ As you're working on your program, you might find it useful to add some extra `p
 
 <asciinema-player src="{{ site.baseurl }}/password_checker_debug_cast.json?v=2" rows="18" cols="90" autoplay="true" loop="true"></asciinema-player>
 
-It's OK if you leave those `print()` calls in there, you don't need to remove them before submitting your project.
+It's OK if you leave those `print()` calls in there, you don't need to remove them before submitting your project. Just be sure that the last line of your checker's output says the word `GOOD` or the word `BAD`, with nothing else on that line, like you see in the example above.
 
 That should be everything you need to get started. Good luck!
 
