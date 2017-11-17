@@ -88,7 +88,7 @@ Lessons Learned
 
 I've been programming for a long time, but this was my first time writing code that controls a physical object. At first I was worried that a bug in my library could e.g. cause the three-hundred-dollar bot to rip itself apart, but Windell assured me that the bot's "Scratch API" handles bounds checking automatically, and so that's turned out not to be an issue.[^1]
 
-One thing we didn't foresee was that our paints kept getting dirty, because students' rough-draft programs often didn't wash the brush frequently enough — for instance, you may have noticed that the solar system program from earlier in this article depicts an unusually brown sun. We went through a few palettes before solving this problem by setting aside a "production" palette, which we only use when we're drawing a student's known-good, final-draft program.[^2]
+One thing we didn't foresee was that our paints kept getting dirty, because students' rough-draft programs often didn't wash the brush frequently enough — for instance, you may have noticed that the solar system program from earlier in this article depicts an unusually brown sun. We went through a few palettes before solving this problem by setting aside a "production" palette, which we only swap in when we're drawing a student's known-good, final-draft program.[^2]
 
 That's All For Now
 ------------------

@@ -311,7 +311,6 @@ a.post-link {
 .post-listing .post-date {
 	display: inline;
 	margin-top: 0;
-	float: right;
 }
 
 /* Meta data line below post title */
@@ -522,6 +521,11 @@ canvas {
 
 .post-listing {
 	margin-bottom: 0.5rem;
+}
+
+.post-listing a {
+	display: inline-block;
+	width: 83%;
 }
 
 ol ol {
