@@ -66,7 +66,7 @@ My favorite part about it is that once you've beaten the game, you end up with a
 
 {% img waterventure.jpg width:740 height:510 %}
 
-An aside: you take on a few interesting design constraints when you make a game that runs on a watercoloring robot. For instance:
+If you're interested in making a game that runs on a watercoloring robot, here are some design constraints to keep in mind:
 * You've got an _extremely_ finite amount of screen real estate (one page of printer paper)
 * If you want to e.g. start a new page every level (maybe you're writing a dungeon-crawler?), the user has to fiddle with the machine for ten seconds to take off the old page and ensure there's a fresh page ready to go, which could get irritating over time
 * You probably don't want to draw on the same "pixel" twice (although I can imagine situations where an intentionally smudged page could make for a cool aesthetic)
