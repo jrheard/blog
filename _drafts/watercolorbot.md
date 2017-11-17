@@ -3,16 +3,16 @@ layout: post
 title:  "Drawing Pictures and Making Games with a WaterColorBot"
 ---
 
-I'm spending the 2017-18 school year volunteering in a few tech classes in a local high school, including a beginner/intermediate Python course led by a teacher named Tamara O'Malley. It's her first time teaching Python, and I have a lot of experience with the language, so I've been helping her come up with [fun projects](http://blog.jrheard.com/python/passwords) for the students to work on.
+I'm spending the 2017-18 school year volunteering in a few tech classes in a local high school, including a beginner/intermediate Python course led by a teacher named Tamara O'Malley. She's new to Python, and I have a lot of experience with the language, so I've been helping her come up with [fun projects](http://blog.jrheard.com/python/passwords) for the students to work on.
 
-When we started talking about potential projects, Tamara mentioned that she had a [watercoloring robot](http://watercolorbot.com/) that she'd like to have the students use somehow. She'd already had a lot of success using it in another intro-to-programming course via a block-based language called [Snap](https://github.com/evil-mad/WaterColorBlocks), but she wasn't sure how to talk to it via Python.
+When we started talking about potential projects, Tamara mentioned that she had a [watercoloring robot](http://watercolorbot.com/) that she'd like to have the students use in some way. She'd already had a lot of success using the bot in another intro-to-programming course via a block-based language called [Snap](https://github.com/evil-mad/WaterColorBlocks), but she wasn't sure how to talk to the bot via Python.
 
 This sounded like a fun project, so I looked into it. It turns out that there are [lot of great ways](http://wiki.evilmadscientist.com/WaterColorBot) to drive the bot via software, but I couldn't find anything Python-based that did what we wanted. I came up with a few possible approaches and asked [Windell Oskay](https://www.evilmadscientist.com/about/) for advice, and he kindly set us on the right track — thanks, Windell!
 
 madison_wcb
 -----------
 
-I ended up writing a library called [`madison_wcb`](http://madison-wcb.readthedocs.io/en/latest/) to solve our problem. (This library was _extremely_ simple to write, thanks to the excellent ["Scratch API"](https://github.com/techninja/cncserver/blob/master/scratch/SCRATCH.API.md) that the WaterColorBot supports.)
+I ended up writing a library called [`madison_wcb`](http://madison-wcb.readthedocs.io/en/latest/) to solve our problem. (This library was easy to write, thanks to the excellent ["Scratch API"](https://github.com/techninja/cncserver/blob/master/scratch/SCRATCH.API.md) that the WaterColorBot supports.)
 
 The library lets students write code like this:
 
@@ -20,8 +20,8 @@ The library lets students write code like this:
 # Dip the brush in the palette's top-most color.
 get_color(0)
 
-# Move to our circle's starting point, "face" directly "south",
-# and lower the brush so that it touches the paper.
+# Move the brush to the mid-right side of the page, "face" directly
+# "south", and lower the brush so that it touches the paper.
 move_to(100, 0)
 point_in_direction(-90)
 brush_down()
@@ -38,25 +38,27 @@ Here's one student's program in action:
 
 <div style='position:relative;padding-bottom:54%;margin-bottom:15px;'><iframe src='https://gfycat.com/ifr/ColdBigAzurevase' frameborder='0' scrolling='no' width='100%' height='100%' style='position:absolute;top:0;left:0' allowfullscreen></iframe></div>
 
-The library also uses Python's built-in [`turtle`](https://docs.python.org/3.3/library/turtle.html?highlight=turtle) module to show you what your program will do when it runs on the bot.
+The library also uses Python's built-in [`turtle`](https://docs.python.org/3.3/library/turtle.html?highlight=turtle) module to show you what your program will do.
 
 {% img wcb_turtle.gif %}
 
-This saves users a lot of potential frustration, and also paint.
+This saves users a lot of potential frustration, and also a bunch of paint.
 
-...but why?
+Perhaps Somewhat Impractical
 --------
 
-This library is a pretty insane way to control the bot. It's needlessly low-level: you're manually controlling the brush's position, you've got to remember to wash and re-ink the brush every so often, etc. If your main goal is to just get the bot to draw a pretty picture, there are lots of [better ways](http://wiki.evilmadscientist.com/WaterColorBot#Part_II:_Software_for_WaterColorBot) to go about it.
+To be honest, this library is a pretty insane way to control the bot. It's needlessly low-level: you're manually controlling the brush's position, you've got to remember to wash and re-ink the brush every so often, etc. If your main goal is to just get the bot to draw a pretty picture, there are lots of [better ways](http://wiki.evilmadscientist.com/WaterColorBot#Part_II:_Software_for_WaterColorBot) to go about it.
 
-As a teaching aid, though, it's been a total success! We've really been blown away by the stuff our students have created, and they're having a great time doing it. Just look at these beauties:
+As a teaching aid, though, it's been a total success! We've been blown away by the stuff our students have created. Just look at these beauties:
 
 TODO put examples here
+
+These kids haven't learned how to use lists/dicts or write functions yet, and they're already making cool programs like these!
 
 Interactivity
 -------------
 
-Once I got going on this project, I thought it might be fun to use the bot as a "display" for a video game. As a proof of concept, I wrote an embarrassingly basic [text adventure](https://github.com/jrheard/waterventure/blob/master/waterventure.py) that uses the bot as a mini-map, painting in new rooms as you wander around the game world.
+Once I finished writing the library, I thought it might be fun to use the bot as a "display" for a video game. As a proof of concept, I wrote an embarrassingly basic [text adventure](https://github.com/jrheard/waterventure/blob/master/waterventure.py) that uses the bot as a mini-map, painting in new rooms as you wander around the game world.
 
 {% img waterventure.gif %}
 
@@ -64,7 +66,18 @@ My favorite part about it is that once you've beaten the game, you end up with a
 
 {% img waterventure.jpg width:740 height:510 %}
 
-TODO show off minesweeper, go
+One thing that quickly became apparent is that you take on a few interesting design constraints when you make a game that runs on a watercoloring robot. For instance:
+* You've got an _extremely_ finite amount of screen real estate (one page of printer paper)
+* If you want to e.g. start a new page every level (maybe you're writing a dungeon-crawler?), the user has to fiddle with the machine for ten seconds to take off the old page and ensure there's a fresh page ready to go, which could get irritating over time
+* You can't draw on the same "pixel" twice (although I can imagine situations where an intentionally smudged page could make for a cool aesthetic)
+
+I thought the idea of an interactive watercolor program was interesting, so I showed the text adventure to the students, and a few of them liked the idea and made their projects interactive too. Here's Minesweeper:
+
+TODO gif of zach's program
+
+This student has never used a two-dimensional array before, and he wrote a version of Minesweeper that runs on a watercoloring robot. I probably don't need to point out that this is **insanely cool**.
+
+Another student 
 
 Lessons Learned
 ---------------
