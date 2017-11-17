@@ -69,9 +69,9 @@ My favorite part about it is that once you've beaten the game, you end up with a
 An aside: you take on a few interesting design constraints when you make a game that runs on a watercoloring robot. For instance:
 * You've got an _extremely_ finite amount of screen real estate (one page of printer paper)
 * If you want to e.g. start a new page every level (maybe you're writing a dungeon-crawler?), the user has to fiddle with the machine for ten seconds to take off the old page and ensure there's a fresh page ready to go, which could get irritating over time
-* You can't draw on the same "pixel" twice (although I can imagine situations where an intentionally smudged page could make for a cool aesthetic)
+* You probably don't want to draw on the same "pixel" twice (although I can imagine situations where an intentionally smudged page could make for a cool aesthetic)
 
-Anyway, I thought the idea of an interactive watercolor program was interesting, so I showed the text adventure to the students, and a few of them liked the idea and made their projects interactive too. Here's one student's Minesweeper:
+Anyway, I thought the idea of an interactive watercolor program was interesting, so I showed the text adventure to the students. A few of them liked the idea and made their projects interactive too. Here's one student's Minesweeper:
 
 TODO gif of zach's program
 
