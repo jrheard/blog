@@ -32,7 +32,7 @@ for i in range(360):
 	turn_right(1)
 ```
 
-If you've got a WaterColorBot lying around, you can use this library too! Just check out the [documentation](http://madison-wcb.readthedocs.io/en/latest/) and go nuts.
+If you've got a WaterColorBot lying around, you can use this library too! Just check out the [documentation](http://madison-wcb.readthedocs.io/en/latest/) or [source code](https://github.com/jrheard/madison_wcb) and go nuts.
 
 Here's one student's program in action:
 
