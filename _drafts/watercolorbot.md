@@ -7,7 +7,7 @@ I'm spending the 2017-18 school year volunteering in a few tech classes in a loc
 
 When we started talking about potential projects, Tamara mentioned that she had a [WaterColorBot](http://watercolorbot.com/) that she'd like to have the students use in some way. She'd already had a lot of success using the bot in another intro-to-programming course via a block-based language called [Snap](https://github.com/evil-mad/WaterColorBlocks), but she wasn't sure how to talk to the bot via Python.
 
-This sounded like a fun project, so I looked into it. It turns out that there are [lot of great ways](http://wiki.evilmadscientist.com/WaterColorBot) to drive the bot via software, but I couldn't find anything Python-based that did what we wanted. I came up with a few possible approaches and asked [Windell Oskay](https://www.evilmadscientist.com/about/) for advice, and he kindly set us on the right track — thanks, Windell!
+This sounded like a fun project, so I looked into it. It turns out that there are [lot of great ways](http://wiki.evilmadscientist.com/WaterColorBot#Part_II:_Software_for_WaterColorBot) to drive the bot via software, but I couldn't find anything Python-based that did what we wanted. I came up with a few possible approaches and asked [Windell Oskay](https://www.evilmadscientist.com/about/) for advice, and he kindly set us on the right track — thanks, Windell!
 
 madison_wcb
 -----------
