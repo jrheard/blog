@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Drawing Pictures and Making Games with a Watercoloring Robot"
+title:  "Painting Pictures and Making Games with a Watercoloring Robot"
 ---
 
 I'm spending the 2017-18 school year volunteering in a few tech classes in a local high school, including a beginner/intermediate Python course led by a teacher named Tamara O'Malley. She's new to Python, and I have a lot of experience with the language, so I've been helping her come up with [fun projects](http://blog.jrheard.com/python/passwords) for the students to work on.
@@ -26,7 +26,7 @@ move_to(100, 0)
 point_in_direction(-90)
 brush_down()
 
-# Draw a circle!
+# Paint a circle!
 for i in range(360):
 	move_forward(2)
 	turn_right(1)
@@ -47,9 +47,9 @@ This saves users a lot of potential frustration, and also a bunch of paint.
 Perhaps Somewhat Impractical
 --------
 
-To be honest, this library is a pretty insane way to control the bot. It's needlessly low-level: you're manually controlling the brush's position, you've got to remember to wash and re-ink the brush every so often, etc. If your main goal is to just get the bot to draw a pretty picture, there are lots of [better ways](http://wiki.evilmadscientist.com/WaterColorBot#Part_II:_Software_for_WaterColorBot) to go about it.
+To be honest, this library is a pretty insane way to control the bot. It's needlessly low-level: you're manually controlling the brush's position, you've got to remember to wash and re-ink the brush every so often, etc. If your main goal is to just get the bot to paint a pretty picture, there are lots of [better ways](http://wiki.evilmadscientist.com/WaterColorBot#Part_II:_Software_for_WaterColorBot) to go about it.
 
-As a teaching aid, though, it's been a total success, because it lets students flex their burgeoning Python skills and actually create something in the process! We've been blown away by the stuff our students have created. Just look at these beauties:
+As a teaching aid, though, it's been a total success, because it lets students flex their burgeoning Python skills and actually make a real thing in the process! We've been blown away by the stuff our students have created. Just look at these beauties:
 
 TODO put examples here
 
@@ -69,7 +69,7 @@ My favorite part about it is that once you've beaten the game, you end up with a
 If you're interested in making a game that runs on a watercoloring robot, here are some design constraints to keep in mind:
 * You've got an _extremely_ finite amount of screen real estate (one page of printer paper)
 * If you want to e.g. start a new page every level (maybe you're writing a dungeon-crawler?), the user has to fiddle with the machine for ten seconds to take off the old page and ensure there's a fresh page ready to go, which could get irritating over time
-* You probably don't want to draw on the same "pixel" twice (although I can imagine situations where an intentionally smudged page could make for a cool aesthetic)
+* You probably don't want to paint on the same "pixel" twice (although I can imagine situations where an intentionally smudged page could make for a cool aesthetic)
 
 Anyway, I thought the idea of an interactive watercolor program was interesting, so I showed the text adventure to the students. A few of them liked the idea and made their projects interactive too. Here's one student's Minesweeper:
 
@@ -88,7 +88,7 @@ Lessons Learned
 
 I've been programming for a long time, but this was my first time writing code that controls a physical object. At first I was worried that a bug in my library could e.g. cause the three-hundred-dollar bot to rip itself apart, but Windell assured me that the bot's "Scratch API" handles bounds checking automatically, and so that's turned out not to be an issue.[^1]
 
-One thing we didn't foresee was that our paints kept getting dirty, because students' rough-draft programs often didn't wash the brush frequently enough — for instance, you may have noticed that the solar system program from earlier in this article depicts an unusually brown sun. We went through a few palettes before solving this problem by setting aside a "production" palette, which we only swap in when we're drawing a student's known-good, final-draft program.[^2]
+One thing we didn't foresee was that our paints kept getting dirty, because students' rough-draft programs often didn't wash the brush frequently enough — for instance, you may have noticed that the solar system program from earlier in this article depicts an unusually brown sun. We went through a few palettes before solving this problem by setting aside a "production" palette, which we only swap in when we're painting a student's known-good, final-draft program.[^2]
 
 That's All For Now
 ------------------
