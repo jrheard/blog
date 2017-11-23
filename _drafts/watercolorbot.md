@@ -49,7 +49,7 @@ Perhaps Somewhat Impractical
 
 To be honest, this library is a pretty insane way to control the bot. It's needlessly low-level: you're manually controlling the brush's position, you've got to remember to wash and re-ink the brush every so often, etc. If your main goal is to just get the bot to paint a pretty picture, there are lots of [better ways](http://wiki.evilmadscientist.com/WaterColorBot#Part_II:_Software_for_WaterColorBot) to go about it.
 
-As a teaching aid, though, it's been a total success, because it lets students flex their burgeoning Python skills and actually make a real thing in the process! We've been blown away by the stuff our students have created. Just look at these beauties. Here's an N64 logo in seven hundred and fifty hand-crafted lines of Python:
+As a teaching aid, though, it's been a total success, because it lets students flex their burgeoning Python skills and actually make a real thing in the process! We've been blown away by the stuff our students have created. Here's an N64 logo in seven hundred and fifty hand-crafted lines of Python:
 
 {% img wcb_1.JPG %}
 
