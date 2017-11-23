@@ -49,9 +49,21 @@ Perhaps Somewhat Impractical
 
 To be honest, this library is a pretty insane way to control the bot. It's needlessly low-level: you're manually controlling the brush's position, you've got to remember to wash and re-ink the brush every so often, etc. If your main goal is to just get the bot to paint a pretty picture, there are lots of [better ways](http://wiki.evilmadscientist.com/WaterColorBot#Part_II:_Software_for_WaterColorBot) to go about it.
 
-As a teaching aid, though, it's been a total success, because it lets students flex their burgeoning Python skills and actually make a real thing in the process! We've been blown away by the stuff our students have created. Just look at these beauties:
+As a teaching aid, though, it's been a total success, because it lets students flex their burgeoning Python skills and actually make a real thing in the process! We've been blown away by the stuff our students have created. Just look at these beauties. Here's an N64 logo in seven hundred and fifty hand-crafted lines of Python:
 
-TODO put examples here
+{% img wcb_1.JPG %}
+
+This clock depicts the time at which the program was run:
+
+{% img wcb_2.JPG %}
+
+This student drew an image from scratch in Paint or something, using straight lines and simple curves, and then translated it into Python:
+
+{% img wcb_3.JPG %}
+
+And here's a nice windowsill cat.
+
+{% img wcb_4.JPG %}
 
 These kids haven't learned how to use lists/dicts or write functions yet, and they're already making cool programs like these!
 
