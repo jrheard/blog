@@ -57,7 +57,7 @@ This clock depicts the time at which the program was run:
 
 {% img wcb_2.JPG %}
 
-This student drew an image from scratch in Paint or something, using straight lines and simple curves, and then translated it into Python:
+This student drew her image from scratch in Paint or something, using only straight lines and simple curves so it would paint well on the bot, and then translated it into Python:
 
 {% img wcb_3.JPG %}
 
@@ -65,7 +65,7 @@ And here's a nice windowsill cat.
 
 {% img wcb_4.JPG %}
 
-These kids haven't learned how to use lists/dicts or write functions yet, and they're already making cool programs like these!
+These kids haven't yet learned how to use lists/dicts or how to make their own functions, and they're already making cool programs like these!
 
 Interactivity
 -------------
@@ -87,7 +87,7 @@ Anyway, I thought the idea of an interactive watercolor program was interesting,
 
 TODO gif of zach's program
 
-This student has never used a two-dimensional array before, and he wrote a fully-functioning version of Minesweeper that runs on a watercoloring robot. I probably don't need to point out that this is **insanely cool**.
+This student has never used a two-dimensional array before, and he wrote a fully-functioning version of Minesweeper that runs on a watercoloring robot.
 
 Here's another student's implementation of Go:
 
