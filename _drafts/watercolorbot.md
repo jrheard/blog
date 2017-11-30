@@ -83,17 +83,21 @@ If you're interested in making a game that runs on a watercoloring robot, here a
 * If you want to e.g. start a new page every level (maybe you're writing a dungeon-crawler?), the user has to fiddle with the machine for ten seconds to take off the old page and ensure there's a fresh page ready to go, which could get irritating over time
 * You probably don't want to paint on the same "pixel" twice (although I can imagine situations where an intentionally smudged page could make for a cool aesthetic)
 
-Anyway, I thought the idea of an interactive watercolor program was interesting, so I showed the text adventure to the students. A few of them liked the idea and made their projects interactive too. Here's one student's Minesweeper:
+Anyway, I thought the idea of an interactive watercolor program was interesting, so I showed the text adventure to the students. A few of them liked the idea and made their projects interactive too. Here's me losing at one student's Minesweeper:
 
-TODO gif of zach's program
+{% img minesweeper.webp %}
 
 This student has never used a two-dimensional array before, and he wrote a fully-functioning version of Minesweeper that runs on a watercoloring robot.
 
+For this program and a few others, we decided to swap out the paints and paintbrush in favor of a pen. This allows for a lot more precision when drawing a grid or text/numbers, because if you try to do small fiddly motions on the bot with a paintbrush equipped you tend to just get an aimless splotch of paint.
+
+Drawing text/numbers on the bot is kind of a hassle in general and can make for a visual mess, so I thought it was really clever that this student used domino-style dots in order to indicate how many mines are adjacent to a particular square. A small X on an individual square means "you've checked this square and there weren't any mines nearby."
+
 Here's another student's implementation of Go:
 
-TODO gif of jake's program
+{% img go.webp %}
 
-So cool.
+We didn't want to stop the game after every move to swap out pens, so his program represents white pieces as squares and black pieces as triangles.
 
 Lessons Learned
 ---------------
@@ -101,6 +105,8 @@ Lessons Learned
 I've been programming for a long time, but this was my first time writing code that controls a physical object. At first I was worried that a bug in my library could e.g. cause the three-hundred-dollar bot to rip itself apart, but Windell assured me that the bot's "Scratch API" handles bounds checking automatically, and so that's turned out not to be an issue.[^1]
 
 One thing we didn't foresee was that our paints kept getting dirty, because students' rough-draft programs often didn't wash the brush frequently enough — for instance, you may have noticed that the solar system program from earlier in this article depicts an unusually brown sun. We went through a few palettes before solving this problem by setting aside a "production" palette, which we only swap in when we're painting a student's known-good, final-draft program.[^2]
+
+We also learned the hard way that it's important to remove the bot's water trays and paints whenever you equip the robot with a pen. Whoops.
 
 That's All For Now
 ------------------
