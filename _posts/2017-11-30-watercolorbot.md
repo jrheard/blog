@@ -89,7 +89,7 @@ If you're interested in making a game that runs on a watercoloring robot, here a
 
 Anyway, I thought the idea of an interactive watercolor program was interesting, so I showed the text adventure to the students. A few of them liked the idea and made their projects interactive too. Here's me losing at one student's Minesweeper:
 
-{% img minesweeper.webp %}
+{% img minesweeper.gif %}
 
 This student has never used a two-dimensional array before, and he wrote a fully-functioning version of Minesweeper that runs on a watercoloring robot.
 
@@ -99,7 +99,7 @@ Drawing text/numbers on the bot is kind of a hassle in general and can make for 
 
 Here's another student's implementation of Go:
 
-{% img go.webp %}
+{% img go.gif %}
 
 We didn't want to stop the game after every move to swap out pens, so his program represents white pieces as squares and black pieces as triangles.
 
