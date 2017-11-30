@@ -5,7 +5,11 @@ title:  "Painting Pictures and Making Games with a Watercoloring Robot"
 
 I'm spending the 2017-18 school year volunteering in a few tech classes in a local high school, including a beginner/intermediate Python course led by a teacher named Tamara O'Malley. She's new to Python, and I have a lot of experience with the language, so I've been helping her come up with [fun projects](http://blog.jrheard.com/python/passwords) for the students to work on.
 
-When we started talking about potential projects, Tamara mentioned that she had a [WaterColorBot](http://watercolorbot.com/) that she'd like to have the students use in some way. She'd already had a lot of success using the bot in another intro-to-programming course via a block-based language called [Snap](https://github.com/evil-mad/WaterColorBlocks), but she wasn't sure how to talk to the bot via Python.
+When we started talking about potential projects, Tamara mentioned that she had a [WaterColorBot](http://watercolorbot.com/) that she'd like to have the students use in some way. Here's a picture from its official website:
+
+{% img wcb_pristine.jpg width:720 height:540 %}
+
+She'd already had a lot of success using the bot in another intro-to-programming course via a block-based language called [Snap](https://github.com/evil-mad/WaterColorBlocks), but she wasn't sure how to talk to the bot via Python.
 
 This sounded like a fun project, so I looked into it. It turns out that there are [lot of great ways](http://wiki.evilmadscientist.com/WaterColorBot#Part_II:_Software_for_WaterColorBot) to drive the bot via software, but I couldn't find anything Python-based that did what we wanted. I came up with a few possible approaches and asked [Windell Oskay](https://www.evilmadscientist.com/about/) for advice, and he kindly set us on the right track — thanks, Windell!
 
