@@ -3,16 +3,16 @@ layout: page
 title:  "Madison CS 3-4: Caesar Cipher"
 ---
 
-In this project, you'll write a program that takes a plaintext sentence like "The weather is nice today" and converts it to a ciphertext sentence like "Znk ckgznkx oy toik zujge".
+In this project, you'll write a program that takes a plaintext sentence like `THE WEATHER IS NICE TODAY` and converts it to a ciphertext sentence like `GUR JRNGURE VF AVPR GBQNL`.
 
 The program can also convert ciphertext *back* to plaintext, when given the right key. The program can also attempt to brute-force decode the ciphertext.
 
 Don't worry, you're about to learn what all those words mean!
 
 <div class="message">
-<p>All of the words and pictures between this gray box and the next gray box have been copy-pasted directly from Al Swiegart's excellent book "Invent Your Own Computer Games With Python", except for a few very minor edits.</p>
+<p>All of the words and pictures between this gray box and the next gray box have been copy-pasted directly from Al Swiegart's excellent book "Invent Your Own Computer Games With Python". I've made a few very minor edits.</p>
 
-<p>This is OK because Al has graciously made his book available under a <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/us/">Creative Commons license</a>.</p>
+<p>This is OK because Al has graciously made his book available under a <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/us/">Creative Commons license</a>. Thanks, Al!</p>
 </div>
 
 Encryption
@@ -22,11 +22,11 @@ The science of writing secret codes is called **cryptography**. For thousands of
 
 In cryptography, we call the message that we want to be secret the **plaintext**. The plaintext could look like this:
 
-`Hello there! The keys to the house are hidden under the flower pot.`
+`HELLO THERE! THE KEYS TO THE HOUSE ARE HIDDEN UNDER THE FLOWER POT.`
 
 Converting the plaintext into the encoded message is called **encrypting** the plaintext. The plaintext is encrypted into the **ciphertext**. The ciphertext looks like random letters, and we cannot understand what the original plaintext was just by looking at the ciphertext. Here is the previous example encrypted into ciphertext:
 
-`Yvccf kyviv! Kyv bvpj kf kyv yfljv riv yzuuve leuvi kyv wcfnvi gfk.`
+`HELLO THERE! THE KEYS TO THE HOUSE ARE HIDDEN UNDER THE FLOWER POT.`
 
 But if you know about the cipher used to encrypt the message, you can **decrypt** the ciphertext back to the plaintext. (Decryption is the opposite of encryption.)
 
@@ -51,23 +51,23 @@ Here's an example with the letters shifted by three spaces:
 
 **The number of spaces you shift is the key in the Caesar Cipher**. The example above shows the letter translations for the key 3.
 
-If you encrypt the plaintext `“Howdy”` with a key of 3, then:
+If you encrypt the plaintext `“HOWDY”` with a key of 3, then:
 
 * The “H” becomes “K”.
-* The letter “o” becomes “r”.
-* The letter “w” becomes “z”.
-* The letter “d” becomes “g”.
-* The letter “y” becomes “b”.
+* The letter “O” becomes “R”.
+* The letter “W” becomes “Z”.
+* The letter “D” becomes “G”.
+* The letter “Y” becomes “B”.
 
-The ciphertext of `“Hello”` with key 3 becomes `“Krzgb”`.
+The ciphertext of `“HOWDY”` with key 3 becomes `“KRZGB”`.
 
-We will keep any non-letter characters the same. To decrypt `“Krzgb”` with the key 3, we go from the bottom boxes back to the top:
+We will keep any non-letter characters the same. To decrypt `“KRZGB”` with the key 3, we go from the bottom boxes back to the top:
 
 * The letter “K” becomes “H”.
-* The letter “r” becomes “o”.
-* The letter “z” becomes “w”.
-* The letter “g” becomes “d”.
-* The letter “b” becomes “y”.
+* The letter “R” becomes “O”.
+* The letter “Z” becomes “W”.
+* The letter “G” becomes “D”.
+* The letter “B” becomes “Y”.
 
 ASCII, and Using Numbers for Letters
 ====================================
@@ -83,7 +83,7 @@ So if you wanted to shift “A” by three spaces, you would do the following:
 * Convert the ordinal 68 back to a letter (“D”).
 
 <div class="message">
-<p>Copy-pasting complete. Thanks, Al!</p>
+<p>That's the end of the copy-pasted section of Al's book. Everything after this box was written by JR like usual.</p>
 </div>
 
 Converting between letters and numbers
@@ -92,13 +92,13 @@ Converting between letters and numbers
 Python comes with the `ord()` function, which lets you convert a letter to its corresponding ordinal number:
 
 <pre><code class="py">
-print(ord('j'))
+print(ord('J'))
 </code></pre>
 
 To go from an ordinal number back to a letter, you can use the `chr()` function.
 
 <pre><code class="py">
-print(chr(106))
+print(chr(74))
 </code></pre>
 
 Let's try shifting the letter `H` over by 3, like we did in the `"Howdy"` example above:
@@ -107,9 +107,23 @@ Let's try shifting the letter `H` over by 3, like we did in the `"Howdy"` exampl
 print(chr(ord('H') + 3))
 </code></pre>
 
-It turns into `K`, just like we expected!
+It turns into `K`, just like we expected! `ord()` and `chr()` are going to be your best friends while you're working on this project.
 
+You'll probably want to use a `for` loop at some point in your program - here's how you can use a `for` loop to do _something_ to each letter of a string:
 
+<pre><code class="py">
+my_name = "JR Heard"
+transformed_name = ""
+
+for letter in my_name:
+	transformed_name += letter.lower()
+
+print(transformed_name)
+</code></pre>
+
+That chunk of code painstakingly lowercases my name, one letter at a time - you might end up doing something similar (but different!) when you're building up your program's `ciphertext` variable.
+
+If your program is given some plaintext that includes numbers, or lowercase letters, or punctuation marks like `!` or `.` or `$` or _anything_ that's not a letter from `A` to `Z`, it should leave that character unmodified. For example, if given a plaintext string of `HOWDY! Hello.` and a key of `3`, your program should output the ciphertext `KRZGB! Kello.`
 
 
 
