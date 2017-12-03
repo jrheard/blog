@@ -125,6 +125,39 @@ That chunk of code painstakingly lowercases my name, one letter at a time - you 
 
 If your program is given some plaintext that includes numbers, or lowercase letters, or punctuation marks like `!` or `.` or `$` or _anything_ that's not a letter from `A` to `Z`, it should leave that character unmodified. For example, if given a plaintext string of `HOWDY! Hello.` and a key of `3`, your program should output the ciphertext `KRZGB! Kello.`
 
+Your program should allow the user to both encrypt messages and decrypt them. Your program should look **exactly** like this when it's run:
+
+<asciinema-player src="{{ site.baseurl }}/caesar_cast_1.json" rows="19" cols="80" autoplay="true" loop="true"></asciinema-player>
+
+In order to get Python to prompt the user for input on a new line like you see in the demo above, you can add the `\n` character to the end of the string you give the `input()` function. That sentence might have sounded scary, but I'm just talking about doing this:
+
+```python
+input('Do you wish to encrypt or decrypt a message?\n')
+```
+
+If you don't know what I'm talking about, you'll see what I mean when you sit down to write the program yourself. It won't be a big deal. `\n` is the "newline" character - when Python sees it in a string, it'll stop the current line of text and start a new one.
+
+Brute Force
+===========
+
+todo
+
+Nitty Gritty
+============
+
+If the user inputs an invalid mode (i.e. something that's not "encrypt", "decrypt", or "brute"), it's fine if your program crashes.
+
+If the user inputs an invalid key (i.e. something that's not a number between 1 and 26), it's fine if your program crashes.
+
+
+
+Extra Credit
+==========
+
+talk to tamara about how to frame this section, re: extra credit, grades
+
+* Make your program work with uppercase _and_ lowercase characters, so that when given the plaintext `HOWDY! Hello.` and a key of `3`, your program outputs the ciphertext `KRZGB! Khoor.`
+
 
 
 
