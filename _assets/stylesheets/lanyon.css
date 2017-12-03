@@ -311,7 +311,6 @@ a.post-link {
 .post-listing .post-date {
 	display: inline;
 	margin-top: 0;
-	float: right;
 }
 
 /* Meta data line below post title */
@@ -524,6 +523,11 @@ canvas {
 	margin-bottom: 0.5rem;
 }
 
+.post-listing a {
+	display: inline-block;
+	width: 83%;
+}
+
 ol ol {
 	margin-bottom: 0;
 }
@@ -549,3 +553,4 @@ asciinema-player {
 .page img {
 	display: block;
 	margin: 0 auto;
+}
