@@ -7,8 +7,8 @@ In this project, you'll write a program that takes a **plaintext** sentence like
 
 Don't worry, you're about to learn what those words mean!
 
-<div class="message">
-<p>All of the words and pictures between this gray box and the next gray box have been copy-pasted directly from Al Swiegart's excellent book "Invent Your Own Computer Games With Python". I've made a few very minor edits.</p>
+<div class="message update">
+<p>All of the words and pictures between this yellow box and the next yellow box have been copy-pasted directly from Al Swiegart's excellent book "Invent Your Own Computer Games With Python". I've made a few very minor edits.</p>
 
 <p>This is OK because Al has graciously made his book available under a <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/us/">Creative Commons license</a>. Thanks, Al!</p>
 </div>
@@ -80,7 +80,7 @@ So if you wanted to shift “A” by three spaces, you would do the following:
 * Add 3 to 65, to get 68.
 * Convert the ordinal 68 back to a letter (“D”).
 
-<div class="message">
+<div class="message update">
 <p>That's the end of the copy-pasted section of Al's book. Everything after this box was written by JR like usual.</p>
 </div>
 
