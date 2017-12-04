@@ -3,11 +3,9 @@ layout: page
 title:  "Madison CS 3-4: Caesar Cipher"
 ---
 
-In this project, you'll write a program that takes a plaintext sentence like `THE WEATHER IS NICE TODAY` and converts it to a ciphertext sentence like `GUR JRNGURE VF AVPR GBQNL`.
+In this project, you'll write a program that takes a **plaintext** sentence like `THE WEATHER IS NICE TODAY` and converts it to a **ciphertext** sentence like `GUR JRNGURE VF AVPR GBQNL`. The program can also convert ciphertext *back* to plaintext, when given the right **key**.
 
-The program can also convert ciphertext *back* to plaintext, when given the right key. The program can also attempt to brute-force decode the ciphertext.
-
-Don't worry, you're about to learn what all those words mean!
+Don't worry, you're about to learn what those words mean!
 
 <div class="message">
 <p>All of the words and pictures between this gray box and the next gray box have been copy-pasted directly from Al Swiegart's excellent book "Invent Your Own Computer Games With Python". I've made a few very minor edits.</p>
@@ -205,7 +203,11 @@ This might be a little painful to do if you don't know how to write your own fun
 Smart Brute Force
 -----------------
 
-This is my favorite one: enhance your program's "brute force" mode so that it can _automatically detect_ which key was the right one:
+This is my favorite one: enhance your program's "brute force" mode so that it can _automatically detect_ the correct key:
+
+<asciinema-player src="{{ site.baseurl }}/caesar_brute_smart_cast.json" rows="15" cols="80" autoplay="true" loop="true"></asciinema-player>
+
+You can do this however you want. Be creative! My solution involved using [this text file](https://svnweb.freebsd.org/csrg/share/dict/words?revision=61569&view=co), which is a list of all of the English words in the 1934 edition of Webster's Second International Dictionary. If you'd like to figure out how to open a text file in Python and get all the lines out of it, Google around until you find a solution - you can always ask me for help if you get stuck, but I think you'd be surprised how far you can get by just Googling stuff 🙂
 
 
 <script>
