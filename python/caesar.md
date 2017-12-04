@@ -169,8 +169,6 @@ Remember to follow this class's [style guide](https://docs.google.com/document/d
 Extra Credit
 ==========
 
-talk to tamara about how to frame this section, re: extra credit, grades
-
 Here are some ideas for cool extra features you can add to your program for extra credit.
 
 Lowercase Letters
@@ -194,7 +192,7 @@ print('Hello'.find('z'))
 Brute Force
 -----------
 
-Add a "brute force" mode that lets you try to decrypt a message even if you don't know the right key for it:
+Add a "brute force" mode that lets you try to decrypt a message even if you don't know the right key for it - notice the correct translation on Line 5:
 
 <asciinema-player src="{{ site.baseurl }}/caesar_brute_cast.json" rows="30" cols="80" autoplay="true" loop="true"></asciinema-player>
 
@@ -207,7 +205,7 @@ This is my favorite one: enhance your program's "brute force" mode so that it ca
 
 <asciinema-player src="{{ site.baseurl }}/caesar_brute_smart_cast.json" rows="15" cols="80" autoplay="true" loop="true"></asciinema-player>
 
-You can do this however you want. Be creative! My solution involved using [this text file](https://svnweb.freebsd.org/csrg/share/dict/words?revision=61569&view=co), which is a list of all of the English words in the 1934 edition of Webster's Second International Dictionary. If you'd like to figure out how to open a text file in Python and get all the lines out of it, Google around until you find a solution - you can always ask me for help if you get stuck, but I think you'd be surprised how far you can get by just Googling stuff 🙂
+You can do this however you want. Be creative! My solution involved using [this text file](https://svnweb.freebsd.org/csrg/share/dict/words?revision=61569&view=co), which is a list of all of the English words in the 1934 edition of Webster's Second International Dictionary. If you'd like to figure out how to open a text file in Python and get all the lines out of it, Google around until you find a solution - you can always ask me for help if you get stuck, but I think you'd be surprised how far you can get by just Googling stuff. 🙂
 
 
 <script>
