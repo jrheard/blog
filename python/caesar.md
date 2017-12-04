@@ -26,7 +26,7 @@ In cryptography, we call the message that we want to be secret the **plaintext**
 
 Converting the plaintext into the encoded message is called **encrypting** the plaintext. The plaintext is encrypted into the **ciphertext**. The ciphertext looks like random letters, and we cannot understand what the original plaintext was just by looking at the ciphertext. Here is the previous example encrypted into ciphertext:
 
-`HELLO THERE! THE KEYS TO THE HOUSE ARE HIDDEN UNDER THE FLOWER POT.`
+`YVCCF KYVIV! KYV BVPJ KF KYV YFLJV RIV YZUUVE LEUVI KYV WCFNVI GFK.`
 
 But if you know about the cipher used to encrypt the message, you can **decrypt** the ciphertext back to the plaintext. (Decryption is the opposite of encryption.)
 
@@ -43,7 +43,7 @@ Here's a picture of some letters shifted over by three spaces:
 
 {% img caesar_1.jpg %}
 
-To get each shifted letter, draw out a row of boxes with each letter of the alphabet. Then draw a second row of boxes under it, but start a certain number (this number is the key) of spaces over. After the letters at the end, wrap around back to the start of the boxes.
+To get each shifted letter, draw out a row of boxes with each letter of the alphabet. Then draw a second row of boxes under it, but start a certain number (this number is the key) of spaces over. After the letters at the end, **wrap around** back to the start of the boxes.
 
 Here's an example with the letters shifted by three spaces:
 
@@ -109,6 +109,9 @@ print(chr(ord('H') + 3))
 
 It turns into `K`, just like we expected! `ord()` and `chr()` are going to be your best friends while you're working on this project.
 
+String Manipulation Tip
+=======================
+
 You'll probably want to use a `for` loop at some point in your program - here's how you can use a `for` loop to do _something_ to each letter of a string:
 
 <pre><code class="py">
@@ -123,9 +126,17 @@ print(transformed_name)
 
 That chunk of code painstakingly lowercases my name, one letter at a time - you might end up doing something similar (but different!) when you're building up your program's `ciphertext` variable.
 
-If your program is given some plaintext that includes numbers, or lowercase letters, or punctuation marks like `!` or `.` or `$` or _anything_ that's not a letter from `A` to `Z`, it should leave that character unmodified. For example, if given a plaintext string of `HOWDY! Hello.` and a key of `3`, your program should output the ciphertext `KRZGB! Kello.`
+Non-Uppercase-Letter Characters
+=====================
 
-Your program should allow the user to both encrypt messages and decrypt them. Your program should look **exactly** like this when it's run:
+If your program is given some plaintext that includes numbers, or lowercase letters, or punctuation marks like `!` or `.` or `$` or _anything_ that's not a letter from `A` to `Z`, it should leave that character unmodified. For example, if given a plaintext string of `HOWDY! Hello.` and a key of `5`, your program should output the ciphertext `MTBID! Mello.`
+
+Note that in that message, the `W` ends up "wrapping around" to become a `B` when it's encrypted.
+
+Demo
+====
+
+Your program should allow the user to both encrypt messages **and** decrypt them. Your program should look **exactly** like this when it's run:
 
 <asciinema-player src="{{ site.baseurl }}/caesar_cast_1.json" rows="19" cols="80" autoplay="true" loop="true"></asciinema-player>
 
@@ -135,30 +146,66 @@ In order to get Python to prompt the user for input on a new line like you see i
 input('Do you wish to encrypt or decrypt a message?\n')
 ```
 
-If you don't know what I'm talking about, you'll see what I mean when you sit down to write the program yourself. It won't be a big deal. `\n` is the "newline" character - when Python sees it in a string, it'll stop the current line of text and start a new one.
-
-Brute Force
-===========
-
-todo
+If you don't know what I'm talking about, you'll see what I mean when you sit down to write the program yourself. It won't be a big deal. `\n` is the "newline" character - when Python sees it when it's printing out a string, it'll stop the current line of text and start a new one.
 
 Nitty Gritty
 ============
 
-If the user inputs an invalid mode (i.e. something that's not "encrypt", "decrypt", or "brute"), it's fine if your program crashes.
+If the user inputs an invalid mode (i.e. something that's not "encrypt" or "decrypt"), it's fine if your program crashes.
 
 If the user inputs an invalid key (i.e. something that's not a number between 1 and 26), it's fine if your program crashes.
 
+Submitting your project
+=======================
 
+Submit a file called `caesar.py`.
+
+On the first line of that file, write a comment with your name on it, like this:
+
+```
+# JR Heard
+```
+
+Remember to follow this class's [style guide](https://docs.google.com/document/d/1UbyhIkxOdhpf-MGna_5dwh0yHXe02HTZ69CfEuYv76Y/edit).
 
 Extra Credit
 ==========
 
 talk to tamara about how to frame this section, re: extra credit, grades
 
-* Make your program work with uppercase _and_ lowercase characters, so that when given the plaintext `HOWDY! Hello.` and a key of `3`, your program outputs the ciphertext `KRZGB! Khoor.`
+Here are some ideas for cool extra features you can add to your program for extra credit.
 
+Lowercase Letters
+-----------------
 
+Make your program work with uppercase _and_ lowercase characters, like this:
+
+<asciinema-player src="{{ site.baseurl }}/caesar_upper_and_lower_cast.json" rows="19" cols="80" autoplay="true" loop="true"></asciinema-player>
+
+When I did this, I ended up switching away from `ord()` and `chr()`, and instead made a string like `transformable_characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'` and had my code do stuff based on the position of each letter of the message in my `transformable_characters` string. Here's how you can find the first position of a letter in a string in Python:
+
+<pre><code class="py">
+# 'l' is in 'Hello', so this evaluates to number 2.
+print('Hello'.find('l'))
+
+# 'z' isn't in 'Hello', so this evalutes to -1, which is
+# Python's way of saying: I looked for this but couldn't find it!
+print('Hello'.find('z'))
+</code></pre>
+
+Brute Force
+-----------
+
+Add a "brute force" mode that lets you try to decrypt a message even if you don't know the right key for it:
+
+<asciinema-player src="{{ site.baseurl }}/caesar_brute_cast.json" rows="30" cols="80" autoplay="true" loop="true"></asciinema-player>
+
+This might be a little painful to do if you don't know how to write your own functions. We'll be learning how to do that in class soon, but we haven't covered it yet. If you'd like to read ahead in the meantime, [this article](https://anh.cs.luc.edu/python/hands-on/3.1/handsonHtml/functions.html) seems like a good introduction to writing your own functions.
+
+Smart Brute Force
+-----------------
+
+This is my favorite one: enhance your program's "brute force" mode so that it can _automatically detect_ which key was the right one:
 
 
 <script>
