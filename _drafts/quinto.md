@@ -4,22 +4,57 @@ title:  "Quinto"
 klipse: true
 ---
 
-Quinto
-======
+I played an old board game called Quinto when I was visiting a friend this past Thanksgiving. I became inexplicably fixated on the game and wrote [a program](http://jrheard.com/quinto/) that lets you play the game against a computer opponent. I enjoyed writing this program, and am proud of the code I wrote, but my primary goal for this article is to showcase the tools that I used when I was writing it; they're very good tools, and you might find them useful. I'll start by teaching you how to play the game - don't worry, it isn't very complicated.
 
-i played a board game at a friend's house, then wrote a computer-program version of it, complete with an AI that plays against you. i enjoyed writing this program, and am proud of the code i wrote, but my primary goal for this article is to showcase the tools i used to write it, because they're very good tools and you might find them useful.
+How It's Played
+==============
 
-* origin story
-* explain rules
-  * first show just a few tiles with no highlighting (use css to disable)
-  * then show red/green squares
+Quinto is basically like Scrabble, except with numbers instead of letters. In Scrabble, your goal is to place several tiles in a row or column, and have them spell a word; you get extra points if your freshly placed tiles contact several pre-existing words. Quinto's the same thing, except that instead of trying to make words, you're trying to make a run of tiles whose sum is a multiple of five. For example, this move would earn you 20 points:
 
-* built that, then wondered how to write an AI that plays the game
-* once that was done, letting the user play against the AI seemed like it'd be straightforward, but the UI was surprisingly interesting/difficult to figure out
+7 8 5
 
-it's pretty obvious that quinto died out because it's not a very good board game
-but it was a fun puzzle to chew on, and i enjoyed spending my time this way
-now let's talk about the tools and techniques i used when writing this program.
+This move is invalid, though, because these tiles sum to 17, which is not a multiple of five.
+
+7
+7
+3
+
+TODO explain scoring
+
+5 3 2
+    3
+	5
+
+if you placed the 3 5, you get 10 points
+
+5 3 2
+5 7 3
+	5
+
+if you placed the 5 7, you'd get 10 + 10 + 15 points = 35
+
+That's it, now you know how to play Quinto! The game ends when you run out of tiles; whoever has the highest score wins.
+
+But Wait!
+---------
+
+I lied, there's one more rule. You can never make a move that would cause there to be more than five tiles in a row. For instance, this move is invalid:
+
+5 3 2 5 5 0
+          3
+		  2
+
+Placing that 0 would cause there to be six tiles in an unbroken row, which breaks the rules; so you can't make that move.
+
+It turns out that this last rule makes the game really hard to play. When you're deep into a game and there are a ton of tiles on the board, it takes _all_ of my brainpower to try to look at the tiles in my hand, look back at the board, and feverishly check to see if placing these three tiles over _here_ would - no, that's not a multiple of five. Hm, maybe over here! Yes, perfect! Except - oh no, I can't put a tile down on _that_ space, because that would break the no-more-than-five-tiles-in-a-row rule!
+
+This drove me just completely nuts. I was like: if you can't make a move on a space, the board should light that space up in red! But of course the board couldn't do that, because it's just a dumb piece of cardboard. So I decided to write a computer program that would light up invalid cells in red, and playable cells in green, like this:
+
+8 7 5 3 2
+        8
+
+That turned out to be so easy that it was actually kind of unfulfilling. Then I found myself wondering: gee, how would you go about writing an AI that plays the game? Once I was done with that, I hooked things up so that a human can play against the AI, and now [here we are](http://jrheard.com/quinto/).
+
 
 tools
 =====
@@ -99,3 +134,15 @@ at the end of development i realized that this was running way way more often th
 that's it!
 ----------
 if you'd like to get started with clojure, consider XYZ resources (brave and true?)
+
+
+
+TODO refer to https://lambdaisland.com/blog/29-12-2017-the-bare-minimum-clojure-mayonnaise somewhere
+
+
+
+
+appendix
+
+quinto origin story
+brunner
