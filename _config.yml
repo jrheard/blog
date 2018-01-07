@@ -20,6 +20,7 @@ assets:
 
 # Build settings
 markdown: kramdown
+encoding: utf-8
 gems:
   - jekyll-feed
   - jekyll-paginate

@@ -4,12 +4,14 @@ title:  "Quinto"
 klipse: true
 ---
 
-I played an old board game called Quinto when I was visiting a friend this past Thanksgiving. I became inexplicably fixated on the game and wrote [a program](http://jrheard.com/quinto/) that lets you play the game against a computer opponent. I enjoyed writing this program, and am proud of the code I wrote, but my primary goal for this article is to showcase the tools that I used when I was writing it; they're very good tools, and you might find them useful. I'll start by teaching you how to play the game - don't worry, it isn't very complicated.
+I played an old board game called Quinto when I was visiting a friend this past Thanksgiving. Afterward, I developed a strange fixation on the game and wrote [a program](http://jrheard.com/quinto/) that lets you play Quinto against a computer opponent. I'm going to show you the game and talk about the tools I used to build it.
+
+I'll start by teaching you how to play the game - don't worry, there are just like three rules. If you'd like to skip ahead, [here's the game](http://jrheard.com/quinto/) and [here's the box](quinto.jpg).
 
 How It's Played
 ==============
 
-Quinto is basically like Scrabble, except with numbers instead of letters. In Scrabble, your goal is to place several tiles in a row or column, and have them spell a word; you get extra points if your freshly placed tiles contact several pre-existing words. Quinto's the same thing, except that instead of trying to make words, you're trying to make a run of tiles whose sum is a multiple of five. For example, this move would earn you 20 points:
+Quinto is basically like Scrabble, except with numbers instead of letters. In Scrabble, your goal is to place several tiles in a row or column, and have them spell a word; you get extra points if your freshly placed tiles contact several pre-existing words. Quinto's the same thing, except that instead of trying to make words, you're trying to make a run of tiles **whose sum is a multiple of five**. For example, this move would earn you 20 points:
 
 7 8 5
 
@@ -33,12 +35,12 @@ if you placed the 3 5, you get 10 points
 
 if you placed the 5 7, you'd get 10 + 10 + 15 points = 35
 
-That's it, now you know how to play Quinto! The game ends when you run out of tiles; whoever has the highest score wins.
+Now you know how to play Quinto! The game ends when you run out of tiles; whoever has the highest score wins.
 
 But Wait!
 ---------
 
-I lied, there's one more rule. You can never make a move that would cause there to be more than five tiles in a row. For instance, this move is invalid:
+There's one more rule: you can never make a move that would cause there to be a run of more than five tiles in a row. For instance, this move is invalid:
 
 5 3 2 5 5 0
           3
@@ -53,17 +55,21 @@ This drove me just completely nuts. I was like: if you can't make a move on a sp
 8 7 5 3 2
         8
 
-That turned out to be so easy that it was actually kind of unfulfilling. Then I found myself wondering: gee, how would you go about writing an AI that plays the game? Once I was done with that, I hooked things up so that a human can play against the AI, and now [here we are](http://jrheard.com/quinto/).
+That turned out to be so easy that it was actually kind of unfulfilling. Then I found myself wondering: gee, how would you go about writing an AI that plays the game? Once I was done with that, I hooked things up so that a human can play against the AI, and now [I'm done](http://jrheard.com/quinto/). I can't remember the last time I actually _finished_ a side project. It feels pretty good!
 
+Now I'd like to tell you about the tools I used to build this game.
 
-tools
+Tools
 =====
 
-clojure
+Clojure
 -------
 learned clojure in 2011, been using it for side projects since then
 all the data structures are immutable by default, there's a strong culture of functional programming in the language's community, but you can still easily perform side effects whenever you want to
 the language sits on top of java so you get a library ecosystem for free, and the libraries that the clojure community has created a really amazingly good
+
+clojure is a fantastic language for writing programs that transform and filter data[1]
+[1] this is all programs
 
 clojurescript
 -------------
@@ -105,6 +111,10 @@ mainly for selects, didn't use transformations
 mention that writing custom navigators was really really easy (although my code turned out to be hideous for performance reasons)
 thank nathan for the help
 
+color picking
+-------------
+I don't have a good tool for this, and that really bothers me. The colors I picked are awful, but all the other combinations I tried were even worse. What would you have done if you were building this game and had to pick colors for UI elements? Do you have any advice?
+
 techniques
 ==========
 
@@ -138,6 +148,10 @@ if you'd like to get started with clojure, consider XYZ resources (brave and tru
 
 
 TODO refer to https://lambdaisland.com/blog/29-12-2017-the-bare-minimum-clojure-mayonnaise somewhere
+or maybe don't
+
+
+TODO if it turns out to be a good story, talk about how i tracked down the heisenbug by writing a program that played the game's UI
 
 
 
