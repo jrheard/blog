@@ -73,6 +73,11 @@
     background-color: #EE821D;
 }
 
+#grid-1 .cell,
+#grid-2 .cell {
+    background-color: #FFB36C;
+}
+
 .cell.speculative,
 .cell.speculative:hover {
     background-color: #FFB36C;

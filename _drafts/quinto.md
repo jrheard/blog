@@ -5,53 +5,73 @@ title:  "Quinto"
 
 {% stylesheet quinto %}
 
-I played an old board game called Quinto when I was visiting a friend this past Thanksgiving. Afterward, I developed a strange fixation on the game and wrote [a program](http://jrheard.com/quinto/) that lets you play Quinto against a computer opponent. I'm going to show you the game and talk about the tools I used to build it.
+I played an old board game called Quinto when I was visiting a friend this past Thanksgiving. Afterward, I developed a strange fixation on the game and wrote a program that lets you play it against a computer opponent. I'd like to show you this program and talk about the tools I used to build it.
 
-I'll start by teaching you how to play the game - don't worry, there are just like three rules. If you'd like to skip ahead, [here's the game](http://jrheard.com/quinto/) and [here's the box](quinto.jpg).
+I'll start by teaching you how to play the game. Don't worry, there are just like three rules. If you'd like to skip ahead, [here's the game](http://jrheard.com/quinto/) and [here's the box](quinto.jpg).
 
 How It's Played
 ==============
 
-Quinto is basically like Scrabble, except with numbers instead of letters. In Scrabble, your goal is to place several tiles in a row or column, and have them spell a word; you get extra points if your freshly placed tiles contact several pre-existing words. Quinto's the same thing, except that instead of trying to make words, you're trying to make a run of tiles **whose sum is a multiple of five**. For example, this move would earn you 20 points:
+Quinto is basically Scrabble, except with numbers instead of letters. In Scrabble, your goal is to place several tiles in a row or column, and have them spell a word; you get extra points if your freshly placed tiles contact pre-existing words. Quinto's the same thing, except that instead of trying to make words, **you're trying to make a run of tiles whose sum is a multiple of five**. For example, this move would earn you 20 points.
 
 <div class="grid-container small" id="grid-1"></div>
 
-This move is invalid, though, because these tiles sum to 17, which is not a multiple of five.
+This move is *invalid*, though, because these tiles sum to 17, which is not a multiple of five.
 
 <div class="grid-container small" id="grid-2"></div>
 
-TODO explain scoring
+Now that you know how to make a move, let's talk about how scores work. It's easiest to explain that with examples. Let's say it's your turn, and the board currently looks like this:
 
 <div class="grid-container small" id="grid-3"></div>
 
-if you placed the 3 5, you get 10 points
+If you place the 3 and 5 shown below, you'll get 10 points.
 
 <div class="grid-container small" id="grid-4"></div>
 
-if you placed the 5 7, you'd get 10 + 10 + 15 points = 35
+That's because 2 + 3 + 5 = 10.
+
+Now it's your opponent's turn.
+
+If they place the 5 and 7 shown below, they'll get **35** points.
 
 <div class="grid-container small" id="grid-5"></div>
+
+That's because:
+
+* **5** + 5 = 10
+* **7** + 3 = 10
+* **5** + **7** + 3 = 15
+
+And 10 + 10 + 15 = 35.
+
 
 Now you know how to play Quinto! The game ends when you run out of tiles; whoever has the highest score wins.
 
 But Wait!
 ---------
 
-There's one more rule: you can never make a move that would cause there to be a run of more than five tiles in a row. For instance, this move is invalid:
+There's one more rule: you can never make a move that would cause there to be a run of more than five tiles in a row. For instance, this move is invalid!
 
 <div class="grid-container medium" id="grid-6"></div>
 
-Placing that 0 would cause there to be six tiles in an unbroken row, which breaks the rules; so you can't make that move.
+Placing that 0 there would result in there being six tiles in a row, which is illegal. If you try to put that zero there, the police will take you to jail. Or your opponent will just heckle you and you'll have to come up with another move instead.
 
-It turns out that this last rule makes the game really hard to play. When you're deep into a game and there are a ton of tiles on the board, it takes _all_ of my brainpower to try to look at the tiles in my hand, look back at the board, and feverishly check to see if placing these three tiles over _here_ would - no, that's not a multiple of five. Hm, maybe over here! Yes, perfect! Except - oh no, I can't put a tile down on _that_ space, because that would break the no-more-than-five-tiles-in-a-row rule!
+It turns out that this last rule makes the game really hard to play. When I'm deep into a game and there are a ton of tiles on the board, it takes _all_ of my brainpower to try to look at the tiles in my hand, look back at the board, and feverishly check to see if placing these three tiles over _here_ would - no, that's not a multiple of five. Hm, maybe over here! Yes, perfect! Except - oh no, I can't put a tile down on _that_ space, because that would break the no-more-than-five-tiles-in-a-row rule!
 
-This drove me just completely nuts. I was like: if you can't make a move on a space, the board should light that space up in red! But of course the board couldn't do that, because it's just a dumb piece of cardboard. So I decided to write a computer program that would light up invalid cells in red, and playable cells in green, like this:
+This some-cells-are-implicitly-verboten rule drove me just completely nuts. I was like: if you can't make a move on a space, the board should light that space up in red! But of course the board couldn't do that, because it's just a dumb piece of cardboard.
+
+So I decided to write a computer program that would light up invalid cells in red, and playable cells in green.
 
 <div class="grid-container large" id="grid-7"></div>
 
-That turned out to be so easy that it was actually kind of unfulfilling. Then I found myself wondering: gee, how would you go about writing an AI that plays the game? Once I was done with that, I hooked things up so that a human can play against the AI, and now [I'm done](http://jrheard.com/quinto/). I can't remember the last time I actually _finished_ a side project. It feels pretty good!
+While I was at it, I added a few more features that your cardboard copy of Quinto also doesn't have:
 
-Now I'd like to tell you about the tools I used to build this game.
+* An AI opponent that plays against you (and will beat you).
+* Automatic score tracking.
+* If you play an "optimal" move - the highest-scoring move you could have made with the hand you had - your score for that move will be drawn in green to celebrate your achievement.
+* If you mouse over the score for one of your non-optimal moves, the game will show you what the optimal move *would have been*. You can use this information to learn how to get better at the game! The AI will probably still beat you, though.
+
+[Give it a try](http://jrheard.com/quinto/) and then come back so I can tell you about the tools I used to build this game.
 
 Tools
 =====
