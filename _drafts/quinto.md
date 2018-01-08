@@ -1,13 +1,13 @@
 ---
 layout: post
-title:  "Quinto"
+title:  "Quinto: Resurrecting an Abandoned Board Game"
 ---
 
 {% stylesheet quinto %}
 
-I played an old board game called Quinto when I was visiting a friend this past Thanksgiving. Afterward, I developed a strange fixation on the game and wrote a program that lets you play it against a computer opponent. I'd like to show you that program, and also tell you a little bit about the tools I used to build it.
+I played an old board game called Quinto when I was visiting a friend this past Thanksgiving. I developed a strange fixation on the game and wrote a program that lets you play it against a computer opponent. I'd like to show you that program, and also tell you about the tools I used to build it.
 
-I'll start by teaching you how to play the game. Don't worry, there are just like three rules. If you'd like to skip ahead, [here's the game](http://jrheard.com/quinto/) and [here's the box](quinto.jpg).
+I'll start by teaching you how to play the game. Don't worry, there are just like three rules. If you'd like to skip ahead, [here's the game](http://jrheard.com/quinto/) and [here's the box]({% asset_path quinto.jpg %}).
 
 How It's Played
 ==============
@@ -16,11 +16,11 @@ Quinto is basically Scrabble, except with numbers instead of letters. In Scrabbl
 
 <div class="grid-container small" id="grid-1"></div>
 
-This move is *invalid*, though, because these tiles sum to 17, which is not a multiple of five.
+This next move is *invalid*, though, because these tiles sum to 17, which is not a multiple of five.
 
 <div class="grid-container small" id="grid-2"></div>
 
-That's really most of the game. If you're making the first move, your move must begin in the middle of the board; otherwise, your move must begin next to at least one previously placed tile.
+That's really most of the game. If you're making the first move, your move must begin in the middle of the board; otherwise, your move must begin next to a previously placed tile.
 
 Now that you know how to make a move, let's talk about how scores work. It's easiest to explain that with examples. Let's say it's your turn, and the board currently looks like this:
 
@@ -52,16 +52,16 @@ Now you know how to play Quinto! The game ends when you run out of tiles; whoeve
 But Wait!
 ---------
 
-There's one more rule: you can never make a move that would cause there to be a run of more than five tiles in a row. For instance, this move is invalid!
+There's one last rule: you can never make a move that would cause there to be a run of more than five tiles in a row. For instance, this move is invalid!
 
 <div class="grid-container medium" id="grid-6"></div>
 
-Placing that 0 there would result in there being six tiles in a row, which is illegal. If you try to put that zero there, your opponent will heckle you, and you'll have to come up with another move that actually works.
+If you try to put that zero there, your opponent will heckle you, and you'll have to come up with another move instead.
 
 That Rule Is Infuriating
 ------------------------
 
-It turns out that this last rule makes the game really hard to play. When I'm deep into a game and there are a ton of tiles on the board, it takes _all_ of my brainpower to try to look at the tiles in my hand, look back at the board, and feverishly check to see if placing these three tiles over _here_ would - no, that's not a multiple of five. Hm, maybe over here! Yes, perfect! Except — oh no, I can't put a tile down on _that_ space, because that would break the no-more-than-five-tiles-in-a-row rule!
+It turns out that this last rule makes the game really hard to play, because it adds this whole extra category of stuff that you need to keep track of in your head. When I'm deep into a game and there are a ton of tiles on the board, it takes _all_ of my brainpower to look at the tiles in my hand, look back at the board, and feverishly think about whether placing these three tiles over _here_ would—no, that's not a multiple of five. Hm, maybe over here! Yes, perfect! Except—oh no, I can't put a tile down on _that_ space, because that would break the no-more-than-five-tiles-in-a-row rule!
 
 This some-cells-are-implicitly-verboten rule drove me just completely nuts. I was like: if you can't make a move on a space, the board should light that space up in red! But of course the board couldn't do that, because it's just a dumb piece of cardboard.
 
@@ -73,44 +73,40 @@ While I was at it, I added a few more features that your cardboard copy of Quint
 
 * An AI opponent that plays against you (and will beat you).
 * Automatic score tracking.
-* If you play an "optimal" move — the highest-scoring move you could have made with the hand you had — your score for that move will be drawn in green to celebrate your achievement.
-* If you mouse over the score for one of your non-optimal moves, the game will show you what the optimal move *would have been*. You can use this information to learn how to get better at the game! The AI will probably still beat you, though.
+* If you play an "optimal" move—the highest-scoring move you could have made with the hand you had—your score for that move will be drawn in green to celebrate your achievement.
+* If you mouse over the score for one of your past non-optimal moves, the game will show you what the optimal move *would have been*. You can use this information to learn how to get better at the game! The AI will still beat you, though.
 
-[Give it a try](http://jrheard.com/quinto/). Have a good old time, and then come back so I can tell you about the tools I used to build this game.
+[Give it a try](http://jrheard.com/quinto/). You can also read the [source code](https://github.com/jrheard/quinto) if you like. Have a good old time, and then come back so I can tell you about the tools I used to build this game.
 
 Tools
 =====
 
 Clojure
 -------
-learned clojure in 2011, been using it for side projects since then
-all the data structures are immutable by default, there's a strong culture of functional programming in the language's community, but you can still easily perform side effects whenever you want to
-the language sits on top of java so you get a library ecosystem for free, and the libraries that the clojure community has created a really amazingly good
 
-clojure is a fantastic language for writing programs that transform and filter data[1]
-[1] this is all programs
+[Clojure](https://clojure.org/) is my favorite programming language. It's got a strong focus on writing pure functions—all of its built-in data structures are immutable by default!—but you can still easily perform side effects in it when you want to. It sits on top of Java, so in addition to the excellent libraries that the Clojure community has created, you can also use any Java library in your Clojure program.
 
-clojurescript
+The community's great, too - they're very active on [/r/clojure](https://www.reddit.com/r/Clojure/) and the [Clojurians Slack](http://clojurians.net/), and are just generally a really nice, smart, helpful, positive group that I'm proud to be a part of.
+
+Clojure strikes a really nice balance between functional purity and actually getting stuff done. It's a particularly excellent language for writing computer programs that transform and filter data[^1]. You should try it out! I'll include some useful links for beginners at the bottom of this article.
+
+ClojureScript
 -------------
-but i actually wrote my program in clojurescript, which is a version of clojure that compiles to javascript. cljs sounded like a goofy idea to me when i first heard about it, but i've been using it for years now and i completely love it, because in addition to all the benefits you get with clojure, cljs has two additional great things going for it:
 
-* cljs programs are almost always written to be run inside of a web browser, which means that if you already know how to write HTML and CSS, using cljs gives your clojure program a UI for free!
-* because cljs programs can easily be run inside of a web browser, you can just upload your program somewhere and send your friend a link to it, and they can use your program without having to install anything!
+I actually wrote my program in [ClojureScript](https://clojurescript.org/), though. ClojureScript is a dialect of Clojure that compiles to JavaScript. It's been around since 2011, and it's _really_ good.
 
-on top of that, you can also use any javascript library as well as most clj libraries, and again the libraries that the clojurescript community has written are really really good.
+ClojureScript lets you write a Clojure program and then run it in a web browser. This means:
 
-clj/s is truly a sweet spot for writing turn-based games, because you get to focus on happily writing simple pure functions that express the game's business logic, and your UI is just a pure function of your "game state", and clojure's "atom" abstraction makes it easy for you to manage that state confidently.
+* If you know a little HTML and CSS, your Clojure program gets a UI for free.
+* You can share your program with other people by just uploading a .js file (and maybe an `index.html` and a `style.css`) somewhere and giving your friends a link to it.
+
+ClojureScript programs can also use any JavaScript library, as well as the majority of Clojure libraries.
+
+On top of all that, programming in ClojureScript is _fun_, because the community has created a ton of really stellar libraries that make development a pleasure. I'll show you some of my favorites.
 
 reagent
 -------
 would have tried to write this myself if it didn't already exist, saved me a lot of trouble, also is _extremely great_
-
-intellij/cursive
----------------
-i used vim for years to write clojure, but i figured i'd try cursive because a personal license is free, and i loved it, never looked back.
-i use the vim plugin and paredit
-
-repl, comment blocks - maybe a gif about this?
 
 figwheel
 -------
@@ -129,6 +125,13 @@ explain what the tool is and give examples of how i used it
 mainly for selects, didn't use transformations
 mention that writing custom navigators was really really easy (although my code turned out to be hideous for performance reasons)
 thank nathan for the help
+
+intellij/cursive
+---------------
+i used vim for years to write clojure, but i figured i'd try cursive because a personal license is free, and i loved it, never looked back.
+i use the vim plugin and paredit
+
+repl, comment blocks - maybe a gif about this?
 
 color picking
 -------------
@@ -162,6 +165,9 @@ at the end of development i realized that this was running way way more often th
 
 that's it!
 ----------
+
+cljs is truly a sweet spot for writing turn-based games, because you get to focus on happily writing simple pure functions that express the game's business logic, and your UI is just a pure function of your "game state", and clojure's "atom" abstraction makes it easy for you to manage that state confidently.
+
 if you'd like to get started with clojure, consider XYZ resources (brave and true?)
 
 
@@ -171,6 +177,10 @@ or maybe don't
 
 
 TODO if it turns out to be a good story, talk about how i tracked down the heisenbug by writing a program that played the game's UI
+it didn't turn out to be a good story but whatever
+
+TODO see if there's a good place to link to clojurescript for skeptics
+https://www.youtube.com/watch?v=gsffg5xxFQI
 
 
 
@@ -178,7 +188,14 @@ TODO if it turns out to be a good story, talk about how i tracked down the heise
 appendix
 
 quinto origin story
+printed once in 64, once in 68, then never again
+several different versions were printed, each using different board sizes and tile distributions; i picked an arbitrary board size that i liked, and used the tile distribution that went with the version of the game that i played at my friend's house
+
 brunner
+
+[^1]: This is all computer programs.
 
 {% javascript quinto %}
 <script type="text/javascript">quinto.core.main()</script>
+
+
