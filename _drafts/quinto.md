@@ -1,8 +1,9 @@
 ---
 layout: post
 title:  "Quinto"
-klipse: true
 ---
+
+{% stylesheet quinto %}
 
 I played an old board game called Quinto when I was visiting a friend this past Thanksgiving. Afterward, I developed a strange fixation on the game and wrote [a program](http://jrheard.com/quinto/) that lets you play Quinto against a computer opponent. I'm going to show you the game and talk about the tools I used to build it.
 
@@ -13,27 +14,23 @@ How It's Played
 
 Quinto is basically like Scrabble, except with numbers instead of letters. In Scrabble, your goal is to place several tiles in a row or column, and have them spell a word; you get extra points if your freshly placed tiles contact several pre-existing words. Quinto's the same thing, except that instead of trying to make words, you're trying to make a run of tiles **whose sum is a multiple of five**. For example, this move would earn you 20 points:
 
-7 8 5
+<div class="grid-container small" id="grid-1"></div>
 
 This move is invalid, though, because these tiles sum to 17, which is not a multiple of five.
 
-7
-7
-3
+<div class="grid-container small" id="grid-2"></div>
 
 TODO explain scoring
 
-5 3 2
-    3
-	5
+<div class="grid-container small" id="grid-3"></div>
 
 if you placed the 3 5, you get 10 points
 
-5 3 2
-5 7 3
-	5
+<div class="grid-container small" id="grid-4"></div>
 
 if you placed the 5 7, you'd get 10 + 10 + 15 points = 35
+
+<div class="grid-container small" id="grid-5"></div>
 
 Now you know how to play Quinto! The game ends when you run out of tiles; whoever has the highest score wins.
 
@@ -42,9 +39,7 @@ But Wait!
 
 There's one more rule: you can never make a move that would cause there to be a run of more than five tiles in a row. For instance, this move is invalid:
 
-5 3 2 5 5 0
-          3
-		  2
+<div class="grid-container medium" id="grid-6"></div>
 
 Placing that 0 would cause there to be six tiles in an unbroken row, which breaks the rules; so you can't make that move.
 
@@ -52,8 +47,7 @@ It turns out that this last rule makes the game really hard to play. When you're
 
 This drove me just completely nuts. I was like: if you can't make a move on a space, the board should light that space up in red! But of course the board couldn't do that, because it's just a dumb piece of cardboard. So I decided to write a computer program that would light up invalid cells in red, and playable cells in green, like this:
 
-8 7 5 3 2
-        8
+<div class="grid-container large" id="grid-7"></div>
 
 That turned out to be so easy that it was actually kind of unfulfilling. Then I found myself wondering: gee, how would you go about writing an AI that plays the game? Once I was done with that, I hooked things up so that a human can play against the AI, and now [I'm done](http://jrheard.com/quinto/). I can't remember the last time I actually _finished_ a side project. It feels pretty good!
 
@@ -160,3 +154,6 @@ appendix
 
 quinto origin story
 brunner
+
+{% javascript quinto %}
+<script type="text/javascript">quinto.core.main()</script>
