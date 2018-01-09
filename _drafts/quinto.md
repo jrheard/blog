@@ -106,7 +106,7 @@ On top of all that, programming in ClojureScript is _fun_, because the community
 
 Reagent
 -------
-[Reagent](https://reagent-project.github.io/) is an extremely minimal React wrapper for ClojureScript. It's a delight to use. It lets you write code like this:
+[Reagent](https://reagent-project.github.io/) is an extremely minimal React wrapper for ClojureScript. It lets you write code like this:
 
 <script src="https://gist.github.com/jrheard/8c3b19198c36a0efa19be059475e3fa4.js"></script>
 
@@ -114,10 +114,12 @@ Reagent
 
 (Try clicking the square.)
 
-That code may appear foreign if you've never written any Clojure, but the crazy thing about Reagent is that 
+There's not much going on in that code: `cell-class` is an [atom](https://clojure.org/reference/atoms), `@cell-class` is how you read the atom's value, and `reset!` modifies that value. `colorful-cell` is a function that evaluates to a plain old ClojureScript vector. This is all standard stuff.
 
+The remarkable thing about Reagent is that it gives you a _special_ kind of atom, the `r/atom` you see on line 1. When you modify one of those special atoms, Reagent notices and automatically recalculates just the parts of your UI that use that atom. If any of those parts have changed since the last time they were drawn, Reagent redraws just those parts.
 
-would have tried to write this myself if it didn't already exist, saved me a lot of trouble, also is _extremely great_
+I love Reagent. I absolutely adore it.
+ TODO explain
 
 figwheel
 -------
