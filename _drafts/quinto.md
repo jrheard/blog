@@ -97,15 +97,26 @@ I actually wrote my program in [ClojureScript](https://clojurescript.org/), thou
 
 ClojureScript lets you write a Clojure program and then run it in a web browser. This means:
 
-* If you know a little HTML and CSS, your Clojure program gets a UI for free.
-* You can share your program with other people by just uploading a .js file (and maybe an `index.html` and a `style.css`) somewhere and giving your friends a link to it.
+* If you know a little HTML and CSS, your Clojure program now has a GUI.
+* You can share your program with other people by just uploading a .js file (and probably an `index.html` and a `style.css`) somewhere and giving your friends a link to it.
 
 ClojureScript programs can also use any JavaScript library, as well as the majority of Clojure libraries.
 
-On top of all that, programming in ClojureScript is _fun_, because the community has created a ton of really stellar libraries that make development a pleasure. I'll show you some of my favorites.
+On top of all that, programming in ClojureScript is _fun_, because the community has created a ton of really stellar libraries that make development a pleasure. Let's take a look at some of my favorites.
 
-reagent
+Reagent
 -------
+[Reagent](https://reagent-project.github.io/) is an extremely minimal React wrapper for ClojureScript. It's a delight to use. It lets you write code like this:
+
+<script src="https://gist.github.com/jrheard/8c3b19198c36a0efa19be059475e3fa4.js"></script>
+
+<div id="reagent-example"></div>
+
+(Try clicking the square.)
+
+That code may appear foreign if you've never written any Clojure, but the crazy thing about Reagent is that 
+
+
 would have tried to write this myself if it didn't already exist, saved me a lot of trouble, also is _extremely great_
 
 figwheel

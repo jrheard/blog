@@ -4,6 +4,13 @@
 	margin: 20px auto;
 }
 
+#reagent-example {
+	overflow: hidden;
+	display: block;
+	margin: 20px auto;
+	width: 45px;
+}
+
 .grid-container.small {
 	width: 135px;
 }
@@ -71,6 +78,14 @@
 .cell.selected,
 .cell.selected:hover {
     background-color: #EE821D;
+}
+
+.cell.red {
+    background-color: pink;
+}
+
+.cell.green {
+    background-color: #B4FFB4;
 }
 
 #grid-1 .cell,
