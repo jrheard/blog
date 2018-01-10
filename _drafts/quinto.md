@@ -93,7 +93,7 @@ Clojure strikes a nice balance between functional purity and actually getting st
 ClojureScript
 -------------
 
-I actually wrote my program in [ClojureScript](https://clojurescript.org/), though. ClojureScript is a dialect of Clojure that compiles to JavaScript.
+I actually wrote my program in [ClojureScript](https://clojurescript.org/), though. ClojureScript is a dialect of Clojure that compiles to JavaScript[^2].
 
 ClojureScript lets you write a Clojure program and then run it in a web browser. This means:
 
@@ -145,7 +145,7 @@ Once you've done that, you can also annotate your program's functions. For examp
 
 <script src="https://gist.github.com/jrheard/7bd6f27cb49240b50a87a391092d2da3.js"></script>
 
-Annotations like this make it easy for a human reader to figure out the shape of your program's data. These annotations can also be _verified_, using [`instrument` and `check`](https://clojure.org/guides/spec#_instrumentation_and_testing).[^2]
+Annotations like this make it easy for a human reader to figure out the shape of your program's data. These annotations can also be _verified_, using [`instrument` and `check`](https://clojure.org/guides/spec#_instrumentation_and_testing).[^4]
 
 I'm very happy that spec was added to the language. It makes Clojure/Script programs a lot easier to read, understand, and confidently make changes to.
 
@@ -207,23 +207,7 @@ That's It!
 
 ClojureScript is truly a sweet spot for writing turn-based games. You get to focus on happily writing simple pure functions that express the game's business logic, and your UI is just a pure function of your game state, and Clojure's atom abstraction makes it easy for you to manage that state confidently.
 
-I hear that the current best way to learn Clojure is by reading [Clojure for the Brave and True](https://www.braveclojure.com/). I haven't read that book, but it has a good reputation. I _can_ confidently recommend [Clojure Programming](http://shop.oreilly.com/product/0636920013754.do)
-
-if you'd like to get started with clojure, consider XYZ resources (brave and true?)
-
-
-
-TODO refer to https://lambdaisland.com/blog/29-12-2017-the-bare-minimum-clojure-mayonnaise somewhere
-or maybe don't
-
-
-TODO if it turns out to be a good story, talk about how i tracked down the heisenbug by writing a program that played the game's UI
-it didn't turn out to be a good story but whatever
-
-TODO see if there's a good place to link to clojurescript for skeptics
-https://www.youtube.com/watch?v=gsffg5xxFQI
-
-
+I hear that [Clojure for the Brave and True](https://www.braveclojure.com/) is the current best way to learn Clojure. I haven't read that book myself, but it has a good reputation. I _can_ confidently recommend [Clojure Programming](http://shop.oreilly.com/product/0636920013754.do) and [The Joy of Clojure](https://www.manning.com/books/the-joy-of-clojure-second-edition), because those are the books that I read when I learned the language.
 
 
 appendix
@@ -235,8 +219,9 @@ several different versions were printed, each using different board sizes and ti
 brunner
 
 [^1]: This is all computer programs.
-[^2]: The built-in version of `instrument` [does not verify that your `fdef`s' `:ret` type annotations are respected](https://www.reddit.com/r/Clojure/comments/7g4fl0/are_return_types_a_black_eye_for_clojure/dqglxv5/?context=3). [Orchestra](https://github.com/jeaye/orchestra) has a drop-in replacement for `instrument` that solves this problem nicely.
-[^3]: Later on, when I was tracking down a few performance issues, I realized that one of these asserts was getting run in the bottom of a hot loop; moving the assert somewhere less sensitive fixed my performance problem. [Classic](https://thedailywtf.com/articles/The-Speedup-Loop).
+[^2]: When I first heard about ClojureScript, it sounded like a wacky idea. I am delighted to have been proven so completely wrong. If you also think that ClojureScript is a wacky idea, you might enjoy [this talk](https://www.youtube.com/watch?v=gsffg5xxFQI).
+[^3]: The built-in version of `instrument` [does not verify that your `fdef`s' `:ret` type annotations are respected](https://www.reddit.com/r/Clojure/comments/7g4fl0/are_return_types_a_black_eye_for_clojure/dqglxv5/?context=3). [Orchestra](https://github.com/jeaye/orchestra) has a drop-in replacement for `instrument` that solves this problem nicely.
+[^4]: Later on, when I was tracking down a few performance issues, I realized that one of these asserts was getting run in the bottom of a hot loop; moving the assert somewhere less sensitive fixed my performance problem. [Classic](https://thedailywtf.com/articles/The-Speedup-Loop).
 
 {% javascript quinto %}
 <script type="text/javascript">quinto.core.main()</script>
