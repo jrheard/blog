@@ -145,7 +145,7 @@ Once you've done that, you can also annotate your program's functions. For examp
 
 <script src="https://gist.github.com/jrheard/7bd6f27cb49240b50a87a391092d2da3.js"></script>
 
-Annotations like this make it easy for a human reader to figure out the shape of your program's data. These annotations can also be _verified_, using [`instrument` and `check`](https://clojure.org/guides/spec#_instrumentation_and_testing).[^4]
+Annotations like this make it easy for a human reader to figure out the shape of your program's data. These annotations can also be _verified_, using [`instrument` and `check`](https://clojure.org/guides/spec#_instrumentation_and_testing).[^3]
 
 I'm very happy that spec was added to the language. It makes Clojure/Script programs a lot easier to read, understand, and confidently make changes to.
 
@@ -198,16 +198,16 @@ In [Coders At Work](http://www.codersatwork.com/), an interviewee (can't remembe
 
 My Quinto grid is just a 2D vector of integers-or-`nil`s, which is not particularly novel. It does have a bunch of invariants that need to be maintained, though: you can never have more than five non-`nil` cells in a row; all contiguous runs of cells have to sum to a multiple of five; etc.
 
-Early on in development, I wrote [a function that verifies these invariants](https://github.com/jrheard/quinto/blob/daed3c3a426f00a5f9c9176b087dedfb8765bff7/src/quinto/grid.cljs#L208), and sprinkled a few asserts in various places in my program[^3]. These asserts failed immediately whenever I introduced a bug into the program, and so I was able to immediately fix the bug instead of finding it hours or days later.
+Early on in development, I wrote [a function that verifies these invariants](https://github.com/jrheard/quinto/blob/daed3c3a426f00a5f9c9176b087dedfb8765bff7/src/quinto/grid.cljs#L208), and sprinkled a few asserts in various places in my program[^4]. These asserts failed immediately whenever I introduced a bug into the program, and so I was able to immediately fix the bug instead of finding it hours or days later.
 
 Unit tests would have surfaced these bugs too, but this program is small and I didn't feel like writing unit tests for it.
 
 That's It!
 ----------
 
-ClojureScript is truly a sweet spot for writing turn-based games. You get to focus on happily writing simple pure functions that express the game's business logic, and your UI is just a pure function of your game state, and Clojure's atom abstraction makes it easy for you to manage that state confidently.
+ClojureScript is truly a sweet spot for writing turn-based games. You happily write pure functions that express the game's business logic; your UI is just a pure function of your game state; and Clojure's atom abstraction makes it easy for you to manage that state confidently.
 
-I hear that [Clojure for the Brave and True](https://www.braveclojure.com/) is the current best way to learn Clojure. I haven't read that book myself, but it has a good reputation. I _can_ confidently recommend [Clojure Programming](http://shop.oreilly.com/product/0636920013754.do) and [The Joy of Clojure](https://www.manning.com/books/the-joy-of-clojure-second-edition), because those are the books that I read when I learned the language.
+If you're interested in learning Clojure, I hear that [Clojure for the Brave and True](https://www.braveclojure.com/) is the current best way to do that. I haven't read that book myself, but it has a good reputation. I _can_ confidently recommend [Clojure Programming](http://shop.oreilly.com/product/0636920013754.do) and [The Joy of Clojure](https://www.manning.com/books/the-joy-of-clojure-second-edition), because those are the books that I read when I learned the language.
 
 
 appendix
