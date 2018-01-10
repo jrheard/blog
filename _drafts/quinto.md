@@ -84,11 +84,11 @@ Tools
 Clojure
 -------
 
-[Clojure](https://clojure.org/) is my favorite programming language. It's got a strong focus on writing pure functions—all of its built-in data structures are immutable!—but you can still easily perform side effects in it when you want to. It sits on top of Java, so in addition to the excellent libraries that the Clojure community has created, you can also use any Java library in your Clojure program.
+[Clojure](https://clojure.org/) is my favorite programming language. It's got a strong focus on writing pure functions—all of its built-in data structures are immutable!—but you can still easily perform side effects when you want to. It sits on top of Java, so in addition to the excellent libraries that the Clojure community has created, you can also use any Java library in your Clojure program.
 
 The community's great, too—they're very active on [/r/clojure](https://www.reddit.com/r/Clojure/) and the [Clojurians Slack](http://clojurians.net/), and are just generally a nice, smart, helpful, positive group that I'm proud to be a part of.
 
-Clojure strikes a nice balance between functional purity and actually getting stuff done. It's a particularly excellent language for writing computer programs that transform and filter data[^1]. You should try it out! I'll include some useful links for beginners at the bottom of this article.
+Clojure strikes a nice balance between functional purity and actually getting stuff done. It's a particularly excellent language for writing computer programs that transform and filter data[^1]. You should try it out! I'll include some useful links for beginners at the end of this article.
 
 ClojureScript
 -------------
@@ -122,7 +122,7 @@ In Quinto, I keep the game's entire state in a [single atom](https://github.com/
 
 You just write a bunch of pure functions and Reagent handles the rest. Reagent is fantastic. I adore it.
 
-If you'd like to learn more about Reagent, I recommend [Timothy Pratley's excellent series of articles](http://timothypratley.blogspot.com/2017/01/reagent-deep-dive-part-1.html).
+If you'd like to learn more about Reagent, I recommend [Timothy Pratley's excellent articles](http://timothypratley.blogspot.com/2017/01/reagent-deep-dive-part-1.html) on the library.
 
 Figwheel
 -------
@@ -149,7 +149,7 @@ Once you've done that, you can also annotate your program's functions. For examp
 
 Annotations like this make it easy for a human reader to figure out the shape of your program's data. These annotations can also be **verified** using [`instrument` and `check`](https://clojure.org/guides/spec#_instrumentation_and_testing).[^3]
 
-I'm very happy that spec was added to the language. It makes Clojure/Script programs a lot easier to read, understand, and confidently modify.
+I'm very happy that spec was added to the language. It makes Clojure/Script programs a lot easier to write, read, understand, and confidently modify.
 
 Specter
 -------
@@ -196,7 +196,7 @@ This habit has been immensely valuable for me. I'm still figuring out the specif
 Grid Validation Function
 -----------------
 
-In [Coders At Work](http://www.codersatwork.com/), an interviewee (can't remember which) has this piece of (paraphrased) advice: when you're working with a novel data structure, you should create a function that inspects the data structure and indicates whether or not it's valid, and then call that validation function all over the place.
+In [Coders At Work](http://www.codersatwork.com/), an interviewee (can't remember which) has this piece of (paraphrased) advice: when you're working with a novel data structure, you should create a function that inspects the data structure and checks to see if it's "valid", and then you should call that validation function all over the place.
 
 My Quinto grid is just a 2D vector of integers-or-`nil`s, which is not particularly novel. It does have a bunch of invariants that need to be maintained, though: you can never have more than five non-`nil` cells in a row; all contiguous runs of cells have to sum to a multiple of five; etc.
 
@@ -208,6 +208,8 @@ That's It!
 ----------
 
 ClojureScript with Reagent is truly a sweet spot for writing turn-based games. You happily write pure functions that express the game's business logic; your UI is just a pure function of your game state; and Clojure's atom abstraction makes it easy for you to manage that state confidently.
+
+I love these tools and hope you'll consider trying them out yourself.
 
 If you're interested in learning Clojure, I hear that [Clojure for the Brave and True](https://www.braveclojure.com/) is the current best way to do that. I haven't read that book myself, but it has a good reputation. I _can_ confidently recommend [Clojure Programming](http://shop.oreilly.com/product/0636920013754.do) and [The Joy of Clojure](https://www.manning.com/books/the-joy-of-clojure-second-edition), because those are the books that I read when I learned the language.
 
