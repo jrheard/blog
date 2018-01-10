@@ -76,7 +76,7 @@ While I was at it, I added a few more features that your cardboard copy of Quint
 * If you play an "optimal" move—the highest-scoring move you could have made with the hand you had—your score for that move will be drawn in green to celebrate your achievement.
 * If you mouse over the score for one of your past non-optimal moves, the game will show you what the optimal move *would have been*. You can use this information to learn how to get better at the game! The AI will still beat you, though.
 
-[Give it a try](http://jrheard.com/quinto/). You can also read the [source code](https://github.com/jrheard/quinto) if you like. Have a good old time, and then come back so I can tell you about the tools I used to build this game.
+[Give it a try](http://jrheard.com/quinto/). You can also read the [source code](https://github.com/jrheard/quinto/tree/master/src/quinto) if you like. Have a good old time, and then come back so I can tell you about the tools I used to build this game.
 
 Tools
 =====
@@ -86,23 +86,23 @@ Clojure
 
 [Clojure](https://clojure.org/) is my favorite programming language. It's got a strong focus on writing pure functions—all of its built-in data structures are immutable by default!—but you can still easily perform side effects in it when you want to. It sits on top of Java, so in addition to the excellent libraries that the Clojure community has created, you can also use any Java library in your Clojure program.
 
-The community's great, too - they're very active on [/r/clojure](https://www.reddit.com/r/Clojure/) and the [Clojurians Slack](http://clojurians.net/), and are just generally a really nice, smart, helpful, positive group that I'm proud to be a part of.
+The community's great, too—they're very active on [/r/clojure](https://www.reddit.com/r/Clojure/) and the [Clojurians Slack](http://clojurians.net/), and are just generally a really nice, smart, helpful, positive group that I'm proud to be a part of.
 
 Clojure strikes a really nice balance between functional purity and actually getting stuff done. It's a particularly excellent language for writing computer programs that transform and filter data[^1]. You should try it out! I'll include some useful links for beginners at the bottom of this article.
 
 ClojureScript
 -------------
 
-I actually wrote my program in [ClojureScript](https://clojurescript.org/), though. ClojureScript is a dialect of Clojure that compiles to JavaScript. It's been around since 2011, and it's _really_ good.
+I actually wrote my program in [ClojureScript](https://clojurescript.org/), though. ClojureScript is a dialect of Clojure that compiles to JavaScript.
 
 ClojureScript lets you write a Clojure program and then run it in a web browser. This means:
 
 * If you know a little HTML and CSS, your Clojure program now has a GUI.
 * You can share your program with other people by just uploading a .js file (and probably an `index.html` and a `style.css`) somewhere and giving your friends a link to it.
 
-ClojureScript programs can also use any JavaScript library, as well as the majority of Clojure libraries.
+ClojureScript programs can also use any JavaScript library, as well as the majority of Clojure libraries. ClojureScript programs aren't just limited to the browser—they can run _anywhere_ that JavaScript programs can run.
 
-On top of all that, programming in ClojureScript is _fun_, because the community has created a ton of really stellar libraries that make development a pleasure. Let's take a look at some of my favorites.
+On top of all that, programming in ClojureScript is **fun**, because the community has created a ton of really stellar libraries that make development a pleasure. Let's take a look at some of my favorites.
 
 Reagent
 -------
@@ -116,19 +116,33 @@ Reagent
 
 There's not much going on in that code: `cell-class` is an [atom](https://clojure.org/reference/atoms), `@cell-class` is how you read the atom's value, and `reset!` modifies that value. `colorful-cell` is a function that evaluates to a plain old ClojureScript vector. This is all standard stuff.
 
-The remarkable thing about Reagent is that it gives you a _special_ kind of atom, the `r/atom` you see on line 1. When you modify one of those special atoms, Reagent notices and automatically recalculates just the parts of your UI that use that atom. If any of those parts have changed since the last time they were drawn, Reagent redraws just those parts.
+The remarkable thing about Reagent is that it gives you a _special_ kind of atom, the `r/atom` you see on line 1. When you modify one of those special atoms, Reagent notices, and automatically recalculates just the parts of your UI that use that atom. If any of those parts have changed since the last time they were drawn, Reagent redraws just those parts.
 
-I love Reagent. I absolutely adore it.
- TODO explain
+In Quinto, I keep the game's entire state in a [single atom](https://github.com/jrheard/quinto/blob/19c14f3b46fc43632d5b73e20c6c658d26a27b7b/src/quinto/core.cljs#L7), and the UI is just a bunch of [Reagent components](https://github.com/jrheard/quinto/blob/fc81ff5c1f381dbfe7bd0658d73594c0c5a0449b/src/quinto/html.cljs#L199) that take the game state as input and return HTML (represented by regular ClojureScript vectors) as output. Whenever the game's state [changes](https://github.com/jrheard/quinto/blob/19c14f3b46fc43632d5b73e20c6c658d26a27b7b/src/quinto/input.cljs#L16) due to user input, the UI automatically redraws only the parts that need to be redrawn.
 
-figwheel
+You just write a bunch of pure functions and Reagent does the rest. Reagent is fantastic. I adore it.
+
+Figwheel
 -------
-somehow express haumann's thing about how usually you have to make a change to your code, then restart your program and navigate it back to the same state that you were looking at before you made your change, and how figwheel solves that problem
 
-and also just feels extremely extremely good to use
+[Figwheel](https://github.com/bhauman/lein-figwheel) is a lifechanging tool. It's best explained by its author in [this great talk](https://www.youtube.com/watch?v=j-kj2qwJa_E), but here's the short version.
 
-spec
+Frontend JavaScript development usually looks like this: you've got your editor up in one window and your app up in another window; you make a change to your JS; and then you manually reload the browser window and navigate the app—by hand—back to the state it was in before you made your change, so that you can see whether or not the code you just changed does the thing you wanted it to do.
+
+If you're working on a game and you're trying to change something that happens halfway through a level, then you have to navigate the hero back to that halfway point, and—oh no, that behavior still isn't right! Better change the JS again and reload the page.
+
+Figwheel makes it so that you don't have to do that any more. When you've got Figwheel running, the changes you make to your code show up _immediately_ in the browser, and your application's state isn't dropped on the ground.
+
+Here's what that looks like. I'm working in my editor off-camera, adding code that attaches a random nonsense CSS class to each cell on the grid. Whenever I save the file I'm working in, Figwheel instantly reloads the code runnning in my browser, leaving my game's state intact.
+
+<img src="https://thumbs.gfycat.com/ImperturbableScientificImperialeagle-size_restricted.gif" />
+
+Spec
 ----
+[Spec](https://clojure.org/guides/spec) is an indispensable tool added in recent versions of Clojure/Script. It lets you formally define what your data looks like:
+
+<script src="https://gist.github.com/jrheard/637d5815786edb8aa44100c018470eb3.js"></script>
+
 spec rules, is an incredibly great addition to the language; before spec people used a great community library called schema, but having an official way to do this is a fantastic thing for the language
 :rets aren't checked by instrumentation, orchestra solves this
 
@@ -212,3 +226,4 @@ brunner
 <script type="text/javascript">quinto.core.main()</script>
 
 
+TODO link to http://timothypratley.blogspot.com/2017/01/reagent-deep-dive-part-1.html ?
