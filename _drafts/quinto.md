@@ -84,7 +84,7 @@ Tools
 Clojure
 -------
 
-[Clojure](https://clojure.org/) is my favorite programming language. It's got a strong focus on writing pure functions—all of its built-in data structures are immutable by default!—but you can still easily perform side effects in it when you want to. It sits on top of Java, so in addition to the excellent libraries that the Clojure community has created, you can also use any Java library in your Clojure program.
+[Clojure](https://clojure.org/) is my favorite programming language. It's got a strong focus on writing pure functions—all of its built-in data structures are immutable!—but you can still easily perform side effects in it when you want to. It sits on top of Java, so in addition to the excellent libraries that the Clojure community has created, you can also use any Java library in your Clojure program.
 
 The community's great, too—they're very active on [/r/clojure](https://www.reddit.com/r/Clojure/) and the [Clojurians Slack](http://clojurians.net/), and are just generally a nice, smart, helpful, positive group that I'm proud to be a part of.
 
@@ -100,7 +100,7 @@ ClojureScript lets you write a Clojure program and then run it in a web browser.
 * If you know a little HTML and CSS, your Clojure program now has a GUI.
 * You can share your program with other people by just uploading a .js file (and probably an `index.html` and a `style.css`) somewhere and giving your friends a link to it.
 
-ClojureScript programs can also use any JavaScript library, as well as the majority of Clojure libraries. ClojureScript programs aren't just limited to the browser—they can run _anywhere_ JavaScript programs can run.
+ClojureScript programs can use any JavaScript library, as well as the majority of Clojure libraries. ClojureScript programs aren't just limited to the browser—they can run _anywhere_ JavaScript programs can run.
 
 On top of all that, programming in ClojureScript is **fun**, because the community has created a ton of really stellar libraries that make development a pleasure. Let's take a look at some of my favorites.
 
@@ -116,11 +116,13 @@ Reagent
 
 There's not much going on in that code: `cell-class` is an [atom](https://clojure.org/reference/atoms), `@cell-class` is how you read the atom's value, and `reset!` modifies that value. `colorful-cell` is a function that evaluates to a plain old ClojureScript vector. This is all standard stuff.
 
-The remarkable thing about Reagent is that it gives you a _special_ kind of atom, the `r/atom` you see on line 1. When you modify one of those special atoms, Reagent notices, and automatically recalculates just the parts of your UI that use that atom. If any of those parts have changed since the last time they were drawn, Reagent redraws just those parts.
+The remarkable thing about Reagent is that it gives you a _special_ kind of atom, the `r/atom` you see on line 1. When your code modifies one of those special atoms, Reagent notices, and automatically recalculates just the parts of your UI that use that atom. If any of those parts have changed since the last time they were drawn, Reagent redraws just those parts.
 
 In Quinto, I keep the game's entire state in a [single atom](https://github.com/jrheard/quinto/blob/19c14f3b46fc43632d5b73e20c6c658d26a27b7b/src/quinto/core.cljs#L7), and the UI is just a bunch of [Reagent components](https://github.com/jrheard/quinto/blob/fc81ff5c1f381dbfe7bd0658d73594c0c5a0449b/src/quinto/html.cljs#L199) that take the game state as input and return HTML (represented by regular ClojureScript vectors) as output. Whenever the game's state [changes](https://github.com/jrheard/quinto/blob/19c14f3b46fc43632d5b73e20c6c658d26a27b7b/src/quinto/input.cljs#L16) due to user input, the UI automatically redraws only the parts that need to be redrawn.
 
 You just write a bunch of pure functions and Reagent handles the rest. Reagent is fantastic. I adore it.
+
+If you'd like to learn more about Reagent, I recommend [Timothy Pratley's excellent series of articles](http://timothypratley.blogspot.com/2017/01/reagent-deep-dive-part-1.html).
 
 Figwheel
 -------
@@ -129,7 +131,7 @@ Figwheel
 
 Frontend JavaScript development usually looks like this: you've got your editor up on one screen and your app up in another; you make a change to your JS; and then you manually reload the browser window and navigate the app—by hand—back to the state it was in before you made your change, so that you can see whether or not the code you just changed does the thing you wanted it to do.
 
-Figwheel makes it so that you don't have to do that any more. When you've got Figwheel running, the changes you make to your code show up _immediately_ in the browser, and your application's state isn't dropped on the ground.
+Figwheel makes it so that you don't have to do that any more. When you've got Figwheel running, the changes you make to your code show up _immediately_ in the browser, and your application's state isn't dropped on the ground in the process.
 
 Here's what that looks like. I'm working in my editor off-camera, adding code that attaches a random nonsense CSS class to each cell on the grid. Whenever I save the file I'm working in, Figwheel instantly updates my running game's behavior without clobbering its state.
 
@@ -145,9 +147,9 @@ Once you've done that, you can also annotate your program's functions. For examp
 
 <script src="https://gist.github.com/jrheard/7bd6f27cb49240b50a87a391092d2da3.js"></script>
 
-Annotations like this make it easy for a human reader to figure out the shape of your program's data. These annotations can also be _verified_, using [`instrument` and `check`](https://clojure.org/guides/spec#_instrumentation_and_testing).[^3]
+Annotations like this make it easy for a human reader to figure out the shape of your program's data. These annotations can also be **verified** using [`instrument` and `check`](https://clojure.org/guides/spec#_instrumentation_and_testing).[^3]
 
-I'm very happy that spec was added to the language. It makes Clojure/Script programs a lot easier to read, understand, and confidently make changes to.
+I'm very happy that spec was added to the language. It makes Clojure/Script programs a lot easier to read, understand, and confidently modify.
 
 Specter
 -------
@@ -189,7 +191,7 @@ This serves several purposes:
 * If I can't remember why I made a particular decision, I can just search for it in the text file to see what other options I considered.
 * If it's been a little while since the last time I worked on the project and I don't remember what I was working on, I can just look at most recent entry in my dev diary and I'm off to the races.
 
-This habit has been immensely valuable for me. I'm still figuring out the specifics—this system breaks down if I'm working on several projects at once, or on projects where I'm not the sole contributor—but those are solvable problems, and when I solve them I'll do a brief writeup about my finalized workflow.
+This habit has been immensely valuable for me. I'm still figuring out the specifics—this system breaks down if I'm working on several projects at once, or on projects where I'm not the sole contributor—but those are solvable problems, and when I do solve them I'll do a brief writeup about my finalized workflow.
 
 Grid Validation Function
 -----------------
@@ -200,31 +202,51 @@ My Quinto grid is just a 2D vector of integers-or-`nil`s, which is not particula
 
 Early on in development, I wrote [a function that verifies these invariants](https://github.com/jrheard/quinto/blob/daed3c3a426f00a5f9c9176b087dedfb8765bff7/src/quinto/grid.cljs#L208), and sprinkled a few asserts in various places in my program[^4]. These asserts failed immediately whenever I introduced a bug into the program, and so I was able to immediately fix the bug instead of finding it hours or days later.
 
-Unit tests would have surfaced these bugs too, but this program is small and I didn't feel like writing unit tests for it.
+(Unit tests would have surfaced these bugs too.)
 
 That's It!
 ----------
 
-ClojureScript is truly a sweet spot for writing turn-based games. You happily write pure functions that express the game's business logic; your UI is just a pure function of your game state; and Clojure's atom abstraction makes it easy for you to manage that state confidently.
+ClojureScript with Reagent is truly a sweet spot for writing turn-based games. You happily write pure functions that express the game's business logic; your UI is just a pure function of your game state; and Clojure's atom abstraction makes it easy for you to manage that state confidently.
 
 If you're interested in learning Clojure, I hear that [Clojure for the Brave and True](https://www.braveclojure.com/) is the current best way to do that. I haven't read that book myself, but it has a good reputation. I _can_ confidently recommend [Clojure Programming](http://shop.oreilly.com/product/0636920013754.do) and [The Joy of Clojure](https://www.manning.com/books/the-joy-of-clojure-second-edition), because those are the books that I read when I learned the language.
 
 
-appendix
+<h1 id="appendix-a" class="appendix">Appendix A: Quinto Origin Story</h1>
 
-quinto origin story
-printed once in 64, once in 68, then never again
-several different versions were printed, each using different board sizes and tile distributions; i picked an arbitrary board size that i liked, and used the tile distribution that went with the version of the game that i played at my friend's house
+From what I can piece together from [BoardGameGeek](https://boardgamegeek.com/boardgame/2366/quinto), Quinto was printed once in 1964, once in 1968, and then never again. My friend's copy was a purchase from Goodwill.
 
-brunner
+Several different versions of Quinto were printed, each using different board sizes and tile distributions. For my program, I picked an arbitrary board size I liked, but I used the same [tile distribution](https://github.com/jrheard/quinto/blob/2913a907344d2c016793785badf276c3c86dc04f/src/quinto/deck.cljs#L7) from the particular version I'd played at my friend's house.
+
+To be honest, I think Quinto died out because it's not a very good game. It was fun to program, though!
+
+Appendix B: Quintus Origin Story
+================================
+
+The Quinto box looks like this:
+
+{% img quinto_box.jpg width:286 height:400 %}
+
+Those Roman(?) dudes, combined with the name Quinto, reminded me of Latin class.
+
+I took Latin in middle school because my mom heard it would help my SAT scores. My teacher, Mr. Brunner, assigned me the "Latin name" Quintus. I remember liking Mr. Brunner, so when Quinto's name reminded me of his class, I googled his name to see how things ended up going for him. He seems to be doing well, but that's not what I'm writing about here.
+
+In middle school English, I had a teacher named Rick Riordan. I loved his class. I don't remember what English-related material we covered, but I do have fond memories of learning all about Norse mythology and Japanese geography in that class, for reasons which elude me. Anyway, some years later, Rick struck it big: his book [Percy Jackson and the Lightning Thief](https://en.wikipedia.org/wiki/The_Lightning_Thief) was a huge hit and ended up being made into a movie. I heard about this at some point in college and was happy for Mr. Riordan, but never ended up reading the book or seeing the movie.
+
+And so imagine my surprise when I googled Mr. Brunner and learned that he was a character in the book. He's Percy's Latin teacher. Pierce Brosnan plays him in the movie.
+
+{% img brunner_normal.png width:700 height:298 %}
+
+Except it turns out that Mr. Brunner is actually a centaur in disguise named Chiron.
+
+{% img brunner_centaur.jpg width:467 height:300 %}
+
+So that's what I think about when I think about Quinto.
 
 [^1]: This is all computer programs.
-[^2]: When I first heard about ClojureScript, it sounded like a wacky idea. I am delighted to have been proven so completely wrong. If you also think that ClojureScript is a wacky idea, you might enjoy [this talk](https://www.youtube.com/watch?v=gsffg5xxFQI).
+[^2]: When I first heard about ClojureScript, I thought it sounded like a wacky idea. I am delighted to have been proven so completely wrong. If you also think that ClojureScript is a wacky idea, you might enjoy [this talk](https://www.youtube.com/watch?v=gsffg5xxFQI).
 [^3]: The built-in version of `instrument` [does not verify that your `fdef`s' `:ret` type annotations are respected](https://www.reddit.com/r/Clojure/comments/7g4fl0/are_return_types_a_black_eye_for_clojure/dqglxv5/?context=3). [Orchestra](https://github.com/jeaye/orchestra) has a drop-in replacement for `instrument` that solves this problem nicely.
 [^4]: Later on, when I was tracking down a few performance issues, I realized that one of these asserts was getting run in the bottom of a hot loop; moving the assert somewhere less sensitive fixed my performance problem. [Classic](https://thedailywtf.com/articles/The-Speedup-Loop).
 
 {% javascript quinto %}
 <script type="text/javascript">quinto.core.main()</script>
-
-
-TODO link to http://timothypratley.blogspot.com/2017/01/reagent-deep-dive-part-1.html ?
