@@ -229,9 +229,9 @@ The Quinto box looks like this:
 
 {% img quinto_box.jpg width:286 height:400 %}
 
-Those Roman(?) dudes, combined with the name Quinto, reminded me of Latin class.
+Those Roman(?) dudes, combined with the name Quinto, reminded me of Latin class. I took Latin in middle school because my mom heard it would help my SAT scores. My teacher, Mr. Brunner, assigned me the "Latin name" Quintus.
 
-I took Latin in middle school because my mom heard it would help my SAT scores. My teacher, Mr. Brunner, assigned me the "Latin name" Quintus. I remember liking Mr. Brunner, so when Quinto's name reminded me of his class, I googled his name to see how things ended up going for him. He seems to be doing well, but that's not what I'm writing about here.
+I remember liking Mr. Brunner, so when Quinto's name reminded me of his class, I googled his name to see how things ended up going for him. He seems to be doing well, but that's not what I'm writing about here.
 
 In middle school English, I had a teacher named Rick Riordan. I loved his class. I don't remember what English-related material we covered, but I do have fond memories of learning all about Norse mythology and Japanese geography in that class, for reasons which elude me. Anyway, some years later, Rick struck it big: his book [Percy Jackson and the Lightning Thief](https://en.wikipedia.org/wiki/The_Lightning_Thief) was a huge hit and ended up being made into a movie. I heard about this at some point in college and was happy for Mr. Riordan, but never ended up reading the book or seeing the movie.
 
