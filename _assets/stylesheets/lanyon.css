@@ -554,3 +554,8 @@ img {
 	display: block;
 	margin: 0 auto;
 }
+
+.youtube-embed {
+	margin: 30px auto;
+	display: block;
+}

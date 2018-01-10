@@ -100,13 +100,13 @@ ClojureScript lets you write a Clojure program and then run it in a web browser.
 * If you know a little HTML and CSS, your Clojure program now has a GUI.
 * You can share your program with other people by just uploading a .js file (and probably an `index.html` and a `style.css`) somewhere and giving your friends a link to it.
 
-ClojureScript programs can also use any JavaScript library, as well as the majority of Clojure libraries. ClojureScript programs aren't just limited to the browser—they can run _anywhere_ that JavaScript programs can run.
+ClojureScript programs can also use any JavaScript library, as well as the majority of Clojure libraries. ClojureScript programs aren't just limited to the browser—they can run _anywhere_ JavaScript programs can run.
 
 On top of all that, programming in ClojureScript is **fun**, because the community has created a ton of really stellar libraries that make development a pleasure. Let's take a look at some of my favorites.
 
 Reagent
 -------
-[Reagent](https://reagent-project.github.io/) is an extremely minimal React wrapper for ClojureScript. It lets you write code like this:
+[Reagent](https://reagent-project.github.io/) is a React library for ClojureScript with a beautifully minimal interface. It lets you write code like this:
 
 <script src="https://gist.github.com/jrheard/8c3b19198c36a0efa19be059475e3fa4.js"></script>
 
@@ -120,7 +120,7 @@ The remarkable thing about Reagent is that it gives you a _special_ kind of atom
 
 In Quinto, I keep the game's entire state in a [single atom](https://github.com/jrheard/quinto/blob/19c14f3b46fc43632d5b73e20c6c658d26a27b7b/src/quinto/core.cljs#L7), and the UI is just a bunch of [Reagent components](https://github.com/jrheard/quinto/blob/fc81ff5c1f381dbfe7bd0658d73594c0c5a0449b/src/quinto/html.cljs#L199) that take the game state as input and return HTML (represented by regular ClojureScript vectors) as output. Whenever the game's state [changes](https://github.com/jrheard/quinto/blob/19c14f3b46fc43632d5b73e20c6c658d26a27b7b/src/quinto/input.cljs#L16) due to user input, the UI automatically redraws only the parts that need to be redrawn.
 
-You just write a bunch of pure functions and Reagent does the rest. Reagent is fantastic. I adore it.
+You just write a bunch of pure functions and Reagent handles the rest. Reagent is fantastic. I adore it.
 
 Figwheel
 -------
@@ -133,48 +133,65 @@ If you're working on a game and you're trying to change something that happens h
 
 Figwheel makes it so that you don't have to do that any more. When you've got Figwheel running, the changes you make to your code show up _immediately_ in the browser, and your application's state isn't dropped on the ground.
 
-Here's what that looks like. I'm working in my editor off-camera, adding code that attaches a random nonsense CSS class to each cell on the grid. Whenever I save the file I'm working in, Figwheel instantly reloads the code runnning in my browser, leaving my game's state intact.
+Here's what that looks like. I'm working in my editor off-camera, adding code that attaches a random nonsense CSS class to each cell on the grid. Whenever I save the file I'm working in, Figwheel instantly updates my running game's behavior without clobbering its state.
 
 <img src="https://thumbs.gfycat.com/ImperturbableScientificImperialeagle-size_restricted.gif" />
 
 Spec
 ----
-[Spec](https://clojure.org/guides/spec) is an indispensable tool added in recent versions of Clojure/Script. It lets you formally define what your data looks like:
+[Spec](https://clojure.org/guides/spec) is an indispensable tool added in recent versions of Clojure/Script. It lets you formally specify what your program's data looks like.
 
 <script src="https://gist.github.com/jrheard/637d5815786edb8aa44100c018470eb3.js"></script>
 
-spec rules, is an incredibly great addition to the language; before spec people used a great community library called schema, but having an official way to do this is a fantastic thing for the language
-:rets aren't checked by instrumentation, orchestra solves this
+Once you've done that, you can also annotate your program's functions. For example, `draw-tiles` is a function that removes `num-tiles` tiles from a `deck` and adds them to a player's `hand`.
 
-specter
+<script src="https://gist.github.com/jrheard/7bd6f27cb49240b50a87a391092d2da3.js"></script>
+
+Annotations like this make it easy for a human reader to figure out the shape of your program's data. These annotations can also be _verified_, using [`instrument` and `check`](https://clojure.org/guides/spec#_instrumentation_and_testing).[^2]
+
+I'm very happy that spec was added to the language. It makes Clojure/Script programs a lot easier to read, understand, and confidently make changes to.
+
+Specter
 -------
-explain what the tool is and give examples of how i used it
-mainly for selects, didn't use transformations
-mention that writing custom navigators was really really easy (although my code turned out to be hideous for performance reasons)
-thank nathan for the help
 
-intellij/cursive
+[Specter](https://github.com/nathanmarz/specter) is a library that allows you to elegantly and performantly manipulate Clojure data. [This screencast](https://www.youtube.com/watch?v=rh5J4vacG98) was extremely useful when I was first trying to wrap my head around it.
+
+This was my first time using Specter, and I really enjoyed it. I'll be using it often in the future.
+
+IntelliJ and Cursive
 ---------------
-i used vim for years to write clojure, but i figured i'd try cursive because a personal license is free, and i loved it, never looked back.
-i use the vim plugin and paredit
 
-repl, comment blocks - maybe a gif about this?
+[IntelliJ](https://www.jetbrains.com/idea/) is a IDE by JetBrains. [Cursive](https://cursive-ide.com/) is a plugin written by a community member that makes IntelliJ into a glorious environment for writing Clojure/Script programs. If you're using Cursive for "non-commercial use, including personal hacking, open-source and student work", then it's [free](https://cursive-ide.com/buy.html).
 
-color picking
+I use Cursive with rainbow parentheses and paredit mode enabled. I also have the IdeaVim plugin installed so that I can use Vim keybindings.
+
+My favorite feature of Cursive is its REPL integration. Lisp programmers are used to this sort of thing, and often have `comment` blocks in their programs where they stash chunks of code that are useful for debugging. I never understood what that was all about until I tried doing it myself, and now I do this constantly: you just move the cursor over one of those blocks of code, press a keybinding, and you immediately see the result without leaving your editor. It makes for an incredibly tight feedback loop.
+
+Here's what that looks like in action—I recorded this video when I was working on the code featured in my [Drunkard's Walk]({{site.baseurl}}{% post_url 2016-10-31-procedural-dungeon-generation-drunkards-walk-in-clojurescript %}) post.
+
+<iframe class="youtube-embed" width="560" height="315" src="https://www.youtube.com/embed/Ilfk_OpXKgc?rel=0&amp;start=1603" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+Color Picking
 -------------
-I don't have a good tool for this, and that really bothers me. The colors I picked are awful, but all the other combinations I tried were even worse. What would you have done if you were building this game and had to pick colors for UI elements? Do you have any advice?
+I don't have a good tool for this, and that bothers me. The colors I picked for the Quinto UI are awful, but all of the other combinations I tried were even worse.
 
-techniques
+What would you have done if you were building this game and had to pick colors for UI elements? Do you have any advice for me?
+
+Techniques
 ==========
 
-dev diary
+Dev Diary
 ---------
-context dump - any time i notice that i'm not sure what code to write next, i force myself to narrate my thoughts into this text file
-immense value, primarily in two categories:
-* forces me to clearly articulate my thought process (this extremely helps get to a better solution, faster!)
-* historical record - makes it easy for me to jump back into the project after some time has passed. i just look at the last page of my dev diary, and now i know what i was working on when i put this down.
 
-i haven't completely figured this out - i sometimes run into issues when i'm working on multiple projects, or on multiple branches within the same project; i'm confident that i'll end up with a working system, and when i do i'll write about it
+In the past few personal projects I've worked on, I've created a [`dev-diary.txt`](https://github.com/jrheard/quinto/blob/master/dev-diary.txt) file and used it as a scratchpad. Whenever I notice that I'm not sure what code to write next, I force myself to narrate my thoughts into that text file.
+
+This serves several purposes:
+
+* Expressing my thoughts in written form forces me to actually figure out what problem I'm currently facing and what solutions I'm currently thinking about. This helps me get to a better solution, faster.
+* If I can't remember why I made a particular decision, I can just search for it in the text file to see what other options I considered.
+* If it's been a little while since the last time I worked on the project and I don't remember what I was working on, I can just look at most recent entry in my dev diary and I'm off to the races.
+
+This habit has been immensely valuable for me. I'm still figuring out the specifics—this system breaks down if I'm working on several projects at once, and I've only done this on projects where I'm the sole contributor—but those are solvable problems, and when I solve them I'll do a brief writeup about the workflow I settle on.
 
 is-grid-valid? fn
 -----------------
@@ -221,6 +238,7 @@ several different versions were printed, each using different board sizes and ti
 brunner
 
 [^1]: This is all computer programs.
+[^2]: The built-in version of `instrument` [does not verify that your `fdef`s' `:ret` type annotations are respected](https://www.reddit.com/r/Clojure/comments/7g4fl0/are_return_types_a_black_eye_for_clojure/dqglxv5/?context=3). [Orchestra](https://github.com/jeaye/orchestra) has a drop-in replacement for `instrument` that solves this problem nicely.
 
 {% javascript quinto %}
 <script type="text/javascript">quinto.core.main()</script>
