@@ -80,9 +80,9 @@ While I was at it, I added a few more features that your cardboard copy of Quint
 * If you play an "optimal" move—the highest-scoring move you could have made with the hand you had—your score for that move will be drawn in green to celebrate your achievement.
 * If you mouse over the score for one of your past non-optimal moves, the game will show you what the optimal move *would have been*. You can use this information to learn how to get better at the game! The AI will still beat you, though.
 
-There are also keyboard shortcuts if clicking becomes too annoying: escape, enter, the left arrow key, and the 1-5 keys all control the parts of the UI that you expect them to.
-
 <a href="{{site.baseurl}}/quinto" style="font-weight: bold; font-size: 25px;">You can play Quinto here</a>. You can also read the [source code](https://github.com/jrheard/quinto/tree/master/src/quinto) if you like.
+
+There are keyboard shortcuts for when clicking becomes too annoying: escape, enter, the left arrow key, and the 1-5 keys all control the parts of the UI that you expect them to.
 
 Have a good old time, and then come back so I can tell you about the tools I used to build this game.
 
@@ -126,7 +126,7 @@ There's not much going on in that code: `cell-class` is an [atom](https://clojur
 
 The remarkable thing about Reagent is that it gives you a _special_ kind of atom, the `r/atom` you see on line 1. When your code modifies one of those special atoms, Reagent notices, and automatically recalculates just the parts of your UI that use that atom. If any of those parts have changed since the last time they were drawn, Reagent redraws just those parts.
 
-In Quinto, I keep the game's entire state in a [single atom](https://github.com/jrheard/quinto/blob/19c14f3b46fc43632d5b73e20c6c658d26a27b7b/src/quinto/core.cljs#L7), and the UI is just a bunch of [Reagent components](https://github.com/jrheard/quinto/blob/fc81ff5c1f381dbfe7bd0658d73594c0c5a0449b/src/quinto/html.cljs#L199) that take the game state as input and return HTML (represented by regular ClojureScript vectors) as output. Whenever the game's state [changes](https://github.com/jrheard/quinto/blob/19c14f3b46fc43632d5b73e20c6c658d26a27b7b/src/quinto/input.cljs#L16) due to user input, the UI automatically redraws only the parts that need to be redrawn.
+In Quinto, I keep the game's entire state in a [single atom](https://github.com/jrheard/quinto/blob/e4132342409369ae0ea8e03e6765205693ba0c27/src/quinto/core.cljs#L7), and the UI is just a bunch of [Reagent components](https://github.com/jrheard/quinto/blob/e4132342409369ae0ea8e03e6765205693ba0c27/src/quinto/html.cljs#L198) that take the game state as input and return HTML (represented by regular ClojureScript vectors) as output. Whenever the game's state [changes](https://github.com/jrheard/quinto/blob/e4132342409369ae0ea8e03e6765205693ba0c27/src/quinto/input.cljs#L16) due to user input, the UI automatically redraws only the parts that need to be redrawn.
 
 You just write a bunch of pure functions and Reagent handles the rest. Reagent is fantastic. I adore it.
 
