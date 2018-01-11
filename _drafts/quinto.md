@@ -12,7 +12,11 @@ I'll start by teaching you how to play the game. Don't worry, there are just lik
 How It's Played
 ==============
 
-Quinto is basically Scrabble, except with numbers instead of letters. In Scrabble, your goal is to place several tiles in a row or column, and have them spell a word; you get extra points if your freshly placed tiles contact pre-existing words. Quinto's the same thing, except that instead of trying to make words, **you're trying to make a run of tiles whose sum is a multiple of five**. For example, this move would earn you 20 points.
+Quinto is basically Scrabble, except with numbers instead of letters.
+
+<img src="{% asset_path quinto_board.jpg %}" title="Image credit: Board Game Museum YouTube account" />
+
+In Scrabble, your goal is to place several tiles in a row or column, and have them spell a word; you get extra points if your freshly placed tiles contact multiple pre-existing words. Quinto's the same thing, except that instead of trying to make words, **you're trying to make a run of tiles whose sum is a multiple of five**. For example, this move would earn you 20 points.
 
 <div class="grid-container small" id="grid-1"></div>
 
@@ -71,12 +75,14 @@ So I decided to write a computer program that would light up invalid cells in re
 
 While I was at it, I added a few more features that your cardboard copy of Quinto doesn't have:
 
-* An AI opponent that plays against you (and will beat you).
+* An AI opponent that plays against you (and will probably beat you).
 * Automatic score tracking.
 * If you play an "optimal" move—the highest-scoring move you could have made with the hand you had—your score for that move will be drawn in green to celebrate your achievement.
 * If you mouse over the score for one of your past non-optimal moves, the game will show you what the optimal move *would have been*. You can use this information to learn how to get better at the game! The AI will still beat you, though.
 
-[Give it a try](http://jrheard.com/quinto/). You can also read the [source code](https://github.com/jrheard/quinto/tree/master/src/quinto) if you like. Have a good old time, and then come back so I can tell you about the tools I used to build this game.
+<a href="http://jrheard.com/quinto/" style="font-weight: bold; font-size: 25px;">You can play Quinto here</a>. You can also read the [source code](https://github.com/jrheard/quinto/tree/master/src/quinto) if you like.
+
+Have a good old time, and then come back so I can tell you about the tools I used to build this game.
 
 Tools
 =====
@@ -219,6 +225,8 @@ If you're interested in learning Clojure, I hear that [Clojure for the Brave and
 From what I can piece together from [BoardGameGeek](https://boardgamegeek.com/boardgame/2366/quinto), Quinto was printed once in 1964, once in 1968, and then never again. My friend's copy was a purchase from Goodwill.
 
 Several different versions of Quinto were printed, each using different board sizes and tile distributions. For my program, I picked an arbitrary board size I liked, but I used the same [tile distribution](https://github.com/jrheard/quinto/blob/2913a907344d2c016793785badf276c3c86dc04f/src/quinto/deck.cljs#L7) from the particular version I'd played at my friend's house.
+
+[This video](https://www.youtube.com/watch?v=NeKIgFFtuoo) shows a version that sometimes uses a different base number instead of 5, which is interesting—the version I played on didn't have that feature, so I didn't include it. Exercise for the reader, pull requests accepted, etc.
 
 To be honest, I think Quinto died out because it's not a very good game. It was fun to program, though!
 
