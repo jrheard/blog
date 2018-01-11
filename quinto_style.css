@@ -1,0 +1,278 @@
+html {
+    font-family: sans-serif;
+    user-select: none;
+}
+
+#app {
+    width: 900px;
+    margin: 0 auto;
+}
+
+#controls {
+    width: 600px;
+    margin: 20px auto;
+    background-color: #EEE;
+    border: solid 4px #EEE;
+    padding: 20px;
+    overflow: hidden;
+}
+
+#controls.assembling-move {
+    /*border: solid 4px #EE821D;*/
+}
+
+.game-over {
+    width: 588px;
+    margin: 20px auto;
+    background-color: #EEE;
+    padding: 15px 30px;
+    overflow: hidden;
+    font-size: 20px;
+}
+
+.game-over.player-won {
+    background-color: #B4FFB4;
+}
+
+.game-over.ai-won {
+    background-color: pink;
+}
+
+.game-over .message {
+    float: left;
+    height: 30px;
+    line-height: 42px;
+}
+
+.game-over .button:hover {
+    background-color: #555;
+}
+
+#hand {
+    overflow: hidden;
+    float: left;
+    width: 380;
+}
+
+#hand .tile {
+    float: left;
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    text-align: center;
+    border: solid 1px #AAA;
+    margin: 0 10px;
+    font-size: 50px;
+}
+
+#hand .tile.inactive {
+    background-color: #EEE;
+}
+
+#controls.assembling-move .tile:hover {
+    cursor: pointer;
+    /*background-color: #EE821D;*/
+    background-color: #FFB36C;
+}
+
+.button {
+    float: right;
+    font-size: 20px;
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    margin-left: 25px;
+}
+
+.button.cancel {
+    background-color: #FF3333;
+}
+
+.button.cancel:hover {
+    background-color: #C40000;
+}
+
+.button.back {
+    background-color: #EBBF2E;
+}
+
+.button.back:hover {
+    background-color: #BF9711;
+}
+
+.button.confirm {
+    background-color: #0DFF27;
+}
+
+.button.confirm:hover {
+    background-color: #0BD921;
+}
+
+.button:hover {
+    cursor: pointer;
+}
+
+.button.inactive,
+.button.inactive:hover {
+    background-color: #333;
+    cursor: default;
+}
+
+.board-container {
+    overflower: hidden;
+    margin: 20px auto;
+    position: relative;
+}
+
+.scores {
+    float: left;
+    width: 144px;
+    text-align: center;
+    color: #555;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.scores ul {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #333;
+}
+
+.scores li {
+    padding: 2px;
+}
+
+.scores hr {
+    width: 20%;
+    margin: 4px auto:
+}
+
+.scores p {
+    font-size: 20px;
+    color: #333;
+}
+
+#grid {
+    width: 612px;
+    background-color: #EEE;
+    overflow: hidden;
+    float: left;
+}
+
+#ghost-grid {
+    width: 612px;
+    overflow: hidden;
+    float: left;
+    top: 0;
+    left: 144px;
+    position: absolute;
+    pointer-events: none;
+}
+
+.column {
+    overflow: hidden;
+    float: left;
+    width: 47px;
+}
+
+.cell {
+    width: 45px;
+    height: 45px;
+    border: solid 1px #333;
+    float: left;
+    color: #333;
+    font-family: helvetica;
+    font-size: 35px;
+    line-height: 45px;
+    text-align: center;
+}
+
+.cell.hidden {
+    visibility: hidden;
+}
+
+.cell.ghostly {
+    opacity: 0.75;
+    background-color: #B4FFB4;
+}
+
+.cell.optimal-historical-move {
+    background-color: #B4FFB4;
+}
+
+.cell.full {
+    background-color: #CCC;
+}
+
+.cell.blocked {
+    background-color: pink;
+}
+
+.cell.playable {
+    background-color: #B4FFB4;
+}
+
+.cell.playable:hover {
+    cursor: pointer;
+    background-color: #8BE58B;
+}
+
+.cell.selected,
+.cell.selected:hover {
+    background-color: #EE821D;
+}
+
+.cell.speculative,
+.cell.speculative:hover {
+    background-color: #FFB36C;
+}
+
+.cell.historical-move-cell {
+    background-color: #FFC691;
+}
+
+.cell.just-played {
+    animation: 5s glow-background;
+}
+
+@keyframes glow-background {
+    from {
+        background-color: #CCC;
+    }
+
+    50% {
+    background-color: #EEA764;
+    }
+}
+
+.scores .most-recent-score {
+    animation: 5s glow-text;
+}
+
+.scores li:hover {
+    background-color: #EEEE;
+}
+
+@keyframes glow-text {
+    from {
+        color: #333;
+    }
+
+    50% {
+        color: #FF8000;
+    }
+}
+
+.tentative-score {
+    color: #C40000;
+}
+
+.scores .optimal {
+    color: #0DFF27;
+}
+
+.tentative-score.valid {
+    color: #777;
+}

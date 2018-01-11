@@ -7,7 +7,7 @@ title:  "Quinto: Resurrecting an Abandoned Board Game"
 
 I played an old board game called Quinto when I was visiting a friend this past Thanksgiving. I developed a strange fixation on the game and wrote a program that lets you play it against a computer opponent. I'd like to show you that program, and also tell you about the tools I used to build it.
 
-I'll start by teaching you how to play the game. Don't worry, there are just like three rules. If you'd like to skip ahead, [here's the game](http://jrheard.com/quinto/) and [here's the box]({% asset_path quinto.jpg %}).
+I'll start by teaching you how to play the game. Don't worry, there are just like three rules. If you'd like to skip ahead, [here's the game]({{site.baseurl}}/quinto) and [here's the box]({% asset_path quinto.jpg %}).
 
 How It's Played
 ==============
@@ -80,7 +80,9 @@ While I was at it, I added a few more features that your cardboard copy of Quint
 * If you play an "optimal" move—the highest-scoring move you could have made with the hand you had—your score for that move will be drawn in green to celebrate your achievement.
 * If you mouse over the score for one of your past non-optimal moves, the game will show you what the optimal move *would have been*. You can use this information to learn how to get better at the game! The AI will still beat you, though.
 
-<a href="http://jrheard.com/quinto/" style="font-weight: bold; font-size: 25px;">You can play Quinto here</a>. You can also read the [source code](https://github.com/jrheard/quinto/tree/master/src/quinto) if you like.
+There are also keyboard shortcuts if clicking becomes too annoying: escape, enter, the left arrow key, and the 1-5 keys all control the parts of the UI that you expect them to.
+
+<a href="{{site.baseurl}}/quinto" style="font-weight: bold; font-size: 25px;">You can play Quinto here</a>. You can also read the [source code](https://github.com/jrheard/quinto/tree/master/src/quinto) if you like.
 
 Have a good old time, and then come back so I can tell you about the tools I used to build this game.
 
