@@ -134,10 +134,10 @@ print(transformed_letters)
 
 That chunk of code lowercases a string, one letter at a time - you might end up doing something similar (but **different!**) when you're building up your program's `ciphertext` variable.
 
-Non-Uppercase-Letter Characters
+Your Program Should Only Change Uppercase Letters
 =====================
 
-If your program is given some plaintext that includes numbers, or lowercase letters, or punctuation marks like `!` or `.` or `$` or _anything_ that's not a letter from `A` to `Z`, it should leave that character unmodified. For example, if given a plaintext string of `HOWDY! Hello.` and a key of `5`, your program should output the ciphertext `MTBID! Mello.`
+If your program is given some plaintext that includes numbers, or lowercase letters, or punctuation marks like `!` or `.` or `$` or _anything_ that's not a letter from `A` to `Z`, **it should leave that character unmodified**. For example, if given a plaintext string of `HOWDY! Hello.` and a key of `5`, your program should output the ciphertext `MTBID! Mello.`
 
 Note that in that message, the `W` ends up "wrapping around" to become a `B` when it's encrypted.
 
@@ -147,14 +147,6 @@ Demo
 Your program should allow the user to both encrypt messages **and** decrypt them. Your program should look **exactly** like this when it's run:
 
 <asciinema-player src="{{ site.baseurl }}/caesar_cast_1.json" rows="19" cols="80" autoplay="true" loop="true"></asciinema-player>
-
-In order to get Python to prompt the user for input on a new line like you see in the demo above, you can add the `\n` character to the end of the string you give the `input()` function. That sentence might have sounded scary, but I'm just talking about doing this:
-
-```python
-input('Do you wish to encrypt or decrypt a message?\n')
-```
-
-If you don't know what I'm talking about, you'll see what I mean when you sit down to write the program yourself. It won't be a big deal. `\n` is the "newline" character - when Python sees it when it's printing out a string, it'll stop the current line of text and start a new one.
 
 Nitty Gritty
 ============
