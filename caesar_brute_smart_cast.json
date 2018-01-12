@@ -1,0 +1,250 @@
+{
+  "version": 1,
+  "width": 178,
+  "height": 46,
+  "duration": 33.249379,
+  "command": "/bin/bash -l",
+  "title": null,
+  "env": {
+    "TERM": "xterm-256color",
+    "SHELL": "/bin/bash"
+  },
+  "stdout": [
+    [
+      0.121793,
+      "\u001b]0;~/dev/madison/caesar\u0007"
+    ],
+    [
+      8.6e-05,
+      "\u001b[?1034h[\u001b[1;36mjrheard\u001b[00m@jrheard-air:\u001b[1;32m~/dev/madison/caesar\u001b[00m]\u001b[1;33m (master *) \u001b[00m🚂  "
+    ],
+    [
+      0.349709,
+      "p"
+    ],
+    [
+      0.166636,
+      "y"
+    ],
+    [
+      0.110923,
+      "t"
+    ],
+    [
+      0.06001,
+      "h"
+    ],
+    [
+      0.068213,
+      "o"
+    ],
+    [
+      0.104321,
+      "n"
+    ],
+    [
+      0.000962,
+      " "
+    ],
+    [
+      0.086459,
+      "c"
+    ],
+    [
+      0.095939,
+      "a"
+    ],
+    [
+      0.147143,
+      "e"
+    ],
+    [
+      0.091904,
+      "s"
+    ],
+    [
+      0.177314,
+      "ar.py "
+    ],
+    [
+      0.46876,
+      "\r\n"
+    ],
+    [
+      0.032967,
+      "Do you wish to encrypt, decrypt, brute force, or smart-brute-force a message?\r\n"
+    ],
+    [
+      0.861014,
+      "s"
+    ],
+    [
+      0.168859,
+      "m"
+    ],
+    [
+      0.104066,
+      "a"
+    ],
+    [
+      0.068078,
+      "r"
+    ],
+    [
+      0.121908,
+      "t"
+    ],
+    [
+      0.130934,
+      "\r\n"
+    ],
+    [
+      7.8e-05,
+      "Enter your message:\r\n"
+    ],
+    [
+      2.277066,
+      "MTbId! Mjqqt."
+    ],
+    [
+      0.645036,
+      "\r\n"
+    ],
+    [
+      0.000116,
+      "Your translated text is:\r\n"
+    ],
+    [
+      0.017405,
+      "5: HOWDY! Hello.\r\n"
+    ],
+    [
+      0.086819,
+      "\u001b]0;~/dev/madison/caesar\u0007"
+    ],
+    [
+      0.000197,
+      "[\u001b[1;36mjrheard\u001b[00m@jrheard-air:\u001b[1;32m~/dev/madison/caesar\u001b[00m]\u001b[1;33m (master *) \u001b[00m🚂  "
+    ],
+    [
+      4.354531,
+      "p"
+    ],
+    [
+      0.153047,
+      "y"
+    ],
+    [
+      0.087959,
+      "t"
+    ],
+    [
+      0.086777,
+      "h"
+    ],
+    [
+      0.055921,
+      "o"
+    ],
+    [
+      0.160198,
+      "n"
+    ],
+    [
+      0.00092,
+      " "
+    ],
+    [
+      0.12285,
+      "c"
+    ],
+    [
+      0.156979,
+      "a"
+    ],
+    [
+      0.185493,
+      "e"
+    ],
+    [
+      0.115615,
+      "s"
+    ],
+    [
+      0.192152,
+      "ar.py "
+    ],
+    [
+      0.365775,
+      "\r\n"
+    ],
+    [
+      0.0334,
+      "Do you wish to encrypt, decrypt, brute force, or smart-brute-force a message?\r\n"
+    ],
+    [
+      0.523571,
+      "s"
+    ],
+    [
+      0.096016,
+      "m"
+    ],
+    [
+      0.100008,
+      "a"
+    ],
+    [
+      0.059831,
+      "r"
+    ],
+    [
+      0.137049,
+      "t"
+    ],
+    [
+      0.354138,
+      "\r\n"
+    ],
+    [
+      0.000147,
+      "Enter your message:\r\n"
+    ],
+    [
+      0.695799,
+      "XemTo! XuBBE."
+    ],
+    [
+      1.952886,
+      "\r\n"
+    ],
+    [
+      0.000149,
+      "Your translated text is:\r\n"
+    ],
+    [
+      0.01738,
+      "16: HOWDY! Hello.\r\n"
+    ],
+    [
+      0.083037,
+      "\u001b]0;~/dev/madison/caesar\u0007"
+    ],
+    [
+      0.000145,
+      "[\u001b[1;36mjrheard\u001b[00m@jrheard-air:\u001b[1;32m~/dev/madison/caesar\u001b[00m]\u001b[1;33m (master *) \u001b[00m🚂  "
+    ],
+    [
+      16.5067,
+      "\r\n"
+    ],
+    [
+      0.083571,
+      "\u001b]0;~/dev/madison/caesar\u0007"
+    ],
+    [
+      0.000198,
+      "[\u001b[1;36mjrheard\u001b[00m@jrheard-air:\u001b[1;32m~/dev/madison/caesar\u001b[00m]\u001b[1;33m (master *) \u001b[00m🚂  "
+    ]
+  ]
+}

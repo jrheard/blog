@@ -1,0 +1,117 @@
+.grid-container {
+	overflow: hidden;
+	display: block;
+	margin: 20px auto;
+}
+
+#reagent-example {
+	overflow: hidden;
+	display: block;
+	margin: 20px auto;
+	width: 45px;
+}
+
+.grid-container.small {
+	width: 135px;
+}
+
+.grid-container.medium {
+	width: 270px;
+}
+
+.grid-container.large {
+	width: 315px;
+}
+
+.grid {
+    background-color: #EEE;
+    overflow: hidden;
+    float: left;
+}
+
+.column {
+    overflow: hidden;
+    float: left;
+    width: 45px;
+}
+
+.cell {
+    width: 45px;
+    height: 45px;
+    border: solid 1px #333;
+    float: left;
+    color: #333;
+    font-family: helvetica;
+    font-size: 35px;
+    line-height: 45px;
+    text-align: center;
+}
+
+.cell.hidden {
+    visibility: hidden;
+}
+
+.cell.ghostly {
+    opacity: 0.75;
+    background-color: #B4FFB4;
+}
+
+.cell.optimal-historical-move {
+    background-color: #B4FFB4;
+}
+
+.cell.full {
+    background-color: #CCC;
+}
+
+.cell.blocked {
+    background-color: pink;
+}
+
+.cell.playable {
+    background-color: #B4FFB4;
+}
+
+.cell.playable:hover {
+}
+
+.cell.selected,
+.cell.selected:hover {
+    background-color: #EE821D;
+}
+
+.cell.red {
+    background-color: pink;
+}
+
+.cell.green {
+    background-color: #B4FFB4;
+}
+
+#grid-1 .cell,
+#grid-2 .cell {
+    background-color: #FFB36C;
+}
+
+.cell.speculative,
+.cell.speculative:hover {
+    background-color: #FFB36C;
+}
+
+.cell.historical-move-cell {
+    background-color: #FFC691;
+}
+
+.cell.just-played {
+    animation: 5s glow-background;
+}
+
+@keyframes glow-background {
+    from {
+        background-color: #CCC;
+    }
+
+    50% {
+    background-color: #EEA764;
+    }
+}
