@@ -153,7 +153,7 @@ Nitty Gritty
 
 If the user inputs an invalid mode (i.e. something that's not "encrypt" or "decrypt"), it's fine if your program crashes.
 
-If the user inputs an invalid key (i.e. something that's not a number between 1 and 26), it's fine if your program crashes.
+If the user inputs an invalid key (i.e. something that's not a number between 0 and 26), it's fine if your program crashes.
 
 Submitting your project
 =======================
