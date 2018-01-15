@@ -17,24 +17,26 @@ Most of these early projects have been simple command-line programs that prompt 
 
 The program should prompt the user for their username, student ID, and password, and it should print out the string GOOD or BAD to indicate whether the password is "valid" or not (see the [assignment writeup]({{site.baseurl}}/python/passwords) for more details).
 
-When a student finishes their password checker, we need to examine it to see whether or not the student programmed it correctly. We have around thirty students, and the checker program needs to satisfy a variety of constraints, and students often don't get them all right the first time. Testing submitted password checkers a jillion times by hand sounded pretty awful, so I decided to write an automated test suite to do this for us.
+When a student finishes their password checker, we need to examine it to see whether or not the student programmed it correctly. We have around thirty students, and the checker program needs to satisfy a variety of constraints, and students often don't get them all right the first time, so each student will usually submit several versions of the checker.
+
+Testing submitted password checkers a jillion times by hand sounded pretty awful, so I decided to write an automated test suite to do this for us.
 
 Pexpect
 =======
 
-We hadn't learned about functions yet in this class, so students' programs didn't have an `is_password_good(password)` function that I could import and unit-test. Instead, I needed to write code that would run the student's program, send it several lines of input, and read its output.
+These students hadn't learned about functions yet, so their programs didn't have an `is_password_good(password)` function that I could import and unit-test. Instead, I needed to write code that would run the student's program, send it several lines of input, and read its output.
 
-My first instinct was to use the [subprocess library](https://docs.python.org/3/library/subprocess.html) to do this, but I had trouble getting that to work. I needed to send a line to the program, then wait and then send another line, and then wait and send a third line, but `subprocess.Popen` appears to only be able to send a single line of input to programs it spawns. I Googled around and found a bunch of StackOverflow questions about this exact issue, and that's how I found out about [Pexpect](https://github.com/pexpect/pexpect).
+My first instinct was to use the [subprocess library](https://docs.python.org/3/library/subprocess.html) to do this, but I had trouble getting that to work. I needed to send a line to the program, then wait and then send another line, and then wait and send a third line; but `subprocess.Popen` appears to only be able to send a single line of input to programs it spawns. I Googled around and found a bunch of StackOverflow questions about this exact issue, and they all said to use [Pexpect](https://github.com/pexpect/pexpect) instead.
 
-Pexpect is a library that lets you spawn an interactive command-line program and control it as it runs, by feeding it lines of input and reading lines of its output. It's perfect for this situation.
+Pexpect is a library that lets you spawn an interactive command-line program and control it as it runs; it lets you feed the program multiple lines of input and read lines of its output. Which is the specific thing I just said I needed to do!
 
 Here's the code I used to drive students' password-checker programs.
 
 <pre><code class="py">
 def get_checker_output(password, checker):
-	program = PopenSpawn('python ' + checker)
-	program.sendline("jrheard")
-	program.sendline("12345")
+	program = pexpect.popen_spawn.PopenSpawn('python ' + checker)
+	program.sendline('jrheard')
+	program.sendline('12345')
 	program.sendline(password)
 
 	lines = program.read().decode('utf-8').splitlines()
@@ -63,7 +65,7 @@ def test_exactly_eight_characters(checker):
     assert_good('abc123!P', checker)
 </code></pre>
 
-I hand-wrote around twenty assertions and called it a day. It was very satisfying to run these tests:
+I hand-wrote around twenty assertions like those and called it a day. It was very satisfying to run the resulting tests:
 
 <asciinema-player src="{{ site.baseurl }}/hypothesis_pexpect_cast_1.json?v=1" rows="20" cols="90" autoplay="true" loop="true"></asciinema-player>
 
