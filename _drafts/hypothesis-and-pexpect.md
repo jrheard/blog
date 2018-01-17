@@ -24,12 +24,12 @@ Testing submitted password checkers a jillion times by hand ("does the latest ve
 
 These students hadn't learned about functions yet, so their programs didn't have an `is_password_good(password)` function that I could import and unit-test. Instead, I needed to write code that would run the student's program, send it several lines of input, and read its output.
 
-My first instinct was to use the [`subprocess` library](https://docs.python.org/3/library/subprocess.html) to do this, but I had trouble getting that to work. I needed to send a line to the program, then wait and then send another line, and then wait and send a third line; but the `subprocess` library's API isn't particularly well-suited for this use case. I Googled around and found a bunch of StackOverflow questions written by people in my exact situation, and the answers all said to use [Pexpect](https://github.com/pexpect/pexpect) instead.
+My first instinct was to use the [`subprocess` library](https://docs.python.org/3/library/subprocess.html) to do this, but I had trouble getting that to work. I needed to send a line to the program, then wait and then send another line, and then wait and send a third line; but the `subprocess` library's API isn't particularly well-suited for this use case. I Googled around and found a bunch of StackOverflow questions written by people in my exact situation, and the answers all said to use `pexpect` instead.
 
 Pexpect
 =======
 
-Pexpect is a library with a nice API that lets you start a program, feed it as many lines of input as you want, and read as many lines of output as you want.
+[Pexpect][pexpect] is a library with a nice API that lets you start a program, feed it as many lines of input as you want, and read as many lines of output as you want.
 
 Here's the code I used to drive students' password-checker programs.
 
@@ -44,7 +44,7 @@ def get_checker_output(password, checker):
 	return filter(bool, lines)[-1]
 </code></pre>
 
-It's interesting to note that `pexpect.popen_spawn.PopenSpawn` [uses the `subprocess` library](https://github.com/pexpect/pexpect/blob/master/pexpect/popen_spawn.py#L46) under the hood.
+(It's interesting to note that `pexpect.popen_spawn.PopenSpawn` [uses the `subprocess` library](https://github.com/pexpect/pexpect/blob/master/pexpect/popen_spawn.py#L46) under the hood.)
 
 I also wrote a couple of helper functions, `assert_good()` and `assert_bad()`. Finally, I wrote some standard unit tests:
 
@@ -77,13 +77,13 @@ A week later, though, I stumbled across Hypothesis and realized that my tests ha
 Hypothesis
 ==========
 
-[Hypothesis][hypothesis] is a "property-based testing" library for Python. Its homepage explains what that means:
+[Hypothesis][hypothesis] is a "property-based testing" library for Python. Its homepage says:
 
 > Hypothesis runs your tests against a much wider range of scenarios than a human tester could, finding edge cases in your code that you would otherwise have missed.
 
-Here's an example to give you a better idea of what this actually means. Earlier, I showed you a test called `test_too_short_rejected()`, which asserts that the password `A!1` is marked BAD, because the password checker is supposed to reject passwords that are shorter than eight characters.
+Here's an example to give you a better idea of what this means. Earlier, I showed you a test called `test_too_short_rejected()`, which asserts that the password `A!1` is marked BAD, because the password checker is supposed to reject passwords that are shorter than eight characters. This is an **example-based test**, which means that I wrote it by hand using an example password that I came up with off the top of my head.
 
-This is an "example-based test", which means that I wrote it by hand using an example password that I came up with off the top of my head. This test is actually pretty flimsy, because it only checks to see if `A!1` is rejected—but if the student's checker incorrectly allows a seven-character-long string like `A!12345`, my test won't catch that! I could add more examples, but that isn't very fun, and even if I added five more examples my test wouldn't be very exhaustive.
+This test is actually pretty flimsy, because it only checks to see if `A!1` is rejected—but if the student's checker program incorrectly allows a seven-character-long string like `A!12345`, my test won't catch that bug, because I didn't think to include that example in my test! I could add more examples, but that isn't very fun; and even if I did think really hard and came up with five more examples, my test still wouldn't be very exhaustive.
 
 Here's how to use Hypothesis to enhance that test.
 
@@ -93,20 +93,32 @@ VALID_PASSWORD_CHARACTERS = string.ascii_letters + \
 	string.digits + \
 	'!@#$%^&*()-_=+.,'
 
-@given(password=st.text(alphabet=VALID_PASSWORD_CHARACTERS,
-						max_size=7))
+# A too-short password is: any password-like string that
+# contains seven characters or fewer.
+password_strategy = st.text(alphabet=VALID_PASSWORD_CHARACTERS,
+						max_size=7)
+
+# With that out of the way: here's our Hypothesis test!
+# It'll check a bunch of passwords like
+# 'yKbSH7)', 'aa', and '#g^teH'.
+@given(password=password_strategy)
 def test_too_short_rejected(password, checker):
 	assert_bad(password, checker)
 
 </code></pre>
 
-The `@given` decorator is what makes the magic happen. It tells Hypothesis: run this test a bunch of times with a random password (containing any of these characters, up to seven characters max) each time.
+Property Based Testing
+======================
+The `@given` decorator is what makes the magic happen. It tells Hypothesis: run this test a bunch of times with a random password (containing any character in `VALID_PASSWORD_CHARACTERS`, up to seven characters max) each time.
+
+TODO WRITE MORE
+
+todo talk about just how easy hypothesis is to use, and how good it feels to use
+
+Hypothesis In Action
+====================
 
 When you add Hypothesis to your tests, you'll usually find a ton of bugs in your code which your previous hand-written tests hadn't found. This is good! Fix those bugs and think happy thoughts about the authors of Hypothesis.
-
-TALK MORE ABOUT WHAT PROPERTY BASED TESTING MEANS
-
-PUT SOME MORE STUFF IN THE MIDDLE HERE, USE THIS CAST NEAR THE END OF THE POST
 
 If your test passes and you'd like to convince yourself that Hypothesis isn't slacking off, you can use the [`HYPOTHESIS_VERBOSITY_LEVEL` environment variable][hypothesis-verbose] to see what Hypothesis is generating, like this:
 
@@ -122,6 +134,7 @@ If your test passes and you'd like to convince yourself that Hypothesis isn't sl
 [wcb]: {{site.baseurl}}{% post_url 2017-11-30-watercolorbot %}
 [passwords]: {{site.baseurl}}/python/passwords
 [caesar]: {{site.baseurl}}/python/caesar
+[pexpect]: https://github.com/pexpect/pexpect
 [hypothesis]: http://hypothesis.works/
 [hypothesis-verbose]: http://hypothesis.readthedocs.io/en/latest/settings.html#seeing-intermediate-result
 
