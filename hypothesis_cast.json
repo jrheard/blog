@@ -1,0 +1,938 @@
+{
+  "version": 1,
+  "width": 178,
+  "height": 45,
+  "duration": 24.286339,
+  "command": "/bin/bash -l",
+  "title": null,
+  "env": {
+    "TERM": "xterm-256color",
+    "SHELL": "/bin/bash"
+  },
+  "stdout": [
+    [
+      0.140837,
+      "\u001b]0;~/dev/madison/passwords\u0007"
+    ],
+    [
+      0.000128,
+      "\u001b[?1034h[\u001b[1;36mjrheard\u001b[00m@jrheard-air:\u001b[1;32m~/dev/madison/passwords\u001b[00m]\u001b[1;33m (master *) \u0001\u001b[00m🚂  "
+    ],
+    [
+      1.799881,
+      "H"
+    ],
+    [
+      0.000145,
+      "YPOT"
+    ],
+    [
+      0.000258,
+      "HESI"
+    ],
+    [
+      0.000172,
+      "S_VERB"
+    ],
+    [
+      9.4e-05,
+      "OSITY"
+    ],
+    [
+      7.4e-05,
+      "_L"
+    ],
+    [
+      0.000214,
+      "E"
+    ],
+    [
+      6.9e-05,
+      "VEL"
+    ],
+    [
+      4.4e-05,
+      "=v"
+    ],
+    [
+      7.3e-05,
+      "e"
+    ],
+    [
+      4.4e-05,
+      "r"
+    ],
+    [
+      3.7e-05,
+      "b"
+    ],
+    [
+      3.8e-05,
+      "o"
+    ],
+    [
+      3.9e-05,
+      "s"
+    ],
+    [
+      5.6e-05,
+      "e"
+    ],
+    [
+      9.4e-05,
+      " "
+    ],
+    [
+      4.2e-05,
+      "py"
+    ],
+    [
+      4.1e-05,
+      "t"
+    ],
+    [
+      4.9e-05,
+      "e"
+    ],
+    [
+      4e-05,
+      "s"
+    ],
+    [
+      9e-05,
+      "t"
+    ],
+    [
+      5.1e-05,
+      " v"
+    ],
+    [
+      7.4e-05,
+      "e"
+    ],
+    [
+      4.6e-05,
+      "r"
+    ],
+    [
+      0.000155,
+      "ifi"
+    ],
+    [
+      3.9e-05,
+      "e"
+    ],
+    [
+      4.3e-05,
+      "r"
+    ],
+    [
+      4.8e-05,
+      "."
+    ],
+    [
+      4.8e-05,
+      "p"
+    ],
+    [
+      4.5e-05,
+      "y"
+    ],
+    [
+      4.4e-05,
+      ":"
+    ],
+    [
+      4.4e-05,
+      ":"
+    ],
+    [
+      3.9e-05,
+      "t"
+    ],
+    [
+      4e-05,
+      "e"
+    ],
+    [
+      4.9e-05,
+      "s"
+    ],
+    [
+      3.9e-05,
+      "t"
+    ],
+    [
+      4.2e-05,
+      "_"
+    ],
+    [
+      4e-05,
+      "t"
+    ],
+    [
+      7.2e-05,
+      "o"
+    ],
+    [
+      4e-05,
+      "o"
+    ],
+    [
+      4.3e-05,
+      "_"
+    ],
+    [
+      3.8e-05,
+      "s"
+    ],
+    [
+      6e-05,
+      "h"
+    ],
+    [
+      4e-05,
+      "o"
+    ],
+    [
+      4.3e-05,
+      "r"
+    ],
+    [
+      4.1e-05,
+      "t"
+    ],
+    [
+      6.9e-05,
+      "_"
+    ],
+    [
+      4e-05,
+      "r"
+    ],
+    [
+      5.8e-05,
+      "e"
+    ],
+    [
+      3.9e-05,
+      "j"
+    ],
+    [
+      6e-05,
+      "e"
+    ],
+    [
+      4e-05,
+      "c"
+    ],
+    [
+      6.5e-05,
+      "t"
+    ],
+    [
+      3.9e-05,
+      "e"
+    ],
+    [
+      6.6e-05,
+      "d"
+    ],
+    [
+      4e-05,
+      " "
+    ],
+    [
+      4.3e-05,
+      "-"
+    ],
+    [
+      6.3e-05,
+      "-"
+    ],
+    [
+      4.4e-05,
+      "c"
+    ],
+    [
+      7.4e-05,
+      "h"
+    ],
+    [
+      4.9e-05,
+      "e"
+    ],
+    [
+      4.2e-05,
+      "c"
+    ],
+    [
+      7.1e-05,
+      "k"
+    ],
+    [
+      6e-05,
+      "e"
+    ],
+    [
+      8.2e-05,
+      "r"
+    ],
+    [
+      5.4e-05,
+      "="
+    ],
+    [
+      4.6e-05,
+      "p"
+    ],
+    [
+      4e-05,
+      "a"
+    ],
+    [
+      7.1e-05,
+      "s"
+    ],
+    [
+      3.9e-05,
+      "s"
+    ],
+    [
+      6.8e-05,
+      "w"
+    ],
+    [
+      4.2e-05,
+      "o"
+    ],
+    [
+      6.5e-05,
+      "r"
+    ],
+    [
+      6.6e-05,
+      "d"
+    ],
+    [
+      4.1e-05,
+      "_"
+    ],
+    [
+      8.2e-05,
+      "c"
+    ],
+    [
+      5.9e-05,
+      "h"
+    ],
+    [
+      3.4e-05,
+      "e"
+    ],
+    [
+      5.7e-05,
+      "c"
+    ],
+    [
+      6.9e-05,
+      "k"
+    ],
+    [
+      3.7e-05,
+      "e"
+    ],
+    [
+      3.4e-05,
+      "r"
+    ],
+    [
+      5.5e-05,
+      "."
+    ],
+    [
+      5.5e-05,
+      "p"
+    ],
+    [
+      5.1e-05,
+      "y"
+    ],
+    [
+      3.6e-05,
+      " "
+    ],
+    [
+      6e-05,
+      "-"
+    ],
+    [
+      3.5e-05,
+      "-"
+    ],
+    [
+      5.7e-05,
+      "g"
+    ],
+    [
+      5.9e-05,
+      "e"
+    ],
+    [
+      5.1e-05,
+      "n"
+    ],
+    [
+      5.3e-05,
+      "e"
+    ],
+    [
+      5.4e-05,
+      "r"
+    ],
+    [
+      6.2e-05,
+      "a"
+    ],
+    [
+      5.5e-05,
+      "t"
+    ],
+    [
+      5.9e-05,
+      "o"
+    ],
+    [
+      5e-05,
+      "r"
+    ],
+    [
+      5.1e-05,
+      "="
+    ],
+    [
+      4.6e-05,
+      "p"
+    ],
+    [
+      4.5e-05,
+      "a"
+    ],
+    [
+      5.2e-05,
+      "s"
+    ],
+    [
+      5.6e-05,
+      "s"
+    ],
+    [
+      4.3e-05,
+      "w"
+    ],
+    [
+      4.7e-05,
+      "o"
+    ],
+    [
+      4.7e-05,
+      "r"
+    ],
+    [
+      5.2e-05,
+      "d \r"
+    ],
+    [
+      2.8e-05,
+      "_g"
+    ],
+    [
+      2.7e-05,
+      "en"
+    ],
+    [
+      2.7e-05,
+      "e"
+    ],
+    [
+      2.5e-05,
+      "ra"
+    ],
+    [
+      3.1e-05,
+      "t"
+    ],
+    [
+      2.5e-05,
+      "or"
+    ],
+    [
+      2.6e-05,
+      "."
+    ],
+    [
+      2.6e-05,
+      "py"
+    ],
+    [
+      2.8e-05,
+      " "
+    ],
+    [
+      2.8e-05,
+      "-s"
+    ],
+    [
+      4.961515,
+      "\r\n"
+    ],
+    [
+      0.820673,
+      "\u001b[1mTest session starts (platform: darwin, Python 3.5.2, pytest 3.2.3, pytest-sugar 0.9.0)\u001b[0m\r\n"
+    ],
+    [
+      3.4e-05,
+      "rootdir: /Users/jrheard/Dropbox/dev/madison/passwords, inifile:\r\nplugins: hypothesis-3.36.0, sugar-0.9.0\r\n"
+    ],
+    [
+      0.088924,
+      "Trying example: test_too_short_rejected(password='', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.124994,
+      "Trying example: test_too_short_rejected(password='a', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.072593,
+      "Trying example: test_too_short_rejected(password='+eu_tM', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.075491,
+      "Trying example: test_too_short_rejected(password='u', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.07259,
+      "Trying example: test_too_short_rejected(password='S', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.086995,
+      "Trying example: test_too_short_rejected(password='S', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.070044,
+      "Trying example: test_too_short_rejected(password='@iS.1a,', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.086348,
+      "Trying example: test_too_short_rejected(password='=n!', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.079989,
+      "Trying example: test_too_short_rejected(password=')ntWxNu', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.088026,
+      "Trying example: test_too_short_rejected(password='S^l', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.11055,
+      "Trying example: test_too_short_rejected(password=')rb', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.074905,
+      "Trying example: test_too_short_rejected(password='', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.086443,
+      "Trying example: test_too_short_rejected(password='.', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.071601,
+      "Trying example: test_too_short_rejected(password='_', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.07316,
+      "Trying example: test_too_short_rejected(password='aH', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.080419,
+      "Trying example: test_too_short_rejected(password='', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.076252,
+      "Trying example: test_too_short_rejected(password='o@1gy^S', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.076834,
+      "Trying example: test_too_short_rejected(password='a', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.073039,
+      "Trying example: test_too_short_rejected(password='z', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.071686,
+      "Trying example: test_too_short_rejected(password='ax', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.07655,
+      "Trying example: test_too_short_rejected(password='', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.075827,
+      "Trying example: test_too_short_rejected(password='', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.072688,
+      "Trying example: test_too_short_rejected(password='a', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.080562,
+      "Trying example: test_too_short_rejected(password='a2', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.073735,
+      "Trying example: test_too_short_rejected(password='a2', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.075509,
+      "Trying example: test_too_short_rejected(password='aXH', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.079794,
+      "Trying example: test_too_short_rejected(password='a', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.077139,
+      "Trying example: test_too_short_rejected(password='gp=', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.072502,
+      "Trying example: test_too_short_rejected(password='ao=', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.074046,
+      "Trying example: test_too_short_rejected(password='coHynVt', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.073363,
+      "Trying example: test_too_short_rejected(password='=ka', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.076401,
+      "Trying example: test_too_short_rejected(password='laT41', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.073587,
+      "Trying example: test_too_short_rejected(password='apaCava', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.071817,
+      "Trying example: test_too_short_rejected(password='', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.072144,
+      "Trying example: test_too_short_rejected(password='O4p3cHg', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.073335,
+      "Trying example: test_too_short_rejected(password='b', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.074581,
+      "Trying example: test_too_short_rejected(password='b*SDX', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.07338,
+      "Trying example: test_too_short_rejected(password='abbba', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.074161,
+      "Trying example: test_too_short_rejected(password='bbbb', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.07545,
+      "Trying example: test_too_short_rejected(password='bbbb', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.073648,
+      "Trying example: test_too_short_rejected(password='bbbbnB', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.075931,
+      "Trying example: test_too_short_rejected(password='bbbbbn#', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.072012,
+      "Trying example: test_too_short_rejected(password='bbbbbb', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.075291,
+      "Trying example: test_too_short_rejected(password='bb', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.078207,
+      "Trying example: test_too_short_rejected(password='bd', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.074477,
+      "Trying example: test_too_short_rejected(password='', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.073213,
+      "Trying example: test_too_short_rejected(password='wIkv,47', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.073611,
+      "Trying example: test_too_short_rejected(password='wr=+', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.0789,
+      "Trying example: test_too_short_rejected(password='', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.077112,
+      "Trying example: test_too_short_rejected(password='ZBRIRG3', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.078425,
+      "Trying example: test_too_short_rejected(password='ZI', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.071792,
+      "Trying example: test_too_short_rejected(password='*I', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.07294,
+      "Trying example: test_too_short_rejected(password='*a', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.072519,
+      "Trying example: test_too_short_rejected(password='*', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.07135,
+      "Trying example: test_too_short_rejected(password='*6', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.077439,
+      "Trying example: test_too_short_rejected(password='*n#_%', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.073385,
+      "Trying example: test_too_short_rejected(password='*!', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.071826,
+      "Trying example: test_too_short_rejected(password='ge', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.071801,
+      "Trying example: test_too_short_rejected(password='', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.071325,
+      "Trying example: test_too_short_rejected(password='9!', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.073432,
+      "Trying example: test_too_short_rejected(password='9Ua!', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.074153,
+      "Trying example: test_too_short_rejected(password='7e&a!##', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.07429,
+      "Trying example: test_too_short_rejected(password='Q6', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.07468,
+      "Trying example: test_too_short_rejected(password='V', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.072081,
+      "Trying example: test_too_short_rejected(password='aL', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.074163,
+      "Trying example: test_too_short_rejected(password='a%k(', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.072817,
+      "Trying example: test_too_short_rejected(password='b', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.070834,
+      "Trying example: test_too_short_rejected(password='a', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.07403,
+      "Trying example: test_too_short_rejected(password='', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.07181,
+      "Trying example: test_too_short_rejected(password='k*', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.073643,
+      "Trying example: test_too_short_rejected(password='k*Y9G,q', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.072776,
+      "Trying example: test_too_short_rejected(password='', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.072109,
+      "Trying example: test_too_short_rejected(password='', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.076289,
+      "Trying example: test_too_short_rejected(password='#g^teH', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.079104,
+      "Trying example: test_too_short_rejected(password='aa', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.072292,
+      "Trying example: test_too_short_rejected(password='', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.077454,
+      "Trying example: test_too_short_rejected(password='', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.077266,
+      "Trying example: test_too_short_rejected(password='', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.073351,
+      "Trying example: test_too_short_rejected(password='', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.072799,
+      "Trying example: test_too_short_rejected(password='', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.074027,
+      "Trying example: test_too_short_rejected(password='AS', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.074075,
+      "Trying example: test_too_short_rejected(password='Ls', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.06867,
+      "Trying example: test_too_short_rejected(password='s', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.07444,
+      "Trying example: test_too_short_rejected(password='s', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.076919,
+      "Trying example: test_too_short_rejected(password='s', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.069766,
+      "Trying example: test_too_short_rejected(password='s', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.074577,
+      "Trying example: test_too_short_rejected(password='s', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.073148,
+      "Trying example: test_too_short_rejected(password='s', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.073904,
+      "Trying example: test_too_short_rejected(password='yKbSH7)', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.073228,
+      "Trying example: test_too_short_rejected(password=',xcc69', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.071379,
+      "Trying example: test_too_short_rejected(password='', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.075049,
+      "Trying example: test_too_short_rejected(password='th', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.073988,
+      "Trying example: test_too_short_rejected(password='', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.073292,
+      "Trying example: test_too_short_rejected(password='ps', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.072669,
+      "Trying example: test_too_short_rejected(password='ps', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.075388,
+      "Trying example: test_too_short_rejected(password='ps', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.082237,
+      "Trying example: test_too_short_rejected(password='ps!', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.073168,
+      "Trying example: test_too_short_rejected(password='pbFr', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.073749,
+      "Trying example: test_too_short_rejected(password='7bFr0', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.07459,
+      "Trying example: test_too_short_rejected(password='Z%', checker='password_checker.py')\r\n"
+    ],
+    [
+      0.074491,
+      "\r\r\n"
+    ],
+    [
+      0.000789,
+      "\r \u001b[36m\u001b[0mverifier.py\u001b[0m \u001b[32m✓\u001b[0m                                                                                                                                                     \u001b[32m100% \u001b[0m\u001b[40m\u001b[32m█\u001b[0m\u001b[40m\u001b[32m█████████\u001b[0m"
+    ],
+    [
+      0.000701,
+      "\r\n"
+    ],
+    [
+      0.000141,
+      "\r\nResults (7.66s):\r\n"
+    ],
+    [
+      9.2e-05,
+      "\u001b[32m       1 passed\u001b[0m\r\n"
+    ],
+    [
+      0.167428,
+      "\u001b]0;~/dev/madison/passwords\u0007"
+    ],
+    [
+      0.000263,
+      "[\u001b[1;36mjrheard\u001b[00m@jrheard-air:\u001b[1;32m~/dev/madison/passwords\u001b[00m]\u001b[1;33m (master *) \u0001\u001b[00m🚂  "
+    ],
+    [
+      8.628312,
+      "\r\n"
+    ],
+    [
+      0.099216,
+      "\u001b]0;~/dev/madison/passwords\u0007"
+    ],
+    [
+      0.0004,
+      "[\u001b[1;36mjrheard\u001b[00m@jrheard-air:\u001b[1;32m~/dev/madison/passwords\u001b[00m]\u001b[1;33m (master *) \u0001\u001b[00m🚂  "
+    ]
+  ]
+}
