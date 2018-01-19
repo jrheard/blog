@@ -20,11 +20,11 @@ Testing
 
 When a student finishes their password checker, we need to examine it to see whether or not the student programmed it correctly. We have around thirty students, and the checker program needs to satisfy a variety of constraints, and students often don't get them all right the first time, so each student will usually submit several versions of the checker.
 
-Testing submitted password checkers a jillion times by hand ("does the latest version of Jane's checker correctly reject `abcd`? How about `$!@#5555`?") sounded pretty awful, so I decided to write an automated test suite to do this for us.
+Testing submitted password checkers a jillion times by hand ("does the latest version of Jane's checker correctly reject `abcd`? How about `$!@#5555`?") sounded pretty awful, so I decided to write a program to do this for us.
 
 These students hadn't learned about functions yet, so their programs didn't have an `is_password_good(password)` function that I could import and unit-test. Instead, I needed to write code that would run the student's program, send it several lines of input, and read its output.
 
-My first instinct was to use the [`subprocess` library](https://docs.python.org/3/library/subprocess.html) to do this, but I had trouble getting that to work. I needed to send a line to the program, then wait and then send another line, and then wait and send a third line; but the `subprocess` library's API isn't particularly well-suited for this use case, it's kind of painful to use if you want to send more than one line of input. I Googled around and found a bunch of StackOverflow questions written by people in my exact situation, and the answers all said to use `pexpect` instead.
+My first instinct was to use [the `subprocess` library](https://docs.python.org/3/library/subprocess.html) to do this, but I had trouble getting that to work. I needed to send a line to the program, then wait and then send another line, and then wait and send a third line; but the `subprocess` library's API isn't particularly well-suited for situations where you want to send a program more than one line of input. I Googled around and found a bunch of StackOverflow questions written by people in my exact situation, and the answers all said to use `pexpect` instead.
 
 Pexpect
 =======
@@ -41,6 +41,8 @@ def get_checker_output(password, checker):
 	program.sendline(password)
 
 	lines = program.read().decode('utf-8').splitlines()
+	# Return the last line of the program's output,
+	# which should be a string like 'GOOD' or 'BAD'.
 	return filter(bool, lines)[-1]
 </textarea>
 <pre class="cm-s-friendship-bracelet"></pre>
@@ -80,7 +82,9 @@ A week later, though, I stumbled across Hypothesis and realized that my tests ha
 Hypothesis
 ==========
 
-[Hypothesis][hypothesis] is a "property-based testing" library for Python. Its homepage says:
+[Hypothesis][hypothesis] is a **property-based testing** library. Its homepage says:
+
+TODO maybe define property-based
 
 > Hypothesis runs your tests against a much wider range of scenarios than a human tester could, finding edge cases in your code that you would otherwise have missed.
 
@@ -108,22 +112,24 @@ def test_too_short_rejected(password, checker):
 </textarea>
 <pre class="cm-s-friendship-bracelet"></pre>
 
-When Hypothesis sees a test that's annotated with the `@given` decorator, it runs that test a bunch of times. Our test's decorator says that we want a random `password` argument, so Hypothesis gives the test function a random password each time it's run, which our test can use however it wants.
+When Hypothesis sees a test that's annotated with the `@given` decorator, it runs that test a bunch of times. Our test's decorator says that we want a random `password` argument, so Hypothesis gives the test function a random password each time it's run, which our test can then use however it wants.
 
 We're halfway there—all we have to do now is tell Hypothesis how to generate too-short passwords.
 
-A too-short password is a string with some characters in it. It can contain the lowercase letters a-z, the uppercase letters A-Z, the digits 0-9, and some specific symbols given in the assignment writeup. Since we only want to generate passwords that are "too short", a too-short password can have at most seven characters.
+A too-short password is a string with some characters in it. The string can contain the lowercase letters a-z, the uppercase letters A-Z, the digits 0-9, and some specific symbols given in the assignment writeup. Since we only want to generate passwords that are "too short", a too-short password can have at most seven characters.
 
 <textarea class="hidden">
 VALID_PASSWORD_CHARACTERS = string.ascii_letters + string.digits + '!@#$%^&*()-_=+.,'
 
-short_password_gen = st.text(alphabet=VALID_PASSWORD_CHARACTERS,
-                           max_size=7)
+short_password_strat = st.text(alphabet=VALID_PASSWORD_CHARACTERS,
+                             max_size=7)
 </textarea>
 <pre class="cm-s-friendship-bracelet"></pre>
 
 
-`st.text()` is a **strategy**. Hypothesis has a [ton of these][strategies] that you can use to generate all sorts of data. When we give `short_password_gen` to the `@given` decorator, it'll generate passwords like these:
+`st.text()` returns a **strategy**, which is an object that Hypothesis can use to generate random data. Hypothesis has a [ton of these][strategies] that you can use to generate all sorts of stuff.
+
+When we give `short_password_strat` to the `@given` decorator, Hypothesis will generate random passwords like these whenever it runs our test:
 
 <textarea class="hidden">
 'yKbSH7)'
@@ -135,19 +141,24 @@ short_password_gen = st.text(alphabet=VALID_PASSWORD_CHARACTERS,
 <pre class="cm-s-friendship-bracelet"></pre>
 
 
-That's all there is to it - now that we know how to generate random too-short passwords, we can convert our example-based test to a property-based test!
+That's all there is to it - now that we know how to generate random too-short passwords, we can convert our example-based test to a property-based test.
 
 <textarea class="hidden">
-@given(password=short_password_gen)
+@given(password=short_password_strat)
 def test_too_short_rejected(password, checker):
        assert_bad(password, checker)
 </textarea>
 <pre class="cm-s-friendship-bracelet"></pre>
 
-Here's what our test looks like in action—in this recording, I've put Hypothesis into verbose mode using the [HYPOTHESIS_VERBOSITY_LEVEL][hypothesis-verbose] environment variable so that we can see the random passwords that our test is generating.
+We're done! That wasn't so hard.
+
+Here's what our test looks like in action—in this recording, I've put Hypothesis into verbose mode using the [HYPOTHESIS_VERBOSITY_LEVEL][hypothesis-verbose] environment variable so that we can see the random passwords that it generates.
 
 <asciinema-player src="{{ site.baseurl }}/hypothesis_cast.json?v=1" rows="16" cols="90" autoplay="true" loop="true"></asciinema-player>
 
+
+
+TODO tlak more about what it's like to use hypothesis
 
 
 
