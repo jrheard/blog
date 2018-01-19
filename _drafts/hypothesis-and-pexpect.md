@@ -4,8 +4,8 @@ title:  "Using Hypothesis and Pexpect to Test High School Programming Assignment
 ---
 
 <style>
-pre .CodeMirror:nth-of-type(2) {
-display: none;
+.cm-s-friendship-bracelet {
+	font-size: 16px;
 }
 </style>
 
@@ -33,7 +33,8 @@ Pexpect
 
 Here's the code I used to drive students' password-checker programs.
 
-<pre><code class="py">
+
+<textarea class="hidden">
 def get_checker_output(password, checker):
 	program = pexpect.popen_spawn.PopenSpawn('python ' + checker)
 	program.sendline('jrheard')
@@ -42,13 +43,14 @@ def get_checker_output(password, checker):
 
 	lines = program.read().decode('utf-8').splitlines()
 	return filter(bool, lines)[-1]
-</code></pre>
+</textarea>
+<pre class="cm-s-friendship-bracelet"></pre>
 
 (It's interesting to note that `pexpect.popen_spawn.PopenSpawn` [uses the `subprocess` library](https://github.com/pexpect/pexpect/blob/master/pexpect/popen_spawn.py#L46) under the hood.)
 
 I also wrote a couple of helper functions, `assert_good()` and `assert_bad()`. Finally, I wrote some standard unit tests:
 
-<pre><code class="py">
+<textarea class="hidden">
 def test_too_short_rejected(checker):
     assert_bad('A!1', checker)
 
@@ -64,7 +66,8 @@ def test_two_categories(checker):
 
 def test_exactly_eight_characters(checker):
     assert_good('abc123!P', checker)
-</code></pre>
+</textarea>
+<pre class="cm-s-friendship-bracelet"></pre>
 
 I hand-wrote around twenty assertions like those and called it a day. It was very satisfying to run the resulting tests:
 
@@ -87,7 +90,7 @@ This test is actually pretty flimsy, because it only checks to see if `A!1` is r
 
 Here's how to use Hypothesis to enhance that test.
 
-<pre><code class="py">
+<textarea class="hidden">
 # This becomes a string like 'a..zA..Z0..9!..,'.
 VALID_PASSWORD_CHARACTERS = string.ascii_letters + \
 	string.digits + \
@@ -96,16 +99,16 @@ VALID_PASSWORD_CHARACTERS = string.ascii_letters + \
 # A too-short password is: any password-like string that
 # contains seven characters or fewer.
 password_strategy = st.text(alphabet=VALID_PASSWORD_CHARACTERS,
-						max_size=7)
+                                               max_size=7)
 
 # With that out of the way: here's our Hypothesis test!
 # It'll check a bunch of passwords like
 # 'yKbSH7)', 'aa', and '#g^teH'.
 @given(password=password_strategy)
 def test_too_short_rejected(password, checker):
-	assert_bad(password, checker)
-
-</code></pre>
+       assert_bad(password, checker)
+</textarea>
+<pre class="cm-s-friendship-bracelet"></pre>
 
 Property Based Testing
 ======================
@@ -118,9 +121,9 @@ todo talk about just how easy hypothesis is to use, and how good it feels to use
 Hypothesis In Action
 ====================
 
-When you add Hypothesis to your tests, you'll usually find a ton of bugs in your code which your previous hand-written tests hadn't found. This is good! Fix those bugs and think happy thoughts about the authors of Hypothesis.
+When you add Hypothesis to your tests, you'll usually find a ton of bugs in your code which your previous hand-written tests hadn't found. This is good! Fix those bugs and think happy thoughts.
 
-If your test passes and you'd like to convince yourself that Hypothesis isn't slacking off, you can use the [`HYPOTHESIS_VERBOSITY_LEVEL` environment variable][hypothesis-verbose] to see what Hypothesis is generating, like this:
+If your test passes the first time you run it and you'd like to convince yourself that it actually does what you think it does, you can use the [`HYPOTHESIS_VERBOSITY_LEVEL` environment variable][hypothesis-verbose] to see what Hypothesis is generating.
 
 <asciinema-player src="{{ site.baseurl }}/hypothesis_cast.json?v=1" rows="16" cols="90" autoplay="true" loop="true"></asciinema-player>
 
@@ -141,16 +144,20 @@ If your test passes and you'd like to convince yourself that Hypothesis isn't sl
 
 
 
-<script>
-window.klipse_settings = {
-	selector_eval_python_client: '.py',
-	codemirror_options_in: {
-		theme: "friendship-bracelet"
-	},
-	codemirror_options_out: {
-		theme: "friendship-bracelet"
-	}
-};
-</script>
+
 {% javascript asciinema-player %}
-{% javascript klipse.min %}
+{% javascript codemirror %}
+{% javascript codemirror_python %}
+{% javascript codemirror_runmode %}
+
+
+<script>
+var textAreas = document.getElementsByTagName("textarea");
+var pres = document.querySelectorAll("pre.cm-s-friendship-bracelet");
+
+for (var i = 0; i < textAreas.length; i++) {
+	CodeMirror.runMode(textAreas[i].value, "python", pres[i]);
+}
+
+
+</script>

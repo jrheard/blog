@@ -181,6 +181,8 @@ window.klipse_settings = {
 		theme: "friendship-bracelet"
 	}
 };
+
 </script>
 {% javascript asciinema-player %}
 {% javascript klipse.min %}
+
