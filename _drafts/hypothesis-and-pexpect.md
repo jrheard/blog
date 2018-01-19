@@ -13,7 +13,7 @@ I've been coming up with some [fun][passwords] [projects][caesar] for a [beginne
 
 <asciinema-player src="{{ site.baseurl }}/password_checker_cast.json?v=1" rows="12" cols="90" autoplay="true"></asciinema-player>
 
-The program should prompt the user for their username, student ID, and password, and it should print out the string GOOD or BAD to indicate whether the password is "valid" or not (see the [assignment writeup][passwords] for more details).
+The program should prompt the user for their username, student ID, and password, and it should print out the string GOOD or BAD to indicate whether or not the password is "valid" (see the [assignment writeup][passwords] for more details).
 
 Testing
 =======
@@ -24,15 +24,14 @@ Testing submitted password checkers a jillion times by hand ("does the latest ve
 
 These students hadn't learned about functions yet, so their programs didn't have an `is_password_good(password)` function that I could import and unit-test. Instead, I needed to write code that would run the student's program, send it several lines of input, and read its output.
 
-My first instinct was to use the [`subprocess` library](https://docs.python.org/3/library/subprocess.html) to do this, but I had trouble getting that to work. I needed to send a line to the program, then wait and then send another line, and then wait and send a third line; but the `subprocess` library's API isn't particularly well-suited for this use case. I Googled around and found a bunch of StackOverflow questions written by people in my exact situation, and the answers all said to use `pexpect` instead.
+My first instinct was to use the [`subprocess` library](https://docs.python.org/3/library/subprocess.html) to do this, but I had trouble getting that to work. I needed to send a line to the program, then wait and then send another line, and then wait and send a third line; but the `subprocess` library's API isn't particularly well-suited for this use case, it's kind of painful to use if you want to send more than one line of input. I Googled around and found a bunch of StackOverflow questions written by people in my exact situation, and the answers all said to use `pexpect` instead.
 
 Pexpect
 =======
 
-[Pexpect][pexpect] is a library with a nice API that lets you start a program, feed it as many lines of input as you want, and read as many lines of output as you want.
+[Pexpect][pexpect] is a library that lets you start a program, feed it as many lines of input as you want, and read as many lines of output as you want.
 
-Here's the code I used to drive students' password-checker programs.
-
+Here's how to use pexpect to operate the password-checker program you saw earlier:
 
 <textarea class="hidden">
 def get_checker_output(password, checker):
@@ -51,9 +50,6 @@ def get_checker_output(password, checker):
 I also wrote a couple of helper functions, `assert_good()` and `assert_bad()`. Finally, I wrote some standard unit tests:
 
 <textarea class="hidden">
-def test_too_short_rejected(checker):
-    assert_bad('A!1', checker)
-
 def test_contains_student_id(checker):
     assert_bad('jifoaw12345@!#*LKJFSklfaew', checker)
 
@@ -66,6 +62,10 @@ def test_two_categories(checker):
 
 def test_exactly_eight_characters(checker):
     assert_good('abc123!P', checker)
+
+# Remember this one for later!
+def test_too_short_rejected(checker):
+    assert_bad('A!1', checker)
 </textarea>
 <pre class="cm-s-friendship-bracelet"></pre>
 
@@ -84,46 +84,67 @@ Hypothesis
 
 > Hypothesis runs your tests against a much wider range of scenarios than a human tester could, finding edge cases in your code that you would otherwise have missed.
 
-Here's an example to give you a better idea of what this means. Earlier, I showed you a test called `test_too_short_rejected()`, which asserts that the password `A!1` is marked BAD, because the password checker is supposed to reject passwords that are shorter than eight characters. This is an **example-based test**, which means that I wrote it by hand using an example password that I came up with off the top of my head.
-
-This test is actually pretty flimsy, because it only checks to see if `A!1` is rejected—but if the student's checker program incorrectly allows a seven-character-long string like `A!12345`, my test won't catch that bug, because I didn't think to include that example in my test! I could add more examples, but that isn't very fun; and even if I did think really hard and came up with five more examples, my test still wouldn't be very exhaustive.
-
-Here's how to use Hypothesis to enhance that test.
+Earlier, I showed you a test called `test_too_short_rejected()`, which asserts that the password `A!1` is marked "BAD", because the password checker is supposed to reject passwords that are shorter than eight characters. Here it is again:
 
 <textarea class="hidden">
-# This becomes a string like 'a..zA..Z0..9!..,'.
-VALID_PASSWORD_CHARACTERS = string.ascii_letters + \
-	string.digits + \
-	'!@#$%^&*()-_=+.,'
+def test_too_short_rejected(checker):
+    assert_bad('A!1', checker)
+</textarea>
+<pre class="cm-s-friendship-bracelet"></pre>
 
-# A too-short password is: any password-like string that
-# contains seven characters or fewer.
-password_strategy = st.text(alphabet=VALID_PASSWORD_CHARACTERS,
-                                               max_size=7)
+This is an **example-based test**, which means that I wrote it by hand using an example password that I came up with off the top of my head.
 
-# With that out of the way: here's our Hypothesis test!
-# It'll check a bunch of passwords like
-# 'yKbSH7)', 'aa', and '#g^teH'.
-@given(password=password_strategy)
+This test is actually pretty flimsy, because it only checks to see if `A!1` is rejected—but if the student's checker program incorrectly allows a seven-character-long string like `A!12345`, my test won't catch that bug, because I didn't think to include that example in my test. I could add more examples to my test, but that isn't very fun; and even if I did think really hard and came up with five more examples, my test still wouldn't be very exhaustive, because students are very good at coming up with bugs that I wouldn't think to test for.
+
+How To Use Hypothesis
+---------------------
+
+Let's use Hypothesis to improve this test. We'll start by adding the `@given` decorator:
+
+<textarea class="hidden">
+@given(password=TODO_DEFINE_ME)
+def test_too_short_rejected(password, checker):
+    assert_bad(password, checker)
+</textarea>
+<pre class="cm-s-friendship-bracelet"></pre>
+
+When Hypothesis sees a test that's annotated with the `@given` decorator, it runs that test a bunch of times. Our test's decorator says that we want a random `password` argument, so Hypothesis gives the test function a random password each time it's run, which our test can use however it wants.
+
+We're halfway there—all we have to do now is tell Hypothesis how to generate too-short passwords.
+
+A too-short password is a string with some characters in it. It can contain the lowercase letters a-z, the uppercase letters A-Z, the digits 0-9, and some specific symbols given in the assignment writeup. Since we only want to generate passwords that are "too short", a too-short password can have at most seven characters.
+
+<textarea class="hidden">
+VALID_PASSWORD_CHARACTERS = string.ascii_letters + string.digits + '!@#$%^&*()-_=+.,'
+
+short_password_gen = st.text(alphabet=VALID_PASSWORD_CHARACTERS,
+                           max_size=7)
+</textarea>
+<pre class="cm-s-friendship-bracelet"></pre>
+
+
+`st.text()` is a **strategy**. Hypothesis has a [ton of these][strategies] that you can use to generate all sorts of data. When we give `short_password_gen` to the `@given` decorator, it'll generate passwords like these:
+
+<textarea class="hidden">
+'yKbSH7)'
+'aa'
+',xcc69'
+'#g^teH'
+'pbFr'
+</textarea>
+<pre class="cm-s-friendship-bracelet"></pre>
+
+
+That's all there is to it - now that we know how to generate random too-short passwords, we can convert our example-based test to a property-based test!
+
+<textarea class="hidden">
+@given(password=short_password_gen)
 def test_too_short_rejected(password, checker):
        assert_bad(password, checker)
 </textarea>
 <pre class="cm-s-friendship-bracelet"></pre>
 
-Property Based Testing
-======================
-The `@given` decorator is what makes the magic happen. It tells Hypothesis: run this test a bunch of times with a random password (containing any character in `VALID_PASSWORD_CHARACTERS`, up to seven characters max) each time.
-
-TODO WRITE MORE
-
-todo talk about just how easy hypothesis is to use, and how good it feels to use
-
-Hypothesis In Action
-====================
-
-When you add Hypothesis to your tests, you'll usually find a ton of bugs in your code which your previous hand-written tests hadn't found. This is good! Fix those bugs and think happy thoughts.
-
-If your test passes the first time you run it and you'd like to convince yourself that it actually does what you think it does, you can use the [`HYPOTHESIS_VERBOSITY_LEVEL` environment variable][hypothesis-verbose] to see what Hypothesis is generating.
+Here's what our test looks like in action—in this recording, I've put Hypothesis into verbose mode using the [HYPOTHESIS_VERBOSITY_LEVEL][hypothesis-verbose] environment variable so that we can see the random passwords that our test is generating.
 
 <asciinema-player src="{{ site.baseurl }}/hypothesis_cast.json?v=1" rows="16" cols="90" autoplay="true" loop="true"></asciinema-player>
 
@@ -140,6 +161,7 @@ If your test passes the first time you run it and you'd like to convince yoursel
 [pexpect]: https://github.com/pexpect/pexpect
 [hypothesis]: http://hypothesis.works/
 [hypothesis-verbose]: http://hypothesis.readthedocs.io/en/latest/settings.html#seeing-intermediate-result
+[strategies]: http://hypothesis.readthedocs.io/en/latest/data.htm
 
 
 
@@ -158,6 +180,4 @@ var pres = document.querySelectorAll("pre.cm-s-friendship-bracelet");
 for (var i = 0; i < textAreas.length; i++) {
 	CodeMirror.runMode(textAreas[i].value, "python", pres[i]);
 }
-
-
 </script>
