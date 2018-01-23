@@ -89,9 +89,9 @@ Letters a-z Don't Have ASCII Codes 1-26
 
 This might feel weird at first, but you'll get used to it. Most of the ASCII codes between 0 and 31 are junk left over from the days when computers were giant room-sized machines controlled by jury-rigged typewriters.
 
-Here's the full ASCII table from [asciitable.com](http://www.asciitable.com) - don't worry, you don't need to memorize this or anything, I'm just showing it to you in case you find it helpful. You only care about the "Dec" (decimal) and "Char" (character) columns in this table.
+Here's the full ASCII table from [asciitable.com](http://www.asciitable.com) - don't worry, you don't need to memorize this or anything, I'm just showing it to you in case you find it helpful. I've highlighted the section of the table that concerns the uppercase letters A-Z. You only care about the "Dec" (decimal) and "Char" (character) columns in this table.
 
-{% img ascii_table.gif %}
+{% img ascii_table.jpg %}
 
 That's the whole thing! Notice how e.g. uppercase `J` has the ASCII code 74, and lowercase `j` has the ASCII code 106.
 
@@ -124,12 +124,12 @@ You'll probably want to use a `for` loop at some point in your program - here's 
 
 <pre><code class="py">
 some_letters = "ABCDEFG"
-transformed_letters = ""
+lowercased_letters = ""
 
 for letter in some_letters:
-	transformed_letters += chr(ord(letter) + 32)
+	lowercased_letters = lowercased_letters + chr(ord(letter) + 32)
 
-print(transformed_letters)
+print(lowercased_letters)
 </code></pre>
 
 That chunk of code lowercases a string, one letter at a time - you might end up doing something similar (but **different!**) when you're building up your program's `ciphertext` variable.
