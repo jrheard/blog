@@ -20,7 +20,7 @@ Testing
 
 When a student finishes their password checker, we need to examine it to see whether or not the student programmed it correctly. We have around thirty students, and the checker program needs to satisfy a variety of constraints, and students often don't get them all right the first time, so each student will usually submit several versions of the checker.
 
-Testing submitted password checkers a jillion times by hand ("does the latest version of Jane's checker correctly reject `abcd`? How about `$!@#5555`?") sounded pretty awful, so I decided to write a program to do this for us.
+Testing submitted password checkers a jillion times by hand ("does the latest version of Jane's checker correctly reject `'abcd'`? How about `'$!@#5555'`?") sounded pretty awful, so I decided to write a program to do this for us.
 
 These students hadn't learned about functions yet, so their programs didn't have an `is_password_good(password)` function that I could import and unit-test. Instead, I needed to write code that would run the student's program, send it several lines of input, and read its output.
 
@@ -31,7 +31,7 @@ Pexpect
 
 [Pexpect][pexpect] is a library that lets you start a program, feed it as many lines of input as you want, and read as many lines of output as you want.
 
-Here's how to use pexpect to operate the password-checker program you saw earlier[^1]:
+Here's how to use pexpect to operate the password-checker program you saw earlier:[^1]
 
 <textarea class="hidden">
 def get_checker_output(password, checker):
@@ -67,11 +67,11 @@ def test_exactly_eight_characters(checker):
 
 # Remember this one for later!
 def test_too_short_rejected(checker):
-    assert_bad('A!1', checker)
+    assert_bad('X$3', checker)
 </textarea>
 <pre class="cm-s-friendship-bracelet"></pre>
 
-I hand-wrote around twenty assertions like those and called it a day. It was very satisfying to run the resulting tests, and I felt great about all the time they would save.
+I hand-wrote around twenty assertions like those and called it a day. It was very satisfying to run the resulting tests, and I felt great about the amount of time that they would save.
 
 A week later, though, I stumbled across Hypothesis and realized that my tests had a lot of room for improvement.
 
@@ -82,17 +82,17 @@ Hypothesis
 
 > Hypothesis runs your tests against a much wider range of scenarios than a human tester could, finding edge cases in your code that you would otherwise have missed.
 
-Earlier, I showed you a test called `test_too_short_rejected()`. That test asserts that the password `A!1` is marked "BAD", because the password checker is supposed to reject passwords that are shorter than eight characters.
+Earlier, I showed you a test called `test_too_short_rejected()`. That test asserts that the password `'X$3'` is marked "BAD", because the password checker is supposed to reject passwords that are shorter than eight characters.
 
 <textarea class="hidden">
 def test_too_short_rejected(checker):
-    assert_bad('A!1', checker)
+    assert_bad('X$3', checker)
 </textarea>
 <pre class="cm-s-friendship-bracelet"></pre>
 
 This is an **example-based test**, which means that I wrote it by hand using an example too-short password that I came up with off the top of my head.
 
-This test is actually pretty flimsy, because it only checks to see if `A!1` is rejected—but if the student's checker program incorrectly allows a seven-character-long password like `A!12345`, my test won't catch that bug, because I didn't think to include that example in my test. I could add more examples to my test, but that isn't very fun; and even if I did think really hard and came up with five more examples, my test still wouldn't be very exhaustive, because students are very good at coming up with bugs that I wouldn't think to test for.
+This test is actually pretty flimsy, because it only checks to see if `'X$3'` is rejected—but if the student's checker program incorrectly allows a seven-character-long password like `'X$12345'`, my test won't catch that bug, because I didn't think to include that example in my test. I could add more examples to my test, but that isn't very fun; and even if I did think really hard and came up with five more examples, my test still wouldn't be very exhaustive, because students are very good at coming up with bugs that I wouldn't think to test for.
 
 How To Use Hypothesis
 ---------------------
@@ -115,17 +115,21 @@ A too-short password is a string with some characters in it. Those characters ca
 Here's how to say that to Hypothesis:
 
 <textarea class="hidden">
-VALID_PASSWORD_CHARACTERS = string.ascii_letters + string.digits + '!@#$%^&*()-_=+.,'
+VALID_PASSWORD_CHARACTERS = string.ascii_letters \
+	+ string.digits \
+	+ '!@#$%^&*()-_=+.,'
 
-short_password_strat = st.text(alphabet=VALID_PASSWORD_CHARACTERS,
-                             max_size=7)
+short_password_strategy = st.text(alphabet=VALID_PASSWORD_CHARACTERS,
+                               max_size=7)
 </textarea>
 <pre class="cm-s-friendship-bracelet"></pre>
 
 
-`st.text()` returns a **strategy**, which is an object that Hypothesis can use to generate random data. Hypothesis has a [ton of these][strategies] that you can use to generate all sorts of stuff.
+`st.text()` returns a **strategy**, which is an object that Hypothesis can use to generate random data. Hypothesis has a [ton of these][strategies] that you can use to generate all sorts of stuff.[^2]
 
-When we give `short_password_strat` to the `@given` decorator, Hypothesis will generate random passwords like these whenever it runs our test:
+[^2]: If you'd like to generate instances of classes defined in your program, you might find [this guide](http://hypothesis.works/articles/generating-the-right-data/) handy.
+
+When we give `short_password_strategy` to the `@given` decorator, Hypothesis will generate random passwords like these:
 
 <textarea class="hidden">
 'yKbSH7)'
@@ -137,11 +141,10 @@ When we give `short_password_strat` to the `@given` decorator, Hypothesis will g
 </textarea>
 <pre class="cm-s-friendship-bracelet"></pre>
 
-
-That's all there is to it - now that we know how to generate random too-short passwords, we can convert our example-based test to a property-based test.
+That's all there is to it—now that we know how to generate random too-short passwords, we can convert our example-based test to a property-based test.
 
 <textarea class="hidden">
-@given(password=short_password_strat)
+@given(password=short_password_strategy)
 def test_too_short_rejected(password, checker):
        assert_bad(password, checker)
 </textarea>
@@ -149,26 +152,36 @@ def test_too_short_rejected(password, checker):
 
 We're done! That wasn't so hard.
 
-Here's what our test looks like in action[^2]:
+Here's what our test looks like in action:[^3]
 
-[^2]: In this recording, I've put Hypothesis into verbose mode using the [HYPOTHESIS_VERBOSITY_LEVEL][hypothesis-verbose] environment variable so that we can see the random passwords that it generates. On the rare occasions when I write a Hypothesis test that passes the first time it's run, I like to put Hypothesis into verbose mode and run the test again to convince myself that I haven't made some sort of generation mistake.
+[^3]: In this recording, I've put Hypothesis into verbose mode using the [HYPOTHESIS_VERBOSITY_LEVEL][hypothesis-verbose] environment variable so that we can see the random passwords that it generates. On the rare occasions when I write a Hypothesis test that passes the first time it's run, I like to put Hypothesis into verbose mode and run the test again to convince myself that I haven't made some sort of generation mistake.
 
 <asciinema-player src="{{ site.baseurl }}/hypothesis_cast.json?v=1" rows="16" cols="90" autoplay="true" loop="true"></asciinema-player>
 
-If you'd like to learn more about how Hypothesis tests work, [Anatomy of a Hypothesis Based Test] is a great read, and isn't very long.
+If you'd like to learn more about how Hypothesis tests work, [Anatomy of a Hypothesis Based Test](http://hypothesis.works/articles/anatomy-of-a-test/) is a great short read.
 
-Before I wrap up, I'd like to give a brief overview of two of my favorite Hypothesis features: **shrinking** and **the example database**.
+Before I wrap up, I'd like to tell you about two of my favorite Hypothesis features: **shrinking** and **the example database**.
 
 Shrinking
 ---------
 
+TODO link to simpler article
+
+If Hypothesis generates a random value that causes your test to fail, it will then attempt to **shrink** that value, which means that it tries to find a "simpler" value that still causes your test to fail.
+
+For instance, if Hypothesis finds that the password `',xcc69'` causes 
 
 
-Hypothesis generates all sorts of random 
+Students often forgot to have their password checkers verify 
+
+If Hypothesis manages to find a bug in a student's 
 
 
+When Hypothesis manages to trigger a failure in your test
 
-TODO maybe mention http://hypothesis.works/articles/threshold-problem/
+Hypothesis generates a lot of random data. 
+
+
 
 
 
@@ -186,9 +199,13 @@ What It Feels Like To Use Hypothesis
 
 It feels really good.
 
-Our Hypothesis tests have caught a really amazing amount of bugs in students' programs, many of which were things I simply would not have caught with example-based tests. One student's password checker's logic turned out to use the hand-crafted string `abcdefghijklmnopqrstuvwyz`, which if you'll look closely you may notice is missing the letter `x`. _Lots_ of little tiny bugs like this.
+Our Hypothesis tests have caught a really amazing amount of bugs in students' programs, many of which were things I simply would not have caught with example-based tests. One student's password checker turned out to use the hand-crafted string `abcdefghijklmnopqrstuvwyz`, which if you'll look closely you may notice is missing the letter `x`. _Lots_ of little tiny bugs like this.
 
-Hypothesis tests—at least, the basic ones I've written so far—aren't hard to write. In fact, writing them is pretty fun! You should try [Hypothesis][hypothesis] out the next time you're writing tests in Python.
+Hypothesis tests—at least, the basic ones I've written so far—aren't hard to write. In fact, writing them is pretty fun! When I write Hypothesis tests, my tests find a lot of bugs; I tell our students to fix those bugs; and I feel like a happy calm wizard.
+
+You should try using [Hypothesis][hypothesis] the next time you're writing tests in Python.
+
+If you use a different programming language, check [this page](http://hypothesis.works/articles/quickcheck-in-every-language/) to see if your language has a good property-based testing library. If it does, try it out!
 
 
 
@@ -200,7 +217,7 @@ Hypothesis tests—at least, the basic ones I've written so far—aren't hard to
 [pexpect]: https://github.com/pexpect/pexpect
 [hypothesis]: http://hypothesis.works/
 [hypothesis-verbose]: http://hypothesis.readthedocs.io/en/latest/settings.html#seeing-intermediate-result
-[strategies]: http://hypothesis.readthedocs.io/en/latest/data.htm
+[strategies]: http://hypothesis.readthedocs.io/en/latest/data.html
 
 
 
