@@ -31,7 +31,7 @@ Pexpect
 
 [Pexpect][pexpect] is a library that lets you start a program, feed it as many lines of input as you want, and read as many lines of output as you want.
 
-Here's how to use pexpect to operate the password-checker program you saw earlier:
+Here's how to use pexpect to operate the password-checker program you saw earlier[^1]:
 
 <textarea class="hidden">
 def get_checker_output(password, checker):
@@ -47,7 +47,7 @@ def get_checker_output(password, checker):
 </textarea>
 <pre class="cm-s-friendship-bracelet"></pre>
 
-(It's interesting to note that `pexpect.popen_spawn.PopenSpawn` [uses the `subprocess` library](https://github.com/pexpect/pexpect/blob/master/pexpect/popen_spawn.py#L46) under the hood.)
+[^1]: It's interesting to note that [`pexpect.popen_spawn.PopenSpawn` uses the `subprocess` library](https://github.com/pexpect/pexpect/blob/master/pexpect/popen_spawn.py#L46) under the hood.
 
 Once I had that working, I wrote some standard unit tests.
 
@@ -71,7 +71,7 @@ def test_too_short_rejected(checker):
 </textarea>
 <pre class="cm-s-friendship-bracelet"></pre>
 
-I hand-wrote around twenty assertions like those and called it a day. It was very satisfying to run the resulting tests, and I felt great about all the time I was saving by not having to laboriously verify students' programs by hand.
+I hand-wrote around twenty assertions like those and called it a day. It was very satisfying to run the resulting tests, and I felt great about all the time they would save.
 
 A week later, though, I stumbled across Hypothesis and realized that my tests had a lot of room for improvement.
 
@@ -97,7 +97,7 @@ This test is actually pretty flimsy, because it only checks to see if `A!1` is r
 How To Use Hypothesis
 ---------------------
 
-Let's use Hypothesis to improve this test. We'll start by adding the `@given` decorator:
+Let's use Hypothesis to improve this test. We'll start by adding the `@given` decorator to our test function.
 
 <textarea class="hidden">
 @given(password=TODO_DEFINE_ME)
@@ -106,11 +106,11 @@ def test_too_short_rejected(password, checker):
 </textarea>
 <pre class="cm-s-friendship-bracelet"></pre>
 
-When Hypothesis sees a test that's annotated with the `@given` decorator, it runs that test a bunch of times. This test's decorator says that it wants a random `password` argument, so Hypothesis will give the test a random password each time it's run.
+When Hypothesis sees a test that's annotated with the `@given` decorator, it runs that test a bunch of times. This test's decorator says that the test wants a random `password` argument; so each time Hypothesis runs this test, it'll generate a random password.
 
-We're halfway there—all we have to do now is tell Hypothesis how to generate too-short passwords.
+We're halfway there—all we have to do now is tell Hypothesis how to actually _generate_ too-short passwords.
 
-A too-short password is a string with some characters in it. Those characters can be the lowercase letters a-z, the uppercase letters A-Z, the digits 0-9, and some specific symbols given in the assignment writeup. Since we only want to generate passwords that are "too short", a too-short password can have at most seven characters.
+A too-short password is a string with some characters in it. Those characters can be the lowercase letters a-z, the uppercase letters A-Z, the digits 0-9, and some specific symbols given in the assignment writeup. The student's password-checker program is supposed to reject passwords that are shorter than eight characters, so a too-short password can have at most seven characters.
 
 Here's how to say that to Hypothesis:
 
@@ -132,6 +132,7 @@ When we give `short_password_strat` to the `@given` decorator, Hypothesis will g
 'aa'
 ',xcc69'
 '#g^teH'
+''
 'pbFr'
 </textarea>
 <pre class="cm-s-friendship-bracelet"></pre>
@@ -148,27 +149,46 @@ def test_too_short_rejected(password, checker):
 
 We're done! That wasn't so hard.
 
-Here's what our test looks like in action—in this recording, I've put Hypothesis into verbose mode using the [HYPOTHESIS_VERBOSITY_LEVEL][hypothesis-verbose] environment variable so that we can see the random passwords that it generates.
+Here's what our test looks like in action[^2]:
+
+[^2]: In this recording, I've put Hypothesis into verbose mode using the [HYPOTHESIS_VERBOSITY_LEVEL][hypothesis-verbose] environment variable so that we can see the random passwords that it generates. On the rare occasions when I write a Hypothesis test that passes the first time it's run, I like to put Hypothesis into verbose mode and run the test again to convince myself that I haven't made some sort of generation mistake.
 
 <asciinema-player src="{{ site.baseurl }}/hypothesis_cast.json?v=1" rows="16" cols="90" autoplay="true" loop="true"></asciinema-player>
+
+If you'd like to learn more about how Hypothesis tests work, [Anatomy of a Hypothesis Based Test] is a great read, and isn't very long.
+
+Before I wrap up, I'd like to give a brief overview of two of my favorite Hypothesis features: **shrinking** and **the example database**.
+
+Shrinking
+---------
+
+
+
+Hypothesis generates all sorts of random 
+
+
+
+TODO maybe mention http://hypothesis.works/articles/threshold-problem/
+
+
+
+
+
+
+Example Database
+----------------
+
+TODO talk about failure database
+
 
 What It Feels Like To Use Hypothesis
 ------------------------------------
 
 It feels really good.
 
-Before Hypothesis, this is how I felt about writing tests:
+Our Hypothesis tests have caught a really amazing amount of bugs in students' programs, many of which were things I simply would not have caught with example-based tests. One student's password checker's logic turned out to use the hand-crafted string `abcdefghijklmnopqrstuvwyz`, which if you'll look closely you may notice is missing the letter `x`. _Lots_ of little tiny bugs like this.
 
-> Oh geez, I've gotta test this program. OK, what are a bunch of possible example inputs that might cause it to crash or behave incorrectly? Let's write a test for each of those and hope that's good enough.
-
-It was never good enough, and it was never fun.
-
-TODO tlak more about what it's like to use hypothesis
-
-
-TODO talk about shrinking
-
-TODO talk about failure database
+Hypothesis tests—at least, the basic ones I've written so far—aren't hard to write. In fact, writing them is pretty fun! You should try [Hypothesis][hypothesis] out the next time you're writing tests in Python.
 
 
 
