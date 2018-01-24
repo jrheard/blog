@@ -1,0 +1,202 @@
+{
+  "version": 1,
+  "width": 178,
+  "height": 46,
+  "duration": 29.280783,
+  "command": "/bin/bash -l",
+  "title": null,
+  "env": {
+    "TERM": "xterm-256color",
+    "SHELL": "/bin/bash"
+  },
+  "stdout": [
+    [
+      0.140512,
+      "\u001b]0;~/dev/madison/caesar\u0007\u001b[?1034h[\u001b[1;36mjrheard\u001b[00m@jrheard-air:\u001b[1;32m~/dev/madison/caesar\u001b[00m]\u001b[1;33m (master *) \u001b[00m🚂  "
+    ],
+    [
+      0.72117,
+      "p"
+    ],
+    [
+      0.195912,
+      "y"
+    ],
+    [
+      0.102006,
+      "t"
+    ],
+    [
+      0.065485,
+      "h"
+    ],
+    [
+      0.082541,
+      "o"
+    ],
+    [
+      0.095903,
+      "n"
+    ],
+    [
+      0.036069,
+      " "
+    ],
+    [
+      0.060187,
+      "c"
+    ],
+    [
+      0.131835,
+      "a"
+    ],
+    [
+      0.197923,
+      "e"
+    ],
+    [
+      0.161038,
+      "s"
+    ],
+    [
+      0.207195,
+      "ar.py "
+    ],
+    [
+      0.473801,
+      "\r\n"
+    ],
+    [
+      0.035993,
+      "Do you wish to encrypt, decrypt, or brute force a message?\r\n"
+    ],
+    [
+      1.453073,
+      "b"
+    ],
+    [
+      0.177807,
+      "r"
+    ],
+    [
+      0.23125,
+      "u"
+    ],
+    [
+      0.196774,
+      "t"
+    ],
+    [
+      0.091978,
+      "e"
+    ],
+    [
+      1.082967,
+      "\r\n"
+    ],
+    [
+      0.000118,
+      "Enter your message:\r\n"
+    ],
+    [
+      1.176201,
+      "MTbId! Mjqqt."
+    ],
+    [
+      2.72075,
+      "\r\n"
+    ],
+    [
+      0.000279,
+      "Your translated text is:\r\n1 LSaHc! Lipps.\r\n2 KRZGb! Khoor.\r\n"
+    ],
+    [
+      7.2e-05,
+      "3 JQYFa! Jgnnq.\r\n4 IPXEZ! Ifmmp.\r\n5 HOWDY! Hello.\r\n"
+    ],
+    [
+      6.9e-05,
+      "6 GNVCX! Gdkkn.\r\n7 FMUBW! Fcjjm.\r\n8 ELTAV! Ebiil.\r\n"
+    ],
+    [
+      3.7e-05,
+      "9 DKSzU! Dahhk.\r\n"
+    ],
+    [
+      3.8e-05,
+      "10 CJRyT! CZggj.\r\n11 BIQxS! BYffi.\r\n"
+    ],
+    [
+      3.6e-05,
+      "12 AHPwR! AXeeh.\r\n"
+    ],
+    [
+      3.3e-05,
+      "13 zGOvQ! zWddg.\r\n"
+    ],
+    [
+      3.5e-05,
+      "14 yFNuP! yVccf.\r\n"
+    ],
+    [
+      3.5e-05,
+      "15 xEMtO! xUbbe.\r\n"
+    ],
+    [
+      3.3e-05,
+      "16 wDLsN! wTaad.\r\n"
+    ],
+    [
+      3.3e-05,
+      "17 vCKrM! vSZZc.\r\n"
+    ],
+    [
+      4.6e-05,
+      "18 uBJqL! uRYYb.\r\n"
+    ],
+    [
+      4.2e-05,
+      "19 tAIpK! tQXXa.\r\n20 szHoJ! sPWWZ.\r\n"
+    ],
+    [
+      3.2e-05,
+      "21 ryGnI! rOVVY.\r\n"
+    ],
+    [
+      3.4e-05,
+      "22 qxFmH! qNUUX.\r\n"
+    ],
+    [
+      3.5e-05,
+      "23 pwElG! pMTTW.\r\n"
+    ],
+    [
+      3.4e-05,
+      "24 ovDkF! oLSSV.\r\n"
+    ],
+    [
+      3.2e-05,
+      "25 nuCjE! nKRRU.\r\n"
+    ],
+    [
+      0.084166,
+      "\u001b]0;~/dev/madison/caesar\u0007"
+    ],
+    [
+      0.000187,
+      "[\u001b[1;36mjrheard\u001b[00m@jrheard-air:\u001b[1;32m~/dev/madison/caesar\u001b[00m]\u001b[1;33m (master *) \u001b[00m🚂  "
+    ],
+    [
+      19.271332,
+      "\r\n"
+    ],
+    [
+      0.083072,
+      "\u001b]0;~/dev/madison/caesar\u0007"
+    ],
+    [
+      0.000147,
+      "[\u001b[1;36mjrheard\u001b[00m@jrheard-air:\u001b[1;32m~/dev/madison/caesar\u001b[00m]\u001b[1;33m (master *) \u001b[00m🚂  "
+    ]
+  ]
+}
