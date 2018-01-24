@@ -100,6 +100,8 @@ How To Use Hypothesis
 Let's use Hypothesis to improve this test. We'll start by adding the `@given` decorator to our test function.
 
 <textarea class="hidden">
+from hypothesis import given
+
 @given(password=TODO_DEFINE_ME)
 def test_too_short_rejected(password, checker):
     assert_bad(password, checker)
@@ -115,6 +117,8 @@ A too-short password is a string with some characters in it. Those characters ca
 Here's how to say that to Hypothesis:
 
 <textarea class="hidden">
+from hypothesis import strategies as st
+
 VALID_PASSWORD_CHARACTERS = string.ascii_letters \
 	+ string.digits \
 	+ '!@#$%^&*()-_=+.,'
@@ -157,6 +161,8 @@ Here's what our test looks like in action:[^3]
 [^3]: In this recording, I've put Hypothesis into verbose mode using the [HYPOTHESIS_VERBOSITY_LEVEL][hypothesis-verbose] environment variable so that we can see the random passwords that it generates. On the rare occasions when I write a Hypothesis test that passes the first time it's run, I like to put Hypothesis into verbose mode and run the test again to convince myself that I haven't made some sort of generation mistake.
 
 <asciinema-player src="{{ site.baseurl }}/hypothesis_cast.json?v=1" rows="16" cols="90" autoplay="true" loop="true"></asciinema-player>
+
+That's a lot more thorough than `assert_bad('X$3', checker)`.
 
 Before I wrap up, I'd like to tell you about two of my favorite Hypothesis features: **shrinking** and the **example database**. Both of these features are also described in [Anatomy of a Hypothesis Based Test](http://hypothesis.works/articles/anatomy-of-a-test/), which is well worth a read.
 
