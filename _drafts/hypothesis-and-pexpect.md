@@ -13,7 +13,7 @@ I've been coming up with some [fun][passwords] [projects][caesar] for a [beginne
 
 <asciinema-player src="{{ site.baseurl }}/password_checker_cast.json?v=1" rows="12" cols="90" autoplay="true"></asciinema-player>
 
-This program should prompt the user for their username, student ID, and password, and it should print out the string GOOD or BAD to indicate whether or not the password is "valid" (see the [assignment writeup][passwords] for more details).
+This program should prompt the user for their username, student ID, and password, and it should print out the string GOOD or BAD to indicate whether or not the password is "valid"; see the [assignment writeup][passwords] for more details.
 
 Testing
 =======
@@ -47,7 +47,7 @@ def get_checker_output(password, checker):
 </textarea>
 <pre class="cm-s-friendship-bracelet"></pre>
 
-[^1]: It's interesting to note that [`pexpect.popen_spawn.PopenSpawn` uses the `subprocess` library](https://github.com/pexpect/pexpect/blob/master/pexpect/popen_spawn.py#L46) under the hood.
+[^1]: It's interesting to note that [`pexpect.popen_spawn.PopenSpawn` uses the `subprocess` library](https://github.com/pexpect/pexpect/blob/master/pexpect/popen_spawn.py#L46) under the hood. The `subprocess` library can't easily be used to send/receive multiple lines to/from a program, but it seems to still be a fine primitive to use when building a system that _can_ do that.
 
 Once I had that working, I wrote some standard unit tests.
 
