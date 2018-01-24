@@ -158,40 +158,23 @@ Here's what our test looks like in action:[^3]
 
 <asciinema-player src="{{ site.baseurl }}/hypothesis_cast.json?v=1" rows="16" cols="90" autoplay="true" loop="true"></asciinema-player>
 
-If you'd like to learn more about how Hypothesis tests work, [Anatomy of a Hypothesis Based Test](http://hypothesis.works/articles/anatomy-of-a-test/) is a great short read.
-
-Before I wrap up, I'd like to tell you about two of my favorite Hypothesis features: **shrinking** and **the example database**.
+Before I wrap up, I'd like to tell you about two of my favorite Hypothesis features: **shrinking** and the **example database**. Both of these features are also described in [Anatomy of a Hypothesis Based Test](http://hypothesis.works/articles/anatomy-of-a-test/), which is well worth a read.
 
 Shrinking
 ---------
 
 TODO link to simpler article
 
-If Hypothesis generates a random value that causes your test to fail, it will then attempt to **shrink** that value, which means that it tries to find a "simpler" value that still causes your test to fail.
+If Hypothesis generates a random value that causes your test to fail, it will then attempt to **shrink** that value, which means that it tries to find a ["simpler"] value that still causes your test to fail.
 
-For instance, if Hypothesis finds that the password `',xcc69'` causes 
-
-
-Students often forgot to have their password checkers verify 
-
-If Hypothesis manages to find a bug in a student's 
-
-
-When Hypothesis manages to trigger a failure in your test
-
-Hypothesis generates a lot of random data. 
-
-
-
-
-
-
-
+For instance, if Hypothesis finds that a student's password checker accepts the too-short password`',xcc69'`, it will shrink that password down to `'A1!`. This is a really great quality-of-life feature that makes test failures much easier to decipher, particularly when you're dealing with inputs that are more complex than seven-character-long strings.
 
 Example Database
 ----------------
 
-TODO talk about failure database
+When I first learned about Hypothesis, I was concerned that its randomness would be a liability. If Hypothesis gives my tests random input every time, and the program I'm testing has a failure that's only triggered by a rare input, then won't my tests sometimes pass and sometimes fail?
+
+Hypothesis solves this problem by saving previously seen failures in a folder called `.hypothesis/examples` and trying them again the next time you run your tests. This "example database" feature means that once your Hypothesis test fails, it'll keep on failing until you fix the bug.
 
 
 What It Feels Like To Use Hypothesis
@@ -201,11 +184,9 @@ It feels really good.
 
 Our Hypothesis tests have caught a really amazing amount of bugs in students' programs, many of which were things I simply would not have caught with example-based tests. One student's password checker turned out to use the hand-crafted string `abcdefghijklmnopqrstuvwyz`, which if you'll look closely you may notice is missing the letter `x`. _Lots_ of little tiny bugs like this.
 
-Hypothesis tests—at least, the basic ones I've written so far—aren't hard to write. In fact, writing them is pretty fun! When I write Hypothesis tests, my tests find a lot of bugs; I tell our students to fix those bugs; and I feel like a happy calm wizard.
+Hypothesis tests—at least, the basic ones I've written so far—aren't hard to write. In fact, writing them is pretty fun! When I write Hypothesis tests, my tests find a lot of bugs; I tell our students to fix their bugs; and I feel like a happy calm wizard.
 
-You should try using [Hypothesis][hypothesis] the next time you're writing tests in Python.
-
-If you use a different programming language, check [this page](http://hypothesis.works/articles/quickcheck-in-every-language/) to see if your language has a good property-based testing library. If it does, try it out!
+You should try using [Hypothesis][hypothesis] the next time you're writing tests in Python. If you use a different programming language, check [this page](http://hypothesis.works/articles/quickcheck-in-every-language/) to see if your language has a good property-based testing library. If it does, try it out!
 
 
 
