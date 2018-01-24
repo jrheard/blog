@@ -84,7 +84,7 @@ So if you wanted to shift “A” by three spaces, you would do the following:
 <p>That's the end of the copy-pasted section of Al's book. Everything after this box was written by JR like usual.</p>
 </div>
 
-Letters a-z Don't Have ASCII Codes 1-26
+Letters A-Z Don't Have ASCII Codes 1-26
 ===========================================
 
 This might feel weird at first, but you'll get used to it. Most of the ASCII codes between 0 and 31 are junk left over from the days when computers were giant room-sized machines controlled by jury-rigged typewriters.
@@ -168,10 +168,10 @@ On the first line of that file, write a comment with your name on it, like this:
 
 Remember to follow this class's [style guide](https://docs.google.com/document/d/1UbyhIkxOdhpf-MGna_5dwh0yHXe02HTZ69CfEuYv76Y/edit).
 
-Extra Credit
+Other Features
 ==========
 
-Here are some ideas for cool extra features you can add to your program for extra credit.
+Here are some more features to add to your program once you get basic encryption and decryption working. Do any or all of them!
 
 Lowercase Letters
 -----------------
@@ -198,7 +198,7 @@ Add a "brute force" mode that lets you try to decrypt a message even if you don'
 
 <asciinema-player src="{{ site.baseurl }}/caesar_brute_cast.json" rows="30" cols="80" autoplay="true" loop="true"></asciinema-player>
 
-This might be a little painful to do if you don't know how to write your own functions. We'll be learning how to do that in class soon, but we haven't covered it yet. If you'd like to read ahead in the meantime, [this article](https://anh.cs.luc.edu/python/hands-on/3.1/handsonHtml/functions.html) seems like a good introduction to writing your own functions.
+This can be done using nested for loops or functions (we haven't officially covered functions in class yet, but you are welcome to use them if you know how).
 
 Smart Brute Force
 -----------------
@@ -207,7 +207,11 @@ This is my favorite one: enhance your program's "brute force" mode so that it ca
 
 <asciinema-player src="{{ site.baseurl }}/caesar_brute_smart_cast.json" rows="15" cols="80" autoplay="true" loop="true"></asciinema-player>
 
-You can do this however you want. Be creative! My solution involved using [this text file](https://svnweb.freebsd.org/csrg/share/dict/words?revision=61569&view=co), which is a list of all of the English words in the 1934 edition of Webster's Second International Dictionary. If you'd like to figure out how to open a text file in Python and get all the lines out of it, Google around until you find a solution - you can always ask me for help if you get stuck, but I think you'd be surprised how far you can get by just Googling stuff. 🙂
+You can do this however you want. Be creative! My solution involved using [this text file](https://svnweb.freebsd.org/csrg/share/dict/words?revision=61569&view=co), which is a list of all of the English words in the 1934 edition of Webster's Second International Dictionary.
+
+Since internet use will be limited for the final project, if you don't know how to work with text files you will probably want to stick with the other features for today. You can also come back and add smart brute force another day if it seems intriguing.
+
+If you'd like to figure out how to open a text file in Python and get all the lines out of it, Google around until you find a solution - you can always ask me for help if you get stuck, but I think you'd be surprised how far you can get by just Googling stuff!
 
 
 <script>
