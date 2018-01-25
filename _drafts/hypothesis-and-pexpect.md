@@ -171,7 +171,9 @@ Shrinking
 
 If Hypothesis generates a random value that causes your test to fail, it will then attempt to **shrink** that value, which means that it tries to find a "[simpler](http://hypothesis.works/articles/compositional-shrinking/)" value that still causes your test to fail.
 
-For instance, if Hypothesis finds that a student's password checker accepts the too-short password`',xcc69'`, it will shrink that password down to `'A1!`. This is a really great quality-of-life feature that makes test failures much easier to decipher. It doesn't make much of a difference in this example, but it's a lifesaver when you're dealing with large/complex inputs.
+For instance, if Hypothesis finds that a student's password checker incorrectly accepts the too-short password`',xcc69'`, it will usually shrink that password down to `'A1!'`. That's because even when students forget to implement the at-least-eight-characters rule, they still often remember to implement the rule that says that passwords must contain "at least three categories of character"; and so for programs like that, `'A1!'` is the simplest possible input that causes the test to fail.
+
+This is a really great quality-of-life feature that makes test failures much easier to decipher. It doesn't make much of a difference in this example, but it's a lifesaver when you're dealing with large/complex inputs.
 
 Example Database
 ----------------
