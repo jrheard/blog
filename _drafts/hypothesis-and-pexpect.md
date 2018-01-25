@@ -108,7 +108,7 @@ def test_too_short_rejected(password, checker):
 </textarea>
 <pre class="cm-s-friendship-bracelet"></pre>
 
-When Hypothesis sees a test that's annotated with the `@given` decorator, it runs that test a bunch of times. This test's decorator says that the test wants a random `password` argument; so each time Hypothesis runs this test, it'll generate a random password.
+When Hypothesis sees a test that's annotated with the `@given` decorator, it runs that test a bunch of times. This test's decorator says that the test wants a random `password` argument; so each time Hypothesis runs this test, it'll generate a random password, and will supply it to the test via the test function's newly added `password` parameter.
 
 We're halfway there—all we have to do now is tell Hypothesis how to actually _generate_ too-short passwords.
 
@@ -169,18 +169,16 @@ Before I wrap up, I'd like to tell you about two of my favorite Hypothesis featu
 Shrinking
 ---------
 
-TODO link to simpler article
+If Hypothesis generates a random value that causes your test to fail, it will then attempt to **shrink** that value, which means that it tries to find a "[simpler](http://hypothesis.works/articles/compositional-shrinking/)" value that still causes your test to fail.
 
-If Hypothesis generates a random value that causes your test to fail, it will then attempt to **shrink** that value, which means that it tries to find a ["simpler"] value that still causes your test to fail.
-
-For instance, if Hypothesis finds that a student's password checker accepts the too-short password`',xcc69'`, it will shrink that password down to `'A1!`. This is a really great quality-of-life feature that makes test failures much easier to decipher, particularly when you're dealing with inputs that are more complex than seven-character-long strings.
+For instance, if Hypothesis finds that a student's password checker accepts the too-short password`',xcc69'`, it will shrink that password down to `'A1!`. This is a really great quality-of-life feature that makes test failures much easier to decipher. It doesn't make much of a difference in this example, but it's a lifesaver when you're dealing with large/complex inputs.
 
 Example Database
 ----------------
 
 When I first learned about Hypothesis, I was concerned that its randomness would be a liability. If Hypothesis gives my tests random input every time, and the program I'm testing has a failure that's only triggered by a rare input, then won't my tests sometimes pass and sometimes fail?
 
-Hypothesis solves this problem by saving previously seen failures in a folder called `.hypothesis/examples` and trying them again the next time you run your tests. This "example database" feature means that once your Hypothesis test fails, it'll keep on failing until you fix the bug.
+Hypothesis solves this problem by saving previously seen failures in a folder called `.hypothesis/examples` and trying them again the next time you run your tests. This "example database" feature means that once your Hypothesis test fails, it'll keep on failing until you fix the bug. Which is an extremely good thing.
 
 
 What It Feels Like To Use Hypothesis
