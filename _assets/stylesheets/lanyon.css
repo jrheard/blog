@@ -550,7 +550,8 @@ asciinema-player {
 	margin: 30px auto;
 }
 
-.page img {
+.page img,
+.post img {
 	display: block;
 	margin: 0 auto;
 }
