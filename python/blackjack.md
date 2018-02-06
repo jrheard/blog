@@ -36,7 +36,9 @@ print(card[0])
 print(card[1])
 </code></pre>
 
-`[5, "diamonds"]` is a two-item list that **represents** a five of diamonds card. "Representing" something means "getting it out of your head and into a computer program."
+`[5, "diamonds"]` is a two-item list that **represents** a five of diamonds card.
+
+"Representing" something means "getting it out of your head and into a computer program." We've taken the nebulous concept of \<a five of diamonds card\> and turned it into \<a list with two things in it; the first thing is a number that represents the card's value, and the second thing is a string that represents the card's suit\>. Python doesn't really know what you mean when you say "a five of diamonds card", but it *does* understand what you mean when you say `[5, "diamonds"]`.
 
 There are a lot of different ways to represent a five of diamonds in a Python program. If you know how to use dicts, classes, or tuples, feel free to use one of those instead. If you don't know how to use any of those, then don't worry; a two-item list is just as good as those other things. All that matters is that you choose *some* way of representing playing cards in your Python program. A two-item list works great.
 
@@ -47,12 +49,19 @@ That's just one card, though, and there are fifty-two cards in a deck.
 
 Each deck of cards has four **suits**: `diamonds`, `hearts`, `spades`, and `clubs`.
 
-Each suit has thirteen cards: an ace, the cards 2 through 10, a jack, a queen, and a king. Jacks, queens, and kings have the value 10. In our version of blackjack, aces have the value 1.
+Each suit has thirteen cards:
+
+* an ace,
+* the cards 2 through 10,
+* and a jack, a queen, and a king.
+
+Jacks, queens, and kings have the value 10. In this assignment's version of blackjack, aces always have the value 1.
 
 Here's a full suit of diamonds:
 
 <pre><code class="py">
 diamonds = [
+	# The ace has value 1.
 	[1, "diamonds"],
 	[2, "diamonds"],
 	[3, "diamonds"],
@@ -63,6 +72,8 @@ diamonds = [
 	[8, "diamonds"],
 	[9, "diamonds"],
 	[10, "diamonds"],
+	# The jack, queen, and king
+	# all have value 10.
 	[10, "diamonds"],
 	[10, "diamonds"],
 	[10, "diamonds"],
