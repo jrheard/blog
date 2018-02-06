@@ -30,24 +30,22 @@ Here's what a five of diamonds looks like in real life:
 
 Here's what a five of diamonds looks like in a Python program:
 
-<pre><code class="py">
+<pre class="hide-output"><code class="py">
 card = [5, "diamonds"]
-print(card[0])
-print(card[1])
 </code></pre>
 
 `[5, "diamonds"]` is a two-item list that **represents** a five of diamonds card.
 
-"Representing" something means "getting it out of your head and into a computer program." We've taken the nebulous concept of \<a five of diamonds card\> and turned it into \<a list with two things in it; the first thing is a number that represents the card's value, and the second thing is a string that represents the card's suit\>. Python doesn't really know what you mean when you say "a five of diamonds card", but it *does* understand what you mean when you say `[5, "diamonds"]`.
+"Representing" something means "getting it out of your head and into a computer program." In this example, I took the nebulous concept of \<a five of diamonds card\> and turned it into \<a list with two things in it; the first thing is a number that represents the card's value, and the second thing is a string that represents the card's suit\>. This is important because Python doesn't really know what you mean when you say "a five of diamonds card", but it *does* understand `[5, "diamonds"]`.
 
-There are a lot of different ways to represent a five of diamonds in a Python program. If you know how to use dicts, classes, or tuples, feel free to use one of those instead. If you don't know how to use any of those, then don't worry; a two-item list is just as good as those other things. All that matters is that you choose *some* way of representing playing cards in your Python program. A two-item list works great.
+There are a lot of different ways to represent a five of diamonds in a Python program. If you know how to use dicts, classes, or tuples, feel free to use any of those instead. If you don't know what those are yet, don't worry: a two-item list is just as good as those other things. All that matters is that you choose *some* way of representing playing cards in your Python program. A two-item list works great.
 
 Representing a Deck
 -------------------
 
 That's just one card, though, and there are fifty-two cards in a deck.
 
-Each deck of cards has four **suits**: `diamonds`, `hearts`, `spades`, and `clubs`.
+A deck of cards has four **suits**: `diamonds`, `hearts`, `spades`, and `clubs`.
 
 Each suit has thirteen cards:
 
@@ -55,7 +53,7 @@ Each suit has thirteen cards:
 * the cards 2 through 10,
 * and a jack, a queen, and a king.
 
-Jacks, queens, and kings have the value 10. In this assignment's version of blackjack, aces always have the value 1.
+Jacks, queens, and kings have the value 10. In the simple version of blackjack that you're building in this project, aces always have the value 1.
 
 Here's a full suit of diamonds:
 
@@ -81,9 +79,67 @@ diamonds = [
 
 print("There are " + str(len(diamonds)) + " cards in this suit.")
 print("The sixth card's value is " + str(diamonds[5][0]) + ".")
+print("The twelfth card's value is " + str(diamonds[11][0]) + ".")
 </code></pre>
 
+Notice that `diamonds` is a list of cards, and a "card" is a list like `[5, "diamonds"]` - so `diamonds` is a list of lists.
+
 Your program's deck should contain fifty-two cards: thirteen cards for each of the four suits.
+
+Shuffling the Deck
+-------------
+Once you've got a deck of cards, you should shuffle the deck. Your game's deck is likely represented by a list. Here's how you can randomize the order of the items in a list:
+
+<pre><code class="py">
+import random
+
+my_favorite_foods = ["Fried Rice", "Red Curry", "Pizza", "Sandwiches"]
+
+# This line is the important one!
+random.shuffle(my_favorite_foods)
+
+print(my_favorite_foods)
+</code></pre>
+
+Dealing Hands
+-------------
+
+Now that your deck's shuffled, you should give two cards to the player and two cards to the dealer. The player should have a **hand**, which is a list of cards; the dealer should have a hand, too.
+
+Here's an example of what a hand might look like:
+
+<pre class="hide-output"><code class="py">
+[[10, "spades"], [5, "clubs"]]
+</code></pre>
+
+Make sure that whenever you deal a card to someone, that card is removed from the deck. There should only ever be fifty-two cards at a time throughout your program—if the player has two cards and the dealer has two cards, then the deck should have forty-eight cards.
+
+Milestone 1: Displaying Output
+==============================
+
+By this point, you've done a lot of good stuff! Now add some `print()` calls that tell the player about their hand and the dealer's hand.
+
+Your program should look exactly like this when it's run:
+
+<asciinema-player src="{{ site.baseurl }}/blackjack_cast_milestone_1.json" rows="11" cols="90" autoplay="true" loop="true"></asciinema-player>
+
+The cards and counts your program prints out will be different every time the program is run, so they'll be different from the output in my demo above. This is fine.
+
+
+
+TODO
+
+player's turn
+
+dealer's turn
+
+end-game summary
+
+demo
+
+submission notes
+
+extra credit suggestions
 
 
 <script>

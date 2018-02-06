@@ -569,3 +569,6 @@ asciinema-player {
 	margin-top: 60px;
 }
 
+pre.hide-output .CodeMirror:nth-of-type(2) {
+	display: none;
+}

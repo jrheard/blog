@@ -1,0 +1,78 @@
+{
+  "version": 1,
+  "width": 178,
+  "height": 45,
+  "duration": 19.06253,
+  "command": "/bin/bash -l",
+  "title": null,
+  "env": {
+    "TERM": "xterm-256color",
+    "SHELL": "/usr/local/bin/fish"
+  },
+  "stdout": [
+    [
+      0.157286,
+      "\u001b]0;~/Dropbox/dev/madison/blackjack\u0007"
+    ],
+    [
+      0.001399,
+      "\u001b[?1034h"
+    ],
+    [
+      0.000231,
+      "[\u001b[1;36mjrheard\u001b[00m@jrheard-air:\u001b[1;32m~/Dropbox/dev/madison/blackjack\u001b[00m]\u001b[1;33m (master *) \u0001\u001b[00m🚂  "
+    ],
+    [
+      0.328556,
+      "python blackjack.py"
+    ],
+    [
+      2.670015,
+      "\r\n"
+    ],
+    [
+      0.064382,
+      "Your hand: [[10, 'clubs'], [5, 'diamonds']]\r\nYour count: 15\r\nDealer's hand: [[10, 'diamonds'], [7, 'hearts']]\r\nDealer's count: 17\r\n"
+    ],
+    [
+      0.105244,
+      "\u001b]0;~/Dropbox/dev/madison/blackjack\u0007"
+    ],
+    [
+      0.000393,
+      "[\u001b[1;36mjrheard\u001b[00m@jrheard-air:\u001b[1;32m~/Dropbox/dev/madison/blackjack\u001b[00m]\u001b[1;33m (master *) \u0001\u001b[00m🚂  "
+    ],
+    [
+      3.896796,
+      "python blackjack.py"
+    ],
+    [
+      1.220734,
+      "\r\n"
+    ],
+    [
+      0.062439,
+      "Your hand: [[1, 'spades'], [10, 'spades']]\r\nYour count: 11\r\nDealer's hand: [[1, 'clubs'], [10, 'hearts']]\r\nDealer's count: 11\r\n"
+    ],
+    [
+      0.099415,
+      "\u001b]0;~/Dropbox/dev/madison/blackjack\u0007"
+    ],
+    [
+      0.000348,
+      "[\u001b[1;36mjrheard\u001b[00m@jrheard-air:\u001b[1;32m~/Dropbox/dev/madison/blackjack\u001b[00m]\u001b[1;33m (master *) \u0001\u001b[00m🚂  "
+    ],
+    [
+      10.35604,
+      "\r\n"
+    ],
+    [
+      0.09555,
+      "\u001b]0;~/Dropbox/dev/madison/blackjack\u0007"
+    ],
+    [
+      0.00027,
+      "[\u001b[1;36mjrheard\u001b[00m@jrheard-air:\u001b[1;32m~/Dropbox/dev/madison/blackjack\u001b[00m]\u001b[1;33m (master *) \u0001\u001b[00m🚂  "
+    ]
+  ]
+}
