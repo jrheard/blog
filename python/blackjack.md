@@ -3,6 +3,12 @@ layout: page
 title:  "Madison CS 3-4: Blackjack"
 ---
 
+<style>
+.cm-s-friendship-bracelet {
+	font-size: 16px;
+}
+</style>
+
 In this project, you'll write a Python program that lets a user play blackjack.
 
 How It's Played
@@ -30,9 +36,10 @@ Here's what a five of diamonds looks like in real life:
 
 Here's what a five of diamonds looks like in a Python program:
 
-<pre class="hide-output"><code class="py">
+<textarea class="hidden">
 card = [5, "diamonds"]
-</code></pre>
+</textarea>
+<pre class="cm-s-friendship-bracelet"></pre>
 
 `[5, "diamonds"]` is a two-item list that **represents** a five of diamonds card.
 
@@ -108,9 +115,10 @@ Now that your deck's shuffled, you should give two cards to the player and two c
 
 Here's an example of what a hand might look like:
 
-<pre class="hide-output"><code class="py">
+<textarea class="hidden">
 [[10, "spades"], [5, "clubs"]]
-</code></pre>
+</textarea>
+<pre class="cm-s-friendship-bracelet"></pre>
 
 Make sure that whenever you deal a card to someone, that card is removed from the deck. There should only ever be fifty-two cards at a time throughout your program—if the player has two cards and the dealer has two cards, then the deck should have forty-eight cards.
 
@@ -126,9 +134,37 @@ At this point, your program should look exactly like this when it's run:
 The cards and counts your program prints out will be different every time the program is run, so it's fine that they'll be different from the output in my demo above.
 
 
-TODO
+Player's Turn
+=============
 
-player's turn
+Once the cards have been dealt, it's the player's turn. In our simple version of Blackjack, the player has two options:
+
+1. The player can draw another card by saying `"hit"`. They can do this as many times as they want, as long as their **count** is below 21.
+1. The player can end their turn by saying `"stand"`.
+
+Your program should prompt the user for input over and over until they say `"stand"`, at which point their turn is over. You'll want to use a `while` loop to do this. Here's some starter code that you might find useful:
+
+<textarea class="hidden">
+while True:
+	move = input("Do you want to 'hit' or 'stay'? ")
+
+	if move == 'hit':
+		# TODO: Remove a card from the deck,
+		# add it to the player's hand,
+		# and update their count.
+
+		# TODO: If the player's count is
+		# greater than 21, end the game
+		# and tell them that they lost.
+
+	if move == 'stay':
+		break
+</textarea>
+<pre class="cm-s-friendship-bracelet"></pre>
+
+Notice the part where you should end the loop (and the game!) if the player's count exceeds 21. That's called "busting", and it's game over for the player.
+
+TODO
 
 dealer's turn
 
@@ -140,6 +176,19 @@ submission notes
 
 extra credit suggestions
 
+
+{% javascript codemirror %}
+{% javascript codemirror_python %}
+{% javascript codemirror_runmode %}
+
+<script>
+var textAreas = document.getElementsByTagName("textarea");
+var pres = document.querySelectorAll("pre.cm-s-friendship-bracelet");
+
+for (var i = 0; i < textAreas.length; i++) {
+	CodeMirror.runMode(textAreas[i].value, "python", pres[i]);
+}
+</script>
 
 <script>
 window.klipse_settings = {
