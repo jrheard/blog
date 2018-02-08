@@ -117,14 +117,13 @@ Make sure that whenever you deal a card to someone, that card is removed from th
 Milestone 1: Displaying Output
 ==============================
 
-By this point, you've done a lot of good stuff! Now add some `print()` calls that tell the player about their hand and the dealer's hand.
+You've done a lot of good stuff so far! Now add some `print()` calls that tell the player about their hand and the dealer's hand. Add another `print()` call that prints out the number of cards left in the deck.
 
-Your program should look exactly like this when it's run:
+At this point, your program should look exactly like this when it's run:
 
-<asciinema-player src="{{ site.baseurl }}/blackjack_cast_milestone_1.json" rows="11" cols="90" autoplay="true" loop="true"></asciinema-player>
+<asciinema-player src="{{ site.baseurl }}/blackjack_cast_milestone_1.json" rows="13" cols="90" autoplay="true" loop="true"></asciinema-player>
 
-The cards and counts your program prints out will be different every time the program is run, so they'll be different from the output in my demo above. This is fine.
-
+The cards and counts your program prints out will be different every time the program is run, so it's fine that they'll be different from the output in my demo above.
 
 
 TODO

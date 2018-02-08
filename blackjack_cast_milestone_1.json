@@ -2,7 +2,7 @@
   "version": 1,
   "width": 178,
   "height": 45,
-  "duration": 19.06253,
+  "duration": 21.589856,
   "command": "/bin/bash -l",
   "title": null,
   "env": {
@@ -11,67 +11,67 @@
   },
   "stdout": [
     [
-      0.157286,
+      0.13211,
       "\u001b]0;~/Dropbox/dev/madison/blackjack\u0007"
     ],
     [
-      0.001399,
-      "\u001b[?1034h"
+      0.000177,
+      "\u001b[?1034h[\u001b[1;36mjrheard\u001b[00m@jrheard-air:\u001b[1;32m~/Dropbox/dev/madison/blackjack\u001b[00m]\u001b[1;33m (master *) \u0001\u001b[00m🚂  "
     ],
     [
-      0.000231,
-      "[\u001b[1;36mjrheard\u001b[00m@jrheard-air:\u001b[1;32m~/Dropbox/dev/madison/blackjack\u001b[00m]\u001b[1;33m (master *) \u0001\u001b[00m🚂  "
-    ],
-    [
-      0.328556,
+      0.580158,
       "python blackjack.py"
     ],
     [
-      2.670015,
+      2.378172,
       "\r\n"
     ],
     [
-      0.064382,
-      "Your hand: [[10, 'clubs'], [5, 'diamonds']]\r\nYour count: 15\r\nDealer's hand: [[10, 'diamonds'], [7, 'hearts']]\r\nDealer's count: 17\r\n"
+      0.060012,
+      "Your hand: [[10, 'diamonds'], [10, 'spades']]\r\nYour count: 20\r\nDealer's hand: [[5, 'spades'], [5, 'clubs']]\r\nDealer's count: 10\r\nNumber of cards in deck: 48\r\n"
     ],
     [
-      0.105244,
+      0.103382,
       "\u001b]0;~/Dropbox/dev/madison/blackjack\u0007"
     ],
     [
-      0.000393,
+      0.000285,
       "[\u001b[1;36mjrheard\u001b[00m@jrheard-air:\u001b[1;32m~/Dropbox/dev/madison/blackjack\u001b[00m]\u001b[1;33m (master *) \u0001\u001b[00m🚂  "
     ],
     [
-      3.896796,
+      4.825731,
       "python blackjack.py"
     ],
     [
-      1.220734,
+      1.560776,
       "\r\n"
     ],
     [
-      0.062439,
-      "Your hand: [[1, 'spades'], [10, 'spades']]\r\nYour count: 11\r\nDealer's hand: [[1, 'clubs'], [10, 'hearts']]\r\nDealer's count: 11\r\n"
+      0.062619,
+      "Your hand: [[4, 'diamonds'], [8, 'diamonds']]\r\nYour count: 12\r\nDealer's hand: [[4, 'spades'], [5, 'diamonds']]\r\nDealer's count: 9\r\n"
     ],
     [
-      0.099415,
+      6.3e-05,
+      "Number of cards in deck: 48\r\n"
+    ],
+    [
+      0.098108,
       "\u001b]0;~/Dropbox/dev/madison/blackjack\u0007"
     ],
     [
-      0.000348,
+      0.000269,
       "[\u001b[1;36mjrheard\u001b[00m@jrheard-air:\u001b[1;32m~/Dropbox/dev/madison/blackjack\u001b[00m]\u001b[1;33m (master *) \u0001\u001b[00m🚂  "
     ],
     [
-      10.35604,
+      11.683896,
       "\r\n"
     ],
     [
-      0.09555,
+      0.099914,
       "\u001b]0;~/Dropbox/dev/madison/blackjack\u0007"
     ],
     [
-      0.00027,
+      0.000404,
       "[\u001b[1;36mjrheard\u001b[00m@jrheard-air:\u001b[1;32m~/Dropbox/dev/madison/blackjack\u001b[00m]\u001b[1;33m (master *) \u0001\u001b[00m🚂  "
     ]
   ]
