@@ -154,19 +154,35 @@ while True:
 		# and update their count.
 
 		# TODO: If the player's count is
-		# greater than 21, end the game
-		# and tell them that they lost.
+		# greater than 21, _end the game_
+		# and tell the player that they lost.
 
 	if move == 'stay':
 		break
 </textarea>
 <pre class="cm-s-friendship-bracelet"></pre>
 
-Notice the part where you should end the loop (and the game!) if the player's count exceeds 21. That's called "busting", and it's game over for the player.
+Notice the part where you should end the loop (and the game!) if the player's count exceeds 21. That's called "busting", and it's game over for the player - don't forget to implement it in your program, because we'll be testing to make sure you did it right!
+
+Dealer's Turn
+=============
+
+Once the player has said `"stay"`, it's time for the dealer's turn.
+
+Here's what should happen during the dealer's turn:
+
+* If the dealer's count is less than **17**, the dealer should draw cards one card at a time until their count is 17 or higher.
+* If at any point dealer's count is 17 or higher, the dealer's turn immediately ends.
+* If the dealer's count goes over 21, the dealer busts and the player wins.
+
+**Note**: If the player busted during their turn, the game should end immediately and you should **skip the dealer's turn**.
+
+Milestone 2: End-Game Summary
+=============================
+
+You're almost done!
 
 TODO
-
-dealer's turn
 
 end-game summary
 
