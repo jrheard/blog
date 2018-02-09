@@ -576,3 +576,7 @@ pre.hide-output .CodeMirror:nth-of-type(2) {
 pre.dont-format-output .CodeMirror:nth-of-type(2) .CodeMirror-lines .CodeMirror-line span {
 	color: #F3F99A !important;
 }
+
+pre.dont-format-output .CodeMirror:nth-of-type(2) .CodeMirror-lines .CodeMirror-line:nth-of-type(1) span {
+	color: #FF6666 !important;
+}
