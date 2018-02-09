@@ -167,7 +167,7 @@ while True:
 		# and tell the player that they lost.
 
 		# Print out the new state of the game.
-		print_game_status(player_hand, dealer_hand, deck)
+		print_game_status(player_hand, player_count, dealer_hand, dealer_count, deck)
 
 	if move == 'stand':
 		break

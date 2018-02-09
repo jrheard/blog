@@ -1,9 +1,9 @@
 # Here's a function you can use in order to print out the current state of the game.
 # You can use this function like this:
 #
-#     print_game_status(player_hand, dealer_hand, deck)
+#     print_game_status(player_hand, player_count, dealer_hand, dealer_count, deck)
 
-def print_game_status(player_hand, dealer_hand, deck):
+def print_game_status(player_hand, player_count, dealer_hand, dealer_count, deck):
     # This function prints out something like:
     #
     #    Your hand: [[9, 'hearts'], [1, 'spades']]
@@ -13,13 +13,9 @@ def print_game_status(player_hand, dealer_hand, deck):
     #    Number of cards in deck: 48
 
     print("Your hand: {0}".format(player_hand))
-    hand_value = sum(value for (value, _) in hand)
-    print("Your count: {0}".format(hand_value))
-
+    print("Your count: {0}".format(player_count))
     print("Dealer's hand: {0}".format(dealer_hand))
-    dealer_hand_value = sum(value for (value, _) in dealer_hand)
-    print("Dealer's count: {0}".format(dealer_hand_value))
-
+    print("Dealer's count: {0}".format(dealer_count))
     print("Number of cards in deck: {0}".format(len(deck)))
 
 
