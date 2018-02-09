@@ -11,7 +11,7 @@ title:  "Madison CS 3-4: Blackjack"
 
 In this project, you'll write a Python program that lets a user play Blackjack.
 
-**You will be using this starter code for this project! Download [this file][starter-code] and use it as the basis for your program.**
+**You will be using starter code for this project! Download [this file][starter-code] and use it as the basis for your program.**
 
 How It's Played
 ===============
