@@ -108,7 +108,7 @@
     ],
     [
       5.8e-05,
-      "Do you want to 'hit' or 'stay'? "
+      "Do you want to 'hit' or 'stand'? "
     ],
     [
       2.290278,
@@ -140,7 +140,7 @@
     ],
     [
       6e-05,
-      "Do you want to 'hit' or 'stay'? "
+      "Do you want to 'hit' or 'stand'? "
     ],
     [
       1.684863,
@@ -200,7 +200,7 @@
     ],
     [
       4.3e-05,
-      "Do you want to 'hit' or 'stay'? "
+      "Do you want to 'hit' or 'stand'? "
     ],
     [
       2.51213,
@@ -232,7 +232,7 @@
     ],
     [
       0.000116,
-      "Do you want to 'hit' or 'stay'? "
+      "Do you want to 'hit' or 'stand'? "
     ],
     [
       1.224788,
@@ -248,7 +248,11 @@
     ],
     [
       0.158228,
-      "y"
+      "n"
+    ],
+    [
+      0.158228,
+      "d"
     ],
     [
       0.884041,
@@ -292,7 +296,7 @@
     ],
     [
       5.8e-05,
-      "Do you want to 'hit' or 'stay'? "
+      "Do you want to 'hit' or 'stand'? "
     ],
     [
       4.119553,
@@ -324,7 +328,7 @@
     ],
     [
       4.7e-05,
-      "Do you want to 'hit' or 'stay'? "
+      "Do you want to 'hit' or 'stand'? "
     ],
     [
       2.384127,
@@ -340,7 +344,11 @@
     ],
     [
       0.160037,
-      "y"
+      "n"
+    ],
+    [
+      0.160037,
+      "d"
     ],
     [
       0.694003,

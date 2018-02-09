@@ -18,7 +18,7 @@ How It's Played
 
 Blackjack is a card game. We'll be making a simple version of it. In our version, there's a **player** (controlled by a human) and a **dealer** (a computer-controlled opponent).
 
-The player starts with two cards, and can choose to draw more cards ("hit") or to end their turn ("stay"). Once the player is done drawing cards, it's the **dealer**'s turn. Once the dealer's turn is over, the game tells the player whether they won or lost.
+The player starts with two cards, and can choose to draw more cards ("hit") or to end their turn ("stand"). Once the player is done drawing cards, it's the **dealer**'s turn. Once the dealer's turn is over, the game tells the player whether they won or lost.
 
 A card has a **suit** (a string like `'spades'` or `'diamonds'`), and a **value** (a number between `1` and `10`). Each player has a **count**, which is the sum of all of their cards' values. If I have a five of diamonds, a three of hearts, and a ten of spades, my count is 18.
 
@@ -47,7 +47,7 @@ Here's what a five of diamonds looks like in a Python program:
 
 That's a two-item list that **represents** a five of diamonds card.
 
-"Representing" something means "getting it out of your head and into a computer program." In this example, I took the nebulous concept of \<a five of diamonds card\> and turned it into \<a list with two things in it; the first thing is a number that represents the card's value, and the second thing is a string that represents the card's suit\>. This is important because Python doesn't really know what you mean when you say "a five of diamonds card", but it *does* understand `[5, "diamonds"]`.
+"Representing" something means "getting it out of your head and into a computer program." In this example, I took the concept of \<a five of diamonds card\> and turned it into \<a list with two things in it; the first thing is a number that represents the card's value, and the second thing is a string that represents the card's suit\>. This is important because Python doesn't really know what you mean when you say "a five of diamonds card", but it *does* understand `[5, "diamonds"]`.
 
 There are a lot of different ways to represent a five of diamonds in a Python program. If you know how to use dicts, classes, or tuples, feel free to use any of those instead. If you don't know what those are yet, don't worry: a two-item list is just as good as those other things. All that matters is that you choose *some* way of representing playing cards in your Python program. A two-item list of `[value, suit]` works great.
 
@@ -145,13 +145,13 @@ Player's Turn
 Once the cards have been dealt, it's the player's turn. In our simple version of Blackjack, the player has two options:
 
 1. The player can draw another card by saying `"hit"`. They can do this as many times as they want, as long as their **count** is below 21.
-1. The player can end their turn by saying `"stay"`.
+1. The player can end their turn by saying `"stand"`.
 
-Your program should prompt the user for input over and over until they say `"stay"`, at which point their turn is over. You'll want to use a `while` loop to do this. Here's some starter code that you might find useful:
+Your program should prompt the user for input over and over until they say `"stand"`, at which point their turn is over. You'll want to use a `while` loop to do this. Here's some starter code that you might find useful:
 
 <textarea class="hidden">
 while True:
-	move = input("Do you want to 'hit' or 'stay'? ")
+	move = input("Do you want to 'hit' or 'stand'? ")
 
 	if move == 'hit':
 		# TODO: Remove a card from the deck,
@@ -169,7 +169,7 @@ while True:
 		# Print out the new state of the game.
 		print_game_status(player_hand, dealer_hand, deck)
 
-	if move == 'stay':
+	if move == 'stand':
 		break
 </textarea>
 <pre class="cm-s-friendship-bracelet"></pre>
@@ -181,7 +181,7 @@ Notice the TODO that says that you should end the game if the player's count exc
 Dealer's Turn
 =============
 
-Once the player has said `"stay"`, it's time for the dealer's turn.
+Once the player has said `"stand"`, it's time for the dealer's turn.
 
 Here's what should happen during the dealer's turn:
 
