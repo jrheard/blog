@@ -16,7 +16,9 @@ In this project, you'll write a Python program that lets a user play Blackjack.
 How It's Played
 ===============
 
-Blackjack is a card game. The player starts with two cards, and can choose to draw more cards ("hit") or to end their turn ("stay"). Once the player is done drawing cards, it's the **dealer**'s turn. Once the dealer's turn is over, the game tells the player whether they won or lost.
+Blackjack is a card game. We'll be making a simple version of it. In our version, there's a **player** (controlled by a human) and a **dealer** (a computer-controlled opponent).
+
+The player starts with two cards, and can choose to draw more cards ("hit") or to end their turn ("stay"). Once the player is done drawing cards, it's the **dealer**'s turn. Once the dealer's turn is over, the game tells the player whether they won or lost.
 
 A card has a **suit** (a string like `'spades'` or `'diamonds'`), and a **value** (a number between `1` and `10`). Each player has a **count**, which is the sum of all of their cards' values. If I have a five of diamonds, a three of hearts, and a ten of spades, my count is 18.
 
