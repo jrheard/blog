@@ -47,7 +47,7 @@ That's a two-item list that **represents** a five of diamonds card.
 
 "Representing" something means "getting it out of your head and into a computer program." In this example, I took the nebulous concept of \<a five of diamonds card\> and turned it into \<a list with two things in it; the first thing is a number that represents the card's value, and the second thing is a string that represents the card's suit\>. This is important because Python doesn't really know what you mean when you say "a five of diamonds card", but it *does* understand `[5, "diamonds"]`.
 
-There are a lot of different ways to represent a five of diamonds in a Python program. If you know how to use dicts, classes, or tuples, feel free to use any of those instead. If you don't know what those are yet, don't worry: a two-item list is just as good as those other things. All that matters is that you choose *some* way of representing playing cards in your Python program. A two-item list works great.
+There are a lot of different ways to represent a five of diamonds in a Python program. If you know how to use dicts, classes, or tuples, feel free to use any of those instead. If you don't know what those are yet, don't worry: a two-item list is just as good as those other things. All that matters is that you choose *some* way of representing playing cards in your Python program. A two-item list of `[value, suit]` works great.
 
 Representing a Deck
 -------------------
@@ -91,7 +91,7 @@ print("The sixth card's value is " + str(diamonds[5][0]) + ".")
 print("The twelfth card's value is " + str(diamonds[11][0]) + ".")
 </code></pre>
 
-Notice that `diamonds` is a list of cards, and a "card" is a list like `[5, "diamonds"]` - so `diamonds` is a list of lists. It's totally fine and normal for lists to contain other lists, you'll do this a lot in future projects.
+Notice that `diamonds` is a list of **cards**, and a **card** is a list like `[5, "diamonds"]` - so `diamonds` is a list of lists. It's totally fine and normal for lists to contain other lists, you'll do this a lot in future projects.
 
 Your program's deck should be a list with fifty-two elements: thirteen cards for each of the four suits.
 
@@ -113,7 +113,7 @@ print(my_favorite_foods)
 Dealing Hands
 -------------
 
-Now that your deck's shuffled, you should give two cards to the player and two cards to the dealer. The player should have a **hand**, which is a list of cards; the dealer should have a hand, too.
+Now that your deck's shuffled, you should give two cards to the player and two cards to the dealer (we'll be learning more about the dealer soon!). The player and dealer should each have a **hand**, which is a list of cards.
 
 Here's an example of what a hand might look like:
 
@@ -187,7 +187,7 @@ Here's what should happen during the dealer's turn:
 * If at any point dealer's count is 17 or higher, the dealer's turn immediately ends.
 * If the dealer's count goes over 21, the dealer busts and the player wins.
 
-Once the dealer's turn is over, you should call `print_game_status()` so that the player can see what happened.
+Once the dealer's turn is over, you should call `print_game_status()` so that the player can see what happened. You should only call it a single time at the end of the dealer's turn, you don't need to call it every time the dealer draws a card.
 
 **Note**: If the player busted during their turn, the game should end immediately and you should **skip the dealer's turn**.
 
