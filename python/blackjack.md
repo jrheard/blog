@@ -174,7 +174,7 @@ while True:
 </textarea>
 <pre class="cm-s-friendship-bracelet"></pre>
 
-Each time the player says `hit`, you should call `print_game_status()` after giving them a new card, so that they can see their updated hand.
+Each time the player says `"hit"`, you should call `print_game_status()` after giving them a new card, so that they can see their updated hand.
 
 Notice the TODO that says that you should end the game if the player's count exceeds 21. That's called "busting", and it's game over for the player - don't forget to implement it in your program!
 
