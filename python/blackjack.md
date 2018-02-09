@@ -115,7 +115,7 @@ print(my_favorite_foods)
 Dealing Hands
 -------------
 
-Now that your deck's shuffled, you should give two cards to the player and two cards to the dealer (we'll be learning more about the dealer soon!). The player and dealer should each have a **hand**, which is a list of cards.
+Now that your deck's shuffled, you should give two cards to the player and two cards to the dealer. The player and dealer should each have a **hand**, which is a list of cards.
 
 Here's an example of what a hand might look like:
 
