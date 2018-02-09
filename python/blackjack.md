@@ -11,6 +11,8 @@ title:  "Madison CS 3-4: Blackjack"
 
 In this project, you'll write a Python program that lets a user play blackjack.
 
+**You will be using this starter code for this project! Download [this file][starter-code] and use it as the basis for your program.**
+
 How It's Played
 ===============
 
@@ -60,7 +62,7 @@ Each suit has thirteen cards:
 * the cards 2 through 10,
 * and a jack, a queen, and a king.
 
-Jacks, queens, and kings have the value 10. In the simple version of blackjack that you're building in this project, aces always have the value 1.
+Jacks, queens, and kings have the value 10. In the simple version of Blackjack that you're building in this project, aces always have the value 1.
 
 Here's a full suit of diamonds:
 
@@ -89,13 +91,13 @@ print("The sixth card's value is " + str(diamonds[5][0]) + ".")
 print("The twelfth card's value is " + str(diamonds[11][0]) + ".")
 </code></pre>
 
-Notice that `diamonds` is a list of cards, and a "card" is a list like `[5, "diamonds"]` - so `diamonds` is a list of lists.
+Notice that `diamonds` is a list of cards, and a "card" is a list like `[5, "diamonds"]` - so `diamonds` is a list of lists. It's totally fine and normal for lists to contain other lists, you'll do this a lot in future projects.
 
 Your program's deck should contain fifty-two cards: thirteen cards for each of the four suits.
 
 Shuffling the Deck
 -------------
-Once you've got a deck of cards, you should shuffle the deck. Your game's deck is likely represented by a list. Here's how you can randomize the order of the items in a list:
+Once you've got a deck of cards, you should shuffle the deck. Your game's deck should be represented by a list. Here's how you can randomize the order of the items in a list:
 
 <pre><code class="py">
 import random
@@ -125,14 +127,17 @@ Make sure that whenever you deal a card to someone, that card is removed from th
 Milestone 1: Displaying Output
 ==============================
 
-You've done a lot of good stuff so far! Now add some `print()` calls that tell the player about their hand and the dealer's hand. Add another `print()` call that prints out the number of cards left in the deck.
+You've done a lot of good stuff so far!
 
-At this point, your program should look exactly like this when it's run:
+The [starter code][starter-code] for this project contains a function called `print_game_status()`.
+
+I'm writing `print_game_status()` here to make it clear that `print_game_status` is a **function**. When you use it in your code, you'll write something like `print_game_status(player_hand, dealer_hand, deck)`.
+
+Add a line to your program that uses this function. At this point, your program should look exactly like this when it's run:
 
 <asciinema-player src="{{ site.baseurl }}/blackjack_cast_milestone_1.json" rows="13" cols="90" autoplay="true" loop="true"></asciinema-player>
 
-The cards and counts your program prints out will be different every time the program is run, so it's fine that they'll be different from the output in my demo above.
-
+The cards and counts your program prints out will be different every time the program is run, so it's fine that they'll be different from what you see in my demo above.
 
 Player's Turn
 =============
@@ -153,16 +158,25 @@ while True:
 		# add it to the player's hand,
 		# and update their count.
 
+		# TODO: Once you've done that, print out
+		# the current state of the game so that
+		# the player can see their new hand and count.
+
 		# TODO: If the player's count is
 		# greater than 21, _end the game_
 		# and tell the player that they lost.
+
+		# Print out the new state of the game.
+		print_game_status(player_hand, dealer_hand, deck)
 
 	if move == 'stay':
 		break
 </textarea>
 <pre class="cm-s-friendship-bracelet"></pre>
 
-Notice the part where you should end the loop (and the game!) if the player's count exceeds 21. That's called "busting", and it's game over for the player - don't forget to implement it in your program, because we'll be testing to make sure you did it right!
+Each time the player says `hit`, you should call `print_game_status()` once you've given them a new card, so that they can see their updated hand.
+
+Notice the TODO that says that you should end the game if the player's count exceeds 21. That's called "busting", and it's game over for the player - don't forget to implement it in your program, because we'll be testing to make sure you did it right!
 
 Dealer's Turn
 =============
@@ -171,26 +185,45 @@ Once the player has said `"stay"`, it's time for the dealer's turn.
 
 Here's what should happen during the dealer's turn:
 
-* If the dealer's count is less than **17**, the dealer should draw cards one card at a time until their count is 17 or higher.
+* If the dealer's count is less than **17**, the dealer should draw cards until its count is **17 or higher**.
 * If at any point dealer's count is 17 or higher, the dealer's turn immediately ends.
 * If the dealer's count goes over 21, the dealer busts and the player wins.
 
+Once the dealer's turn is over, you should call `print_game_status()` so that the player can see what happened.
+
 **Note**: If the player busted during their turn, the game should end immediately and you should **skip the dealer's turn**.
 
-Milestone 2: End-Game Summary
+Check Counts
+============
+
+Once the dealer's turn is over, compare the player's count to the dealer's count. If the player's count is *higher* than the dealer's count, the player wins. If the player's count is *lower* than the dealer's count, the player loses. If the two counts are *equal*, it's a tie!
+
+**Note**: If the player busted during their turn, you should skip the dealer's turn _as well as_ this count-checking phase. If the player busted, they lost the game, so there's no need to check their count against the dealer's count.
+
+**Note**: If the *dealer* busted during its turn, you should skip this count-checking phase. If the dealer busted, the player won the game, so there's no need to check the player's count against the dealer's count.
+
+Milestone 2: Completed Game
 =============================
 
-You're almost done!
+Congratulations, you've implemented Blackjack!
+
+Go through your program and double-check to make sure that you didn't forget to implement anything. If you forgot something, we _will_ find it and make you fix it :)
+
+We're going to be running an automated test program on your submitted game, so **it's really important that you call `print_game_status()` every time the state of the game changes**.
+
+Your program should look **exactly like this**:
+
+<asciinema-player src="{{ site.baseurl }}/blackjack_cast_milestone_2.json" rows="35" cols="90" autoplay="true" loop="true"></asciinema-player>
+
+The last line of your program's output should be something like `You won!` or `It's a tie!`. The [starter code][starter-code] for this project has the specific strings that you should use - be sure to use them, because the automated test program will be looking for them!
 
 TODO
-
-end-game summary
-
-demo
 
 submission notes
 
 extra credit suggestions
+
+[starter-code]: foo
 
 
 {% javascript codemirror %}
