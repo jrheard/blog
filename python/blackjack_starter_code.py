@@ -4,6 +4,14 @@
 #     print_game_status(player_hand, dealer_hand, deck)
 
 def print_game_status(player_hand, dealer_hand, deck):
+    # This function prints out something like:
+    #
+    #    Your hand: [[9, 'hearts'], [1, 'spades']]
+    #    Your count: 10
+    #    Dealer's hand: [[4, 'spades'], [4, 'hearts']]
+    #    Dealer's count: 8
+    #    Number of cards in deck: 48
+
     print("Your hand: {0}".format(player_hand))
     hand_value = sum(value for (value, _) in hand)
     print("Your count: {0}".format(hand_value))

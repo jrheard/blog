@@ -572,3 +572,7 @@ asciinema-player {
 pre.hide-output .CodeMirror:nth-of-type(2) {
 	display: none;
 }
+
+pre.dont-format-output .CodeMirror:nth-of-type(2) .CodeMirror-lines .CodeMirror-line span {
+	color: #F3F99A !important;
+}

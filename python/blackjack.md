@@ -68,7 +68,7 @@ Jacks, queens, and kings have the value 10. In the simple version of Blackjack t
 
 Here's a full suit of diamonds:
 
-<pre><code class="py">
+<pre class="dont-format-output"><code class="py">
 diamonds = [
 	# The ace has value 1.
 	[1, "diamonds"],
