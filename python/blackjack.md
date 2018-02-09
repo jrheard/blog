@@ -9,7 +9,7 @@ title:  "Madison CS 3-4: Blackjack"
 }
 </style>
 
-In this project, you'll write a Python program that lets a user play blackjack.
+In this project, you'll write a Python program that lets a user play Blackjack.
 
 **You will be using this starter code for this project! Download [this file][starter-code] and use it as the basis for your program.**
 
@@ -20,7 +20,7 @@ Blackjack is a card game. The player starts with two cards, and can choose to dr
 
 A card has a **suit** (a string like `'spades'` or `'diamonds'`), and a **value** (a number between `1` and `10`). Each player has a **count**, which is the sum of all of their cards' values. If I have a five of diamonds, a three of hearts, and a ten of spades, my count is 18.
 
-The goal of the game is to "**beat the dealer by getting a count as close to 21 as possible, without going over 21**"[^1].
+The goal of the game is to **beat the dealer by getting a count as close to 21 as possible without going over 21**[^1].
 
 I'll go into a lot more detail about all this later on. First, though, let's figure out how to write a Python program that has playing cards in it.
 
@@ -39,11 +39,11 @@ Here's what a five of diamonds looks like in real life:
 Here's what a five of diamonds looks like in a Python program:
 
 <textarea class="hidden">
-card = [5, "diamonds"]
+[5, "diamonds"]
 </textarea>
 <pre class="cm-s-friendship-bracelet"></pre>
 
-`[5, "diamonds"]` is a two-item list that **represents** a five of diamonds card.
+That's a two-item list that **represents** a five of diamonds card.
 
 "Representing" something means "getting it out of your head and into a computer program." In this example, I took the nebulous concept of \<a five of diamonds card\> and turned it into \<a list with two things in it; the first thing is a number that represents the card's value, and the second thing is a string that represents the card's suit\>. This is important because Python doesn't really know what you mean when you say "a five of diamonds card", but it *does* understand `[5, "diamonds"]`.
 
@@ -93,11 +93,11 @@ print("The twelfth card's value is " + str(diamonds[11][0]) + ".")
 
 Notice that `diamonds` is a list of cards, and a "card" is a list like `[5, "diamonds"]` - so `diamonds` is a list of lists. It's totally fine and normal for lists to contain other lists, you'll do this a lot in future projects.
 
-Your program's deck should contain fifty-two cards: thirteen cards for each of the four suits.
+Your program's deck should be a list with fifty-two elements: thirteen cards for each of the four suits.
 
 Shuffling the Deck
 -------------
-Once you've got a deck of cards, you should shuffle the deck. Your game's deck should be represented by a list. Here's how you can randomize the order of the items in a list:
+Once you've got a deck of cards, you should shuffle the deck. Here's how you can randomize the order of the items in a list:
 
 <pre><code class="py">
 import random
@@ -129,11 +129,9 @@ Milestone 1: Displaying Output
 
 You've done a lot of good stuff so far!
 
-The [starter code][starter-code] for this project contains a function called `print_game_status()`.
+The [starter code][starter-code] for this project contains a function called `print_game_status()`. Add a line to your program that uses this function.
 
-I'm writing `print_game_status()` here to make it clear that `print_game_status` is a **function**. When you use it in your code, you'll write something like `print_game_status(player_hand, dealer_hand, deck)`.
-
-Add a line to your program that uses this function. At this point, your program should look exactly like this when it's run:
+At this point, your program should look exactly like this when it's run:
 
 <asciinema-player src="{{ site.baseurl }}/blackjack_cast_milestone_1.json" rows="13" cols="90" autoplay="true" loop="true"></asciinema-player>
 
@@ -145,9 +143,9 @@ Player's Turn
 Once the cards have been dealt, it's the player's turn. In our simple version of Blackjack, the player has two options:
 
 1. The player can draw another card by saying `"hit"`. They can do this as many times as they want, as long as their **count** is below 21.
-1. The player can end their turn by saying `"stand"`.
+1. The player can end their turn by saying `"stay"`.
 
-Your program should prompt the user for input over and over until they say `"stand"`, at which point their turn is over. You'll want to use a `while` loop to do this. Here's some starter code that you might find useful:
+Your program should prompt the user for input over and over until they say `"stay"`, at which point their turn is over. You'll want to use a `while` loop to do this. Here's some starter code that you might find useful:
 
 <textarea class="hidden">
 while True:
@@ -174,9 +172,9 @@ while True:
 </textarea>
 <pre class="cm-s-friendship-bracelet"></pre>
 
-Each time the player says `hit`, you should call `print_game_status()` once you've given them a new card, so that they can see their updated hand.
+Each time the player says `hit`, you should call `print_game_status()` after giving them a new card, so that they can see their updated hand.
 
-Notice the TODO that says that you should end the game if the player's count exceeds 21. That's called "busting", and it's game over for the player - don't forget to implement it in your program, because we'll be testing to make sure you did it right!
+Notice the TODO that says that you should end the game if the player's count exceeds 21. That's called "busting", and it's game over for the player - don't forget to implement it in your program!
 
 Dealer's Turn
 =============
@@ -198,6 +196,8 @@ Check Counts
 
 Once the dealer's turn is over, compare the player's count to the dealer's count. If the player's count is *higher* than the dealer's count, the player wins. If the player's count is *lower* than the dealer's count, the player loses. If the two counts are *equal*, it's a tie!
 
+The last line of your program's output should be something like `You won!` or `It's a tie!`. The [starter code][starter-code] for this project has the specific strings that you should use - be sure to use them, because we'll be running an automated test program that'll be looking for them!
+
 **Note**: If the player busted during their turn, you should skip the dealer's turn _as well as_ this count-checking phase. If the player busted, they lost the game, so there's no need to check their count against the dealer's count.
 
 **Note**: If the *dealer* busted during its turn, you should skip this count-checking phase. If the dealer busted, the player won the game, so there's no need to check the player's count against the dealer's count.
@@ -209,21 +209,45 @@ Congratulations, you've implemented Blackjack!
 
 Go through your program and double-check to make sure that you didn't forget to implement anything. If you forgot something, we _will_ find it and make you fix it :)
 
-We're going to be running an automated test program on your submitted game, so **it's really important that you call `print_game_status()` every time the state of the game changes**.
+Our automated test program will be reading your program's output, so **it's really important that you call `print_game_status()` every time the state of the game changes**.
 
-Your program should look **exactly like this**:
+Your program should look **exactly like this** when it's run. Check carefully to make sure that your output is formatted exactly like what you see below!
 
 <asciinema-player src="{{ site.baseurl }}/blackjack_cast_milestone_2.json" rows="35" cols="90" autoplay="true" loop="true"></asciinema-player>
 
-The last line of your program's output should be something like `You won!` or `It's a tie!`. The [starter code][starter-code] for this project has the specific strings that you should use - be sure to use them, because the automated test program will be looking for them!
+Submitting your project
+=======================
+Submit a file called `blackjack_<YOUR_NAME>.py`.
 
-TODO
+For instance, I'd submit a file called `blackjack_jr_heard.py`.
 
-submission notes
+On the first line of that file, write a comment with your name on it, like this:
 
-extra credit suggestions
+```
+# JR Heard
+```
 
-[starter-code]: foo
+This might seem redundant, but it really is helpful for us when we're grading your programs.
+
+Remember to follow this class's [style guide](https://docs.google.com/document/d/1UbyhIkxOdhpf-MGna_5dwh0yHXe02HTZ69CfEuYv76Y/edit).
+
+Other Features
+==============
+
+In real life, Blackjack can be much more complicated than the version we've built. Check out the [Wikipedia page](https://en.wikipedia.org/wiki/Blackjack) - if any features jump out at you (e.g. aces being worth 1 _or_ 11; splitting; betting), go ahead and implement them!
+
+[starter-code]: {{site.baseurl}}/python/blackjack_starter_code.py
+
+
+
+
+
+
+
+
+
+
+
 
 
 {% javascript codemirror %}
