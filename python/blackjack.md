@@ -127,7 +127,9 @@ Here's an example of what a hand might look like:
 
 Make sure that whenever you deal a card to someone, that card is removed from the deck. There should only ever be fifty-two cards at a time throughout your program—if the player has two cards and the dealer has two cards, then the deck should have forty-eight cards.
 
-Keep these hands in variables named something like `player_hand` and `dealer_hand`. You'll also want to create variables named something like `player_count` and `dealer_count`; you should update these "count" variables whenever the player or dealer gets dealt a new card.
+Keep these hands in variables named something like `player_hand` and `dealer_hand`. You'll also want to create variables named something like `player_count` and `dealer_count`.
+
+You should update these variables whenever the player or dealer gets dealt a new card.
 
 If `player_hand` is `[[10, "spades"], [5, "clubs"]]`, then `player_count` should be `15`.
 
