@@ -28,7 +28,7 @@
     ],
     [
       0.060012,
-      "Your hand: [[10, 'diamonds'], [10, 'spades']]\r\nYour count: 20\r\nDealer's hand: [[5, 'spades'], [5, 'clubs']]\r\nDealer's count: 10\r\nNumber of cards in deck: 48\r\n"
+      "------------------------------------\r\nYour hand: [[10, 'diamonds'], [10, 'spades']]\r\nYour count: 20\r\nDealer's hand: [[5, 'spades'], [5, 'clubs']]\r\nDealer's count: 10\r\nNumber of cards in deck: 48\r\n------------------------------------\r\n"
     ],
     [
       0.103382,
@@ -48,11 +48,11 @@
     ],
     [
       0.062619,
-      "Your hand: [[4, 'diamonds'], [8, 'diamonds']]\r\nYour count: 12\r\nDealer's hand: [[4, 'spades'], [5, 'diamonds']]\r\nDealer's count: 9\r\n"
+      "------------------------------------\r\nYour hand: [[4, 'diamonds'], [8, 'diamonds']]\r\nYour count: 12\r\nDealer's hand: [[4, 'spades'], [5, 'diamonds']]\r\nDealer's count: 9\r\n"
     ],
     [
       6.3e-05,
-      "Number of cards in deck: 48\r\n"
+      "Number of cards in deck: 48\r\n------------------------------------\r\n"
     ],
     [
       0.098108,

@@ -104,7 +104,7 @@
     ],
     [
       0.363083,
-      "Your hand: [[10, 'hearts'], [1, 'spades']]\r\nYour count: 11\r\nDealer's hand: [[10, 'spades'], [5, 'hearts']]\r\nDealer's count: 15\r\nNumber of cards in deck: 48\r\n"
+      "------------------------------------\r\nYour hand: [[10, 'hearts'], [1, 'spades']]\r\nYour count: 11\r\nDealer's hand: [[10, 'spades'], [5, 'hearts']]\r\nDealer's count: 15\r\nNumber of cards in deck: 48\r\n------------------------------------\r\n"
     ],
     [
       5.8e-05,
@@ -127,16 +127,12 @@
       "\r\n"
     ],
     [
-      0.000115,
-      "-\r\n"
-    ],
-    [
       0.000103,
-      "Your hand: [[10, 'hearts'], [1, 'spades'], [3, 'diamonds']]\r\nYour count: 14\r\nDealer's hand: [[10, 'spades'], [5, 'hearts']]\r\n"
+      "------------------------------------\r\nYour hand: [[10, 'hearts'], [1, 'spades'], [3, 'diamonds']]\r\nYour count: 14\r\nDealer's hand: [[10, 'spades'], [5, 'hearts']]\r\n"
     ],
     [
       7.2e-05,
-      "Dealer's count: 15\r\nNumber of cards in deck: 47\r\n"
+      "Dealer's count: 15\r\nNumber of cards in deck: 47\r\n------------------------------------\r\n"
     ],
     [
       6e-05,
@@ -159,20 +155,16 @@
       "\r\n"
     ],
     [
-      7.5e-05,
-      "-\r\n"
-    ],
-    [
       2.9e-05,
       "Final result:\r\n"
     ],
     [
       0.000108,
-      "Your hand: [[10, 'hearts'], [1, 'spades'], [3, 'diamonds'], [10, 'hearts']]\r\nYour count: 24\r\n"
+      "------------------------------------\r\nYour hand: [[10, 'hearts'], [1, 'spades'], [3, 'diamonds'], [10, 'hearts']]\r\nYour count: 24\r\n"
     ],
     [
       0.000114,
-      "Dealer's hand: [[10, 'spades'], [5, 'hearts']]\r\nDealer's count: 15\r\nNumber of cards in deck: 46\r\n"
+      "Dealer's hand: [[10, 'spades'], [5, 'hearts']]\r\nDealer's count: 15\r\nNumber of cards in deck: 46\r\n------------------------------------\r\n"
     ],
     [
       5.7e-05,
@@ -196,7 +188,7 @@
     ],
     [
       0.064079,
-      "Your hand: [[10, 'hearts'], [3, 'spades']]\r\nYour count: 13\r\nDealer's hand: [[1, 'hearts'], [3, 'clubs']]\r\nDealer's count: 4\r\nNumber of cards in deck: 48\r\n"
+      "------------------------------------\r\nYour hand: [[10, 'hearts'], [3, 'spades']]\r\nYour count: 13\r\nDealer's hand: [[1, 'hearts'], [3, 'clubs']]\r\nDealer's count: 4\r\nNumber of cards in deck: 48\r\n------------------------------------\r\n"
     ],
     [
       4.3e-05,
@@ -219,16 +211,12 @@
       "\r\n"
     ],
     [
-      0.000111,
-      "-\r\n"
-    ],
-    [
       6.1e-05,
-      "Your hand: [[10, 'hearts'], [3, 'spades'], [7, 'hearts']]\r\nYour count: 20\r\n"
+      "------------------------------------\r\nYour hand: [[10, 'hearts'], [3, 'spades'], [7, 'hearts']]\r\nYour count: 20\r\n"
     ],
     [
       5.4e-05,
-      "Dealer's hand: [[1, 'hearts'], [3, 'clubs']]\r\nDealer's count: 4\r\nNumber of cards in deck: 47\r\n"
+      "Dealer's hand: [[1, 'hearts'], [3, 'clubs']]\r\nDealer's count: 4\r\nNumber of cards in deck: 47\r\n------------------------------------\r\n"
     ],
     [
       0.000116,
@@ -259,20 +247,16 @@
       "\r\n"
     ],
     [
-      5e-05,
-      "-\r\n"
-    ],
-    [
       4.5e-05,
       "Final result:\r\n"
     ],
     [
       0.000142,
-      "Your hand: [[10, 'hearts'], [3, 'spades'], [7, 'hearts']]\r\n"
+      "------------------------------------\r\nYour hand: [[10, 'hearts'], [3, 'spades'], [7, 'hearts']]\r\n"
     ],
     [
       6.5e-05,
-      "Your count: 20\r\nDealer's hand: [[1, 'hearts'], [3, 'clubs'], [9, 'diamonds'], [3, 'hearts'], [6, 'diamonds']]\r\nDealer's count: 22\r\nNumber of cards in deck: 44\r\nDealer busts, you won!\r\n"
+      "Your count: 20\r\nDealer's hand: [[1, 'hearts'], [3, 'clubs'], [9, 'diamonds'], [3, 'hearts'], [6, 'diamonds']]\r\nDealer's count: 22\r\nNumber of cards in deck: 44\r\n------------------------------------\r\nDealer busts, you won!\r\n"
     ],
     [
       0.102704,
@@ -292,7 +276,7 @@
     ],
     [
       0.057249,
-      "Your hand: [[10, 'diamonds'], [5, 'clubs']]\r\nYour count: 15\r\nDealer's hand: [[9, 'hearts'], [1, 'spades']]\r\nDealer's count: 10\r\nNumber of cards in deck: 48\r\n"
+      "------------------------------------\r\nYour hand: [[10, 'diamonds'], [5, 'clubs']]\r\nYour count: 15\r\nDealer's hand: [[9, 'hearts'], [1, 'spades']]\r\nDealer's count: 10\r\nNumber of cards in deck: 48\r\n------------------------------------\r\n"
     ],
     [
       5.8e-05,
@@ -315,16 +299,12 @@
       "\r\n"
     ],
     [
-      7.5e-05,
-      "-\r\n"
-    ],
-    [
       6e-05,
-      "Your hand: [[10, 'diamonds'], [5, 'clubs'], [4, 'spades']]\r\n"
+      "------------------------------------\r\nYour hand: [[10, 'diamonds'], [5, 'clubs'], [4, 'spades']]\r\n"
     ],
     [
       0.000116,
-      "Your count: 19\r\nDealer's hand: [[9, 'hearts'], [1, 'spades']]\r\nDealer's count: 10\r\nNumber of cards in deck: 47\r\n"
+      "Your count: 19\r\nDealer's hand: [[9, 'hearts'], [1, 'spades']]\r\nDealer's count: 10\r\nNumber of cards in deck: 47\r\n------------------------------------\r\n"
     ],
     [
       4.7e-05,
@@ -355,16 +335,12 @@
       "\r\n"
     ],
     [
-      5e-05,
-      "-\r\n"
-    ],
-    [
       4.6e-05,
       "Final result:\r\n"
     ],
     [
       4.6e-05,
-      "Your hand: [[10, 'diamonds'], [5, 'clubs'], [4, 'spades']]\r\n"
+      "------------------------------------\r\nYour hand: [[10, 'diamonds'], [5, 'clubs'], [4, 'spades']]\r\n"
     ],
     [
       8.9e-05,
@@ -372,7 +348,7 @@
     ],
     [
       4.4e-05,
-      "Dealer's count: 18\r\nNumber of cards in deck: 46\r\nYou won!\r\n"
+      "Dealer's count: 18\r\nNumber of cards in deck: 46\r\n------------------------------------\r\nYou won!\r\n"
     ],
     [
       0.102152,

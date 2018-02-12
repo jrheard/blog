@@ -89,11 +89,12 @@ diamonds = [
 ]
 
 print("There are " + str(len(diamonds)) + " cards in this suit.")
+print("The sixth card is " + str(diamonds[5]) + ".")
 print("The sixth card's value is " + str(diamonds[5][0]) + ".")
 print("The twelfth card's value is " + str(diamonds[11][0]) + ".")
 </code></pre>
 
-Notice that `diamonds` is a list of **cards**, and a **card** is a list like `[5, "diamonds"]` - so `diamonds` is a list of lists. It's totally fine and normal for lists to contain other lists, you'll do this a lot in future projects.
+Notice that `diamonds` is a list of **cards**, and a **card** is a list like `[5, "diamonds"]` - so `diamonds` is a list of lists. It's totally fine and normal for lists to contain other lists, you'll do this a lot in future projects. Notice how I can say `diamonds[5][0]` to refer to the value of the sixth card in the `diamonds` list.
 
 Your program's deck should be a list with fifty-two elements: thirteen cards for each of the four suits.
 
@@ -126,6 +127,10 @@ Here's an example of what a hand might look like:
 
 Make sure that whenever you deal a card to someone, that card is removed from the deck. There should only ever be fifty-two cards at a time throughout your program—if the player has two cards and the dealer has two cards, then the deck should have forty-eight cards.
 
+Keep these hands in variables named something like `player_hand` and `dealer_hand`. You'll also want to create variables named something like `player_count` and `dealer_count`; you should update these "count" variables whenever the player or dealer gets dealt a new card.
+
+If `player_hand` is `[[10, "spades"], [5, "clubs"]]`, then `player_count` should be `15`.
+
 Milestone 1: Displaying Output
 ==============================
 
@@ -135,7 +140,7 @@ The [starter code][starter-code] for this project contains a function called `pr
 
 At this point, your program should look exactly like this when it's run:
 
-<asciinema-player src="{{ site.baseurl }}/blackjack_cast_milestone_1.json" rows="13" cols="90" autoplay="true" loop="true"></asciinema-player>
+<asciinema-player src="{{ site.baseurl }}/blackjack_cast_milestone_1.json" rows="17" cols="90" autoplay="true" loop="true"></asciinema-player>
 
 The cards and counts your program prints out will be different every time the program is run, so it's fine that they'll be different from what you see in my demo above.
 
@@ -147,37 +152,13 @@ Once the cards have been dealt, it's the player's turn. In our simple version of
 1. The player can draw another card by saying `"hit"`. They can do this as many times as they want, as long as their **count** is below 21.
 1. The player can end their turn by saying `"stand"`.
 
-Your program should prompt the user for input over and over until they say `"stand"`, at which point their turn is over. You'll want to use a `while` loop to do this. Here's some starter code that you might find useful:
-
-<textarea class="hidden">
-while True:
-	move = input("Do you want to 'hit' or 'stand'? ")
-
-	if move == 'hit':
-		# TODO: Remove a card from the deck,
-		# add it to the player's hand,
-		# and update their count.
-
-		# TODO: Once you've done that, print out
-		# the current state of the game so that
-		# the player can see their new hand and count.
-
-		# TODO: If the player's count is
-		# greater than 21, _end the game_
-		# and tell the player that they lost.
-
-		# Print out the new state of the game.
-		print_game_status(player_hand, player_count,
-						dealer_hand, dealer_count, deck)
-
-	if move == 'stand':
-		break
-</textarea>
-<pre class="cm-s-friendship-bracelet"></pre>
+Your program should prompt the user for input over and over until they say `"stand"`, at which point their turn is over. You'll want to use a `while True:` loop with one or more `break` statements in it.
 
 Each time the player says `"hit"`, you should call `print_game_status()` after giving them a new card, so that they can see their updated hand.
 
-Notice the TODO that says that you should end the game if the player's count exceeds 21. That's called "busting", and it's game over for the player - don't forget to implement it in your program!
+If the player inputs something that's not `"hit"` or `"stand"` - for instance, if they enter the word `"pizza"` for their move - your program should not crash.
+
+**Note**: If the player draws too many cards and their count goes over 21, that's called "busting", and it's game over for the player. End the game immediately and tell them that they lost.
 
 Dealer's Turn
 =============
@@ -220,6 +201,8 @@ Your program should look **exactly like this** when it's run. Check carefully to
 
 Submitting your project
 =======================
+**Remove all "TODO" comments from your code before submitting your finished program.**
+
 Submit a file called `blackjack_<YOUR_NAME>.py`.
 
 For instance, I'd submit a file called `blackjack_jr_heard.py`.
@@ -237,7 +220,9 @@ Remember to follow this class's [style guide](https://docs.google.com/document/d
 Other Features
 ==============
 
-In real life, Blackjack can be much more complicated than the version we've built. Check out the [Wikipedia page](https://en.wikipedia.org/wiki/Blackjack) - if any features jump out at you (e.g. aces being worth 1 _or_ 11; splitting; betting), go ahead and implement them!
+In real life, Blackjack can be much more complicated than the version we've built. Check out the [Wikipedia page](https://en.wikipedia.org/wiki/Blackjack) and implement any features that jump out at you (e.g. aces being worth 1 _or_ 11; splitting; betting)!
+
+Our test program won't be able to handle your program once you've added more features to it, so be sure to submit your finished Blackjack program **before** adding new features to it. Once you've submitted the simple version of the program, we'll have a saved copy of it and you can go ahead and add more features to it.
 
 [starter-code]: {{site.baseurl}}/python/blackjack_starter_code.py
 
