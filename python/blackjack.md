@@ -49,7 +49,9 @@ That's a two-item list that **represents** a five of diamonds card.
 
 "Representing" something means "getting it out of your head and into a computer program." In this example, I took the concept of \<a five of diamonds card\> and turned it into \<a list with two things in it; the first thing is a number that represents the card's value, and the second thing is a string that represents the card's suit\>. This is important because Python doesn't really know what you mean when you say "a five of diamonds card", but it *does* understand `[5, "diamonds"]`.
 
-There are a lot of different ways to represent a five of diamonds in a Python program. If you know how to use dicts, classes, or tuples, feel free to use any of those instead. If you don't know what those are yet, don't worry: a two-item list is just as good as those other things. All that matters is that you choose *some* way of representing playing cards in your Python program. A two-item list of `[value, suit]` works great.
+There are a lot of different ways to represent a five of diamonds in a Python program - we're using a two-item list in this project, but in future projects you might use a dict or a class instead[^2]. We'll learn about those later.
+
+[^2]: I'd use a [namedtuple](https://pymotw.com/2/collections/namedtuple.html), because I love namedtuples.
 
 Representing a Deck
 -------------------
