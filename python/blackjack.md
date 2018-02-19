@@ -156,7 +156,7 @@ Once the cards have been dealt, it's the player's turn. In our simple version of
 1. The player can draw another card by saying `"hit"`. They can do this as many times as they want, as long as their **count** is below 21.
 1. The player can end their turn by saying `"stand"`.
 
-Your program should prompt the user for input over and over until they say `"stand"`, at which point their turn is over. You'll want to use a `while True:` loop with one or more `break` statements in it.
+Your program should prompt the user for input over and over until they say `"stand"`, at which point their turn is over. You'll want to use a `while True:` loop with one or more `break` statements in it. Print out something like `"Do you want to 'hit' or 'stand'?"` when you're prompting the player for input.
 
 Each time the player says `"hit"`, you should call `print_game_status()` after giving them a new card, so that they can see their updated hand.
 
