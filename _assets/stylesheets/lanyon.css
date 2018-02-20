@@ -584,3 +584,23 @@ pre.dont-format-output .CodeMirror:nth-of-type(2) .CodeMirror-lines .CodeMirror-
 .cm-s-friendship-bracelet {
 	font-size: 16px;
 }
+
+.boolean-diagram {
+	margin: 30px auto;
+	text-align: center;
+	font-family: monospace;
+	font-size: 25px;
+}
+
+.boolean-diagram div {
+	display: inline-block;
+}
+
+.boolean-diagram .expression {
+	padding: 10px 20px;
+	background-color: #FFE180;
+	border: solid 1px #DDD;
+}
+
+.boolean-diagram .conjunction {
+}
