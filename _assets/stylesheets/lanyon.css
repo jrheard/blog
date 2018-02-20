@@ -604,3 +604,11 @@ pre.dont-format-output .CodeMirror:nth-of-type(2) .CodeMirror-lines .CodeMirror-
 
 .boolean-diagram .conjunction {
 }
+
+.boolean-diagram .expression.falsey {
+	background-color: pink;
+}
+
+.boolean-diagram .expression.truthy {
+	background-color: #B4FFB4;
+}

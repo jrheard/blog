@@ -91,9 +91,49 @@ print(bool(['pizza', 'tacos']))
 
 That code snippet is interactive, so go ahead and mess around with those examples to convince yourself that you understand how truthiness works. Is `15` truthy?
 
-# Back to our `num` example
+# Back to our buggy `num` expression
 
-TODO red, green boxes
+Now that we know what truthiness is, we can figure out how this expression is evaluated when `num` has the value `10`.
+
+<div class="boolean-diagram">
+<div class="expression">num == 5</div>
+<div class="conjunction">or</div>
+<div class="expression">6</div>
+<div class="conjunction">or</div>
+<div class="expression">7</div>
+</div>
+
+Python is going to look at these yellow boxes and evaluate them, one at a time, until it finds one that's truthy.
+
+Python starts by looking at the `num == 5`—and that evaluates to `False`, which is not truthy. I'll mark that box as red to indicate that Python has evaluated it and determined that it's not truthy.
+
+<div class="boolean-diagram">
+<div class="expression falsey">num == 5</div>
+<div class="conjunction">or</div>
+<div class="expression">6</div>
+<div class="conjunction">or</div>
+<div class="expression">7</div>
+</div>
+
+Next up, Python looks at `6`. We learned earlier that `0` is not truthy (a.k.a. falsey), and all other numbers are truthy. `6` is a number and it's not `0`, so it's truthy.
+
+<pre><code class="py">
+print(bool(6))
+</code></pre>
+
+So now our expression looks like this:
+
+<div class="boolean-diagram">
+<div class="expression falsey">num == 5</div>
+<div class="conjunction">or</div>
+<div class="expression truthy">6</div>
+<div class="conjunction">or</div>
+<div class="expression">7</div>
+</div>
+
+I said earlier that Python is going to look at our yellow boxes and evaluate them, one at a time, until it finds one that's truthy. Well, it's found one that's truthy? What happens now?
+
+# Short-circuiting
 
 
 
