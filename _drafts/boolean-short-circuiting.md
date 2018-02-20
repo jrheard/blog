@@ -24,13 +24,12 @@ In the [high school Python class][wcb] I'm helping out with, I've noticed that s
 num = int(input())
 
 if num == 5 or 6 or 7:
-	# do something
 </textarea>
 <pre class="cm-s-friendship-bracelet"></pre>
 
 In this example, the student has a `num` variable whose value is some integer, and they'd like to write some code that checks whether the integer is `5` or `6` or `7` or none of those numbers. The code they wrote seems reasonable at first glance, but it actually does something completely different from what the student would expect.
 
-Let's forget the `if:` part of the code for now and focus on the `num == 5 or 6 or 7` part. Here's what Python sees when you give it that code:
+Let's forget the `if:` part of the code for now and focus on the `num == 5 or 6 or 7` part. Here's what Python sees:
 
 <div class="boolean-diagram">
 <div class="expression">num == 5</div>
@@ -40,11 +39,25 @@ Let's forget the `if:` part of the code for now and focus on the `num == 5 or 6 
 <div class="expression">7</div>
 </div>
 
-It looks at each of those yellow boxes, each one by itself, one at a time: first the `num == 5`, then the `6`, then the `7`. It looks at each one of those until it finds one that's "truthy".
+It breaks that line of code up into those yellow boxes, and it looks at them one at a time. Notice how the first yellow box is
+
+<div class="boolean-diagram"><div class="expression">num == 5</div></div>
+
+and the second box is
+
+<div class="boolean-diagram"><div class="expression">6</div></div>
+
+The second box isn't `num == 6` - it's **just `6`**.
+
+Let's say that the `num` variable has the value `10`. When Python evaluates the expression `num == 5 or 6 or 7`, it first evaluates `num == 5`—and that turns into `False`, because `num` is `10`.
+
+So at this point, our expression is `False or 6 or 7`, and Python has to figure out whether that's `True` or not, since we've put it in an `if` statement.
+
+What does Python do when it sees that? In order to answer that question, we'll have to learn about **truthiness** and **short-circuiting**. Don't worry, you can do this.
 
 # Truthiness
 
-You're familiar with the values `True` and `False`. We call them "Booleans", and we use them in `if` statements all the time.
+You're familiar with the values `True` and `False`. We call them "Booleans", and we use them most often in `if` statements.
 
 <pre class="dont-format-output"><code class="py">
 hungry = True
@@ -55,7 +68,7 @@ else:
 	print('must be nice')
 </code></pre>
 
-Python doesn't just limit us to using `True` and `False` in `if` statements, though—you can put _anything_ in there, and that's where the concept of "truthiness" comes in.
+Python doesn't just limit us to using `True` and `False` in `if` statements—you can put _anything_ in there, and that's where the concept of "truthiness" comes in.
 
 According to the [official documentation](https://docs.python.org/3/library/stdtypes.html#truth-value-testing), these things are "considered false":
 
@@ -64,7 +77,7 @@ According to the [official documentation](https://docs.python.org/3/library/stdt
 * `0`
 * Empty sequences, e.g. `[]`, `''`, `()`, `{}`
 
-Everything else is "considered true", a.k.a. "truthy".
+Everything else in Python is "considered true", a.k.a. "truthy".
 
 You can use the built-in `bool()` function to see if something is truthy. Here are some examples:
 
@@ -78,7 +91,7 @@ print(bool(['pizza', 'tacos']))
 
 That code snippet is interactive, so go ahead and mess around with those examples to convince yourself that you understand how truthiness works. Is `15` truthy?
 
-# Back to our example
+# Back to our `num` example
 
 TODO red, green boxes
 
@@ -97,6 +110,8 @@ you want to show that python looks at each of the parts of the statement in isol
 so like in `num == 5 or 6 or 7`, highlight each part
 
 talk about truthiness
+
+TODO: `num == (5 or 6 or 7)` won't do what the student wants, either. knowing what you know now, can you figure out what that code actually does?
 
 notes
 
