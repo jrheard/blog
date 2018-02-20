@@ -3,12 +3,6 @@ layout: post
 title:  "Using Hypothesis and Pexpect to Test High School Programming Assignments"
 ---
 
-<style>
-.cm-s-friendship-bracelet {
-	font-size: 16px;
-}
-</style>
-
 I've been coming up with some [fun][passwords] [projects][caesar] for a [beginner Python high school class][wcb]. Most of these projects are simple command-line programs that prompt the user for some input, perform some calculation, and print some output. For instance, here's the password checker project:
 
 <asciinema-player src="{{ site.baseurl }}/password_checker_cast.json?v=1" rows="12" cols="90" autoplay="true"></asciinema-player>

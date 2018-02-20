@@ -3,12 +3,6 @@ layout: page
 title:  "Madison CS 3-4: Blackjack"
 ---
 
-<style>
-.cm-s-friendship-bracelet {
-	font-size: 16px;
-}
-</style>
-
 In this project, you'll write a Python program that lets a user play Blackjack.
 
 **You will be using starter code for this project! Download [this file][starter-code] and use it as the basis for your program.**
