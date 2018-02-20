@@ -19,7 +19,11 @@ In this example, the student has a `num` variable whose value is some integer, a
 
 Let's forget the `if:` part of the code for now and focus on the `num == 5 or 6 or 7` part. Here's what Python sees when you give it that code:
 
+{% img short_circuiting_1.png %}
 
+Python evaluates each of those parts, one at a time - first the `num == 5`, then the `6`, then the `7`. It's looking at each of them to see if any of them is "truthy".
+
+# What in the heck does truthy mean?
 
 
 
