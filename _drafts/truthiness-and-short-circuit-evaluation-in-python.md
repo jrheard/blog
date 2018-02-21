@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Truthiness and Boolean Short-Circuiting in Python"
+title:  "Truthiness and Short-Circuit Evaluation in Python"
 ---
 
 <style>
@@ -19,7 +19,7 @@ title:  "Truthiness and Boolean Short-Circuiting in Python"
 Target audience: beginner programmers
 </div>
 
-In the [high school Python class][wcb] I'm helping out with, I've noticed that students will often write a chunk code that looks like this:
+In the [high school Python class][wcb] I'm helping out with, I've noticed that students will often write a chunk of code that looks like this:
 
 <textarea class="hidden">
 num = int(input())
@@ -40,7 +40,7 @@ Let's forget the `if:` part of the code for now and focus on the `num == 5 or 6 
 <div class="expression">7</div>
 </div>
 
-I'm going to be using a lot of diagrams like this throughout this post. In these diagrams, a yellow box is a **chunk of code that Python hasn't evaluated yet**. ("Evaluated" means basically the same thing as "run".)
+I'm going to be using a lot of diagrams like this throughout this post. In these diagrams, a yellow box is a **chunk of code that Python hasn't evaluated yet**. ("Evaluated" basically means "run".)
 
 Notice how the first yellow box in our expression is
 
@@ -50,7 +50,7 @@ and the second box is
 
 <div class="boolean-diagram"><div class="expression">6</div></div>
 
-The second box isn't `num == 6`—it's **just `6`**. That's kind of weird! What does the number `6` do if you put it in an `if` statement? We'll find out soon.
+The second box isn't `num == 6`—it's **just `6`**. That's kind of weird! What does the number `6` do if you put it in an `if` statement? Read on to find out!
 
 Okay, let's take one more look at the chunk of code we're trying to decipher:
 
@@ -59,7 +59,7 @@ num == 5 or 6 or 7
 </textarea>
 <pre class="cm-s-friendship-bracelet"></pre>
 
-Let's start by figuring out what this code does when the `num` variable contains the value `10`. In that situation, Python starts by evaluating `10 == 5`, which turns into `False`.
+Let's start by figuring out what this code does when the `num` variable has the value `10`. Python starts by evaluating `10 == 5`, which turns into `False`.
 
 <div class="boolean-diagram">
 <div class="expression falsey">False</div>
@@ -69,7 +69,7 @@ Let's start by figuring out what this code does when the `num` variable contains
 <div class="expression">7</div>
 </div>
 
-So at this point, our expression is `False or 6 or 7`, and Python has to figure out whether or not that whole thing ends up evaluating to `True`, because we're running this code as the condition part of an `if` statement.
+So at this point, our partly-evaluated expression is `False or 6 or 7`, and Python has to figure out whether or not that whole thing ends up evaluating to `True`, because we're running this code as the condition part of an `if` statement.
 
 What does Python do when it sees that weird-looking `False or 6 or 7` expression? In order to answer that question, we'll need to know about **truthiness** and **short-circuiting**.
 
@@ -107,7 +107,87 @@ print(bool(['pizza', 'tacos']))
 
 That code snippet is interactive, so go ahead and mess around with those examples to convince yourself that you understand how truthiness works. Is `15` truthy?
 
-# Back to our buggy `num` expression
+Now that we know what truthiness is, let's talk about short-circuit evaluation.
+
+# Short-Circuit Evaluation
+
+The `and` and `or` operators in Python are [short-circuit operators](https://docs.python.org/3/library/stdtypes.html#boolean-operations-and-or-not). To see what this means, let's look at an example use of the `or` operator.
+
+<textarea class="hidden">
+1 == 1 or 1 == 2
+</textarea>
+<pre class="cm-s-friendship-bracelet"></pre>
+
+This is what Python sees:
+
+<div class="boolean-diagram">
+<div class="expression">1 == 1</div>
+<div class="conjunction">or</div>
+<div class="expression">1 == 2</div>
+</div>
+
+Remember that if a box is yellow, that means that Python hasn't evaluated it yet.
+
+When Python sees this line of code, it evaluates each of the yellow boxes in order until it finds one that's truthy. It starts by evaluating `1 == 1`, which turns into `True`.
+
+<div class="boolean-diagram">
+<div class="expression truthy">True</div>
+<div class="conjunction">or</div>
+<div class="expression">1 == 2</div>
+</div>
+
+At this point, Python stops! That's what short-circuiting means. Here's how the official documentation describes `or`'s behavior:
+
+> it only evaluates the second argument if the first one is false.
+
+Here, I'll prove it to you. First, it's important to know that if you divide a non-zero number by zero, Python will throw an exception:
+
+<pre><code class="py">
+1 / 0
+</code></pre>
+
+Now, check out what happens if I put a `1 / 0` _after_ a truthy thing in an `or`:
+
+<pre><code class="py">
+print(True or 1 / 0)
+</code></pre>
+
+The program prints `True` and exits **without evaluating the `1 / 0`**! To convince yourself that this works the way I claim it does, try changing that `True` to a `False`.
+
+This matches the behavior we saw in the diagram above—remember how the `1 == 2` box stayed yellow to indicate that Python hadn't evaluated (run) the code inside of it.
+
+`and` works similarly to `or`, except that the official documentation says that
+
+> it only evaluates the second argument if the first one is true.
+
+Here are more examples that show how `and` and `or`'s short-circuiting behavior works. Do they all behave the way you expect?
+
+<div class="boolean-diagram">
+<div class="expression falsey">1 == 2</div>
+<div class="conjunction">and</div>
+<div class="expression">2 == 2</div>
+</div>
+
+<div class="boolean-diagram">
+<div class="expression truthy">1 == 1</div>
+<div class="conjunction">and</div>
+<div class="expression falsey">1 == 2</div>
+</div>
+
+<div class="boolean-diagram">
+<div class="expression truthy">1 == 1</div>
+<div class="conjunction">and</div>
+<div class="expression truthy">2 == 2</div>
+</div>
+
+<div class="boolean-diagram">
+<div class="expression falsey">1 == 2</div>
+<div class="conjunction">or</div>
+<div class="expression truthy">1 == 1</div>
+</div>
+
+
+# Back to our buggy buggy `num` code
 
 Now that we know what truthiness is, we can figure out how this expression is evaluated when `num` has the value `10`.
 
@@ -202,9 +282,9 @@ notes
 
 * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_Operators tons of examples
 
-* official docs on python truthiness https://docs.python.org/3/library/stdtypes.html#truth-value-testing
+# Resources
 
-* essay on truthy/falsey https://gist.github.com/jfarmer/2647362
+* https://gist.github.com/jfarmer/2647362
 
 <pre><code class="py">
 True or  5 / 0
