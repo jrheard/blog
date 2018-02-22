@@ -290,7 +290,7 @@ print(num in [5, 6, 7])
 print(5 <= num <= 7)
 </code></pre>
 
-By the way—what do you think this code does? Will it evaluate to `True`?
+By the way—what do you think this code does? Will it evaluate to `True`? If not, why not?
 
 <textarea class="hidden">
 num = 7
