@@ -30,7 +30,7 @@ if num == 5 or 6 or 7:
 
 In this example, the student has a `num` variable whose value is some integer, and they're trying to write some code that gets run if the integer is `5` or `6` or `7`. The code snippet above seems reasonable at first glance, but it actually does something **completely different** from what the student would expect.
 
-Let's focus on the `num == 5 or 6 or 7` part, because that's the thing that isn't doing what the student expects. Here's what Python sees when you write that code:
+Let's focus on the `num == 5 or 6 or 7` part, because that's the part that isn't doing what the student expects. Here's what Python sees when you write that code:
 
 <div class="boolean-diagram">
 <div class="expression">num == 5</div>
@@ -42,7 +42,7 @@ Let's focus on the `num == 5 or 6 or 7` part, because that's the thing that isn'
 
 I'm going to be using a lot of diagrams like this throughout this article. In these diagrams, a yellow box is a **chunk of code that Python hasn't evaluated yet**. ("Evaluated" basically means "run".)
 
-Notice how the first yellow box in our expression is
+Notice how the first yellow box in that diagram is
 
 <div class="boolean-diagram"><div class="expression">num == 5</div></div>
 
@@ -73,7 +73,7 @@ Python starts by evaluating `10 == 5`, which turns into `False`.
 
 So at this point, our partly-evaluated expression is `False or 6 or 7`, and Python has to figure out whether or not that whole thing ends up evaluating to `True`, because we're running this code as the condition part of an `if` statement.
 
-What does Python do when it sees that weird-looking `False or 6 or 7` expression? In order to answer that question, we'll need to know about **truthiness** and **short-circuiting**.
+What does Python do when it sees `False or 6 or 7`? In order to answer that question, we'll need to know about **truthiness** and **short-circuiting**.
 
 # Truthiness
 
@@ -162,7 +162,7 @@ The program prints `True` and exits **without evaluating the `1 / 0`**! To convi
 
 This matches the behavior we saw in our most recent diagram. Do you remember how the `1 == 2` box stayed yellow to indicate that Python hadn't evaluated the code inside of it?
 
-So, that's what "short-circuiting" means when you're using the `or` operator. The `and` operator works similarly to `or`, except that the official documentation says that `and`
+So, that's what "short-circuiting" means when you're using the `or` operator. The `and` operator is pretty similar to `or`, except that the official documentation says that `and`
 
 > only evaluates the second argument if the first one is true.
 
@@ -279,7 +279,7 @@ If everything in an **`and`** is **truthy**, then the whole `and` expression wil
 print('cat' and 'dog')
 </code></pre>
 
-Oh, and if you want to write some code that does what the student in our example actually intended, try one of these:
+Oh, and if you want to write some code that does what the student in our example actually wanted, try one of these:
 
 
 <pre><code class="py">
