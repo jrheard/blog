@@ -90,7 +90,7 @@ else:
 
 Python doesn't limit us to just using `True` and `False` as the condition for `if` statements, though—you can put _any_ expression in there. If you put something in an `if` statement's condition section and it's not `True` or `False`, Python will look at it and decide whether or not it's "truthy".
 
-According to the [official documentation](https://docs.python.org/3/library/stdtypes.html#truth-value-testing), **everything** i Python is considered truthy except for these things:
+According to the [official documentation](https://docs.python.org/3/library/stdtypes.html#truth-value-testing), **everything** in Python is considered truthy except for these things:
 
 * `False`
 * `None`
