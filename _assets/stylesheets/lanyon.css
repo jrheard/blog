@@ -603,6 +603,7 @@ pre.dont-format-output .CodeMirror:nth-of-type(2) .CodeMirror-lines .CodeMirror-
 }
 
 .boolean-diagram .conjunction {
+	font-weight: bold;
 }
 
 .boolean-diagram .expression.falsey {

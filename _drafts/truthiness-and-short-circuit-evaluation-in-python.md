@@ -208,7 +208,7 @@ print(num == 5 or 6 or 7)
 
 What do you think will be printed out when that code is run?
 
-Before we run it and find out for sure, let's walk through one last set of diagrams. Here's what Python sees before it starts evaluating anything.
+Before we run it and find out for sure, let's walk through one last set of diagrams using what we've learned. Here's what Python sees before it starts evaluating anything:
 
 <div class="boolean-diagram">
 <div class="expression">num == 5</div>
@@ -218,7 +218,7 @@ Before we run it and find out for sure, let's walk through one last set of diagr
 <div class="expression">7</div>
 </div>
 
-It starts by evaluating `10 == 5`, which turns into `False`.
+Python begins by evaluating `10 == 5`, which turns into `False`.
 
 <div class="boolean-diagram">
 <div class="expression falsey">False</div>
@@ -257,7 +257,7 @@ else:
        print('safe!')
 </code></pre>
 
-# Parting words
+# Wrapping up
 
 Here are a few more examples—play around with them and try adding some of your own!
 
