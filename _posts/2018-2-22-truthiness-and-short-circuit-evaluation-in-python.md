@@ -304,6 +304,7 @@ num == (5 or 6 or 7)
 # Resources
 
 * [This walkthrough](https://en.wikibooks.org/wiki/Non-Programmer%27s_Tutorial_for_Python_3/Boolean_Expressions) is great.
+* So is [this StackOverflow answer](https://stackoverflow.com/questions/2580136/does-python-support-short-circuiting/14892812#14892812).
 * [@codewithanthony](https://twitter.com/codewithanthony) has [this fascinating video](https://www.youtube.com/watch?v=mRPU3l54Z7I&app=desktop) about `False == False in [False]`.
 
 
