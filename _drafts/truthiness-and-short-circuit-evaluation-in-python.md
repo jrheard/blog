@@ -30,7 +30,7 @@ if num == 5 or 6 or 7:
 
 In this example, the student has a `num` variable whose value is some integer, and they're trying to write some code that gets run if the integer is `5` or `6` or `7`. The code snippet above seems reasonable at first glance, but it actually does something **completely different** from what the student would expect.
 
-Let's forget the `if:` part of the code for now and focus on the `num == 5 or 6 or 7` part. Here's what Python sees when you write that:
+Let's focus on the `num == 5 or 6 or 7` part, because that's the thing that isn't doing what the student expects. Here's what Python sees when you write that code:
 
 <div class="boolean-diagram">
 <div class="expression">num == 5</div>
@@ -40,7 +40,7 @@ Let's forget the `if:` part of the code for now and focus on the `num == 5 or 6 
 <div class="expression">7</div>
 </div>
 
-I'm going to be using a lot of diagrams like this throughout this post. In these diagrams, a yellow box is a **chunk of code that Python hasn't evaluated yet**. ("Evaluated" basically means "run".)
+I'm going to be using a lot of diagrams like this throughout this article. In these diagrams, a yellow box is a **chunk of code that Python hasn't evaluated yet**. ("Evaluated" basically means "run".)
 
 Notice how the first yellow box in our expression is
 
@@ -50,16 +50,18 @@ and the second box is
 
 <div class="boolean-diagram"><div class="expression">6</div></div>
 
-The second box isn't `num == 6`—it's **just `6`**. That's kind of weird! What does the number `6` do if you put it in an `if` statement? Read on to find out!
+That second box isn't `num == 6`—it's **just `6`**. That's kind of weird! What does the number `6` do if you put it in an `if` statement? Read on to find out!
 
-Let's take one more look at the chunk of code we're trying to decipher:
+OK, so we're trying to decipher this code:
 
 <textarea class="hidden">
 num == 5 or 6 or 7
 </textarea>
 <pre class="cm-s-friendship-bracelet"></pre>
 
-Let's start our analysis by figuring out what this code does when the `num` variable has the value `10`. Python starts by evaluating `10 == 5`, which turns into `False`.
+Let's start our analysis by figuring out what that code does when the `num` variable has the value `10`.
+
+Python starts by evaluating `10 == 5`, which turns into `False`.
 
 <div class="boolean-diagram">
 <div class="expression falsey">False</div>
@@ -166,34 +168,34 @@ So, that's what "short-circuiting" means when you're using the `or` operator. Th
 
 That makes sense, because `and` wants to make sure that both of its operands are truthy. If the sub-expression on the left-hand side of an `and` is falsey, then **the whole `and` expression is falsey!** In that situation, there's no need to evaluate the sub-expression on the right-hand side.
 
-Here are more examples that show how `and` and `or`'s short-circuiting behavior works. Do they all behave the way you expect?
+Here are some more examples. Do they all behave the way that you expect?
 
-<div class="boolean-diagram">
+<div class="boolean-diagram falsey">
 <div class="expression falsey">1 == 2</div>
 <div class="conjunction">and</div>
 <div class="expression">2 == 2</div>
 </div>
 
-<div class="boolean-diagram">
+<div class="boolean-diagram falsey">
 <div class="expression truthy">1 == 1</div>
 <div class="conjunction">and</div>
 <div class="expression falsey">1 == 2</div>
 </div>
 
-<div class="boolean-diagram">
+<div class="boolean-diagram truthy">
 <div class="expression truthy">1 == 1</div>
 <div class="conjunction">and</div>
 <div class="expression truthy">2 == 2</div>
 </div>
 
-<div class="boolean-diagram">
+<div class="boolean-diagram falsey">
 <div class="expression falsey">1 == 2</div>
 <div class="conjunction">or</div>
 <div class="expression truthy">1 == 1</div>
 </div>
 
 
-# Back to our buggy buggy `num` code
+# Back to our buggy `num` code
 
 Now that we know about truthiness and short-circuit evaluation, we can finally figure out what this code does!
 
@@ -244,14 +246,23 @@ num = 10
 print(num == 5 or 6 or 7)
 </code></pre>
 
-And so that's why the code from the beginning of this post doesn't do what our student expects. `num == 5 or 6 or 7` **will always evaluate to either `True` or `6`**, and so the code inside that `if` statement will always be run!
+And so that's why the code from the beginning of this article doesn't do what our student expects. `num == 5 or 6 or 7` **will always evaluate to either `True` or `6`**, and so the code inside that `if` statement will **always** be run!
+
+<pre><code class="py">
+num = 10
+
+if num == 5 or 6 or 7:
+       1 / 0
+else:
+       print('safe!')
+</code></pre>
 
 # Parting words
 
 Here are a few more examples—play around with them and try adding some of your own!
 
 <pre><code class="py">
-print(False or '')
+print(False or [])
 print(2 or False)
 print(False or 0 or "hello")
 </code></pre>
@@ -283,6 +294,7 @@ By the way—what do you think this code does? Will it evaluate to `True`?
 
 <textarea class="hidden">
 num = 7
+
 num == (5 or 6 or 7)
 </textarea>
 <pre class="cm-s-friendship-bracelet"></pre>
