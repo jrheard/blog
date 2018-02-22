@@ -130,7 +130,9 @@ This is what Python sees before it starts evaluating that code:
 
 Remember that if a box is yellow, that means that Python hasn't evaluated it yet.
 
-Since this is an `or`, Python evaluates each of the yellow boxes in order **until it finds one that's truthy**. It starts by evaluating `1 == 1`, which turns into `True`.
+An `or` expression is truthy if _at least one_ thing in it is truthy. An `and` expression is truthy if _all_ things in it are truthy.
+
+Since this is an `or`, Python evaluates each of the yellow boxes in order until it finds **one** that's truthy. It starts by evaluating `1 == 1`, which turns into `True`.
 
 <div class="boolean-diagram">
 <div class="expression truthy">True</div>
@@ -298,6 +300,11 @@ num = 7
 num == (5 or 6 or 7)
 </textarea>
 <pre class="cm-s-friendship-bracelet"></pre>
+
+# Resources
+
+* [This walkthrough](https://en.wikibooks.org/wiki/Non-Programmer%27s_Tutorial_for_Python_3/Boolean_Expressions) is great.
+* [@codewithanthony](https://twitter.com/codewithanthony) has [this fascinating video](https://www.youtube.com/watch?v=mRPU3l54Z7I&app=desktop) about `False == False in [False]`.
 
 
 
