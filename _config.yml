@@ -12,7 +12,7 @@ paginate:            40
 # Custom vars
 version:             1.0.0
 
-paginate: 5
+paginate: 20
 paginate_path: "page:num"
 
 assets:
