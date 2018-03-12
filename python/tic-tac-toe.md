@@ -5,7 +5,7 @@ title:  "Madison CS 3-4: Tic-Tac-Toe"
 
 In this project, you'll write a program that lets you play a game of tic-tac-toe against an AI opponent.
 
-I'll walk you through the process like usual, but a quick note before we start: the purpose of this project is to get you comfortable with writing **functions**.
+The purpose of this project is to get you comfortable with writing **functions**.
 
 Functions are like LEGO blocks.
 
@@ -17,7 +17,27 @@ Functions are just like that. The functions you write should each be small, simp
 
 The best part about functions is that they're even better than LEGO blocks, because you can make your own! When you buy a LEGO set, you're stuck with whatever kinds of blocks come with the set; when you use a programming language, you can use its built-in functions to make your own way cooler functions that do whatever you want, and then you can put _those_ functions together to make a program that does something awesome. Functions are basically my favorite thing about programming.
 
-OK, let's write a tic-tac-toe program!
+Let's write some simple functions and put them together to make a tic-tac-toe game!
+
+
+
+outline
+
+* show a demo of the final program
+* ask for the player's letter
+* decide who goes first
+* representing the board as a 2d list
+* function to make a new board
+* player's move
+* computer's move
+* checking for wins
+* checking for ties
+* somewhere: credit al
+
+
+
+
+
 
 
 <div class="message update">
