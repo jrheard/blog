@@ -46,7 +46,7 @@ In _this_ project, we now have to figure out: how do we represent the concept of
 I think we should use a two-dimensional list of strings. It'll look like this:
 
 ```python
-[['X', ' ', 'X'],
+[['X', ' ', 'O'],
  ['O', 'O', ' '],
  ['X', 'O', 'X']]
 ```
@@ -70,29 +70,82 @@ print('The last string in that list is {0}.'.format(second_element[2]))
 
 So, that's our board—we'll be using a 2D list of strings, and those strings will either be `'X'`, `'O'`, or `' '`. The board will start off empty (all the strings will be `' '` initally ) and it will change over time as the player and computer make their moves.
 
-## A Quick Note
+# A Note On Grading
 
 Throughout this assignment, I'll be telling you to write specific functions that behave a certain way. I'll tell you what the functions should be named; I'll tell you what inputs the functions should take; and I'll tell you what outputs the function should return.
 
-That's because now that you're writing functions, I'll be able to test them directly. Just like you might, say, import the `random` module and call the `random.choice()` function in order to decide who goes first, I'll be importing the `tic_tac_toe_your_name` module, and in my automated tests I'll be calling `tic_tac_toe_your_name.a_function()` in order to make sure each one of your functions works the way it's supposed to.
+That's because now that you're writing functions, I'll be able to test them directly. Just like you might, say, import the `random` module and call the `random.choice()` function in order to decide who goes first, I'll be importing the `tic_tac_toe_your_name` module from your program, and in my automated tests I'll be calling `tic_tac_toe_your_name.a_function()` in order to make sure each one of your functions works the way it's supposed to.
 
 What this means is that it's really important that your functions have the **exact names** specified in the assignment. If I tell you to write a function named `make_pizza()`, but you write a function named `make_hamburger()` instead, my tests won't be able to find your function and so you won't pass the tests for this assignment.
 
-That might sound restrictive and lame, and maybe it is. But there's some good news: now that my tests can use your functions directly, your program's __output__ can look however you want! You don't have to use the exact same text from the demo videos any more, your program can be as weird and whimsical as you like. Enjoy!
+That might sound restrictive and lame, but there's some good news: now that my tests can use your functions directly, your program's __output__ can look however you want! You don't have to use the exact same prompts from the demo videos any more, your program can be as weird and creative as you like. Enjoy!
 
-Now that that's out of the way, let's write some functions.
+OK, let's write some functions!
 
 # Function: `make_board()`
 
-Write a function called `make_board()`. It should take no inputs. It should return as output an empty 3x3 tic-tac-toe board like the one described above.
+<div class="function-spec">
+<p class="function-name">Write a function called <code class="highlighter-rouge">make_board</code>.</p>
+
+<p class="function-inputs">It should take <b>no inputs</b>.</p>
+
+<p class="function-output">It should return as output <b>an empty 3x3 tic-tac-toe board</b> like the one described above.</p>
+</div>
 
 When you call `make_board()`, it should return a list that looks just like this:
 
 ```python
 [[' ', ' ', ' '],
  [' ', ' ', ' '],
- [' ', ' ', ' '],
+ [' ', ' ', ' ']]
 ```
+
+That's it for this one! Next, let's think about how we'll handle the player's move.
+
+# Function: `get_player_move()`
+
+<div class="function-spec">
+<p>Write a function called <code class="highlighter-rouge">get_player_move</code>.</p>
+
+<p>It should take <b>no inputs</b>.</p>
+
+<p>It should return as output <b>a two-item list like <code class="highlighter-rouge">[0, 2]</code></b>.</p>
+</div>
+
+When you call `get_player_move()`, the function should ask the player where they'd like to make their next move (see the demo video from earlier for an example).
+
+When you prompt the player for their move, you should let them put in a number betwen `1` and `3` for their move's X position, and another number between `1` and `3` for their move's Y position. You should then convert those X/Y coordinates so that they're between `0` and `2` instead of being between `1` and `3`. Here's why you need to convert those numbers:
+
+<pre class="dont-format-output"><code class="py">
+board = [['X', ' ', 'O'],
+		 ['O', ' ', 'O'],
+		 ['X', 'O', 'X']]
+
+print(board[0][0])
+
+# This line crashes!
+print(board[1][3])
+</code></pre>
+
+Our board is a 3x3 grid. If you try to do `a_three_by_three_grid[1][3]`, Python crashes, because you've asked for the fourth item in the second list, and the second list only has three items. Does that make sense? If not, reread the past few paragraphs one more time, you'll get it.
+
+2D lists take a little getting used to, but really they're just like regular lists.
+
+Anyway, what I'm getting at here is that if your `get_player_move()` function asks a user for their move's X/Y coordinates and the user enters `1` and `3`, then your function should return `[0, 2]`. If it returns `[1, 3]`, then that's a **bug**, and I'll find it! :).
+
+OK, next up let's implement our AI opponent!
+
+# Function: `get_computer_move(board)`
+
+<div class="function-spec">
+<p>Write a function called <code class="highlighter-rouge">get_computer_move</code>.</p>
+
+<p>It should take as input <b>a game board, represented by a 2D list of strings</b>.</p>
+
+<p>It should return as output <b>a two-item list like <code class="highlighter-rouge">[0, 2]</code></b>.</p>
+</div>
+
+It should **not** modify the board that's passed to it. In general, functions shouldn't modify their inputs. It's rude.
 
 
 
@@ -101,8 +154,6 @@ When you call `make_board()`, it should return a list that looks just like this:
 
 outline
 
-* representing the board as a 2d list
-* function to make a new board
 * player's move
 * computer's move
 * checking for wins

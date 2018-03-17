@@ -616,5 +616,14 @@ pre.dont-format-output .CodeMirror:nth-of-type(2) .CodeMirror-lines .CodeMirror-
 
 p.lots-of-space {
 	margin: 150px auto;
+}
 
+div.function-spec {
+	background-color: #EEE;
+	padding: 10px;
+	margin-bottom: 1rem;
+}
+
+div.function-spec p:last-child {
+	margin-bottom: 0;
 }
