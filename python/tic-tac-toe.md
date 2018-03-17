@@ -3,9 +3,9 @@ layout: page
 title:  "Madison CS 3-4: Tic-Tac-Toe"
 ---
 
-In this project, you'll write a program that lets you play a game of tic-tac-toe against an AI opponent.
+In this project, you'll write a program that lets you play a game of tic-tac-toe against a computer opponent.
 
-The purpose of this project is to get you comfortable with writing **functions**.
+The goal of this project is to get you comfortable with writing **functions**.
 
 Functions are like LEGO blocks.
 
@@ -13,19 +13,94 @@ Functions are like LEGO blocks.
 
 A LEGO block is a small, simple thing—but if you put a bunch of those simple blocks together in the right way, you can make the Milennium Falcon, or the Eiffel Tower, or a goofy-looking dog.
 
-Functions are just like that. The functions you write should each be small, simple, and easy to understand—but if you put a bunch of those functions together in the right way, you can make a website, or control a robot, or fly a spaceship.
+Functions are just like that. The functions you write should each be small, simple, and easy to understand—but if you put a bunch of your functions together in the right way, you can make a website, or control a robot, or fly a spaceship.
 
-The best part about functions is that they're even better than LEGO blocks, because you can make your own! When you buy a LEGO set, you're stuck with whatever kinds of blocks come with the set; when you use a programming language, you can use its built-in functions to make your own way cooler functions that do whatever you want, and then you can put _those_ functions together to make a program that does something awesome. Functions are basically my favorite thing about programming.
+The best part about functions is that they're even better than LEGO blocks, because you can make your own! When you buy a LEGO set, you're stuck with whatever kinds of blocks come with the set; when you use a programming language, you can use its built-in functions to make _your own_ way cooler functions that do whatever you want, and then you can put _those_ functions together to make a program that does something awesome. Functions are basically my favorite thing about programming.
 
 Let's write some simple functions and put them together to make a tic-tac-toe game!
 
+## Demo
+
+The game we're making will look like this:
+
+<asciinema-player src="{{ site.baseurl }}/tictactoe_cast.json" rows="25" cols="85" autoplay="true" loop="true"></asciinema-player>
+
+(The idea for this project was taken from Al Sweigart's excellent book "Invent Your Own Computer Games With Python".)
+
+## First Steps
+
+Like in the demo video above, your program should start by asking the player if they want to be `X` or `O`, and then it should flip a coin to decide who goes first. You can figure this stuff out by now, I won't explain it—if you have trouble figuring out how to randomly choose who goes first, try Googling around until you find an answer!
+
+## Representing The Board
+
+A game of tic-tac-toe takes place on a 3x3 board. A space on the board is either empty, or it has an X in it, or it has an O in it.
+
+At this point I'd like you to think back to the [blackjack][blackjack] assignment. In that project, we talked about _representing_ stuff. We wanted to teach our computer program about the concept of a playing card like "the five of diamonds", and we ended up using a two-item list like `[5, 'diamonds']` to do that. You'll also remember that in order to represent a deck of cards, we made a list that had a bunch of items in it, and each of _those_ items was a two-item list like `['4', 'hearts']` that represented a card.
+
+In _this_ project, we now have to figure out: how do we represent the concept of the game board? Think about it for a second before you scroll down. How would you represent a 3x3 tic-tac-toe board in a Python program?
+
+<p class="lots-of-space"> Seriously, think about it!</p>
+
+<p class="lots-of-space">OK, here's what I recommend doing. Is it the same as what you were thinking?</p>
+
+I think we should use a two-dimensional list of strings. It'll look like this:
+
+```python
+[['X', ' ', 'X'],
+ ['O', 'O', ' '],
+ ['X', 'O', 'X']]
+```
+
+Let's play around with this list to make sure that we completely understand it.
+
+<pre class="dont-format-output"><code class="py">
+board = [['X', ' ', 'O'],
+		 ['O', ' ', 'O'],
+		 ['X', 'O', 'X']]
+
+print('The board is a list with {0} elements.'.format(len(board)))
+print('Each of those elements is a list.')
+
+second_element = board[1]
+
+print('The second element in the board is {0}'.format(repr(second_element)))
+print("That's a list with three strings in it.")
+print('The last string in that list is {0}.'.format(second_element[2]))
+</code></pre>
+
+So, that's our board—we'll be using a 2D list of strings, and those strings will either be `'X'`, `'O'`, or `' '`. The board will start off empty (all the strings will be `' '` initally ) and it will change over time as the player and computer make their moves.
+
+## A Quick Note
+
+Throughout this assignment, I'll be telling you to write specific functions that behave a certain way. I'll tell you what the functions should be named; I'll tell you what inputs the functions should take; and I'll tell you what outputs the function should return.
+
+That's because now that you're writing functions, I'll be able to test them directly. Just like you might, say, import the `random` module and call the `random.choice()` function in order to decide who goes first, I'll be importing the `tic_tac_toe_your_name` module, and in my automated tests I'll be calling `tic_tac_toe_your_name.a_function()` in order to make sure each one of your functions works the way it's supposed to.
+
+What this means is that it's really important that your functions have the **exact names** specified in the assignment. If I tell you to write a function named `make_pizza()`, but you write a function named `make_hamburger()` instead, my tests won't be able to find your function and so you won't pass the tests for this assignment.
+
+That might sound restrictive and lame, and maybe it is. But there's some good news: now that my tests can use your functions directly, your program's __output__ can look however you want! You don't have to use the exact same text from the demo videos any more, your program can be as weird and whimsical as you like. Enjoy!
+
+Now that that's out of the way, let's write some functions.
+
+# Function: `make_board()`
+
+Write a function called `make_board()`. It should take no inputs. It should return as output an empty 3x3 tic-tac-toe board like the one described above.
+
+When you call `make_board()`, it should return a list that looks just like this:
+
+```python
+[[' ', ' ', ' '],
+ [' ', ' ', ' '],
+ [' ', ' ', ' '],
+```
+
+
+
+[blackjack]: {{site.baseurl}}/python/blackjack
 
 
 outline
 
-* show a demo of the final program
-* ask for the player's letter
-* decide who goes first
 * representing the board as a 2d list
 * function to make a new board
 * player's move
@@ -33,7 +108,7 @@ outline
 * checking for wins
 * checking for ties
 * somewhere: credit al
-
+* somewhere: explain that we'll be testing their functions, and spec out each function's API; maybe do this at each step of the way i guess
 
 
 

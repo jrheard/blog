@@ -613,3 +613,8 @@ pre.dont-format-output .CodeMirror:nth-of-type(2) .CodeMirror-lines .CodeMirror-
 .boolean-diagram .expression.truthy {
 	background-color: #B4FFB4;
 }
+
+p.lots-of-space {
+	margin: 150px auto;
+
+}
