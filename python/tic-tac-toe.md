@@ -35,15 +35,17 @@ Like in the demo video above, your program should start by asking the player if 
 
 A game of tic-tac-toe takes place on a 3x3 board. A space on the board is either empty, or it has an X in it, or it has an O in it.
 
-At this point I'd like you to think back to the [blackjack][blackjack] assignment. In that project, we talked about _representing_ stuff. We wanted to teach our computer program about the concept of a playing card like "the five of diamonds", and we ended up using a two-item list like `[5, 'diamonds']` to do that. You'll also remember that in order to represent a deck of cards, we made a list that had a bunch of items in it, and each of _those_ items was a two-item list like `['4', 'hearts']` that represented a card.
+At this point I'd like you to think back to the [blackjack][blackjack] assignment. In that project, we talked about _representing_ stuff. We wanted to teach our computer program about the concept of a playing card like "the five of diamonds", and we ended up using a two-item list like `[5, 'diamonds']` to do that. You'll also remember that in order to represent a deck of cards, we made a list that had a bunch of items in it, and each of _those_ items was a two-item list like `['4', 'hearts']`.
 
-In _this_ project, we now have to figure out: how do we represent the concept of the game board? Think about it for a second before you scroll down. How would you represent a 3x3 tic-tac-toe board in a Python program?
+In _this_ project, we now have to figure out: how do we represent the concept of a tic-tac-toe game board? Think about it for a second before you scroll down.
 
-<p class="lots-of-space"> Seriously, think about it!</p>
+<p class="lots-of-space">How would you represent a 3x3 tic-tac-toe board in a Python program?</p>
+
+<p class="lots-of-space">Seriously, think about it!</p>
 
 <p class="lots-of-space">OK, here's what I recommend doing. Is it the same as what you were thinking?</p>
 
-I think we should use a two-dimensional list of strings. It'll look like this:
+I think we should use a list of lists of strings (also called a "two-dimensional list of strings", or a "2D list of strings"). It'll look like this:
 
 ```python
 [['X', ' ', 'O'],
@@ -74,11 +76,11 @@ So, that's our board—we'll be using a 2D list of strings, and those strings wi
 
 Throughout this assignment, I'll be telling you to write specific functions that behave a certain way. I'll tell you what the functions should be named; I'll tell you what inputs the functions should take; and I'll tell you what outputs the function should return.
 
-That's because now that you're writing functions, I'll be able to test them directly. Just like you might, say, import the `random` module and call the `random.choice()` function in order to decide who goes first, I'll be importing the `tic_tac_toe_your_name` module from your program, and in my automated tests I'll be calling `tic_tac_toe_your_name.a_function()` in order to make sure each one of your functions works the way it's supposed to.
+That's because now that you're writing functions, I'll be able to test them directly. Just like you might, say, import the `random` module and call the `random.choice()` function in order to decide who goes first, I'll be importing the `tictactoe_your_name` module from your program, and in my automated tests I'll be calling `tictactoe_your_name.a_function()` in order to make sure each one of your functions works the way it's supposed to.
 
 What this means is that it's really important that your functions have the **exact names** specified in the assignment. If I tell you to write a function named `make_pizza()`, but you write a function named `make_hamburger()` instead, my tests won't be able to find your function and so you won't pass the tests for this assignment.
 
-That might sound restrictive and lame, but there's some good news: now that my tests can use your functions directly, your program's __output__ can look however you want! You don't have to use the exact same prompts from the demo videos any more, your program can be as weird and creative as you like. Enjoy!
+That might sound restrictive and lame, but there's some good news: now that my tests can use your functions directly, your program's __output__ can look however you want! You don't have to use the exact same text from the demo videos any more, your program can be as weird and creative as you like. Enjoy!
 
 OK, let's write some functions!
 
@@ -131,9 +133,9 @@ Our board is a 3x3 grid. If you try to do `a_three_by_three_grid[1][3]`, Python 
 
 2D lists take a little getting used to, but really they're just like regular lists.
 
-Anyway, what I'm getting at here is that if your `get_player_move()` function asks a user for their move's X/Y coordinates and the user enters `1` and `3`, then your function should return `[0, 2]`. If it returns `[1, 3]`, then that's a **bug**, and I'll find it! :).
+Anyway, what I'm getting at here is that if your `get_player_move()` function asks a user for their move's X/Y coordinates and the user enters `1` and `3`, then your function should return `[0, 2]`. If it returns `[1, 3]` in that situation, then that's a **bug**, and I'll find it! :)
 
-OK, next up let's implement our AI opponent!
+OK, now let's implement our AI opponent!
 
 # Function: `get_computer_move(board)`
 
@@ -145,7 +147,13 @@ OK, next up let's implement our AI opponent!
 <p>It should return as output <b>a two-item list like <code class="highlighter-rouge">[0, 2]</code></b>.</p>
 </div>
 
-It should **not** modify the board that's passed to it. In general, functions shouldn't modify their inputs. It's rude.
+This function should look at the board and choose an empty space where the computer should make its next move.
+
+**This function is your game's AI opponent!** If you want to have a really smart AI that totally destroys the human player at tic-tac-toe, then this function is where that code should go.
+
+**Note:** this function takes a game board (represented by a 2D list) as input. This function **should not modify that board** (e.g. the function shouldn't do something like `input_board[1][2] = 'X'`). I've written a test that checks for this.
+
+In general, functions shouldn't modify their inputs. If a program has fucntions that modify their inputs, that quickly becomes hard to understand and make changes to. When you're using a function, you want to just figure out what data it takes as input and what data it returns—you **don't** want to also have to ask questions like: "Will this function mangle the list I'm passing it as input?"
 
 
 
@@ -154,158 +162,16 @@ It should **not** modify the board that's passed to it. In general, functions sh
 
 outline
 
-* player's move
-* computer's move
 * checking for wins
 * checking for ties
-* somewhere: credit al
-* somewhere: explain that we'll be testing their functions, and spec out each function's API; maybe do this at each step of the way i guess
+* mention crayons library
+* when i write tests, look in this file for any usage oft he word 'test' to make sure that i actually implement the tests i promise to
 
 
 
 
 
 
-<div class="message update">
-<p>All of the words and pictures between this yellow box and the next yellow box have been copy-pasted directly from Al Sweigart's excellent book "Invent Your Own Computer Games With Python". I've made a few very minor edits.</p>
-
-<p>This is OK because Al has graciously made his book available under a <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/us/">Creative Commons license</a>. Thanks, Al!</p>
-</div>
-
-Encryption
-==========
-
-The science of writing secret codes is called **cryptography**. For thousands of years cryptography has made secret messages that only the sender and recipient could read, even if someone captured the messenger and read the coded message. A secret code system is called a **cipher**. The cipher used by the program you're about to build is called the Caesar cipher.
-
-In cryptography, we call the message that we want to be secret the **plaintext**. The plaintext could look like this:
-
-`HELLO THERE! THE KEYS TO THE HOUSE ARE HIDDEN UNDER THE FLOWER POT.`
-
-Converting the plaintext into the encoded message is called **encrypting** the plaintext. The plaintext is encrypted into the **ciphertext**. The ciphertext looks like random letters, and we cannot understand what the original plaintext was just by looking at the ciphertext. Here is the previous example encrypted into ciphertext:
-
-`YVCCF KYVIV! KYV BVPJ KF KYV YFLJV RIV YZUUVE LEUVI KYV WCFNVI GFK.`
-
-But if you know about the cipher used to encrypt the message, you can **decrypt** the ciphertext back to the plaintext. (Decryption is the opposite of encryption.)
-
-Many ciphers also use keys. **Keys** are secret values that let you decrypt ciphertext that was encrypted using a specific cipher. Think of the cipher as being like a door lock. You can only unlock it with a particular key.
-
-The Caesar Cipher
-=================
-
-The key for the Caesar Cipher will be a number from 1 to 26. Unless you know the key (that is, know the number used to encrypt the message), you won’t be able to decrypt the secret code.
-
-The Caesar Cipher was one of the earliest ciphers ever invented. In this cipher, you encrypt a message by taking each letter in the message (in cryptography, these letters are called symbols because they can be letters, numbers, or any other sign) and replacing it with a “shifted” letter. If you shift the letter A by one space, you get the letter B. If you shift the letter A by two spaces, you get the letter C.
-
-Here's a picture of some letters shifted over by three spaces:
-
-{% img caesar_1.jpg %}
-
-To get each shifted letter, draw out a row of boxes with each letter of the alphabet. Then draw a second row of boxes under it, but start a certain number (this number is the key) of spaces over. After the letters at the end, **wrap around** back to the start of the boxes.
-
-Here's an example with the letters shifted by three spaces:
-
-{% img caesar_2.png %}
-
-**The number of spaces you shift is the key in the Caesar Cipher**. The example above shows the letter translations for the key 3.
-
-If you encrypt the plaintext `“HOWDY”` with a key of 3, then:
-
-* The “H” becomes “K”.
-* The letter “O” becomes “R”.
-* The letter “W” becomes “Z”.
-* The letter “D” becomes “G”.
-* The letter “Y” becomes “B”.
-
-The ciphertext of `“HOWDY”` with key 3 becomes `“KRZGB”`.
-
-We will keep any non-letter characters the same. To decrypt `“KRZGB”` with the key 3, we go from the bottom boxes back to the top:
-
-* The letter “K” becomes “H”.
-* The letter “R” becomes “O”.
-* The letter “Z” becomes “W”.
-* The letter “G” becomes “D”.
-* The letter “B” becomes “Y”.
-
-ASCII, and Using Numbers for Letters
-====================================
-
-How do we implement this shifting of the letters as code? We can do this by representing each letter as a number called an **ordinal**, and then adding or subtracting from this number to form a new ordinal (and a new letter). ASCII (pronounced “ask-ee” and stands for American Standard Code for Information Interchange) is a code that **connects each character to a number between 32 and 126**.
-
-The capital letters “A” through “Z” have the ASCII numbers **65 through 90**. The lowercase letters “a” through “z” have the ASCII numbers **97 through 122**. The numeric digits “0” through “9” have the ASCII numbers **48 through 57**.
-
-So if you wanted to shift “A” by three spaces, you would do the following:
-
-* Convert “A” to an ordinal (65).
-* Add 3 to 65, to get 68.
-* Convert the ordinal 68 back to a letter (“D”).
-
-<div class="message update">
-<p>That's the end of the copy-pasted section of Al's book. Everything after this box was written by JR like usual.</p>
-</div>
-
-Letters A-Z Don't Have ASCII Codes 1-26
-===========================================
-
-This might feel weird at first, but you'll get used to it. Most of the ASCII codes between 0 and 31 are junk left over from the days when computers were giant room-sized machines controlled by jury-rigged typewriters.
-
-Here's the full ASCII table from [asciitable.com](http://www.asciitable.com) - don't worry, you don't need to memorize this or anything, I'm just showing it to you in case you find it helpful. I've highlighted the section of the table that concerns the uppercase letters A-Z. You only care about the "Dec" (decimal) and "Char" (character) columns in this table.
-
-{% img ascii_table.jpg %}
-
-That's the whole thing! Notice how e.g. uppercase `J` has the ASCII code 74, and lowercase `j` has the ASCII code 106.
-
-Converting between letters and numbers
-======================================
-
-Python comes with the `ord()` function, which lets you convert a letter to its corresponding ordinal number:
-
-<pre><code class="py">
-print(ord('J'))
-</code></pre>
-
-To go from an ordinal number back to a letter, you can use the `chr()` function.
-
-<pre><code class="py">
-print(chr(74))
-</code></pre>
-
-Let's try shifting the letter `H` over by 3, like we did in the `"Howdy"` example above:
-
-<pre><code class="py">
-print(chr(ord('H') + 3))
-</code></pre>
-It turns into `K`, just like we expected! `ord()` and `chr()` are going to be your best friends while you're working on this project.
-
-String Manipulation Tip
-=======================
-
-You'll probably want to use a `for` loop at some point in your program - here's how you can use a `for` loop to do _something_ to each letter of a string:
-
-<pre><code class="py">
-some_letters = "ABCDEFG"
-lowercased_letters = ""
-
-for letter in some_letters:
-	lowercased_letters = lowercased_letters + chr(ord(letter) + 32)
-
-print(lowercased_letters)
-</code></pre>
-
-That chunk of code lowercases a string, one letter at a time - you might end up doing something similar (but **different!**) when you're building up your program's `ciphertext` variable.
-
-Your Program Should Only Change Uppercase Letters
-=====================
-
-If your program is given some plaintext that includes numbers, or lowercase letters, or punctuation marks like `!` or `.` or `$` or _anything_ that's not a letter from `A` to `Z`, **it should leave that character unmodified**. For example, if given a plaintext string of `HOWDY! Hello.` and a key of `5`, your program should output the ciphertext `MTBID! Mello.`
-
-Note that in that message, the `W` ends up "wrapping around" to become a `B` when it's encrypted.
-
-Demo
-====
-
-Your program should allow the user to both encrypt messages **and** decrypt them. Your program should look **exactly** like this when it's run:
-
-<asciinema-player src="{{ site.baseurl }}/caesar_cast_1.json" rows="19" cols="80" autoplay="true" loop="true"></asciinema-player>
 
 Nitty Gritty
 ============
@@ -317,7 +183,9 @@ If the user inputs an invalid key (i.e. something that's not a number between 0 
 Submitting your project
 =======================
 
-Submit a file called `caesar.py`.
+Submit a file called `tictactoe_<YOUR_NAME>.py`.
+
+For instance, I'd submit a file called `tictactoe_jr_heard.py`.
 
 On the first line of that file, write a comment with your name on it, like this:
 
