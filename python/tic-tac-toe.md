@@ -68,6 +68,7 @@ second_element = board[1]
 print('The second element in the board is {0}'.format(repr(second_element)))
 print("That's a list with three strings in it.")
 print('The last string in that list is {0}.'.format(second_element[2]))
+print("Here's the same string: {0}.".format(board[1][2]))
 </code></pre>
 
 So, that's our board—we'll be using a 2D list of strings, and those strings will either be `'X'`, `'O'`, or `' '`. The board will start off empty (all the strings will be `' '` initally ) and it will change over time as the player and computer make their moves.
@@ -76,7 +77,7 @@ So, that's our board—we'll be using a 2D list of strings, and those strings wi
 
 Throughout this assignment, I'll be telling you to write specific functions that behave a certain way. I'll tell you what the functions should be named; I'll tell you what inputs the functions should take; and I'll tell you what outputs the function should return.
 
-That's because now that you're writing functions, I'll be able to test them directly. Just like you might, say, import the `random` module and call the `random.choice()` function in order to decide who goes first, I'll be importing the `tictactoe_your_name` module from your program, and in my automated tests I'll be calling `tictactoe_your_name.a_function()` in order to make sure each one of your functions works the way it's supposed to.
+That's because now that you're writing functions, I'll be able to test them directly. Just like you might, say, import Python's built-in `random` module and call the `random.choice()` function in order to decide who goes first, I'll be importing the `tictactoe_your_name` module from your program, and in my automated tests I'll be writing code like `tictactoe_your_name.a_function()` in order to make sure each one of your functions works the way it's supposed to.
 
 What this means is that it's really important that your functions have the **exact names** specified in the assignment. If I tell you to write a function named `make_pizza()`, but you write a function named `make_hamburger()` instead, my tests won't be able to find your function and so you won't pass the tests for this assignment.
 
@@ -102,7 +103,29 @@ When you call `make_board()`, it should return a list that looks just like this:
  [' ', ' ', ' ']]
 ```
 
-That's it for this one! Next, let's think about how we'll handle the player's move.
+That's it for this one!
+
+# Function: `print_board(board)`
+
+<div class="function-spec">
+<p>Write a function called <code class="highlighter-rouge">print_board</code>.</p>
+
+<p>It should take as input <b>a game board, represented by a 2D list of strings</b>.</p>
+
+<p>It should return as output <b><code class="highlighter-rouge">None</code></b>, which is a special value that we haven't really talked about yet.</p>
+
+<p>Functions in Python return <code class="highlighter-rouge">None</code> by default if your function doesn't have a <code class="highlighter-rouge">return</code> statement in it, so you don't need to worry about this for now—just don't have a <code class="highlighter-rouge">return</code> statement in this function.</p>
+</div>
+
+This function should take a game board as input, and it should `print()` that board out to the screen.
+
+You'll want to use a nested `for` loop for this (one `for` loop inside another `for` loop). You'll probably be doing `range(len(SOMETHING))` once or twice, too.
+
+Check out the demo video from earlier if you'd like an example of what your board might look like when it's printed out.
+
+I used colors in my printed-out board, but you don't have to. If you're interested in using colors, my advice is to start simple and then colors later. When you get to that point, there's a note about how to use colors at the end of this assignment.
+
+Next, let's think about how we'll handle the player's move.
 
 # Function: `get_player_move()`
 
@@ -149,36 +172,91 @@ OK, now let's implement our AI opponent!
 
 This function should look at the board and choose an empty space where the computer should make its next move.
 
-**This function is your game's AI opponent!** If you want to have a really smart AI that totally destroys the human player at tic-tac-toe, then this function is where that code should go.
+This function should only choose an __empty__ space. If it chooses a space that already has an `'X'` or an `'O'` in it, then that's a bug.
 
-**Note:** this function takes a game board (represented by a 2D list) as input. This function **should not modify that board** (e.g. the function shouldn't do something like `input_board[1][2] = 'X'`). I've written a test that checks for this.
+**This function is your game's AI opponent!** Your goal here is to write some code that looks at the passed-in board, thinks really hard, and then picks the best possible space where the computer should make its next move. Make this as complicated as you want—the goal is for this function to crush the human player (or at least force a tie)!
+
+**Note:** this function takes a game board as input. This function **should not modify that board** (e.g. the function shouldn't do something like `input_board[1][2] = 'X'`). I've written a test that checks for this.
 
 In general, functions shouldn't modify their inputs. If a program has fucntions that modify their inputs, that quickly becomes hard to understand and make changes to. When you're using a function, you want to just figure out what data it takes as input and what data it returns—you **don't** want to also have to ask questions like: "Will this function mangle the list I'm passing it as input?"
+
+We're almost done with our program now—just one more function to go!
+
+# Function: `check_for_winner(board)`
+
+<div class="function-spec">
+<p>Write a function called <code class="highlighter-rouge">check_for_winner</code>.</p>
+
+<p>It should take as input <b>a game board, represented by a 2D list of strings</b>.</p>
+
+<p>It should return as output one of the following values:<b><code class="highlighter-rouge">'X'</code>, <code class="highlighter-rouge">'O'</code>, <code class="highlighter-rouge">'tie'</code>, or <code class="highlighter-rouge">False</code></b>.</p>
+</div>
+
+This function's job is to take a board as input and return as output a value that indicates whether or not the game's over. If the function returns `'X'`, that means X wins; if the function returns `'O'`, that means O wins; if the function returns `'tie'`, that means the game's over and there's a tie; and if the function returns `False`, that means that the game isn't over yet.
+
+(A note for advanced students: this function returns one of three special strings or `False`. That's just kind of clunky. It'd be much better if our program defined an [Enum](https://docs.python.org/3/library/enum.html#creating-an-enum) with a name like `WinStatus`; then we could have this function return something like `WinStatus.NO_WINNER`, `WinStatus.X`, `WinStatus.O`, or `WinStatus.TIE`. We're not covering `Enum`s in this class, though, so for now let's just live with the fact that this function has a weird return value.)
+
+# Now Glue Them All Together
+
+At this point you've got all of the basic functions you need:
+
+* `make_board()`
+* `print_board()`
+* `get_player_move()`
+* `get_computer_move(board)`
+* `check_for_winner(board)`
+
+All you need to do is write some code that _uses_ these functions in order to play the game. You can do it!
+
+If you have trouble getting started, look back at the code from your Blackjack project—this project will have a lot of similar features (`input()` calls, a `while True:` loop, etc).
+
+Remember to ask the player if they're Xs or Os. Remember to flip a coin to see who goes first.
+
+# One More Thing You Need To Do Before You Turn Your Project In
+
+In order for me to be able to import your functions and test them, I need you to do something in your program that's going to seem kind of weird.
+
+I need your program to look like this:
+
+<textarea class="hidden">
+def make_board():
+	# TODO: write this
+
+def print_board(board):
+	# TODO: write this
+
+def get_player_move():
+	# TODO: write this
+
+def get_computer_move(board):
+	# TODO: write this
+
+def check_for_winner(board):
+	# TODO: write this
+
+# THIS LINE IS THE IMPORTANT ONE
+if __name__ == '__main__':
+
+	print('Welcome to Tic-Tac-Toe!')
+	team = input('Do you want to be X or O? ')
+
+	# code for the rest of the game goes here
+</textarea>
+<pre class="cm-s-friendship-bracelet"></pre>
+
+Your program should define a bunch of functions, and then it should have an if statement _exactly_ like the one you see in the code snippet above. The rest of your program's code should go inside that `if` statement.
+
+If you'd like to learn about _why_ I need you to do this, [this StackOverflow answer](https://stackoverflow.com/questions/419163/what-does-if-name-main-do) is pretty good. The short version is that this `if` statement is what allows me to do `import tictactoe_your_name` in my automated tests.
+
+This `if` statement is super important, and **if you don't include it then your program won't be able to pass any of the assignment's tests**—so be sure to include it! It's easy, you can just copy-paste it into your program.
 
 
 
 [blackjack]: {{site.baseurl}}/python/blackjack
 
+# One Last Note
 
-outline
-
-* checking for wins
-* checking for ties
-* mention crayons library
-* when i write tests, look in this file for any usage oft he word 'test' to make sure that i actually implement the tests i promise to
-
-
-
-
-
-
-
-Nitty Gritty
-============
-
-If the user inputs an invalid mode (i.e. something that's not "encrypt" or "decrypt"), it's fine if your program crashes.
-
-If the user inputs an invalid key (i.e. something that's not a number between 0 and 26), it's fine if your program crashes.
+The tic-tac-toe program from my demo video had colorful `X`s and `O`s. If you'd like to do this in your program too, then check out the [crayons](https://github.com/kennethreitz/crayons) library; you can install it by running `pip install --user crayons` at the command line. I don't think the colors work in IDLE, so you'll need to run your program from the command line in order to see them; let me know if you'd like help figuring out how to do that.
 
 Submitting your project
 =======================
@@ -195,50 +273,19 @@ On the first line of that file, write a comment with your name on it, like this:
 
 Remember to follow this class's [style guide](https://docs.google.com/document/d/1UbyhIkxOdhpf-MGna_5dwh0yHXe02HTZ69CfEuYv76Y/edit).
 
-Other Features
-==========
 
-Here are some more features to add to your program once you get basic encryption and decryption working. Do any or all of them!
 
-Lowercase Letters
------------------
+{% javascript codemirror %}
+{% javascript codemirror_python %}
+{% javascript codemirror_runmode %}
+<script>
+var textAreas = document.getElementsByTagName("textarea");
+var pres = document.querySelectorAll("pre.cm-s-friendship-bracelet");
 
-Make your program work with uppercase _and_ lowercase characters, like this:
-
-<asciinema-player src="{{ site.baseurl }}/caesar_upper_and_lower_cast.json" rows="19" cols="80" autoplay="true" loop="true"></asciinema-player>
-
-When I did this, I ended up switching away from `ord()` and `chr()`, and instead made a string like `transformable_characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'` and had my code do stuff based on the position of each letter of the message in my `transformable_characters` string. Here's how you can find the first position of a letter in a string in Python:
-
-<pre><code class="py">
-# 'l' is in 'Hello', so this evaluates to number 2.
-print('Hello'.find('l'))
-
-# 'z' isn't in 'Hello', so this evalutes to -1, which is
-# Python's way of saying: I looked for this but couldn't find it!
-print('Hello'.find('z'))
-</code></pre>
-
-Brute Force
------------
-
-Add a "brute force" mode that lets you try to decrypt a message even if you don't know the right key for it - notice the correct translation on Line 5:
-
-<asciinema-player src="{{ site.baseurl }}/caesar_brute_cast.json" rows="30" cols="80" autoplay="true" loop="true"></asciinema-player>
-
-This can be done using nested for loops or functions (we haven't officially covered functions in class yet, but you are welcome to use them if you know how).
-
-Smart Brute Force
------------------
-
-This is my favorite one: enhance your program's "brute force" mode so that it can _automatically detect_ the correct key:
-
-<asciinema-player src="{{ site.baseurl }}/caesar_brute_smart_cast.json" rows="15" cols="80" autoplay="true" loop="true"></asciinema-player>
-
-You can do this however you want. Be creative! My solution involved using [this text file](https://svnweb.freebsd.org/csrg/share/dict/words?revision=61569&view=co), which is a list of all of the English words in the 1934 edition of Webster's Second International Dictionary.
-
-Since internet use will be limited for the final project, if you don't know how to work with text files you will probably want to stick with the other features for today. You can also come back and add smart brute force another day if it seems intriguing.
-
-If you'd like to figure out how to open a text file in Python and get all the lines out of it, Google around until you find a solution - you can always ask me for help if you get stuck, but I think you'd be surprised how far you can get by just Googling stuff!
+for (var i = 0; i < textAreas.length; i++) {
+	CodeMirror.runMode(textAreas[i].value, "python", pres[i]);
+}
+</script>
 
 
 <script>
