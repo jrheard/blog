@@ -81,7 +81,7 @@ That's because now that you're writing functions, I'll be able to test them dire
 
 What this means is that it's really important that your functions have the **exact names** specified in the assignment. If I tell you to write a function named `make_pizza()`, but you write a function named `make_hamburger()` instead, my tests won't be able to find your function and so you won't pass the tests for this assignment.
 
-That might sound restrictive and lame, but there's some good news: now that my tests can use your functions directly, your the stuff your program __prints out__ can look __however you want__! You don't have to use the exact same text from the demo videos any more, your program can be as weird and creative as you like. Enjoy!
+That might sound restrictive and lame, but there's some good news: now that my tests can use your functions directly, the stuff your program __prints out__ can look __however you want__! You don't have to use the exact same text from the demo videos any more, your program can be as weird and creative as you like. Enjoy!
 
 OK, let's write some functions!
 
