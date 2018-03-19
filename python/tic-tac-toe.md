@@ -180,6 +180,8 @@ This function should only choose an __empty__ space. If it chooses a space that 
 
 **This function is your game's AI opponent!** Your goal here is to write some code that looks at the passed-in board, thinks really hard, and then picks the best possible space where the computer should make its next move. Make this as crazy as you want—the goal is for this function to crush the human player (or at least force a tie)!
 
+You don't have to make a crazy-smart AI _right now_, though: if you'd like, it might be easier to just make a super-simple AI at first ("pick the first empty space you find on the board!"), finish the basic version of this assignment, and _then_ come back to this function and make a crazy cool AI once you're confident that the rest of your program works.
+
 Hint: you don't have to do this, but a good trick is to check to see if the player's about to win on their next move. If that's the case, the computer should make a move on the spot the player needs so that the player isn't able to use it!
 
 **Note:** this function takes a game board as input. This function **should not modify that board** (e.g. the function shouldn't do something like `input_board[1][2] = 'X'`). I've written a test that checks for this.
