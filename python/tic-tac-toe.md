@@ -182,7 +182,7 @@ Hint: this function should probably check to see if the player's about to win on
 
 **Note:** this function takes a game board as input. This function **should not modify that board** (e.g. the function shouldn't do something like `input_board[1][2] = 'X'`). I've written a test that checks for this.
 
-In general, functions shouldn't modify their inputs. If a program has functions that modify their inputs, that program quickly becomes hard to understand and make changes to. When you're using a function, you want to just figure out what data it takes as input and what data it returns—you **don't** want to also have to ask questions like: "Will this function mangle the list I'm passing it as input?"
+In general, functions shouldn't modify their inputs. If a program has functions that modify their inputs, that program quickly becomes hard to understand and make changes to. When you're using a function, you want to just figure out what data it takes as input and what data it returns—you **don't** want to also have to ask questions like: "Will this function mangle the list I'm passing to it?"
 
 We're almost done with our program now—just one more function to go!
 
