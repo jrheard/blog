@@ -218,6 +218,16 @@ All you need to do is write some code that _uses_ these functions in order to pl
 
 If you have trouble getting started, look back at the code from your Blackjack project—this project will have a lot of similar features (`input()` calls, a `while True:` loop, etc). The only difference is that some of your code lives in functions this time, and the rest of your code will need to call those functions and use the values that they return.
 
+Call your functions, use their return values. Here's a code snippet you might find handy when you're using `get_computer_move(board)` and `get_player_move()`:
+
+<textarea class="hidden">
+move = get_computer_move(board)
+board[move[0]][move[1]] = 'O'
+</textarea>
+<pre class="cm-s-friendship-bracelet"></pre>
+
+Except that instead of always using `'O'`, your code will have to be smarter than that—remember, sometimes the computer will be `'X'`!
+
 Remember to ask the player if they'd like to play as Xs or Os. Remember to flip a coin to see who goes first.
 
 If you'd like to add cool features like keeping score and allowing the player to play multiple games without re-running the program, go right ahead! Feel free to write more functions, too!
