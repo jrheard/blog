@@ -81,7 +81,7 @@ That's because now that you're writing functions, I'll be able to test them dire
 
 What this means is that it's really important that your functions have the **exact names** specified in the assignment. If I tell you to write a function named `make_pizza()`, but you write a function named `make_hamburger()` instead, my tests won't be able to find your function and so you won't pass the tests for this assignment.
 
-That might sound restrictive and lame, but there's some good news: now that my tests can use your functions directly, your program's __output__ can look however you want! You don't have to use the exact same text from the demo videos any more, your program can be as weird and creative as you like. Enjoy!
+That might sound restrictive and lame, but there's some good news: now that my tests can use your functions directly, your the stuff your program __prints out__ can look __however you want__! You don't have to use the exact same text from the demo videos any more, your program can be as weird and creative as you like. Enjoy!
 
 OK, let's write some functions!
 
@@ -114,7 +114,7 @@ That's it for this one!
 
 <p>It should return as output <b><code class="highlighter-rouge">None</code></b>, which is a special value that we haven't really talked about yet.</p>
 
-<p>Functions in Python return <code class="highlighter-rouge">None</code> by default if the function doesn't have a <code class="highlighter-rouge">return</code> statement in it, so you don't really need to worry about this—just don't have a <code class="highlighter-rouge">return</code> statement in this function and you're all set.</p>
+<p>In Python, a function will return <code class="highlighter-rouge">None</code> by default if the function doesn't have a <code class="highlighter-rouge">return</code> statement in it, so you don't really need to worry about this—just don't put a <code class="highlighter-rouge">return</code> statement in your function and you're all set.</p>
 </div>
 
 This function should take a game board as input, and it should print that board out to the screen. Don't just do `print(board)`—make it look nice!
@@ -178,7 +178,7 @@ This function should only choose an __empty__ space. If it chooses a space that 
 
 **This function is your game's AI opponent!** Your goal here is to write some code that looks at the passed-in board, thinks really hard, and then picks the best possible space where the computer should make its next move. Make this as crazy as you want—the goal is for this function to crush the human player (or at least force a tie)!
 
-Hint: this function should probably check to see if the player's about to win on their next move. If that's the case, the computer should make a move on that spot so that the player isn't able to use it!
+Hint: you don't have to do this, but a good trick is to check to see if the player's about to win on their next move. If that's the case, the computer should make a move on the spot the player needs so that the player isn't able to use it!
 
 **Note:** this function takes a game board as input. This function **should not modify that board** (e.g. the function shouldn't do something like `input_board[1][2] = 'X'`). I've written a test that checks for this.
 
@@ -200,25 +200,25 @@ This function's job is to take a board as input and return as output a value tha
 
 There are eight possible ways to win at tic-tac-toe: there are three possible horizontal lines, three possible vertical lines, and two possible diagonal lines. Be sure to check for all of them!
 
-(A note for advanced students: this function returns one of three special strings or `False`. That's just kind of clunky. It'd be much better if our program defined an [Enum](https://docs.python.org/3/library/enum.html#creating-an-enum) with a name like `WinStatus`; then we could have this function return something like `WinStatus.NO_WINNER`, `WinStatus.X`, `WinStatus.O`, or `WinStatus.TIE`. We're not covering `Enum`s in this class, though, so for now let's just live with the fact that this function has a weird return value.)
+(A note for advanced students: this function returns one of three special strings or `False`. That's just kind of clunky. It'd be much better if our program defined an [Enum](https://docs.python.org/3/library/enum.html#creating-an-enum) with a name like `WinStatus`; then we could have this function return something like `WinStatus.NO_WINNER_YET`, `WinStatus.X`, `WinStatus.O`, or `WinStatus.TIE`. We're not covering `Enum`s in this class, though, so for now let's just live with the fact that this function has a weird return value.)
 
 # Now Glue Them All Together
 
 At this point you've got all of the basic functions you need:
 
 * `make_board()`
-* `print_board()`
+* `print_board(board)`
 * `get_player_move()`
 * `get_computer_move(board)`
 * `check_for_winner(board)`
 
 All you need to do is write some code that _uses_ these functions in order to play the game. You can do it!
 
-Hint: when it's the computer's turn, call `get_computer_move(board)`, and use that function's return value. Do the same thing with `get_player_move()` when it's the player's turn.
+If you have trouble getting started, look back at the code from your Blackjack project—this project will have a lot of similar features (`input()` calls, a `while True:` loop, etc). The only difference is that some of your code lives in functions this time, and the rest of your code will need to call those functions and use the values that they return.
 
-If you have trouble getting started, look back at the code from your Blackjack project—this project will have a lot of similar features (`input()` calls, a `while True:` loop, etc).
+Remember to ask the player if they'd like to play as Xs or Os. Remember to flip a coin to see who goes first.
 
-Remember to ask the player if they'd like to play as Xs or Os. Remember to flip a coin to see who goes first. If you'd like to add cool features like keeping score and allowing the player to play multiple games without re-running the program, go right ahead!
+If you'd like to add cool features like keeping score and allowing the player to play multiple games without re-running the program, go right ahead! Feel free to write more functions, too!
 
 # One More Thing You Need To Do Before You Turn Your Project In
 
@@ -227,6 +227,8 @@ In order for me to be able to import your functions and test them, I need you to
 I need your program to look like this:
 
 <textarea class="hidden">
+import random
+
 def make_board():
 	# TODO: write this
 
@@ -252,11 +254,11 @@ if __name__ == '__main__':
 </textarea>
 <pre class="cm-s-friendship-bracelet"></pre>
 
-Your program should define a bunch of functions, and then it should have an if statement _exactly_ like the one you see in the code snippet above. The rest of your program's code should go inside that `if` statement.
+Your program should define a bunch of functions, and then it should have an `if` statement _exactly_ like the one you see in the code snippet above. The rest of your program's code should go inside that `if` statement.
 
 If you'd like to learn about _why_ I need you to do this, [this StackOverflow answer](https://stackoverflow.com/questions/419163/what-does-if-name-main-do) is pretty good. The short version is that this `if` statement is what allows me to do `import tictactoe_your_name` in my automated tests.
 
-This `if` statement is super important, and **if you don't include it then your program won't be able to pass any of the assignment's tests**—so be sure to include it! It's easy, you can copy-paste it into your program. Remember: after your function definititions (those should be _outside_ the `if` statement like they are in the example code above), _everything_ else in your program should go inside of this `if` statement.
+This `if` statement is super important, and **if you don't include it then your program won't be able to pass any of the assignment's tests**—so be sure to include it! It's easy, you can copy-paste it into your program. Remember: after your imports and function definititions (those should be _outside_ the `if` statement like they are in the example code above), _everything_ else in your program should go inside of this `if` statement.
 
 
 
