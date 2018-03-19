@@ -216,7 +216,7 @@ Hint: when it's the computer's turn, call `get_computer_move(board)`, and use th
 
 If you have trouble getting started, look back at the code from your Blackjack project—this project will have a lot of similar features (`input()` calls, a `while True:` loop, etc).
 
-Remember to ask the player if they're Xs or Os. Remember to flip a coin to see who goes first.
+Remember to ask the player if they'd like to play as Xs or Os. Remember to flip a coin to see who goes first. If you'd like to add cool features like keeping score and allowing the player to play multiple games without re-running the program, go right ahead!
 
 # One More Thing You Need To Do Before You Turn Your Project In
 
