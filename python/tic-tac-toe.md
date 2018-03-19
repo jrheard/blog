@@ -29,7 +29,7 @@ The game we're making will look like this:
 
 ## First Steps
 
-Like in the demo video above, your program should start by asking the player if they want to be `X` or `O`, and then it should flip a coin to decide who goes first. You can figure this stuff out by now, I won't explain it—if you have trouble figuring out how to randomly choose who goes first, try Googling around until you find an answer!
+Like in the demo video above, your program should start by asking the player if they want to be `X` or `O`, and then it should flip a coin to decide who goes first. You can figure this stuff out on your own, I won't explain it—if you have trouble figuring out how to randomly choose who goes first, try Googling around until you find an answer!
 
 ## Representing The Board
 
@@ -114,16 +114,16 @@ That's it for this one!
 
 <p>It should return as output <b><code class="highlighter-rouge">None</code></b>, which is a special value that we haven't really talked about yet.</p>
 
-<p>Functions in Python return <code class="highlighter-rouge">None</code> by default if your function doesn't have a <code class="highlighter-rouge">return</code> statement in it, so you don't need to worry about this for now—just don't have a <code class="highlighter-rouge">return</code> statement in this function.</p>
+<p>Functions in Python return <code class="highlighter-rouge">None</code> by default if the function doesn't have a <code class="highlighter-rouge">return</code> statement in it, so you don't really need to worry about this—just don't have a <code class="highlighter-rouge">return</code> statement in this function and you're all set.</p>
 </div>
 
-This function should take a game board as input, and it should `print()` that board out to the screen.
+This function should take a game board as input, and it should print that board out to the screen. Don't just do `print(board)`—make it look nice!
 
 You'll want to use a nested `for` loop for this (one `for` loop inside another `for` loop). You'll probably be doing `range(len(SOMETHING))` once or twice, too.
 
-Check out the demo video from earlier if you'd like an example of what your board might look like when it's printed out.
+Check out the demo video from earlier if you'd like an example of what your board might look like when it's printed out. I didn't make my board look particularly good, so try to make yours better-looking than mine!
 
-I used colors in my printed-out board, but you don't have to. If you're interested in using colors, my advice is to start simple and then colors later. When you get to that point, there's a note about how to use colors at the end of this assignment.
+I used colors in my printed-out board, but you don't have to. If you're interested in using colors, my advice is to start simple and then add colors later. When you finish the no-colors version of this function, there's a note at the end of this assignment that'll tell you how to add colors if you want.
 
 Next, let's think about how we'll handle the player's move.
 
@@ -138,6 +138,8 @@ Next, let's think about how we'll handle the player's move.
 </div>
 
 When you call `get_player_move()`, the function should ask the player where they'd like to make their next move (see the demo video from earlier for an example).
+
+If the player chooses a spot that's off the board or isn't empty, tell them to try again.
 
 When you prompt the player for their move, you should let them put in a number betwen `1` and `3` for their move's X position, and another number between `1` and `3` for their move's Y position. You should then convert those X/Y coordinates so that they're between `0` and `2` instead of being between `1` and `3`. Here's why you need to convert those numbers:
 
@@ -174,11 +176,11 @@ This function should look at the board and choose an empty space where the compu
 
 This function should only choose an __empty__ space. If it chooses a space that already has an `'X'` or an `'O'` in it, then that's a bug.
 
-**This function is your game's AI opponent!** Your goal here is to write some code that looks at the passed-in board, thinks really hard, and then picks the best possible space where the computer should make its next move. Make this as complicated as you want—the goal is for this function to crush the human player (or at least force a tie)!
+**This function is your game's AI opponent!** Your goal here is to write some code that looks at the passed-in board, thinks really hard, and then picks the best possible space where the computer should make its next move. Make this as crazy as you want—the goal is for this function to crush the human player (or at least force a tie)!
 
 **Note:** this function takes a game board as input. This function **should not modify that board** (e.g. the function shouldn't do something like `input_board[1][2] = 'X'`). I've written a test that checks for this.
 
-In general, functions shouldn't modify their inputs. If a program has fucntions that modify their inputs, that quickly becomes hard to understand and make changes to. When you're using a function, you want to just figure out what data it takes as input and what data it returns—you **don't** want to also have to ask questions like: "Will this function mangle the list I'm passing it as input?"
+In general, functions shouldn't modify their inputs. If a program has functions that modify their inputs, that program quickly becomes hard to understand and make changes to. When you're using a function, you want to just figure out what data it takes as input and what data it returns—you **don't** want to also have to ask questions like: "Will this function mangle the list I'm passing it as input?"
 
 We're almost done with our program now—just one more function to go!
 
@@ -194,6 +196,8 @@ We're almost done with our program now—just one more function to go!
 
 This function's job is to take a board as input and return as output a value that indicates whether or not the game's over. If the function returns `'X'`, that means X wins; if the function returns `'O'`, that means O wins; if the function returns `'tie'`, that means the game's over and there's a tie; and if the function returns `False`, that means that the game isn't over yet.
 
+There are eight possible ways to win at tic-tac-toe: there are three possible horizontal lines, three possible vertical lines, and two possible diagonal lines. Be sure to check for all of them!
+
 (A note for advanced students: this function returns one of three special strings or `False`. That's just kind of clunky. It'd be much better if our program defined an [Enum](https://docs.python.org/3/library/enum.html#creating-an-enum) with a name like `WinStatus`; then we could have this function return something like `WinStatus.NO_WINNER`, `WinStatus.X`, `WinStatus.O`, or `WinStatus.TIE`. We're not covering `Enum`s in this class, though, so for now let's just live with the fact that this function has a weird return value.)
 
 # Now Glue Them All Together
@@ -207,6 +211,8 @@ At this point you've got all of the basic functions you need:
 * `check_for_winner(board)`
 
 All you need to do is write some code that _uses_ these functions in order to play the game. You can do it!
+
+Hint: when it's the computer's turn, call `get_computer_move(board)`, and use that function's return value. Do the same thing with `get_player_move()` when it's the player's turn.
 
 If you have trouble getting started, look back at the code from your Blackjack project—this project will have a lot of similar features (`input()` calls, a `while True:` loop, etc).
 
@@ -248,15 +254,17 @@ Your program should define a bunch of functions, and then it should have an if s
 
 If you'd like to learn about _why_ I need you to do this, [this StackOverflow answer](https://stackoverflow.com/questions/419163/what-does-if-name-main-do) is pretty good. The short version is that this `if` statement is what allows me to do `import tictactoe_your_name` in my automated tests.
 
-This `if` statement is super important, and **if you don't include it then your program won't be able to pass any of the assignment's tests**—so be sure to include it! It's easy, you can just copy-paste it into your program.
+This `if` statement is super important, and **if you don't include it then your program won't be able to pass any of the assignment's tests**—so be sure to include it! It's easy, you can copy-paste it into your program. Remember: after your function definititions (those should be _outside_ the `if` statement like they are in the example code above), _everything_ else in your program should go inside of this `if` statement.
 
 
 
 [blackjack]: {{site.baseurl}}/python/blackjack
 
-# One Last Note
+# One Last Note: Colors
 
-The tic-tac-toe program from my demo video had colorful `X`s and `O`s. If you'd like to do this in your program too, then check out the [crayons](https://github.com/kennethreitz/crayons) library; you can install it by running `pip install --user crayons` at the command line. I don't think the colors work in IDLE, so you'll need to run your program from the command line in order to see them; let me know if you'd like help figuring out how to do that.
+The tic-tac-toe program from my demo video had colorful `X`s and `O`s. If you'd like to do this in your program too, then check out the [crayons](https://github.com/kennethreitz/crayons) library; you can install it by running `pip install --user crayons` at the command line.
+
+The colors won't work in IDLE, so you'll need to run your program from the command line if you use the `crayons` library. Let me know if you'd like help figuring out how to do that.
 
 Submitting your project
 =======================
