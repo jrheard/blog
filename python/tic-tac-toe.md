@@ -123,6 +123,8 @@ You'll want to use a nested `for` loop for this (one `for` loop inside another `
 
 Check out the demo video from earlier if you'd like an example of what your board might look like when it's printed out. I didn't make my board look particularly good, so try to make yours better-looking than mine!
 
+Hint: When you're working on this function (and all the other ones in this assignment!), **try it out** as you work on it. Add a line of code to your program that calls your function with a particular input (an empty board, a half-full board, a full board—you can write all of these boards by hand, they're just lists of lists of strings), and see what your function returns when it's given that input.
+
 I used colors in my printed-out board, but you don't have to. If you're interested in using colors, my advice is to start simple and then add colors later. When you finish the no-colors version of this function, there's a note at the end of this assignment that'll tell you how to add colors if you want.
 
 Next, let's think about how we'll handle the player's move.
