@@ -1,6 +1,6 @@
-import random
+# TODO: Write your name here.
 
-import crayons
+import random
 
 PLAYER = 'player'
 COMPUTER = 'computer'
