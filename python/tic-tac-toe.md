@@ -27,10 +27,6 @@ The game we're making will look like this:
 
 (The idea for this project was taken from Al Sweigart's excellent book "Invent Your Own Computer Games With Python".)
 
-## First Steps
-
-Like in the demo video above, your program should start by asking the player if they want to be `X` or `O`, and then it should flip a coin to decide who goes first. You can figure this stuff out on your own, I won't explain it—if you have trouble figuring out how to randomly choose who goes first, try Googling around until you find an answer!
-
 ## Representing The Board
 
 A game of tic-tac-toe takes place on a 3x3 board. A space on the board is either empty, or it has an X in it, or it has an O in it.
@@ -83,7 +79,15 @@ What this means is that it's really important that your functions have the **exa
 
 That might sound restrictive and lame, but there's some good news: now that my tests can use your functions directly, the stuff your program __prints out__ can look __however you want__! You don't have to use the exact same text from the demo videos any more, your program can be as weird and creative as you like. Enjoy!
 
-OK, let's write some functions!
+## Starter Code
+
+I've written some **[starter code][starter-code]** that you can use for this project.
+
+The starter code defines five empty functions. Your job is to fill in those empty functions using the instructions below. When you're done, you'll have a working tic-tac-toe game!
+
+Feel free to add more functions of your own if you want! Just be sure not to change the names of the functions provided in the starter code, because my automated tests will be looking for functions with those names.
+
+OK, here's what each of those functions should do!
 
 # Function: `make_board()`
 
@@ -206,74 +210,6 @@ There are eight possible ways to win at tic-tac-toe: there are three possible ho
 
 (A note for advanced students: this function returns one of three special strings or `False`. That's just kind of clunky. It'd be much better if our program defined an [Enum](https://docs.python.org/3/library/enum.html#creating-an-enum) with a name like `WinStatus`; then we could have this function return something like `WinStatus.NO_WINNER_YET`, `WinStatus.X`, `WinStatus.O`, or `WinStatus.TIE`. We're not covering `Enum`s in this class, though, so for now let's just live with the fact that this function has a weird return value.)
 
-# Now Glue Them All Together
-
-At this point you've got all of the basic functions you need:
-
-* `make_board()`
-* `print_board(board)`
-* `get_player_move()`
-* `get_computer_move(board)`
-* `check_for_winner(board)`
-
-All you need to do is write some code that _uses_ these functions in order to play the game. You can do it!
-
-If you have trouble getting started, look back at the code from your Blackjack project—this project will have a lot of similar features (`input()` calls, a `while True:` loop, etc). The only difference is that some of your code lives in functions this time, and the rest of your code will need to call those functions and use the values that they return.
-
-Call your functions, use their return values. Here's a code snippet you might find handy when you're using `get_computer_move(board)` and `get_player_move()`:
-
-<textarea class="hidden">
-move = get_computer_move(board)
-board[move[0]][move[1]] = 'O'
-</textarea>
-<pre class="cm-s-friendship-bracelet"></pre>
-
-Except that instead of always using `'O'`, your code will have to be smarter than that—remember, sometimes the computer will be `'X'`!
-
-Remember to ask the player if they'd like to play as Xs or Os. Remember to flip a coin to see who goes first.
-
-If you'd like to add cool features like keeping score and allowing the player to play multiple games without re-running the program, go right ahead! Feel free to write more functions, too!
-
-# One More Thing You Need To Do Before You Turn Your Project In
-
-In order for me to be able to import your functions and test them, I need you to do something in your program that's going to seem kind of weird.
-
-I need your program to look like this:
-
-<textarea class="hidden">
-import random
-
-def make_board():
-	# TODO: write this
-
-def print_board(board):
-	# TODO: write this
-
-def get_player_move():
-	# TODO: write this
-
-def get_computer_move(board):
-	# TODO: write this
-
-def check_for_winner(board):
-	# TODO: write this
-
-# THIS LINE IS THE IMPORTANT ONE
-if __name__ == '__main__':
-
-	print('Welcome to Tic-Tac-Toe!')
-	team = input('Do you want to be X or O? ')
-
-	# code for the rest of the game goes here
-</textarea>
-<pre class="cm-s-friendship-bracelet"></pre>
-
-Your program should define a bunch of functions, and then it should have an `if` statement _exactly_ like the one you see in the code snippet above. The rest of your program's code should go inside that `if` statement.
-
-If you'd like to learn about _why_ I need you to do this, [this StackOverflow answer](https://stackoverflow.com/questions/419163/what-does-if-name-main-do) is pretty good. The short version is that this `if` statement is what allows me to do `import tictactoe_your_name` in my automated tests.
-
-This `if` statement is super important, and **if you don't include it then your program won't be able to pass any of the assignment's tests**—so be sure to include it! It's easy, you can copy-paste it into your program. Remember: after your imports and function definititions (those should be _outside_ the `if` statement like they are in the example code above), _everything_ else in your program should go inside of this `if` statement.
-
 
 
 [blackjack]: {{site.baseurl}}/python/blackjack
@@ -283,6 +219,8 @@ This `if` statement is super important, and **if you don't include it then your 
 The tic-tac-toe program from my demo video had colorful `X`s and `O`s. If you'd like to do this in your program too, then check out the [crayons](https://github.com/kennethreitz/crayons) library; you can install it by running `pip install --user crayons` at the command line.
 
 The colors won't work in IDLE, so you'll need to run your program from the command line if you use the `crayons` library. Let me know if you'd like help figuring out how to do that.
+
+UPDATE 3/30/2018: it looks like the `crayons` library might not work with windows. Sorry! :(
 
 Submitting your project
 =======================
@@ -298,6 +236,9 @@ On the first line of that file, write a comment with your name on it, like this:
 ```
 
 Remember to follow this class's [style guide](https://docs.google.com/document/d/1UbyhIkxOdhpf-MGna_5dwh0yHXe02HTZ69CfEuYv76Y/edit).
+
+
+[starter-code]: {{site.baseurl}}/python/tictactoe_starter_code.py
 
 
 
