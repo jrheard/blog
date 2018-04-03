@@ -8,11 +8,17 @@ COMPUTER = 'computer'
 
 # Here are the empty functions that it's your job to implement!
 
+# These functions all contain one line of code that looks like this:
+#     pass
+
+# That's because a function in Python _has_ to have at least one line of code.
+# If you just leave the function totally empty, Python will complain about a syntax error
+# and won't run your program.
+
+# In Python, `pass` is a special word that basically means "this line of code doesn't do anything".
+# You can go ahead and remove the `pass` line from each function as you start to work on it.
+
 def make_board():
-    pass
-
-
-def get_computer_move(board):
     pass
 
 
@@ -20,7 +26,11 @@ def print_board(board):
     pass
 
 
-def get_player_move():
+def get_player_move(board):
+    pass
+
+
+def get_computer_move(board):
     pass
 
 

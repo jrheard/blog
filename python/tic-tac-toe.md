@@ -133,21 +133,25 @@ I used colors in my printed-out board, but you don't have to. If you're interest
 
 Next, let's think about how we'll handle the player's move.
 
-# Function: `get_player_move()`
+# Function: `get_player_move(board)`
 
 <div class="function-spec">
 <p>Write a function called <code class="highlighter-rouge">get_player_move</code>.</p>
 
-<p>It should take <b>no inputs</b>.</p>
+<p>It should take as input <b>a game board, represented by a 2D list of strings</b>.</p>
 
 <p>It should return as output <b>a two-item list like <code class="highlighter-rouge">[0, 2]</code></b>.</p>
 </div>
 
-When you call `get_player_move()`, the function should ask the player where they'd like to make their next move (see the demo video from earlier for an example).
+When you call `get_player_move(board)`, the function should ask the player where they'd like to make their next move (see the demo video from earlier for an example).
 
 If the player chooses a spot that's off the board or isn't empty, tell them to try again.
 
-When you prompt the player for their move, you should let them put in a number betwen `1` and `3` for their move's X position, and another number between `1` and `3` for their move's Y position. You should then convert those X/Y coordinates so that they're between `0` and `2` instead of being between `1` and `3`. Here's why you need to convert those numbers:
+**Note:** this function takes a game board as input. This function **should not modify that board** (e.g. the function shouldn't do something like `board[1][2] = 'X'`). I've written a test that checks for this.
+
+(In general, functions shouldn't modify their inputs. If a program has functions that modify their inputs, that program quickly becomes hard to understand and make changes to. When you're using a function, you want to just figure out what data it takes as input and what data it returns—you **don't** want to also have to ask questions like: "Will this function mangle the list I'm passing to it?")
+
+**Note:** When you prompt the player for their move, you should let them put in a number betwen `1` and `3` for their move's X position, and another number between `1` and `3` for their move's Y position. **You should then convert those X/Y coordinates so that they're between `0` and `2` instead of being between `1` and `3`**. Here's why you need to convert those numbers:
 
 <pre class="dont-format-output"><code class="py">
 board = [['X', ' ', 'O'],
@@ -164,7 +168,7 @@ Our board is a 3x3 grid. If you try to do `a_three_by_three_grid[1][3]`, Python 
 
 2D lists take a little getting used to, but really they're just like regular lists.
 
-Anyway, what I'm getting at here is that if your `get_player_move()` function asks a user for their move's X/Y coordinates and the user enters `1` and `3`, then your function should return `[0, 2]`. If it returns `[1, 3]` in that situation, then that's a **bug**, and I'll find it! :)
+Anyway, what I'm getting at here is that if your `get_player_move(board)` function asks a user for their move's X/Y coordinates and the user enters `1` and `3`, then your function should return `[0, 2]`. If it returns `[1, 3]` in that situation, then that's a **bug**, and I'll find it! :)
 
 OK, now let's implement our AI opponent!
 
@@ -188,9 +192,7 @@ You don't have to make a crazy-smart AI _right now_, though: if you'd like, it m
 
 Hint: you don't have to do this, but a good trick is to check to see if the player's about to win on their next move. If that's the case, the computer should make a move on the spot the player needs so that the player isn't able to use it!
 
-**Note:** this function takes a game board as input. This function **should not modify that board** (e.g. the function shouldn't do something like `input_board[1][2] = 'X'`). I've written a test that checks for this.
-
-In general, functions shouldn't modify their inputs. If a program has functions that modify their inputs, that program quickly becomes hard to understand and make changes to. When you're using a function, you want to just figure out what data it takes as input and what data it returns—you **don't** want to also have to ask questions like: "Will this function mangle the list I'm passing to it?"
+**Note**: Just like `get_player_move(board)`, this function **should not modify its input board**. This function's job is to take a board, look at it and figure out the space where the computer should move, and *return* that space. It should **not** change the board in the process.
 
 We're almost done with our program now—just one more function to go!
 
