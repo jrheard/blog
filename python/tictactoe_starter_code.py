@@ -65,7 +65,7 @@ if __name__ == '__main__':
         # Figure out whose turn it is, and let them make a move.
         if whose_turn == PLAYER:
             print_board(board)
-            x, y = get_player_move()
+            x, y = get_player_move(board)
             board[x][y] = player_team
 
         else:
