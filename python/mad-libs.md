@@ -33,6 +33,17 @@ word = input("I would like one word, please: ")
 </textarea>
 <pre class="cm-s-friendship-bracelet"></pre>
 
+Submitting your project
+=======================
+
+Submit a file called `mad_lib_YOUR_NAME.py`. For example, I'd submit a file called `mad_lib_jr_heard.py`.
+
+On the first line of that file, write a comment with your name on it, like this:
+
+```
+# JR Heard
+```
+
 
 A Suggestion
 ==========
@@ -66,17 +77,6 @@ animal = get_word("an animal")
 I like this better because it means that I don't have to type out `"Please give me a <something>:"` every time.
 
 You don't have to do this `get_word()` thing, but you can if you want to!
-
-Submitting your project
-=======================
-
-Submit a file called `mad_lib_YOUR_NAME.py`. For example, I'd submit a file called `mad_lib_jr_heard.py`.
-
-On the first line of that file, write a comment with your name on it, like this:
-
-```
-# JR Heard
-```
 
 
 [starter-code]: {{site.baseurl}}/python/mad_lib_starter_code.py
