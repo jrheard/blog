@@ -34,6 +34,39 @@ word = input("I would like one word, please: ")
 <pre class="cm-s-friendship-bracelet"></pre>
 
 
+A Suggestion
+==========
+
+You're probably going to end up writing a lot of code like this:
+
+<textarea class="hidden">
+adjective = input("Please give me an adjective: ")
+noun = input("Please give me a noun: ")
+animal = input("Please give me an animal: ")
+</textarea>
+<pre class="cm-s-friendship-bracelet"></pre>
+
+That can get pretty repetitive. If you want to make this feel a little less gross, you can write a function like this:
+
+<textarea class="hidden">
+def get_word(kind_of_word):
+    return input("Please give me " + kind_of_word + ":")
+</textarea>
+<pre class="cm-s-friendship-bracelet"></pre>
+
+Then you can use that function in your code like this:
+
+<textarea class="hidden">
+adjective = get_word("an adjective")
+noun = get_word("a noun")
+animal = get_word("an animal")
+</textarea>
+<pre class="cm-s-friendship-bracelet"></pre>
+
+I like this better because it means that I don't have to type out `"Please give me a <something>:"` every time.
+
+You don't have to do this `get_word()` thing, but you can if you want to!
+
 Submitting your project
 =======================
 
