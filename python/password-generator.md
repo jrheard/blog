@@ -71,7 +71,7 @@ Now you have everything you'll need in order to write a password generator!
 
 Your generator should generate passwords that meet the PPS standard: they should be **at least 8 characters long, and they should include at least 3 of these 4 categories: number, uppercase letter, lowercase letter, symbol.** (A "symbol" is one of these: `!@#$%^&*()-_=+,.`)
 
-Before submitting your project, make sure to double-check that your program does all of the things I said in the line above, because if your program has any bugs, [I _will_ find them!](https://www.youtube.com/watch?v=AqWFaDJYhIA) :)
+Before submitting your project, make sure to double-check that your program does all of the things I said in the line above, because if your program has any bugs, [I'll find them!](https://www.youtube.com/watch?v=AqWFaDJYhIA) :)
 
 
 Submitting your project
