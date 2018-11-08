@@ -23,9 +23,7 @@ I've written a library called `madison_axi` that'll let you write Python code to
 
 **Start by reading the library's [QuickStart guide](https://madison-axi.readthedocs.io/en/latest/quickstart.html)**. Read the example program on that page and make sure you understand it. There are [some more example programs](https://github.com/jrheard/madison_axi/tree/master/madison_axi/examples) if you want to read those too - `spiky_circle.py` is my favorite, try running it on your computer later on once you're all set up.
 
-When you run a program that uses this library, you'll see a window appear on your screen, and it'll draw a preview of what your program would do on the plotter. The window is a particular size, and I did that on purpose: **make sure that your program doesn't draw stuff outside the bounds of that window**, or otherwise it won't get drawn on the plotter's piece of paper. Don't resize the window - you can move it around on your screen, just don't change its size.
-
-If your program draws stuff within the bounds of the demo window, that stuff'll appear on the plotter's piece of paper; if your program tries to go outside the window, that'll make the plotter try to draw stuff outside of the piece of paper, and that's no good because then there'll be ink all over the table.
+**NOTE:** To access the command line on our school computers, click the Windows icon and type `cmd`, then click `Command Prompt`.
 
 **NOTE:** In order to install the library on your classroom computer, you'll need to run `pip install --user madison_axi` at the command line. Notice that this is slightly different from what the QuickStart page says. If you don't include the `--user` in there, it won't work, because you don't have administrator access on these computers.
 
@@ -34,10 +32,10 @@ If your program draws stuff within the bounds of the demo window, that stuff'll 
 How to use the library
 ======================
 
-Start by importing it, like this:
+In a new IDLE file, start by importing the AxiDraw library at the top of your code, like this:
 
 <textarea class="hidden">
-from madison_axi import axi
+from madison_axi.axi import *
 </textarea>
 <pre class="cm-s-friendship-bracelet"></pre>
 
@@ -45,23 +43,28 @@ After that, you can call functions from the library like this:
 
 <textarea class="hidden">
 # Remember: you MUST call initialize() at the start of your program.
-axi.initialize()
+initialize()
 
 # Move to the middle of the page, point to the right,
 # make the pen touch the paper, and go forward a little.
-axi.move_to(0, 0)
-axi.point_in_direction(0)
-axi.pen_down()
-axi.move_forward(50)
+move_to(0, 0)
+point_in_direction(0)
+pen_down()
+move_forward(50)
 
 # Be sure to call cleanup() at the end of your program.
-axi.cleanup()
+cleanup()
 </textarea>
 <pre class="cm-s-friendship-bracelet"></pre>
 
 Controlling the plotter is a lot like controlling a turtle - the library gives you access to functions like `turn_right(45)`, `turn_left(90)`, `move_forward(100)`, etc. This will feel very familiar from previous assignments.
 
 **[This page](https://madison-axi.readthedocs.io/en/latest/madison_axi.html) has a list of all of the functions that the library gives you. Read the whole page, there aren't very many functions**. You can probably ignore `get_position()`, `get_y()`, and `get_x()`, but I bet you'll use all of the other ones.
+
+When you run a program that uses this library, you'll see a window appear on your screen, and it'll draw a preview of what your program would do on the plotter. The window is a particular size, and I did that on purpose: **make sure that your program doesn't draw stuff outside the bounds of that window**, or otherwise it won't get drawn on the plotter's piece of paper. Don't resize the window - you can move it around on your screen, just don't change its size.
+
+If your program draws stuff within the bounds of the demo window, that stuff'll appear on the plotter's piece of paper; if your program tries to go outside the window, that'll make the plotter try to draw stuff outside of the piece of paper, and that's no good because then there'll be ink all over the table.
+
 
 Inspiration
 ==============
@@ -90,14 +93,24 @@ Click around on those links and explore, you'll see a lot of cool art that was g
 Requirements
 ============
 
-* You must define **at least one function that takes some inputs**. For example, you could make a function like `draw_box(x, y)` that draws a box at a particular location, or `draw_circle(x, y)`, etc. You can make as many functions as you want, and they can do whatever you want - just make sure that you have at least one function that takes inputs.
-* You are **strongly encouraged** to use randomness somehow in your program. Make a program that randomly draws circles of random sizes, that'd be cool! Just make sure that the program stays within the bounds of the demo window like I mentioned earlier.
+* You must define **at least one function that takes some inputs**. For example, you could make a function like `draw_square(length)` that draws a square of a certain size, or `draw_circle(x, y, radius)`, etc. You can make as many functions as you want, and they can do whatever you want - just make sure that you have at least one function that takes inputs.
+* You are **strongly encouraged** to use randomness somehow in your program while keeping some sort of artistic structure. Make a program that draws circles of random sizes to make a larger circle, that’d be cool! Or draw a grid of random shapes in increasing sizes. Or take inspiration from the links above. Just make sure that the program stays within the bounds of the demo window like I mentioned earlier.
 
 
 Submitting
 ==========
 
-TODO tomalley please advise
+Submit a file called `axidraw_<YOUR_NAME>.py`. For instance, I'd submit a file called `axidraw_jr_heard.py`.
+
+On the first line of that file, write a comment with your name on it, like this:
+
+```
+# JR Heard
+```
+
+Once you're done, turn in your code on Google Classroom.
+
+Remember to follow this class's [style guide](https://docs.google.com/document/d/1UbyhIkxOdhpf-MGna_5dwh0yHXe02HTZ69CfEuYv76Y/edit).
 
 
 Advanced: Games!
@@ -113,7 +126,12 @@ And here's the Minesweeper game a student wrote:
 
 You can do the same thing on an AxiDraw, since it's like a much simpler WaterColorBot!
 
-To write a game that runs on a device like this, all you have to do is use the `input()` function to take input from a user and then do something with it. For example, my game let the user say stuff like `go east` or `open jar`; the Minesweeper game let the user say something like `4` `5` to indicate which square they'd like to check for mines; etc.
+To write a game that runs on a device like this, all you have to do is:
+
+1. use the `input()` function to get a string of text from a user, and then
+2. have your game's code do something based on that string.
+
+For example, my game let the user say stuff like `go east` or `open jar`; the Minesweeper game let the user say something like `4` `5` to indicate which square they'd like to check for mines; etc. Your game might let the user say `attack skeleton`, or `climb ladder`, or whatever you want!
 
 Aside from that, you write some code that does game-logic-type stuff, and then when you get to a point where a game would normally print something out to the screen (e.g. "Your sword hits the skeleton for 2 points of damage!"), you use the `madison_axi` library to draw stuff on a piece of paper instead. That's the general idea, but please feel free to ask us in person if you want more specific advice!
 
