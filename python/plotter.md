@@ -23,7 +23,7 @@ I've written a library called `madison_axi` that'll let you write Python code to
 
 **Start by reading the library's [QuickStart guide](https://madison-axi.readthedocs.io/en/latest/quickstart.html)**. Read the example program on that page and make sure you understand it. There are [some more example programs](https://github.com/jrheard/madison_axi/tree/master/madison_axi/examples) if you want to read those too - `spiky_circle.py` is my favorite, try running it on your computer later on once you're all set up.
 
-**NOTE:** To access the command line on our school computers, click the Windows icon and type `cmd`, then click `Command Prompt`.
+**NOTE:** To access the command line on our school computers, click the Windows icon on the bottom-left of the screen and type `cmd`, then click `Command Prompt`.
 
 **NOTE:** In order to install the library on your classroom computer, you'll need to run `pip install --user madison_axi` at the command line. Notice that this is slightly different from what the QuickStart page says. If you don't include the `--user` in there, it won't work, because you don't have administrator access on these computers.
 
