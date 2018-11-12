@@ -18,7 +18,7 @@ This is not a post about universal basic income, although I do think that UBI's 
 
 I'm sure there are a lot of things that are bad about UBI, but in my opinion it seems like a compelling enough idea that we should really try it out, because maybe the good things will vastly outweigh the bad, and maybe not many bad things will happen. I know that people are currently earnestly investigating UBI, and I'm glad that they're doing that. I donate monthly to GiveDirectly's basic income experiment.
 
-I don't know what we should be doing instead of our current system where everyone has to have a job. But humans are smart, and I'm sure that if we thought abut it really hard we could come up with some more ideas and try them out. I know that this is a difficult and expensive problem, but I also think that it's important that we *identify* it as a problem. I think that more people should be thinking and talking about this.
+I don't know what we should be doing instead of our current system where everyone has to have a job. But humans are smart, and I'm sure that if we thought about it really hard we could come up with some more ideas and try them out. I know that this is a difficult and expensive problem, but I also think that it's important that we *identify* it as a problem. I think that more people should be thinking and talking about this.
 
 I think that it's bad that people have to have jobs or else they starve and die. I think that we as a society should have an **explicit goal** of getting to a point where people no longer have to have jobs, and can instead choose how to spend their time. I'm surprised that that's not currently a goal that people talk about on the news and at dinner parties. I think that we should talk about this more.
 
