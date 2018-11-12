@@ -10,7 +10,7 @@ I don't think that jobs are bad. I've been spent the past couple of years withou
 
 I think that it's bad that people _have_ to have jobs.
 
-I'm not an economist, I'm not a historian, I don't have any numbers to show you. Usually when I make an argument, I like to have facts and figures to back it up, and I haven't done that research here, and I understand that this makes my argument a not-very-good one.
+I'm not an economist, I'm not a historian, I don't have any numbers to show you, I don't have any relevant non-anecdontal experience that I can bring to bear on this topic. Usually when I make an argument, I like to have facts and figures to back it up, and I haven't done that research here, and I understand that this makes my argument a not-very-good one.
 
 I just have this gut feeling that it's bad that we live in a world where people have to have jobs, and if they lose their job they get really scared, and maybe they can't pay their medical bills or they become homeless, and their family suffers too, and they're at 100% maximum stress constantly until they can find another job. I think that people should be able to **choose** to have a job, and I think that it's bad that they're instead **forced** to have a job.
 
@@ -28,7 +28,7 @@ I mean: If you were the president of the world, and you were in charge of figuri
 
 <div style="height:60px;">&nbsp;</div>
 
-PS: I've heard this idea referred to as "post-work", but I don't really know anything about that concept/movement. I'll look into it more in the future, I'm sure that there are smart people out there who have been thinking about this stuff for a long time and have shared a lot of insights. Right now, I just want to write down my current state of mind about this, because it's been bugging me and it'll feel better to have it out of my head.
+PS: I've heard this topic referred to as "post-work", but I don't really know anything about that concept/movement. I'll look into it more in the future, I'm sure that there are smart people out there who have been thinking about this stuff for a long time and have shared a lot of insights. Right now, I just want to write down my current state of mind about this, because it's been bugging me and it'll feel better to have it out of my head.
 
 
 [^1]: Don't worry, I completely recognize that I am very, very, very fortunate to be able to have this experience and learn that I miss these things. I don't take this for granted.
