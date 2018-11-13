@@ -10,7 +10,7 @@ I don't think that jobs are bad. I've been spent the past couple of years withou
 
 I think that it's bad that people _have_ to have jobs.
 
-I'm not an economist, I'm not a historian, I don't have any numbers to show you, I don't have any relevant non-anecdontal experience that I can bring to bear on this topic. Usually when I make an argument, I like to have facts and figures to back it up, and I haven't done that research here, and I understand that this makes my argument a not-very-good one.
+I'm not an economist, I'm not a historian, I don't have any numbers to show you, I don't have any relevant non-anecdotal experience that I can bring to bear on this topic. Usually when I make an argument, I like to have facts and figures to back it up, and I haven't done that research here, and I understand that this makes my argument a not-very-good one.
 
 I just have this gut feeling that it's bad that we live in a world where people have to have jobs, and if they lose their job they get really scared, and maybe they can't pay their medical bills or they become homeless, and their family suffers too, and they're at 100% maximum stress constantly until they can find another job. I think that people should be able to **choose** to have a job, and I think that it's bad that they're instead **forced** to have a job.
 
