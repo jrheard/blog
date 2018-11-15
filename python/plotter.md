@@ -25,7 +25,7 @@ I've written a library called `madison_axi` that'll let you write Python code to
 
 **NOTE:** To access the command line on your classroom computer, click the Windows icon on the bottom-left of the screen and type `cmd`, then click `Command Prompt`.
 
-**NOTE:** In order to install the library on your classroom computer, you'll need to run `pip install --user madison_axi` at the command line. Notice that this is slightly different from what the QuickStart page says. If you don't include the `--user` in there, it won't work, because you don't have administrator access on these computers.
+**NOTE:** In order to install the library on your classroom computer, you'll need to run `pip install --user madison_axi` at the command line. Notice that this is slightly different from what the QuickStart page says. If you don't include the `--user` in there, it won't work, because you don't have administrator access on these computers. **Once you install the library, you'll need to close IDLE entirely and then open it back up again, it won't be able to find the library until you do this.**
 
 **NOTE:** You should call `initialize()` at the start of your program and `cleanup()` at the end of it.
 
