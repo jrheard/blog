@@ -134,7 +134,9 @@ On the first line of that file, write a comment with your name on it, like this:
 # JR Heard
 ```
 
-I've written some pretty crazy tests for this project that will make sure that your checker is implemented correctly, so **double check the requirements at the top of this page** before you submit your program. Try coming up with some passwords that you know should be marked `GOOD` and some passwords that you know should be marked `BAD` and putting them into your program to make sure that it marks them correctly.
+I've written some pretty crazy tests for this project that will make sure that your checker is implemented correctly, so **double check the requirements at the top of this page** before you submit your program, because if your program has any bugs, I _will_ find them! :)
+
+Try coming up with some passwords that you know should be marked `GOOD` and some passwords that you know should be marked `BAD` and putting them into your program to make sure that it marks them correctly.
 
 If you'd like to learn more about how I wrote these tests, [here's a talk I gave about this topic at the Portland Python meetup](https://www.youtube.com/watch?v=AqWFaDJYhIA). It's the best talk I've ever given, I'm really proud of it, consider watching it sometime!
 
