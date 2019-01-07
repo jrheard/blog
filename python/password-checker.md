@@ -20,16 +20,18 @@ Getting Started
 
 **Download this project's [starter code][starter-code] and open it in IDLE.**
 
-The starter code has two functions: `is_password_good(password)` and `main()`.
+The starter code has two functions: `is_password_good(password, username, student_id)` and `main()`.
 
-**`is_password_good(password)`** is where your password-strength-checking code will go. This function should take a string like `'hello there'` and return `True` if the string meets the PPS password requirements listed at the top of this assignment. If the string does _not_ meet those requirements, then this function should return `False`.
+**`is_password_good(password, username, student_id)`** is where your password-strength-checking code will go.
+
+This function should take a string like `'hello there'`, a username like `'jrheard'`, and a student ID number like `'12345'` and return `True` if the string meets the PPS password requirements listed at the top of this assignment. If the string does _not_ meet those requirements, then this function should return `False`.
 
 (Remember that `False` isn't the same thing as `'False'`. The Boolean values `True` and `False` don't have quote marks around them.)
 
 **`main()`** is where the rest of your code will go. In this function, you should ask the user for their username, student ID, and a password to check, and you should print out `GOOD` if the password was good or `BAD` if it was bad.
 
-Code snippets that you will likely be using
-===========================================
+Useful Code Snippets
+====================
 
 **These code snippets are _hints_. They solve problems that are _really similar to, but not quite the same as_ the problems you'll be solving in this assignment. You will need to think really hard about these snippets and make changes to them or rewrite them entirely from scratch, don't just copy-paste them into your program and expect them to work.**
 
@@ -137,6 +139,8 @@ On the first line of that file, write a comment with your name on it, like this:
 I've written some pretty crazy tests for this project that will make sure that your checker is implemented correctly, so **double check the requirements at the top of this page** before you submit your program, because if your program has any bugs, I _will_ find them! :)
 
 Try coming up with some passwords that you know should be marked `GOOD` and some passwords that you know should be marked `BAD` and putting them into your program to make sure that it marks them correctly.
+
+(Is `'A!a'` a good password? Why or why not?)
 
 If you'd like to learn more about how I wrote these tests, [here's a talk I gave about this topic at the Portland Python meetup](https://www.youtube.com/watch?v=AqWFaDJYhIA). It's the best talk I've ever given, I'm really proud of it, consider watching it sometime!
 

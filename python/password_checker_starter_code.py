@@ -6,7 +6,7 @@
 # `is_password_good()` and what code should go in `main()`.
 
 
-def is_password_good(password):
+def is_password_good(password, username, student_id):
     # NOTE: Don't delete this function or rename it. Our automated tests
     # expect your program to have this specific function.
 
@@ -22,7 +22,8 @@ def main():
     # TODO: ask for the user's student ID.
     # TODO: ask the user to enter a password.
 
-    # TODO: Use your `is_password_good(password) function to see if the password is good or not.
+    # TODO: Use your `is_password_good(password, username, student_id)` function
+    # to see if the password is good or not.
     # Print out `GOOD` if it's good, or `BAD` if it isn't good.
 
     # TODO: delete this comment and the line below it.
