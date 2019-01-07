@@ -24,7 +24,7 @@ The starter code has two functions: `is_password_good(password, username, studen
 
 **`is_password_good(password, username, student_id)`** is where your password-strength-checking code will go.
 
-This function should take a string like `'hello there'`, a username like `'jrheard'`, and a student ID number like `'12345'` and return `True` if the string meets the PPS password requirements listed at the top of this assignment. If the string does _not_ meet those requirements, then this function should return `False`.
+This function should take a password like `'hello there'`, a username like `'jrheard'`, and a student ID number like `'12345'` and return `True` if the password meets the PPS password requirements listed at the top of this assignment. If the password does _not_ meet those requirements, then this function should return `False`.
 
 (Remember that `False` isn't the same thing as `'False'`. The Boolean values `True` and `False` don't have quote marks around them.)
 
