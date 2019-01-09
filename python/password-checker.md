@@ -69,7 +69,7 @@ print('potatoes' in 'Hello')
 
 Notice that you get a result of `True` or `False`, so you could use this code as a condition in an `if` statement if you wanted to.
 
-How might you use this technique to see if e.g. a letter is an uppercase letter?
+**How might you use this technique to see if e.g. a letter is an uppercase letter?**
 
 Counting Things
 ---------------
