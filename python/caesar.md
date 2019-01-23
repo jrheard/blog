@@ -33,7 +33,7 @@ Many ciphers also use keys. **Keys** are secret values that let you decrypt ciph
 The Caesar Cipher
 =================
 
-The key for the Caesar Cipher will be a number from 1 to 26. Unless you know the key (that is, know the number used to encrypt the message), you won’t be able to decrypt the secret code.
+**The key for the Caesar Cipher will be a number from 1 to 26**. Unless you know the key (that is, know the number used to encrypt the message), you won’t be able to decrypt the secret code.
 
 The Caesar Cipher was one of the earliest ciphers ever invented. In this cipher, you encrypt a message by taking each letter in the message (in cryptography, these letters are called symbols because they can be letters, numbers, or any other sign) and replacing it with a “shifted” letter. If you shift the letter A by one space, you get the letter B. If you shift the letter A by two spaces, you get the letter C.
 
@@ -74,7 +74,7 @@ How do we implement this shifting of the letters as code? We can do this by repr
 
 The capital letters “A” through “Z” have the ASCII numbers **65 through 90**. The lowercase letters “a” through “z” have the ASCII numbers **97 through 122**. The numeric digits “0” through “9” have the ASCII numbers **48 through 57**.
 
-So if you wanted to shift “A” by three spaces, you would do the following:
+**So if you wanted to shift “A” by three spaces, you would do the following:**
 
 * Convert “A” to an ordinal (65).
 * Add 3 to 65, to get 68.
@@ -89,7 +89,7 @@ Letters A-Z Don't Have ASCII Codes 1-26
 
 This might feel weird at first, but you'll get used to it. Most of the ASCII codes between 0 and 31 are junk left over from the days when computers were giant room-sized machines controlled by jury-rigged typewriters.
 
-Here's the full ASCII table from [asciitable.com](http://www.asciitable.com) - don't worry, you don't need to memorize this or anything, I'm just showing it to you in case you find it helpful. I've highlighted the section of the table that concerns the uppercase letters A-Z. You only care about the "Dec" (decimal) and "Char" (character) columns in this table.
+Here's the full ASCII table from [asciitable.com](http://www.asciitable.com) - don't worry, you don't need to memorize this or anything, I'm just showing it to you in case you find it helpful. I've highlighted the section of the table that concerns the uppercase letters A-Z. **You only care about the "Dec" (decimal) and "Char" (character) columns in this table.**
 
 {% img ascii_table.jpg %}
 
@@ -115,7 +115,10 @@ Let's try shifting the letter `H` over by 3, like we did in the `"Howdy"` exampl
 <pre><code class="py">
 print(chr(ord('H') + 3))
 </code></pre>
+
 It turns into `K`, just like we expected! `ord()` and `chr()` are going to be your best friends while you're working on this project.
+
+**The code snippet above is going to be very, very, very useful in this project. Read it again and mess around with it (change the `3` to a `5` or a `-7`, change the `H` to some other uppercase letter) to make sure you understand it.**
 
 String Manipulation Tip
 =======================
@@ -134,12 +137,39 @@ print(lowercased_letters)
 
 That chunk of code lowercases a string, one letter at a time - you might end up doing something similar (but **different!**) when you're building up your program's `ciphertext` variable.
 
+**Do not just copy that snippet into your program. It won't do what you want. Carefully read it, think about it, and try to figure out how you might use _something like it_ in your program.**
+
 Your Program Should Only Change Uppercase Letters
 =====================
 
 If your program is given some plaintext that includes numbers, or lowercase letters, or punctuation marks like `!` or `.` or `$` or _anything_ that's not a letter from `A` to `Z`, **it should leave that character unmodified**. For example, if given a plaintext string of `HOWDY! Hello.` and a key of `5`, your program should output the ciphertext `MTBID! Mello.`
 
-Note that in that message, the `W` ends up "wrapping around" to become a `B` when it's encrypted.
+Note that in that message, the `W` ends up "wrapping around" to become a `B` when it's encrypted. **You will have to implement wrapping around by hand - the way that students tend to approach this project, wrapping around won't happen unless you specifically write code that makes it happen.**
+
+Start By Writing These Two Functions
+====================================
+
+Write a function called `encrypt(text, key)` and another function called `decrypt(text, key)`.
+
+-------
+
+`encrypt(text, key)` takes a string and an integer key and returns a string that's `text` encrypted using the Caesar cipher with the key `key`.
+
+When you call `encrypt('ABC', 2)`, you should get `'CDE'` back.
+
+------
+
+`decrypt(text, key)` is the opposite - it takes a string and an integer key and returns a string that's `text` *decrypted* using the Caesar cipher with the key `key`.
+
+When you call `decrypt('CDE', 2)`, you should get `'ABC'` back.
+
+------
+
+**NOTE:** A good way to test that you've written your functions correctly is to check to see if e.g. `decrypt(encrypt('PIZZA', 10), 10)` is equal to `PIZZA`.
+
+**HINT:** Once you've written `encrypt(text, key)`, it should be possible to implement `decrypt(text, key)` with **a single line of code**.
+
+If you find yourself copy-pasting all of the code from `encrypt(text, key)` into `decrypt(text, key)`, you're doing something wrong. Take a step back and try to find a simpler way. Ask me for help if you can't figure it out :)
 
 Demo
 ====
@@ -147,6 +177,8 @@ Demo
 Your program should allow the user to both encrypt messages **and** decrypt them. Your program should look **exactly** like this when it's run:
 
 <asciinema-player src="{{ site.baseurl }}/caesar_cast_1.json" rows="19" cols="80" autoplay="true" loop="true"></asciinema-player>
+
+Remember that you can write code like `input("Hi there, what's your name?")` to get a string of text from the user.
 
 Nitty Gritty
 ============
@@ -158,7 +190,9 @@ If the user inputs an invalid key (i.e. something that's not a number between 0 
 Submitting your project
 =======================
 
-Submit a file called `caesar.py`.
+Submit a file called `caesar_<YOUR_NAME>.py`.
+
+For instance, I'd submit a file named `caesar_jr_heard.py`.
 
 On the first line of that file, write a comment with your name on it, like this:
 
@@ -208,8 +242,6 @@ This is my favorite one: enhance your program's "brute force" mode so that it ca
 <asciinema-player src="{{ site.baseurl }}/caesar_brute_smart_cast.json" rows="15" cols="80" autoplay="true" loop="true"></asciinema-player>
 
 You can do this however you want. Be creative! My solution involved using [this text file](https://svnweb.freebsd.org/csrg/share/dict/words?revision=61569&view=co), which is a list of all of the English words in the 1934 edition of Webster's Second International Dictionary.
-
-Since internet use will be limited for the final project, if you don't know how to work with text files you will probably want to stick with the other features for today. You can also come back and add smart brute force another day if it seems intriguing.
 
 If you'd like to figure out how to open a text file in Python and get all the lines out of it, Google around until you find a solution - you can always ask me for help if you get stuck, but I think you'd be surprised how far you can get by just Googling stuff!
 
