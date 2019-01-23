@@ -171,6 +171,26 @@ When you call `decrypt('CDE', 2)`, you should get `'ABC'` back.
 
 If you find yourself copy-pasting all of the code from `encrypt(text, key)` into `decrypt(text, key)`, you're doing something wrong. Take a step back and try to find a simpler way. Ask me for help if you can't figure it out :)
 
+After That, Write A `main()` Function
+=====================================
+
+Take a look at the code you've written in past assignments. Notice how there's always a `main()` function, and a weird `if __name__ == '__main__':` bit at the end of the file. Do that in this program!
+
+Write a `main()` function that prompts the user for some input (see the "Demo" section right below this section for details) and calls `encrypt()` or `decrypt()` with the stuff the user gives you.
+
+Note that you're only calling **one of** `encrypt()` **or** `decrypt()`. Use the user's input to decide which of those two functions to call. Print out the return value of the function.
+
+Copy-paste these two lines and add them to the bottom of your program:
+
+<textarea class="hidden">
+if __name__ == '__main__':
+	main()
+</textarea>
+<pre class="cm-s-friendship-bracelet"></pre>
+
+One of these days we'll explain why you need to do that :)
+
+
 Demo
 ====
 
@@ -245,6 +265,18 @@ You can do this however you want. Be creative! My solution involved using [this 
 
 If you'd like to figure out how to open a text file in Python and get all the lines out of it, Google around until you find a solution - you can always ask me for help if you get stuck, but I think you'd be surprised how far you can get by just Googling stuff!
 
+{% javascript codemirror %}
+{% javascript codemirror_python %}
+{% javascript codemirror_runmode %}
+
+<script>
+var textAreas = document.getElementsByTagName("textarea");
+var pres = document.querySelectorAll("pre.cm-s-friendship-bracelet");
+
+for (var i = 0; i < textAreas.length; i++) {
+	CodeMirror.runMode(textAreas[i].value, "python", pres[i]);
+}
+</script>
 
 <script>
 window.klipse_settings = {
