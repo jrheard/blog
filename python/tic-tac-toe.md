@@ -23,7 +23,7 @@ OK, enough philosophy. Let's write some simple functions and put them together t
 
 ## Demo
 
-The game we're making will look like this:
+The game we're making will look like this (the "index" stuff will make more sense in a second, keep reading):
 
 <asciinema-player src="{{ site.baseurl }}/tictactoe_cast.json" rows="25" cols="95" autoplay="true" loop="true"></asciinema-player>
 
