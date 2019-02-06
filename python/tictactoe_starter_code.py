@@ -7,34 +7,32 @@ COMPUTER = 'computer'
 
 
 # Here are the empty functions that it's your job to implement!
-
-# These functions all contain one line of code that looks like this:
-#     pass
-
-# That's because a function in Python _has_ to have at least one line of code.
-# If you just leave the function totally empty, Python will complain about a syntax error
-# and won't run your program.
-
-# In Python, `pass` is a special word that basically means "this line of code doesn't do anything".
-# You can go ahead and remove the `pass` line from each function as you start to work on it.
+# Check the assignment carefully to see what each function is supposed to do.
+# Don't rename these functions! You can absolutely write extra functions aside from these
+# ones if you want, but don't change the names of the five functions please.
 
 def make_board():
+    # TODO: remove this comment and the `pass` line below it once you've written some code in this function.
     pass
 
 
 def print_board(board):
+    # TODO: remove this comment and the `pass` line below it once you've written some code in this function.
     pass
 
 
 def get_player_move(board):
+    # TODO: remove this comment and the `pass` line below it once you've written some code in this function.
     pass
 
 
 def get_computer_move(board):
+    # TODO: remove this comment and the `pass` line below it once you've written some code in this function.
     pass
 
 
 def check_for_winner(board):
+    # TODO: remove this comment and the `pass` line below it once you've written some code in this function.
     pass
 
 
@@ -43,7 +41,6 @@ def check_for_winner(board):
 
 # (Note: This `if` statement is important, please don't remove it.)
 if __name__ == '__main__':
-
     print('Welcome to Tic-Tac-Toe!')
 
     # Ask the player what team they want to be.
@@ -65,25 +62,26 @@ if __name__ == '__main__':
         # Figure out whose turn it is, and let them make a move.
         if whose_turn == PLAYER:
             print_board(board)
-            x, y = get_player_move(board)
-            board[x][y] = player_team
+            index = get_player_move()
+            board[index] = player_team
 
         else:
-            x, y = get_computer_move(board)
-            board[x][y] = computer_team
+            index = get_computer_move(board, computer_team)
+            board[index] = computer_team
 
         # Check to see if someone won, and end the game if so.
-        winner = check_for_winner(board)
-        if winner:
-            print('-------------------')
-
-            if winner == 'tie':
+        win_status = check_for_winner(board)
+        if win_status != 'keep playing':
+            if win_status == 'tie':
+                print('-------------------')
                 print("It's a tie!")
+                print_board(board)
+                break
             else:
+                print('-------------------')
                 print('The {} wins!'.format(whose_turn))
-
-            print_board(board)
-            break
+                print_board(board)
+                break
 
         # If we've made it this far, nobody's won yet, so let's get ready for the next turn.
         if whose_turn == PLAYER:

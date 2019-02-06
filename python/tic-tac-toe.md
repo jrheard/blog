@@ -5,25 +5,27 @@ title:  "Madison CS 3-4: Tic-Tac-Toe"
 
 In this project, you'll write a program that lets you play a game of tic-tac-toe against a computer opponent.
 
-The goal of this project is to get you comfortable with writing **functions**.
+The goal of this project is to get you comfortable with writing **functions**. You've been using functions all year, but in this project you'll write more of them at one time than you have before.
+
+Before we start, I want to spend just a quick second talking about how I think about functions, because I think it's a useful picture to have in your head. It's helped me a lot.
 
 Functions are like LEGO blocks.
 
 {% img lego.jpg %}
 
-A LEGO block is a small, simple thing—but if you put a bunch of those simple blocks together in the right way, you can make the Milennium Falcon, or the Eiffel Tower, or a goofy-looking dog.
+A LEGO block is a small, simple thing—but if you put a bunch of those simple blocks together in the right way, you can make the Milennium Falcon, or the Eiffel Tower, or I don't know, a pizza or a dog or something.
 
-Functions are just like that. The functions you write should each be small, simple, and easy to understand—but if you put a bunch of your functions together in the right way, you can make a website, or control a robot, or fly a spaceship.
+Functions are just like that. **The functions you write should each be small, simple, and easy to understand**—but if you put a bunch of your functions together in the right way, you can make a website, or control a robot, or fly a spaceship.
 
 The best part about functions is that they're even better than LEGO blocks, because you can make your own! When you buy a LEGO set, you're stuck with whatever kinds of blocks come with the set; when you use a programming language, you can use its built-in functions to make _your own_ way cooler functions that do whatever you want, and then you can put _those_ functions together to make a program that does something awesome. Functions are basically my favorite thing about programming.
 
-Let's write some simple functions and put them together to make a tic-tac-toe game!
+OK, enough philosophy. Let's write some simple functions and put them together to make a tic-tac-toe game!
 
 ## Demo
 
 The game we're making will look like this:
 
-<asciinema-player src="{{ site.baseurl }}/tictactoe_cast.json" rows="25" cols="85" autoplay="true" loop="true"></asciinema-player>
+<asciinema-player src="{{ site.baseurl }}/tictactoe_cast.json" rows="25" cols="95" autoplay="true" loop="true"></asciinema-player>
 
 (The idea for this project was taken from Al Sweigart's excellent book "Invent Your Own Computer Games With Python".)
 
@@ -31,59 +33,71 @@ The game we're making will look like this:
 
 A game of tic-tac-toe takes place on a 3x3 board. A space on the board is either empty, or it has an X in it, or it has an O in it.
 
-At this point I'd like you to think back to the [blackjack][blackjack] assignment. In that project, we talked about _representing_ stuff. We wanted to teach our computer program about the concept of a playing card like "the five of diamonds", and we ended up using a two-item list like `[5, 'diamonds']` to do that. You'll also remember that in order to represent a deck of cards, we made a list that had a bunch of items in it, and each of _those_ items was a two-item list like `['4', 'hearts']`.
+We need to **represent** that board in our program somehow - we need to have a variable whose value is a tic-tac-toe board. Python doesn't come with a tic-tac-toe-board data type, so we'll have to make our own!
 
-In _this_ project, we now have to figure out: how do we represent the concept of a tic-tac-toe game board? Think about it for a second before you scroll down.
-
-<p class="lots-of-space">How would you represent a 3x3 tic-tac-toe board in a Python program?</p>
-
-<p class="lots-of-space">Seriously, think about it!</p>
-
-<p class="lots-of-space">OK, here's what I recommend doing. Is it the same as what you were thinking?</p>
-
-I think we should use a list of lists of strings (also called a "two-dimensional list of strings", or a "2D list of strings"). It'll look like this:
+I think that a good way to represent a tic-tac-toe board in Python would be to use a list of strings, like this:
 
 ```python
-[['X', ' ', 'O'],
- ['O', 'O', ' '],
- ['X', 'O', 'X']]
+['X', 'O', ' ', ' ', 'O', 'X', 'X', 'O', ' ']
 ```
 
-Let's play around with this list to make sure that we completely understand it.
+That's a list of nine strings, because that's how many spaces there are on a 3x3 tic-tac-toe board. Each string is either `'X'` or `'O'` or `' '`.
+
+Tic-tac-toe boards are squares, but that list above is just a straight line, it isn't a square. How can we use a list with 9 elements to represent a 3x3 square?
+
+Well, we could just say: the first three elements in the list are the top row of the board, and the second three elements are the middle row, and the last three are the bottom row. Like this:
+
+```python
+# This list:
+['X', 'O', ' ', ' ', 'O', 'X', 'X', ' ', 'O']
+
+# Represents this board:
+# X | O |
+#   | O | X
+# X |   | O
+```
+
+Remember that we can get the value of an element in a list by using its **index**, like this:
 
 <pre class="dont-format-output"><code class="py">
-board = [['X', ' ', 'O'],
-		 ['O', ' ', 'O'],
-		 ['X', 'O', 'X']]
+board = ['X', 'O', ' ', ' ', 'O', 'X', 'X', ' ', 'O']
 
-print('The board is a list with {0} elements.'.format(len(board)))
-print('Each of those elements is a list.')
+print('The board is a list with {} elements.'.format(len(board)))
 
+# Look up the second element in the list by getting the element
+# at index 1. Remember, the first item in the list has index 0!
 second_element = board[1]
+print('The second element in the list is {}.'.format(second_element))
 
-print('The second element in the board is {0}'.format(repr(second_element)))
-print("That's a list with three strings in it.")
-print('The last string in that list is {0}.'.format(second_element[2]))
-print("Here's the same string: {0}.".format(board[1][2]))
+last_element = board[8]
+print('The last (ninth) element in the list is {}.'.format(last_element))
 </code></pre>
 
-So, that's our board—we'll be using a 2D list of strings, and those strings will either be `'X'`, `'O'`, or `' '`. The board will start off empty (all the strings will be `' '` initally ) and it will change over time as the player and computer make their moves.
+Here's a visualization of where the indexes of the list end up in the printed board, in case that's helpful for you:
+
+```python
+# A nine-element list has these indexes:
+[0, 1, 2, 3, 4, 5, 6, 7, 8]
+
+# Those indexes represent these spots on the game board:
+# 0 | 1 | 2
+# 3 | 4 | 5
+# 6 | 7 | 8
+```
+
+So, that's our board—we'll be using a list of nine strings, and those strings will either be `'X'`, `'O'`, or `' '`. The board will start off empty (all the strings will be `' '` initally ) and it will change over time as the player and computer make their moves.
 
 # A Note On Grading
 
 Throughout this assignment, I'll be telling you to write specific functions that behave a certain way. I'll tell you what the functions should be named; I'll tell you what inputs the functions should take; and I'll tell you what outputs the function should return.
 
-That's because now that you're writing functions, I'll be able to test them directly. Just like you might, say, import Python's built-in `random` module and call the `random.choice()` function in order to decide who goes first, I'll be importing the `tictactoe_your_name` module from your program, and in my automated tests I'll be writing code like `tictactoe_your_name.a_function()` in order to make sure each one of your functions works the way it's supposed to.
-
-What this means is that it's really important that your functions have the **exact names** specified in the assignment. If I tell you to write a function named `make_pizza()`, but you write a function named `make_hamburger()` instead, my tests won't be able to find your function and so you won't pass the tests for this assignment.
-
-That might sound restrictive and lame, but there's some good news: now that my tests can use your functions directly, the stuff your program __prints out__ can look __however you want__! You don't have to use the exact same text from the demo videos any more, your program can be as weird and creative as you like. Enjoy!
+It's **really important** that your functions have the **exact names** specified in the assignment. If I tell you to write a function named `make_pizza()`, but you write a function named `make_hamburger()` instead, my tests won't be able to find your function and so you won't pass the tests for this assignment. You want to pass the tests for this assignment, because that's how you get a good grade!
 
 ## Starter Code
 
-I've written some **[starter code][starter-code]** that you can use for this project.
+Start by **downloading the [starter code][starter-code] for this project.**
 
-The starter code defines five empty functions. Your job is to fill in those empty functions using the instructions below. When you're done, you'll have a working tic-tac-toe game!
+The starter code defines five empty functions. **Your job is to fill in those empty functions using the instructions below**. When you're done, you'll have a working tic-tac-toe game!
 
 Feel free to add more functions of your own if you want! Just be sure not to change the names of the functions provided in the starter code, because my automated tests will be looking for functions with those names.
 
@@ -96,40 +110,54 @@ OK, here's what each of those functions should do!
 
 <p class="function-inputs">It should take <b>no inputs</b>.</p>
 
-<p class="function-output">It should return as output <b>an empty 3x3 tic-tac-toe board</b> like the one described above.</p>
+<p class="function-output">It should return as output <b>an empty tic-tac-toe board</b> like the one described above.</p>
 </div>
 
-When you call `make_board()`, it should return a list that looks just like this:
+When you call `make_board()`, it should return an empty tic-tac-toe board, which is a list that looks just like this:
 
 ```python
-[[' ', ' ', ' '],
- [' ', ' ', ' '],
- [' ', ' ', ' ']]
+[' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
 ```
 
-That's it for this one!
+That's it for this one! This function is very simple, it's just a warm-up.
 
 # Function: `print_board(board)`
 
 <div class="function-spec">
 <p>Write a function called <code class="highlighter-rouge">print_board</code>.</p>
 
-<p>It should take as input <b>a game board, represented by a 2D list of strings</b>.</p>
+<p>It should take as input <b>a tic-tac-toe board</b>.</p>
 
-<p>It should return as output <b><code class="highlighter-rouge">None</code></b>, which is a special value that we haven't really talked about yet.</p>
-
-<p>In Python, a function will return <code class="highlighter-rouge">None</code> by default if the function doesn't have a <code class="highlighter-rouge">return</code> statement in it, so you don't really need to worry about this—just don't put a <code class="highlighter-rouge">return</code> statement in your function and you're all set.</p>
+<p>It shouldn't return anything.</p>
 </div>
 
-This function should take a game board as input, and it should print that board out to the screen. Don't just do `print(board)`—make it look nice!
+This function should take a game board as input, and it should print that board out to the screen.
 
-You'll want to use a nested `for` loop for this (one `for` loop inside another `for` loop). You'll probably be doing `range(len(SOMETHING))` once or twice, too.
+Here's what its output should look like when you pass it a fresh new empty board:
 
-Check out the demo video from earlier if you'd like an example of what your board might look like when it's printed out. I didn't make my board look particularly good, so try to make yours better-looking than mine!
+```
+>>> print_board([' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '])
+  |   |
+  |   |
+  |   |
+```
 
-Hint: When you're working on this function (and all the other ones in this assignment!), **try it out** as you work on it. Add a line of code to your program that calls your function with a particular input (an empty board, a half-full board, a full board—you can write all of these boards by hand, they're just lists of lists of strings), and see what your function returns when it's given that input.
+And here's what it should look like when you pass it the board that we saw earlier:
 
-I used colors in my printed-out board, but you don't have to. If you're interested in using colors, my advice is to start simple and then add colors later. When you finish the no-colors version of this function, there's a note at the end of this assignment that'll tell you how to add colors if you want.
+```
+>>> print_board(['X', 'O', ' ', ' ', 'O', 'X', 'X', ' ', 'O'])
+X | O |
+  | O | X
+X |   | O
+```
+
+You'll want to use several `print()` calls. Notice how each time you call `print()`, Python ends the current line of output and starts a new line. How many `print()` calls do you think you'll need in order to print out a 3x3 tic-tac-toe board? The answer isn't 9! :)
+
+Remember that if e.g. I wanted to find the value of the third element in the list, I could do `board[2]` (assuming my board lived in a variable named `board`).
+
+Remember that you can use the `+` sign to concatenate small strings together to make a bigger string.
+
+**Hint:** When you're working on this function (and all the other ones in this assignment!), **try it out** as you work on it. Use the IDLE shell to call your function with a particular input (an empty board, a half-full board, a full board—you can write all of these boards by hand, they're just lists of nine strings!), and see how your function behaves when it's given that input. **This trick really, really helps**. You'll end up with working code much faster, and you'll have more fun doing it.
 
 Next, let's think about how we'll handle the player's move.
 
@@ -138,37 +166,18 @@ Next, let's think about how we'll handle the player's move.
 <div class="function-spec">
 <p>Write a function called <code class="highlighter-rouge">get_player_move</code>.</p>
 
-<p>It should take as input <b>a game board, represented by a 2D list of strings</b>.</p>
+<p>It should take as input <b>a tic-tac-toe board</b>.</p>
 
-<p>It should return as output <b>a two-item list like <code class="highlighter-rouge">[0, 2]</code></b>.</p>
+<p>It should return as output <b>a number between <code class="highlighter-rouge">0</code> and <code class="highlighter-rouge">8</code></b>, indicating where the player wants to move.</p>
 </div>
 
 When you call `get_player_move(board)`, the function should ask the player where they'd like to make their next move (see the demo video from earlier for an example).
 
-If the player chooses a spot that's off the board or isn't empty, tell them to try again.
+**If the player chooses a spot that's off the board or that isn't empty, tell them to try again!** You'll need to write code that notices that the player has made a mistake like this and figures out how to handle it!
 
-**Note:** this function takes a game board as input. This function **should not modify that board** (e.g. the function shouldn't do something like `board[1][2] = 'X'`). I've written a test that checks for this.
+**Note:** this function takes a game board as input. This function **should not modify that board** (e.g. the function shouldn't do something like `board[5] = 'X'`). I've written a test that checks for this.
 
-(In general, functions shouldn't modify their inputs. If a program has functions that modify their inputs, that program quickly becomes hard to understand and make changes to. When you're using a function, you want to just figure out what data it takes as input and what data it returns—you **don't** want to also have to ask questions like: "Will this function mangle the list I'm passing to it?")
-
-**Note:** When you prompt the player for their move, you should let them put in a number betwen `1` and `3` for their move's X position, and another number between `1` and `3` for their move's Y position. **You should then convert those X/Y coordinates so that they're between `0` and `2` instead of being between `1` and `3`**. Here's why you need to convert those numbers:
-
-<pre class="dont-format-output"><code class="py">
-board = [['X', ' ', 'O'],
-		 ['O', ' ', 'O'],
-		 ['X', 'O', 'X']]
-
-print(board[0][0])
-
-# This line crashes!
-print(board[1][3])
-</code></pre>
-
-Our board is a 3x3 grid. If you try to do `a_three_by_three_grid[1][3]`, Python crashes, because you've asked for the fourth item in the second list, and the second list only has three items. Does that make sense? If not, reread the past few paragraphs one more time, you'll get it.
-
-2D lists take a little getting used to, but really they're just like regular lists.
-
-Anyway, what I'm getting at here is that if your `get_player_move(board)` function asks a user for their move's X/Y coordinates and the user enters `1` and `3`, then your function should return `[0, 2]`. If it returns `[1, 3]` in that situation, then that's a **bug**, and I'll find it! :)
+(In general, functions shouldn't modify their inputs, and should instead just return an output. If a program has functions that modify their inputs, that program quickly becomes hard to understand and make changes to. When you're using a function, you want to just figure out what data it takes as input and what data it returns—you **don't** want to also have to ask questions like: "Will this function delete parts of the list I'm passing to it?".)
 
 OK, now let's implement our AI opponent!
 
@@ -177,22 +186,22 @@ OK, now let's implement our AI opponent!
 <div class="function-spec">
 <p>Write a function called <code class="highlighter-rouge">get_computer_move</code>.</p>
 
-<p>It should take as input <b>a game board, represented by a 2D list of strings</b>.</p>
+<p>It should take as input <b>a tic-tac-toe board</b>.</p>
 
-<p>It should return as output <b>a two-item list like <code class="highlighter-rouge">[0, 2]</code></b>.</p>
+<p>It should return as output <b>a number between <code class="highlighter-rouge">0</code> and <code class="highlighter-rouge">8</code></b>, indicating where the computer wants to move.</p>
 </div>
 
 This function should look at the board and choose an empty space where the computer should make its next move.
 
-This function should only choose an __empty__ space. If it chooses a space that already has an `'X'` or an `'O'` in it, then that's a bug.
+This function should only choose an __empty__ space. If it chooses a space that already has an `'X'` or an `'O'` in it, then that's a bug, and my tests will find it.
 
-**This function is your game's AI opponent!** Your goal here is to write some code that looks at the passed-in board, thinks really hard, and then picks the best possible space where the computer should make its next move. Make this as crazy as you want—the goal is for this function to crush the human player (or at least force a tie)!
+**This function is your game's AI opponent!** Your goal here is to write some code that looks at the passed-in board, thinks really hard, and then picks the best possible space where the computer should make its next move.
 
-You don't have to make a crazy-smart AI _right now_, though: if you'd like, it might be easier to just make a super-simple AI at first ("pick the first empty space you find on the board!"), finish the basic version of this assignment, and _then_ come back to this function and make a crazy cool AI once you're confident that the rest of your program works.
-
-Hint: you don't have to do this, but a good trick is to check to see if the player's about to win on their next move. If that's the case, the computer should make a move on the spot the player needs so that the player isn't able to use it!
+Start by making a super-simple AI that picks the first empty space it finds on the board. Once you've got a completely working tic-tac-toe game, come back to this function and make it as crazy as you want. The goal is for this function to crush the human player (or at least force a tie)!
 
 **Note**: Just like `get_player_move(board)`, this function **should not modify its input board**. This function's job is to take a board, look at it and figure out the space where the computer should move, and *return* that space. It should **not** change the board in the process.
+
+**Hint:** A good trick is to check to see if the player's about to win on their next move. If that's the case, the computer should make a move on the spot the player needs so that the player isn't able to use it!
 
 We're almost done with our program now—just one more function to go!
 
@@ -201,28 +210,19 @@ We're almost done with our program now—just one more function to go!
 <div class="function-spec">
 <p>Write a function called <code class="highlighter-rouge">check_for_winner</code>.</p>
 
-<p>It should take as input <b>a game board, represented by a 2D list of strings</b>.</p>
+<p>It should take as input <b>a tic-tac-toe board</b>.</p>
 
-<p>It should return as output one of the following values:<b><code class="highlighter-rouge">'X'</code>, <code class="highlighter-rouge">'O'</code>, <code class="highlighter-rouge">'tie'</code>, or <code class="highlighter-rouge">False</code></b>.</p>
+<p>It should return as output one of the following values:<b><code class="highlighter-rouge">'X'</code>, <code class="highlighter-rouge">'O'</code>, <code class="highlighter-rouge">'tie'</code>, or <code class="highlighter-rouge">'keep playing'</code></b>.</p>
 </div>
 
-This function's job is to take a board as input and return as output a value that indicates whether or not the game's over. If the function returns `'X'`, that means X wins; if the function returns `'O'`, that means O wins; if the function returns `'tie'`, that means the game's over and there's a tie; and if the function returns `False`, that means that the game isn't over yet.
+This function's job is to take a board as input and return as output a value that indicates whether or not the game's over. If the function returns `'X'`, that means X wins; if the function returns `'O'`, that means O wins; if the function returns `'tie'`, that means the game's over and there's a tie; and if the function returns `'keep playing'`, that means that the game isn't over yet.
 
-There are eight possible ways to win at tic-tac-toe: there are three possible horizontal lines, three possible vertical lines, and two possible diagonal lines. Be sure to check for all of them!
+**Double-check to make sure that you're returning the right values**:
+* if you return `'x'` instead of `'X'`, that's a bug.
+* If you return `'keepplaying'` instead of `'keep playing'`, that's a bug.
+* You get the idea!
 
-(A note for advanced students: this function returns one of three special strings or `False`. That's just kind of clunky. It'd be much better if our program defined an [Enum](https://docs.python.org/3/library/enum.html#creating-an-enum) with a name like `WinStatus`; then we could have this function return something like `WinStatus.NO_WINNER_YET`, `WinStatus.X`, `WinStatus.O`, or `WinStatus.TIE`. We're not covering `Enum`s in this class, though, so for now let's just live with the fact that this function has a weird return value.)
-
-
-
-[blackjack]: {{site.baseurl}}/python/blackjack
-
-# One Last Note: Colors
-
-The tic-tac-toe program from my demo video had colorful `X`s and `O`s. If you'd like to do this in your program too, then check out the [crayons](https://github.com/kennethreitz/crayons) library; you can install it by running `pip install --user crayons` at the command line.
-
-The colors won't work in IDLE, so you'll need to run your program from the command line if you use the `crayons` library. Let me know if you'd like help figuring out how to do that.
-
-UPDATE 3/30/2018: it looks like the `crayons` library might not work with windows. Sorry! :(
+There are eight possible ways to win at tic-tac-toe: there are three possible horizontal lines, three possible vertical lines, and two possible diagonal lines. Be sure to check for all of them! I'll be testing to make sure that you do!
 
 Submitting your project
 =======================
