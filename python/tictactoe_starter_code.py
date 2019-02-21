@@ -26,7 +26,7 @@ def get_player_move(board):
     pass
 
 
-def get_computer_move(board):
+def get_computer_move(board, computer_team):
     # TODO: remove this comment and the `pass` line below it once you've written some code in this function.
     pass
 

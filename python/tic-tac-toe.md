@@ -181,17 +181,17 @@ When you call `get_player_move(board)`, the function should ask the player where
 
 OK, now let's implement our AI opponent!
 
-# Function: `get_computer_move(board)`
+# Function: `get_computer_move(board, computer_team)`
 
 <div class="function-spec">
 <p>Write a function called <code class="highlighter-rouge">get_computer_move</code>.</p>
 
-<p>It should take as input <b>a tic-tac-toe board</b>.</p>
+<p>It should take as input <b>a tic-tac-toe board</b> and <b>a string like <code class="highlighter-rouge">'X'</code> or <code class="highlighter-rouge">'O'</code> that indicates which team the computer is on</b>.</p>
 
 <p>It should return as output <b>a number between <code class="highlighter-rouge">0</code> and <code class="highlighter-rouge">8</code></b>, indicating where the computer wants to move.</p>
 </div>
 
-This function should look at the board and choose an empty space where the computer should make its next move.
+This function should look at the board and choose an empty space where the computer should make its next move. The function should pay attention to the value of `computer_team` so it knows which team it's playing for!
 
 This function should only choose an __empty__ space. If it chooses a space that already has an `'X'` or an `'O'` in it, then that's a bug, and my tests will find it.
 
