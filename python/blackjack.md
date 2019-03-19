@@ -92,7 +92,7 @@ print("The twelfth card's value is " + str(diamonds[11][0]) + ".")
 
 Notice that `diamonds` is a list of **cards**, and a **card** is a list like `[5, "diamonds"]` - so `diamonds` is a list of lists. It's totally fine and normal for lists to contain other lists, you'll do this a lot in future projects. Notice how I can say `diamonds[5][0]` to refer to the value of the sixth card in the `diamonds` list.
 
-Your program's deck should be a list with fifty-two elements: thirteen cards for each of the four suits.
+Your program's deck should be a list with fifty-two elements: thirteen cards for each of the four suits. You might find a `for` loop (or two!) to be useful for cutting down on the amount of copy-pasting you'll be doing in this part of the project.
 
 Shuffling the Deck
 -------------
@@ -121,13 +121,15 @@ Here's an example of what a hand might look like:
 </textarea>
 <pre class="cm-s-friendship-bracelet"></pre>
 
-Make sure that whenever you deal a card to someone, that card is removed from the deck. There should only ever be fifty-two cards at a time throughout your program—if the player has two cards and the dealer has two cards, then the deck should have forty-eight cards.
+**Make sure that whenever you deal a card to someone, that card is removed from the deck**. There should only ever be fifty-two cards at a time throughout your program—if the player has two cards and the dealer has two cards, then the deck should have forty-eight cards.
 
 Keep these hands in variables named something like `player_hand` and `dealer_hand`. You'll also want to create variables named something like `player_count` and `dealer_count`.
 
 You should update these variables whenever the player or dealer gets dealt a new card.
 
 If `player_hand` is `[[10, "spades"], [5, "clubs"]]`, then `player_count` should be `15`.
+
+You might find it helpful to write a function called e.g. `score_hand(hand)` that takes a hand (a list of cards) and returns its score (a number like 12 or 3 or 25). That would make it so that you don't have to maintain these `player_count` and `dealer_count` variables, since instead you could just e.g. call `score_hand(player_hand)` whenever you want to determine the player's count. Up to you!
 
 Milestone 1: Displaying Output
 ==============================
@@ -156,7 +158,7 @@ Each time the player says `"hit"`, you should call `print_game_status()` after g
 
 If the player inputs something that's not `"hit"` or `"stand"` - for instance, if they enter the word `"pizza"` for their move - your program should not crash.
 
-**Note**: If the player draws too many cards and their count goes over 21, that's called "busting", and it's game over for the player. End the game immediately and tell them that they lost.
+**Note**: If the player draws too many cards and their count goes over 21, that's called "busting", and it's game over for the player. End the game immediately, print out the current state of the game, and tell them that they lost.
 
 Dealer's Turn
 =============
@@ -210,8 +212,6 @@ On the first line of that file, write a comment with your name on it, like this:
 ```
 # JR Heard
 ```
-
-This might seem redundant, but it really is helpful for us when we're grading your programs.
 
 Remember to follow this class's [style guide](https://docs.google.com/document/d/1UbyhIkxOdhpf-MGna_5dwh0yHXe02HTZ69CfEuYv76Y/edit).
 
