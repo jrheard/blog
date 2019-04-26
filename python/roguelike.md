@@ -40,7 +40,9 @@ You're the `@` sign, you can move around, you can't go through walls, and you ca
 Getting Started
 ===================
 
-We'll be working on this project in repl.it! The starter code for this project is available in our [repl.it Python - Unit 6 - Dictionaries classroom](https://repl.it/student/classrooms/125183) in the Projects section.
+We'll be working on this project in repl.it!
+
+The starter code for this project is available in our [repl.it Python - Unit 6 - Dictionaries classroom](https://repl.it/student/classrooms/125183) in the Projects section.
 
 Reading The Code
 ================
