@@ -37,14 +37,10 @@ This project comes with code for an extremely basic game. It looks like this:
 
 You're the `@` sign, you can move around, you can't go through walls, and you can quit the game when you get bored.
 
-How To Run The Game
+Getting Started
 ===================
 
-1. **Download the starter code [here]({{ site.baseurl }}/roguelike_starter_code.zip).**
-1. Unzip it somewhere (e.g. to a folder in your Y: drive)
-1. Double-click on `game.py`
-
-That should be it! You'll be making changes to these files over the course of this project.
+We'll be working on this project in repl.it! The starter code for this project is available in our [repl.it Python - Unit 6 - Dictionaries classroom](https://repl.it/student/classrooms/125183) in the Projects section.
 
 Reading The Code
 ================
@@ -79,20 +75,6 @@ Seriously, Read Those Files
 This is what programming in real life is like. It's almost never the case that you're starting a new program completely from scratch - you'll almost always be working on a (probably really big!) program that someone else wrote years ago, or that you wrote a few weeks ago but it's been long enough that now you don't really remember what all the code does.
 
 This is what you do: you read through the preexisting code, convince yourself that you understand what it does and how it fits together, and _then_, once you're familiar with the codebase, you can start making changes and adding features.
-
-One Last Thing Before We Really Get Started
-===========================================
-This project is going to be bigger than the ones we've worked on so far. When you're working on a big program, it's important to use something called "version control".
-
-You've probably already had an experience where you were in the middle of a project, and your program was working totally great, but then you spent half an hour working on a new feature and now your program's totally broken and you just cannot figure out how to fix it. Version control systems exist to solve this problem. A version control system lets you say: okay, my program is working great _right now_, so let's save this version of it for later. Then, if you go off and make some changes to it that totally break your program, you can both a) _see what those changes were_ and b) get rid of those changes and go back to the last working version of your program.
-
-This might not sound like a big deal, but it's really really important - it lets you confidently work on cool experimental features, because you know that if you accidentally trash your program, you can always easily go back to the last working version.
-
-`git` is a very good version control system. I use it every single time I write a program. If you'd like to learn how to use it, I recommend [Codecademy's git tutorial](https://www.codecademy.com/learn/learn-git). You don't need to work through parts 3 and 4, the first two parts are fine for now; you don't need the paid parts of the tutorial, the free parts are totally fine.
-
-**You don't have to work through that tutorial and use git for this project if you don't want to**, I'm just telling you about it in case this sounds useful and you'd like to learn it and try it out!
-
-Using git is a really, really, really good idea when working on a complicated program.
 
 The Goal
 ========
@@ -138,8 +120,7 @@ Once I had done all of those things, I had a working goblin feature! Notice that
 
 Submitting your project
 =======================
-TODO TAMARA how should they submit their project? it involves multiple files! i feel like if we ask them to make a .zip file and submit that, we'll have to hold their hands through the whole process. alternatively we could ask them to have files like roguelib_jr_heard.py, game_jr_heard.py, and text_jr_heard.txt, but that sounds awful. aaaaa! what should we do?
-
+Copy the link at the top of your repl (it will look something like `https://repl.it/@tomalley/roguelike`) and turn in the link on Google Classroom.
 
 Assorted Notes
 ==============
