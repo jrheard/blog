@@ -61,10 +61,10 @@ A Python file that contains some useful functions that can be combined together 
 
 You'll have to make changes to some of these functions when you add new features to the game!
 
-3: `game.py`
+3: `main.py`
 ------------
 
-A small Python file that combines the functions from `roguelib.py` together into a simple game loop. Read the game loop and convince yourself that you understand how it works. Refer back to the code in `roguelib.py` whenever `game.py` uses a function that don't fully understand.
+A small Python file that combines the functions from `roguelib.py` together into a simple game loop. Read the game loop and convince yourself that you understand how it works. Refer back to the code in `roguelib.py` whenever `main.py` uses a function that don't fully understand.
 
 Feel free to add more code to this file. You can also create more files if you want, it's a useful thing to do as your project gets bigger.
 
