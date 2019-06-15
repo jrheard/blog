@@ -41,9 +41,24 @@ The squids don't do anything, but notice how if you pick up a health potion, you
 
 If you pick up the second health potion, though, your health _decreases_. This puzzled me for a bit, but I pieced it together - if you pick up the farthest-down health potion on the level, the game gets confused and thinks it's a health potion and _also_ a monster, and so it increments your health by 10 but then decrements it by 20 because that's what bumping into a squid is supposed to do. Interesting little bug.
 
-<asciinema-player src="{{ site.baseurl }}/roguelike_bait_and_switch.json" rows="34" cols="90" autoplay="true" loop="true"></asciinema-player>
+<asciinema-player src="{{ site.baseurl }}/roguelike_bait_and_switch.json" rows="30" cols="90" autoplay="true" loop="true"></asciinema-player>
 
 This game has a little trick to it - the door to the next level is actually the `▐`, but if you get confused and hit the `+` instead, the game insults you in big ASCII art and unceremoniously exits. I love it.
+
+King Of The Thing
+-----------------
+
+This one's great. The levels are pretty big, so this is going to take up most of your screen, but it's so cool that I couldn't not include it.
+
+You're the `☻`, the `∩`s are harmless barrels that you effortlessly smash through, the `r`s are rats, the `g`s are goblins. You can kill the rats and goblins, but it's hard and you take a lot of damage doing it. If you pick up a `†`, though, now you have a dagger and can wreck 'em easily!
+
+Once you make it to the next level, you can pick up a `✟` (sword) to really boost your damage, and if your HP is low after fighting some goblins you can chug a `✚` (health potion) to heal up. Be careful of the `✠` you'll pass on your way to the next floor of the dungeon - it's a chainsaw, and if you touch it, you'll die!
+
+After that, it's time to fight the big boss himself: you've gotta beat the king and take his crown! I love how this third level is structured, it's so simple but somehow, like, evocative. It starts with a traditional ammo room so you just _know_ you're about to fight a scary boss, and I love the little corridor you have to squeeze through to get to the king - I actually got kinda scared on my way through it to fight the king.
+
+<asciinema-player src="{{ site.baseurl }}/roguelike_king_thing.json" rows="45" cols="90" autoplay="true" loop="true"></asciinema-player>
+
+Favorite parts: the little heart in the congratulations message, and also the `Kings Killed: 0` output in the HUD. So good.
 
 Backing Up A Bit
 ----------------
@@ -69,11 +84,6 @@ What Happened
 Going into the project, I was kinda nervous! What if they got bored or thought the assignment was dumb?
 
 Surprise: they loved it, it was great, definitely one of the best projects of the year. Kids love playing around and making weird stuff. Let me show you some of the stuff they made.
-
-Coin Eater
-----------
-
-blat blot
 
 
 [^1]: I was originally placed in this high school through an organization called [TEALS](https://www.tealsk12.org/), which is accepting applications for the coming school year, so you should apply if this sounds like fun. It _is_ fun!
