@@ -3,7 +3,7 @@ layout: post
 title:  "Getting High Schoolers To Write A Tiny 'Roguelike' In An Intro Python Class"
 ---
 
-I spent the past couple years volunteering in a couple of tech classes at a local high school, primarily in an introductory Python class led by an excellent teacher named Tamara O'Malley. I've written about this a [few](https://blog.jrheard.com/watercolorbot) [times](https://blog.jrheard.com/hypothesis-and-pexpect) [before](https://blog.jrheard.com/truthiness-and-short-circuit-evaluation-in-python). [^1] It was really, really fun, and it still hasn't really sunk in that it's over now.
+I spent the past couple years volunteering in a couple of tech classes at a local high school, primarily in an introductory Python class led by an excellent teacher named Tamara O'Malley. I've written about this a [few](https://blog.jrheard.com/watercolorbot) [times](https://blog.jrheard.com/hypothesis-and-pexpect) [before](https://blog.jrheard.com/truthiness-and-short-circuit-evaluation-in-python).[^1] It was extremely fun, and it still hasn't really sunk in that it's over now.
 
 The students in this Python class were beginners - they had all had some exposure to programming before through block-based languages like [Snap!](https://snap.berkeley.edu/), but none of them had taken AP CS yet, to give you an idea of where they were at experience-wise.
 
