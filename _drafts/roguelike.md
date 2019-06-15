@@ -5,9 +5,9 @@ title:  "Getting High Schoolers To Write A Tiny 'Roguelike' In An Intro Python C
 
 I spent the past couple years volunteering in a couple of tech classes at a local high school, primarily in an introductory Python class led by an excellent teacher named Tamara O'Malley. I've written about this a [few](https://blog.jrheard.com/watercolorbot) [times](https://blog.jrheard.com/hypothesis-and-pexpect) [before](https://blog.jrheard.com/truthiness-and-short-circuit-evaluation-in-python). [^1] It was really, really fun, and it still hasn't really sunk in that it's over now.
 
-Anyway, the students in this Python class were beginners - they had all had some exposure to programming before in block-based languages like [Snap!](https://snap.berkeley.edu/), but none of them had taken AP CS yet, to give you an idea of where they were at experience-wise.
+The students in this Python class were beginners - they had all had some exposure to programming before through block-based languages like [Snap!](https://snap.berkeley.edu/), but none of them had taken AP CS yet, to give you an idea of where they were at experience-wise.
 
-As one of the final projects of the year, we had them write a little roguelike.[^2] We gave them some [starter code](https://repl.it/@jrheard/roguelike) and one of my usual [project writeups](https://blog.jrheard.com/python/roguelike) and turned them loose.
+As one of the final projects of the year, we had them write a little roguelike (a term with many definitions, which here I'm using to mean "a game where you're an `@` sign and you wander around an ASCII art world"). We gave them some [starter code](https://repl.it/@jrheard/roguelike) and one of my usual [project writeups](https://blog.jrheard.com/python/roguelike) and turned them loose.
 
 This is what the starter code does when you run it:
 
@@ -17,9 +17,9 @@ You're the @ sign, you can move around, you can't go through walls. Great game, 
 
 We had the kids start by changing my terrible controls to be WASD-based, which turned out to be a good way for them to get their bearings - this was their first time being dumped into a (tiny) legacy codebase, and having to change the controls forced them to read the code and figure out where the relevant moving parts were.
 
-After that, we walked them through how to add a "[goal space](https://blog.jrheard.com/python/roguelike#adding-a-goal-space)" that ends the game if you get to it, then showed them how to add some [dumb monsters](https://blog.jrheard.com/python/roguelike#implementing-dumb-monsters) that just sit there and don't do anything. Once they had done that, we were like: okay, now make a game!
+After that, we walked them through how to add a [goal space](https://blog.jrheard.com/python/roguelike#adding-a-goal-space) that ends the game if you get to it, then showed them how to add some [dumb monsters](https://blog.jrheard.com/python/roguelike#implementing-dumb-monsters) that just sit there and don't do anything. Once they had done that, we were like: okay, now make a game!
 
-Here's some of the cool stuff they made.
+**Here's some of the cool stuff they made.**
 
 Coin Getter
 ----------
@@ -45,25 +45,41 @@ If you pick up the second health potion, though, your health _decreases_. This p
 
 This game has a little trick to it - the door to the next level is actually the `▐`, but if you get confused and hit the `+` instead, the game insults you in big ASCII art and unceremoniously exits. I love it.
 
-King Of The Thing
+King Of THING
 -----------------
 
-This one's great. The levels are pretty big, so this is going to take up most of your screen, but it's so cool that I couldn't not include it.
-
-You're the `☻`, the `∩`s are harmless barrels that you effortlessly smash through, the `r`s are rats, the `g`s are goblins. You can kill the rats and goblins, but it's hard and you take a lot of damage doing it. If you pick up a `†`, though, now you have a dagger and can wreck 'em easily!
+You're the `☻`, the `∩`s are harmless barrels that you effortlessly smash through, the `r`s are rats, the `g`s are goblins. You can kill the rats and goblins, but it's hard and you take a lot of damage doing it because you start off with really low attack power. If you pick up a `†`, though, now you have a dagger and can wreck 'em easily!
 
 Once you make it to the next level, you can pick up a `✟` (sword) to really boost your damage, and if your HP is low after fighting some goblins you can chug a `✚` (health potion) to heal up. Be careful of the `✠` you'll pass on your way to the next floor of the dungeon - it's a chainsaw, and if you touch it, you'll die!
 
-After that, it's time to fight the big boss himself: you've gotta beat the king and take his crown! I love how this third level is structured, it's so simple but somehow, like, evocative. It starts with a traditional ammo room so you just _know_ you're about to fight a scary boss, and I love the little corridor you have to squeeze through to get to the king - I actually got kinda scared on my way through it to fight the king.
+After that, it's time to fight the big boss himself: you've gotta beat the king and take his crown! I love how this third level is structured, it's so simple but somehow, like, evocative. It starts with a traditional ammo room so you just _know_ you're about to fight a scary boss, and I love the little corridor you have to squeeze through to get to the king - I actually got kinda scared on my way through it. It felt like anything could happen!
 
-<asciinema-player src="{{ site.baseurl }}/roguelike_king_thing.json" rows="45" cols="90" autoplay="true" loop="true"></asciinema-player>
+<asciinema-player src="{{ site.baseurl }}/roguelike_king_thing.json" rows="37" cols="90" autoplay="true" loop="true"></asciinema-player>
 
-Favorite parts: the little heart in the congratulations message, and also the `Kings Killed: 0` output in the HUD. So good.
+Favorite parts: the little heart in the congratulations message, and also the `Kings Killed: 0` part of the interface. So good.
 
-Backing Up A Bit
-----------------
+A-Maze-Ing
+----
 
-This do-whatever-you-want approach was super different from what we had done in previous projects. Before this project, these kids had built:
+Look, I didn't come up with these names, it's not my fault.
+
+<asciinema-player src="{{ site.baseurl }}/roguelike_maze.json" rows="30" cols="90" autoplay="true" loop="true"></asciinema-player>
+
+I think I have RSI now.
+
+Soccer
+------
+
+One kid made the starter code into a soccer game!
+
+You're the `%`, the `$` is the AI enemy player and it chases the ball, the `@` is the ball, and when you kick the ball there's some randomness involved so sometimes you find yourself chasing after it and trying to get there before the AI does.
+
+<asciinema-player src="{{ site.baseurl }}/roguelike_soccer.json" rows="38" cols="90" autoplay="true" loop="true"></asciinema-player>
+
+Other Cool Projects We Did This Year
+------------------------------------
+
+Here are all the other projects I put together for this class, in increasing order of difficulty. They start off assuming basically zero knowledge of Python, and slowly require more and more over time as the students learn about if-statements, loops, lists, etc.
 
 * [mad libs](https://blog.jrheard.com/python/mad-libs)
 * [a guess-my-number game](https://blog.jrheard.com/python/guess-my-number)
@@ -74,22 +90,17 @@ This do-whatever-you-want approach was super different from what we had done in 
 * [tic-tac-toe](https://blog.jrheard.com/python/tic-tac-toe)
 * [blackjack](https://blog.jrheard.com/python/blackjack)
 
-All of these projects (except the generated art one) had a rigorous spec: we gave them some extremely minimal starter code, showed them what the finished program should look like, gave them some hints about how to write it, and that was it - their task was to write a program that implemented the spec.[^3]
-
-For this roguelike thing, there wasn't a spec at all! We had them play a little [Brogue](https://sites.google.com/site/broguegame/) to give them some ideas and then sat back and waited to see what would happen.
-
-What Happened
--------------
-
-Going into the project, I was kinda nervous! What if they got bored or thought the assignment was dumb?
-
-Surprise: they loved it, it was great, definitely one of the best projects of the year. Kids love playing around and making weird stuff. Let me show you some of the stuff they made.
+If you'd like to use these projects in a classroom or for practice on your own, please feel free! Hit me up at jrrrheard@gmail.com if you have questions or want me to review your code, I'd be delighted to hear from you.
 
 
-[^1]: I was originally placed in this high school through an organization called [TEALS](https://www.tealsk12.org/), which is accepting applications for the coming school year, so you should apply if this sounds like fun. It _is_ fun!
+What's Next For Me
+------------------
 
-[^2]: Okay, okay, these games aren't anywhere near sophisticated enough to be called roguelikes, don't @ me. They use ASCII art and the player (usually) explores a dungeon, it's close enough.
+This has been a really great time, but I feel like having a regular job again and having coworkers to hang out with, so I'm joining [Ride Report](https://www.ridereport.com/) as a senior engineer. They offered me the job back in April, and were kind enough to let me finish out the school year before my start date.
 
-[^3]: Don't worry, they were free to experiment and do crazy extensions once they had finished the basic program - some kids implemented complicated betting systems in their blackjack games, that sort of thing.
+I've been looking forward to this for a while, it's going to be fun and I'm going to learn a lot! Down with cars!
+
+
+[^1]: I was originally placed in this high school through an organization called [TEALS](https://www.tealsk12.org/). They're accepting applications for the coming school year, so you should apply if this sounds like fun. It _is_ fun!
 
 {% javascript asciinema-player %}
