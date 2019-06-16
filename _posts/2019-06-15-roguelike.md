@@ -82,7 +82,7 @@ You're the `%`, the `$` is the AI enemy player and it chases the ball, the `@` i
 Other Cool Projects We Did This Year
 ------------------------------------
 
-Here are all the other projects I put together for this class, in increasing order of difficulty. They start off assuming basically zero knowledge of Python, and slowly require more and more over time as the students learn about if-statements, loops, lists, etc.
+Here are all the projects I put together for this class, in increasing order of difficulty. They start off assuming basically zero knowledge of Python, and slowly require more and more over time as the students learn about if-statements, loops, lists, etc.
 
 * [Mad Libs](https://blog.jrheard.com/python/mad-libs)
 * [A guess-my-number game](https://blog.jrheard.com/python/guess-my-number)
@@ -92,6 +92,7 @@ Here are all the other projects I put together for this class, in increasing ord
 * [A Caesar cipher program](https://blog.jrheard.com/python/caesar)
 * [Tic-Tac-Toe with an AI opponent](https://blog.jrheard.com/python/tic-tac-toe)
 * [Blackjack against an AI dealer](https://blog.jrheard.com/python/blackjack)
+* [Roguelike](https://blog.jrheard.com/python/roguelike) ([starter code](https://repl.it/@jrheard/roguelike))
 
 I put a lot of time into these over the course of two years, and I'm really proud of how they turned out. Many many thanks to Tamara for her help and feedback.
 
