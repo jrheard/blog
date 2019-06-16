@@ -5,7 +5,7 @@ title:  "Getting High Schoolers To Write A Tiny 'Roguelike' In An Intro Python C
 
 I spent the past couple years volunteering in a couple of tech classes at a local high school, primarily in an introductory Python class led by an excellent teacher named Tamara O'Malley. I've written about this a [few](https://blog.jrheard.com/watercolorbot) [times](https://blog.jrheard.com/hypothesis-and-pexpect) [before](https://blog.jrheard.com/truthiness-and-short-circuit-evaluation-in-python).[^1] It was extremely fun, and it still hasn't really sunk in that it's over now.
 
-The students in this Python class were beginners - they had all had some exposure to programming before through block-based languages like [Snap!](https://snap.berkeley.edu/), but none of them had taken AP CS yet, to give you an idea of where they were at experience-wise.
+The students in this Python class were beginners - they had all done some programming in block-based languages like [Snap!](https://snap.berkeley.edu/), but none of them had taken AP CS yet, to give you an idea of where they were at experience-wise.
 
 As one of the final projects of the year, we had them write a little roguelike (a term with many definitions, which here I'm using to mean "a game where you're an `@` sign and you wander around an ASCII art world"). We gave them some [starter code](https://repl.it/@jrheard/roguelike) and one of my usual [project writeups](https://blog.jrheard.com/python/roguelike) and turned them loose.
 
@@ -19,7 +19,8 @@ We had the kids start by changing my terrible controls to be WASD-based, which t
 
 After that, we walked them through how to add a [goal space](https://blog.jrheard.com/python/roguelike#adding-a-goal-space) that ends the game if you get to it, then showed them how to add some [dumb monsters](https://blog.jrheard.com/python/roguelike#implementing-dumb-monsters) that just sit there and don't do anything. Once they had done that, we were like: okay, now make a game!
 
-**Here's some of the cool stuff they made.**
+Here's some of the cool stuff they made!
+========================================
 
 Coin Getter
 ----------
@@ -56,7 +57,9 @@ After that, it's time to fight the big boss himself: you've gotta beat the king 
 
 <asciinema-player src="{{ site.baseurl }}/roguelike_king_thing.json" rows="37" cols="90" autoplay="true" loop="true"></asciinema-player>
 
-Favorite parts: the little heart in the congratulations message, and also the `Kings Killed: 0` part of the interface. So good.
+Favorite parts:
+* The little heart in the congratulations message
+* `Kings Killed: 0`
 
 A-Maze-Ing
 ----
@@ -81,14 +84,16 @@ Other Cool Projects We Did This Year
 
 Here are all the other projects I put together for this class, in increasing order of difficulty. They start off assuming basically zero knowledge of Python, and slowly require more and more over time as the students learn about if-statements, loops, lists, etc.
 
-* [mad libs](https://blog.jrheard.com/python/mad-libs)
-* [a guess-my-number game](https://blog.jrheard.com/python/guess-my-number)
-* [generated art with a pen plotter](https://blog.jrheard.com/python/plotter)
-* [a password generator](https://blog.jrheard.com/python/password-generator)
-* [a password strength checker](https://blog.jrheard.com/python/password-checker)
-* [a caesar cipher program](https://blog.jrheard.com/python/caesar)
-* [tic-tac-toe](https://blog.jrheard.com/python/tic-tac-toe)
-* [blackjack](https://blog.jrheard.com/python/blackjack)
+* [Mad Libs](https://blog.jrheard.com/python/mad-libs)
+* [A guess-my-number game](https://blog.jrheard.com/python/guess-my-number)
+* [Generated art with a pen plotter](https://blog.jrheard.com/python/plotter)
+* [A password generator](https://blog.jrheard.com/python/password-generator)
+* [A password strength checker](https://blog.jrheard.com/python/password-checker)
+* [A Caesar cipher program](https://blog.jrheard.com/python/caesar)
+* [Tic-Tac-Toe with an AI opponent](https://blog.jrheard.com/python/tic-tac-toe)
+* [Blackjack against an AI dealer](https://blog.jrheard.com/python/blackjack)
+
+I put a lot of time into these over the course of two years, and I'm really proud of how they turned out. Many many thanks to Tamara for her help and feedback.
 
 If you'd like to use these projects in a classroom or for practice on your own, please feel free! Hit me up at jrrrheard@gmail.com if you have questions or want me to review your code, I'd be delighted to hear from you.
 
@@ -98,7 +103,7 @@ What's Next For Me
 
 This has been a really great time, but I feel like having a regular job again and having coworkers to hang out with, so I'm joining [Ride Report](https://www.ridereport.com/) as a senior engineer. They offered me the job back in April, and were kind enough to let me finish out the school year before my start date.
 
-I've been looking forward to this for a while, it's going to be fun and I'm going to learn a lot! Down with cars!
+I've been looking forward to this for a while, it's going to be fun and I'm going to learn a lot. Down with cars!
 
 
 [^1]: I was originally placed in this high school through an organization called [TEALS](https://www.tealsk12.org/). They're accepting applications for the coming school year, so you should apply if this sounds like fun. It _is_ fun!
