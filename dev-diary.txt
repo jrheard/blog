@@ -225,3 +225,31 @@ i was on jekyll 2 i think last time
 doesn't look like 2->3 broke anything i care about
 
 3->4 changed post_url
+
+ok cool done
+
+let's poke at staging a bit
+
+i want to get the domain working
+
+and then i want a banner and a robots.txt
+
+ok the issue with the blog-staging subdomain is that i was trying to access it at https://
+http was working but i hadn't set up https yet
+
+so i followed the lets encrypt / certbot instructions
+and now have ssl set up on that subdomain!!!! so cool!!!
+
+now i want to set up a robots.txt to noindex my staging site
+
+https://stackoverflow.com/questions/12062766/jekyll-use-config-yml-values-in-the-html
+
+i just went ahead and added one manually in /var/www/html
+rysnc doesn't delete files by default
+just tested an rsync invocation and it left the robots.txt intact
+done!
+
+and i fixed my banner!
+done with that too!
+
+all that's left is cachebusting js!
