@@ -1,18 +1,15 @@
 # Permalinks
 #
-permalink:           /:title
+permalink: /:title
 
 # Setup
-title:               "jrheard's blog"
-url:                 http://blog.jrheard.com
+title: "jrheard's blog"
+url: http://blog.jrheard.com
 
-baseurl:             ''
-
-# trying to diagnose an issue, https://jekyllrb.com/docs/upgrading/2-to-3/ recommends this
-future: true
+baseurl: ''
 
 # Custom vars
-version:             1.0.0
+version: 1.0.0
 
 assets:
   digest: true
@@ -22,6 +19,3 @@ markdown: kramdown
 encoding: utf-8
 gems:
   - jekyll-feed
-exclude:
-  - Gemfile
-  - Gemfile.lock

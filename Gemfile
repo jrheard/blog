@@ -11,16 +11,10 @@ ruby RUBY_VERSION
 # Happy Jekylling!
 gem "jekyll", "~> 4"
 
-# This is the default theme for new Jekyll sites. You may change this to anything you like.
-gem "minima", "~> 2"
-
 gem "base64"
-gem "bigdecimal"
 gem "csv"
-gem "rexml"
 
 # If you have any plugins, put them here!
 group :jekyll_plugins do
    gem "jekyll-feed"
-   #gem "jekyll-paginate"
 end
