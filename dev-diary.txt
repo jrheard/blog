@@ -290,3 +290,5 @@ but when i comment that out, my posts live at urls like https://blog-staging.jrh
 which i don't like
 
 what if i remove the pagination plugin for now?
+
+yeah that fixed it!!
