@@ -254,3 +254,39 @@ done with that too!
 
 all that's left is cachebusting js!
 and i think i'm done with that too!!
+
+what's left?
+
+having nice aliases/commands for building and uploading to staging would be good
+and it can't hurt to try triggering a publish, and make a command for that too
+
+ok i made a couple commands
+and fixed an issue in rake publish re main vs master default branch
+
+and deployed to prod
+
+gonna have to wait a few minutes for prod caching to catch up i think
+
+DONE i'll know the new version is live when my cachebusting system is visibly different in page source
+
+it worked!!!
+
+one really clear lesson i'm learning from all this is that i shouldn't link to external images bc gif sites keep going down!
+
+lol oh shit my blog index is empty
+what's that about??
+
+this talks about "all my posts are gone"
+https://jekyllrb.com/docs/upgrading/2-to-3/
+
+i notice the pagination plugin is saying not to set a permalink
+
+and i have this in _config.yml
+
+permalink:           /:title
+
+but when i comment that out, my posts live at urls like https://blog-staging.jrheard.com/2019/06/15/roguelike.html
+
+which i don't like
+
+what if i remove the pagination plugin for now?

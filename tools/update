@@ -1,0 +1,3 @@
+#!/usr/bin/env fish
+asdf exec bundle clean --force
+asdf exec bundle install

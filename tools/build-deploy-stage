@@ -1,0 +1,3 @@
+#!/usr/bin/env fish
+asdf exec bundle exec jekyll build  --config _config.yml,_config_staging.yml
+rsync -avz --no-t --no-perms /Users/jrheard/Library/CloudStorage/Dropbox/dev/blog/_staging/ jrheard@sandbox:/var/www/html/

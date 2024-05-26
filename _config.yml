@@ -7,13 +7,12 @@ title:               "jrheard's blog"
 url:                 http://blog.jrheard.com
 
 baseurl:             ''
-paginate:            40
+
+# trying to diagnose an issue, https://jekyllrb.com/docs/upgrading/2-to-3/ recommends this
+future: true
 
 # Custom vars
 version:             1.0.0
-
-paginate: 20
-paginate_path: "page:num"
 
 assets:
   digest: true
@@ -23,8 +22,6 @@ markdown: kramdown
 encoding: utf-8
 gems:
   - jekyll-feed
-  - jekyll-paginate
-  - jekyll-assets
 exclude:
   - Gemfile
   - Gemfile.lock
