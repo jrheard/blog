@@ -39,13 +39,13 @@ The Caesar Cipher was one of the earliest ciphers ever invented. In this cipher,
 
 Here's a picture of some letters shifted over by three spaces:
 
-{% img caesar_1.jpg %}
+<img src="{{ site.baseurl }}/assets/img/caesar_1.jpg" />
 
 To get each shifted letter, draw out a row of boxes with each letter of the alphabet. Then draw a second row of boxes under it, but start a certain number (this number is the key) of spaces over. After the letters at the end, **wrap around** back to the start of the boxes.
 
 Here's an example with the letters shifted by three spaces:
 
-{% img caesar_2.png %}
+<img src="{{ site.baseurl }}/assets/img/caesar_2.png" />
 
 **The number of spaces you shift is the key in the Caesar Cipher**. The example above shows the letter translations for the key 3.
 
@@ -91,7 +91,7 @@ This might feel weird at first, but you'll get used to it. Most of the ASCII cod
 
 Here's the full ASCII table from [asciitable.com](http://www.asciitable.com) - don't worry, you don't need to memorize this or anything, I'm just showing it to you in case you find it helpful. I've highlighted the section of the table that concerns the uppercase letters A-Z. **You only care about the "Dec" (decimal) and "Char" (character) columns in this table.**
 
-{% img ascii_table.jpg %}
+<img src="{{ site.baseurl }}/assets/img/ascii_table.jpg" />
 
 That's the whole thing! Notice how e.g. uppercase `J` has the ASCII code 74, and lowercase `j` has the ASCII code 106.
 
@@ -265,9 +265,9 @@ You can do this however you want. Be creative! My solution involved using [this 
 
 If you'd like to figure out how to open a text file in Python and get all the lines out of it, Google around until you find a solution - you can always ask me for help if you get stuck, but I think you'd be surprised how far you can get by just Googling stuff!
 
-{% javascript codemirror %}
-{% javascript codemirror_python %}
-{% javascript codemirror_runmode %}
+<script src="{{ site.baseurl }}/assets/js/codemirror.js"></script>
+<script src="{{ site.baseurl }}/assets/js/codemirror_python.js"></script>
+<script src="{{ site.baseurl }}/assets/js/codemirror_runmode.js"></script>
 
 <script>
 var textAreas = document.getElementsByTagName("textarea");
@@ -289,5 +289,5 @@ window.klipse_settings = {
 	}
 };
 </script>
-{% javascript asciinema-player %}
-{% javascript klipse.min %}
+<script src="{{ site.baseurl }}/assets/js/asciinema-player.js"></script>
+<script src="{{ site.baseurl }}/assets/js/klipse.min.js"></script>

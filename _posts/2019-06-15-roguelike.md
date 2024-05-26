@@ -109,4 +109,4 @@ I've been looking forward to this for a while, it's going to be fun and I'm goin
 
 [^1]: I was originally placed in this high school through an organization called [TEALS](https://www.tealsk12.org/). They're accepting applications for the coming school year, so you should apply if this sounds like fun. It _is_ fun!
 
-{% javascript asciinema-player %}
+<script src="{{ site.baseurl }}/assets/js/asciinema-player.js"></script>

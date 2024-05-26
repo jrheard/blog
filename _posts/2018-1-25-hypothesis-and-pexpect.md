@@ -192,7 +192,7 @@ You should try using [Hypothesis][hypothesis] the next time you're writing tests
 
 
 
-[wcb]: {{site.baseurl}}{% post_url 2017-11-30-watercolorbot %}
+[wcb]: {% post_url 2017-11-30-watercolorbot %}
 [passwords]: {{site.baseurl}}/python/passwords
 [caesar]: {{site.baseurl}}/python/caesar
 [pexpect]: https://github.com/pexpect/pexpect
@@ -204,10 +204,10 @@ You should try using [Hypothesis][hypothesis] the next time you're writing tests
 
 
 
-{% javascript asciinema-player %}
-{% javascript codemirror %}
-{% javascript codemirror_python %}
-{% javascript codemirror_runmode %}
+<script src="{{ site.baseurl }}/assets/js/asciinema-player.js"></script>
+<script src="{{ site.baseurl }}/assets/js/codemirror.js"></script>
+<script src="{{ site.baseurl }}/assets/js/codemirror_python.js"></script>
+<script src="{{ site.baseurl }}/assets/js/codemirror_runmode.js"></script>
 
 
 <script>

@@ -11,7 +11,7 @@ Before we start, I want to spend just a quick second talking about how I think a
 
 Functions are like LEGO blocks.
 
-{% img lego.jpg %}
+<img src="{{ site.baseurl }}/assets/img/lego.jpg" />
 
 A LEGO block is a small, simple thing—but if you put a bunch of those simple blocks together in the right way, you can make the Milennium Falcon, or the Eiffel Tower, or I don't know, a pizza or a dog or something.
 
@@ -244,9 +244,9 @@ Remember to follow this class's [style guide](https://docs.google.com/document/d
 
 
 
-{% javascript codemirror %}
-{% javascript codemirror_python %}
-{% javascript codemirror_runmode %}
+<script src="{{ site.baseurl }}/assets/js/codemirror.js"></script>
+<script src="{{ site.baseurl }}/assets/js/codemirror_python.js"></script>
+<script src="{{ site.baseurl }}/assets/js/codemirror_runmode.js"></script>
 <script>
 var textAreas = document.getElementsByTagName("textarea");
 var pres = document.querySelectorAll("pre.cm-s-friendship-bracelet");
@@ -268,5 +268,5 @@ window.klipse_settings = {
 	}
 };
 </script>
-{% javascript asciinema-player %}
-{% javascript klipse.min %}
+<script src="{{ site.baseurl }}/assets/js/asciinema-player.js"></script>
+<script src="{{ site.baseurl }}/assets/js/klipse.min.js"></script>

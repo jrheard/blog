@@ -178,8 +178,8 @@ Focus the code snippet above and then press Control+Enter a few times to generat
 When looking at generated levels, I often find myself wondering: what exactly happened to make the level turn out this way? I've come up with a little tool that helps answer that question for this particular algorithm. Try dragging this slider around.
 
 <div id="slider-ui"></div>
-{% javascript drunkards-blog %}
-{% javascript seedrandom.min %}
+<script src="{{ site.baseurl }}/assets/js/drunkards-blog.js"></script>
+<script src="{{ site.baseurl }}/assets/js/seedrandom.min.js"></script>
 <script>
 voke.world.visualize.drunkards_blog()
 </script>

@@ -1,0 +1,5 @@
+cachebusting (primarily for js, not a big priority if i'm just writing text for now)
+
+staging:
+    robots.txt noindex just for staging? is that possible? maybe in jekyll config or something?
+    banner at top of staging

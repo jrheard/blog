@@ -4,13 +4,13 @@ title:  "Procedural Dungeon Generation: Cellular Automata"
 klipse: true
 ---
 
-Last time we looked at generating random dungeons for [video games](https://github.com/jrheard/voke) using the [Drunkard's Walk]({{site.baseurl}}{% post_url 2016-10-31-procedural-dungeon-generation-drunkards-walk-in-clojurescript %}) algorithm. The Drunkard's Walk is fun to play with, and often generates cool levels, but it's also pretty unreliable. That's not good enough for my purposes: I want to reliably generate big, open, cave-like maps, with lots of space for fast-moving enemies to swarm and surround the player.
+Last time we looked at generating random dungeons for [video games](https://github.com/jrheard/voke) using the [Drunkard's Walk]({% post_url 2016-10-31-procedural-dungeon-generation-drunkards-walk-in-clojurescript %}) algorithm. The Drunkard's Walk is fun to play with, and often generates cool levels, but it's also pretty unreliable. That's not good enough for my purposes: I want to reliably generate big, open, cave-like maps, with lots of space for fast-moving enemies to swarm and surround the player.
 
 To that end, we'll be using a [cellular automaton](http://natureofcode.com/book/chapter-7-cellular-automata/) to generate levels that look like this:
 
 <div id="cellular-example"></div>
 
-{% javascript cellular-blog %}
+<script src="{{ site.baseurl }}/assets/js/cellular-blog.js"></script>
 <script>
 voke.world.visualize.cellular_example()
 </script>
@@ -296,7 +296,7 @@ This seems like a good stopping point for now, though. We've written some code t
 [^1]: Can we talk about how crazy this is? How many blogs have you ever seen with interactive code snippets like this? [KLIPSE](https://github.com/viebel/klipse/) rules. It's super-easy to use, *and* it can run python, ruby, javascript, plus [other languages too](http://blog.klipse.tech/klipse/2016/09/09/klipse-languages.html). Give it a shot in your blog!
 [^2]: This algorithm will seem very familiar to you if you've ever seen [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life).
 
-{% javascript seedrandom.min %}
+<script src="{{ site.baseurl }}/assets/js/seedrandom.min.js"></script>
 
 <script>
 voke.world.visualize.cellular_tool()

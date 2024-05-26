@@ -1,0 +1,227 @@
+5/25/24
+
+ok god this sucks
+
+so in commit 2040ca73f724474b995e8de47e985366131154fc
+
+i start using this javascript tag
+to try to cachebust i guess
+
+ugh
+
+i'm seriously considering spending the next 2 days rewriting this in python
+i could spend a couple hours tomorrow seeing what the scope of the project is
+could even make gh issues and stuff
+
+i'd have to figure out what the best python templating library is
+and implement cachebusting (should be easy)
+
+and the real test will be to run a whitespace-insensitive diff against the static files
+
+one of the scariest things is that my posts drop between html and markdown back and forth all the time
+
+maybe that's just standard markdown behavior? no clue
+
+i guess i could start with the jobs post and go from there
+
+TODO use poetry instead of pipenv?
+
+===
+
+5/26/24
+
+ok for a bit i was going to start writing a new blog thing from scratch
+
+but let's try one more time to resurrect the old blog first
+i was gonna play around w gh copilot too just for fun/learning
+
+ok
+where to start
+
+i kinda wanna reset everything - wipe the gemfile.lock and set my asdf to ruby 3
+and remove the jekyll assets plugin
+and then try to get the site to build
+
+gonna have to start by converting the javascript liquid tags to something else
+what did i have before that commit?
+
+ok it looks like i had this in my _includes/head.html
+
+	  {% if page.custom_js %}
+		{% for js_file in page.custom_js %}
+		<script src='{{site.baseurl}}/public/js/{{ js_file }}.js' type="text/javascript"></script>
+		{% endfor %}
+	  {% endif %}
+
+and for one-offs i did this
+
+    <script src="{{ site.baseurl}}/public/js/klipse.js"></script>
+
+TODO if i update to jekyll 4 i'll need to update my post_url tags i think
+
+ok i made a lot of progress
+fixed all the jekyll-assets tags to not totally break the build
+now it builds
+
+but i want to play around with it and see the million ways in which links/etc will be broken
+
+i'm trying to rsync the built staging site to my linode
+but i can't get perms set up to write to /var/www/html as jrheard
+i tried adding myself to a group and adding the group to that dir
+but no dice so far
+
+i was able to use setfacl but not chown
+
+oh i think i see
+
+[jrheard@localhost:~] 🚂  sudo ls -ld  /var/www/html
+drwxrwxr-x+ 5 root webadmin 4096 May 26 11:53 /var/www/html
+[jrheard@localhost:~] 🚂  ls -ld  /var/www/html
+drwxrwxr-x+ 5 root 4096 May 26 11:53 /var/www/html
+
+ok whatever
+
+upgrading my linode bc why not
+
+Continue running under SSH?
+
+This session appears to be running under ssh. It is not recommended
+to perform a upgrade over ssh currently because in case of failure it
+is harder to recover.
+
+If you continue, an additional ssh daemon will be started at port
+'1022'.
+Do you want to continue?
+
+Continue [yN] y
+
+Starting additional sshd
+
+To make recovery in case of failure easier, an additional sshd will
+be started on port '1022'. If anything goes wrong with the running
+ssh you can still connect to the additional one.
+If you run a firewall, you may need to temporarily open this port. As
+this is potentially dangerous it's not done automatically. You can
+open the port with e.g.:
+'iptables -I INPUT -p tcp --dport 1022 -j ACCEPT'
+
+To continue please press [ENTER]
+
+
+TODO do i need to set nginx to run automatically at startup?
+
+oh god there's ANOTHER os upgrade i can do
+
+gonna do it again bc i'm a fool
+
+i had just upgraded to focal, now upgrading to jammy
+do i need to upgrade to noble next???
+
+ok guess not
+
+but now i see this when i start tmux
+
+/home/jrheard/.homesick/repos/dotfiles/home/.tmux.conf:34: invalid option: status-attr                                                                                                      [0/0]
+/home/jrheard/.homesick/repos/dotfiles/home/.tmux.conf:37: invalid option: window-status-fg
+/home/jrheard/.homesick/repos/dotfiles/home/.tmux.conf:38: invalid option: window-status-bg
+/home/jrheard/.homesick/repos/dotfiles/home/.tmux.conf:39: invalid option: window-status-attr
+/home/jrheard/.homesick/repos/dotfiles/home/.tmux.conf:42: invalid option: window-status-current-fg
+/home/jrheard/.homesick/repos/dotfiles/home/.tmux.conf:43: invalid option: window-status-current-bg
+/home/jrheard/.homesick/repos/dotfiles/home/.tmux.conf:44: invalid option: window-status-current-attr
+/home/jrheard/.homesick/repos/dotfiles/home/.tmux.conf:47: invalid option: message-fg
+/home/jrheard/.homesick/repos/dotfiles/home/.tmux.conf:48: invalid option: message-bg
+/home/jrheard/.homesick/repos/dotfiles/home/.tmux.conf:49: invalid option: message-attr
+
+do i need to do something special to set up my status bar tmux thingy?
+does it need to be upgraded?
+
+https://github.com/tmux/tmux/issues/1689
+
+ok i messed with status now i get this one
+
+/home/jrheard/.homesick/repos/dotfiles/home/.tmux.conf:35: invalid option: window-status-fg                                                                                                 [0/0]
+/home/jrheard/.homesick/repos/dotfiles/home/.tmux.conf:36: invalid option: window-status-bg
+/home/jrheard/.homesick/repos/dotfiles/home/.tmux.conf:37: invalid option: window-status-attr
+/home/jrheard/.homesick/repos/dotfiles/home/.tmux.conf:40: invalid option: window-status-current-fg
+/home/jrheard/.homesick/repos/dotfiles/home/.tmux.conf:41: invalid option: window-status-current-bg
+/home/jrheard/.homesick/repos/dotfiles/home/.tmux.conf:42: invalid option: window-status-current-attr
+/home/jrheard/.homesick/repos/dotfiles/home/.tmux.conf:45: invalid option: message-fg
+/home/jrheard/.homesick/repos/dotfiles/home/.tmux.conf:46: invalid option: message-bg
+/home/jrheard/.homesick/repos/dotfiles/home/.tmux.conf:47: invalid option: message-attr
+
+
+ok progress i guess
+
+ok made a ton more progress
+
+blog-staging is timing out
+
+http://45.33.63.145/ works
+
+fine
+
+so on staging, http://45.33.63.145/roguelike still doesn't work, needs to be http://45.33.63.145/roguelike.html
+should i just update all my links? or is there some way to get /roguelike to work on both nginx and github pages?
+
+ok sick this works
+
+              try_files $uri $uri.html $uri/ =404;
+
+copilot claims that my gh pages blog will automatically do the same thing
+cool
+
+i also changed my nginx server_name to blog-staging.jrheard.com
+we'll see if that helps anything
+
+ok!!!!
+
+so where are we at now?
+
+i can build my site for staging like this
+
+    asdf exec bundle exec jekyll build  --watch --config _config.yml,_config_staging.yml
+
+i can rsync it to staging like this
+
+    rsync -avz --no-t --no-perms /Users/jrheard/Library/CloudStorage/Dropbox/dev/blog/_staging/ jrheard@sandbox:/var/www/html/
+
+TODO make helpful commands for those things
+someday i need to revisit my dotfiles setup...
+
+ok
+next up, poke around on staging, find broken stuff, fix it
+
+my js links seem to be broken
+
+<script src="/public/js/asciinema-player.js"></script>
+
+i need to replace public/ with assets/ just about everywhere
+
+ok cool
+ran into an issue when rsyncing
+but recursively chmodding /var/www/html to 775 again fixed it
+i think the issue is that the python dir didn't exist when i chmodded that dir in the first place
+
+so i had to chmod the python dir in that dir tree
+
+anyway cool now rsync works
+and the public->assets thing seems to have worked!
+
+ok cool we're getting there
+
+what else?
+
+blog posts are looking good overall
+
+gotta check the python projects and other stuff in the sidebar next
+
+they all look good
+friggin sweet
+
+let's look at https://jekyllrb.com/docs/upgrading/3-to-4/
+
+i was on jekyll 2 i think last time
+
+doesn't look like 2->3 broke anything i care about
+
+3->4 changed post_url

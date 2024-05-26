@@ -309,14 +309,14 @@ num == (5 or 6 or 7)
 
 
 
-[wcb]: {{site.baseurl}}{% post_url 2017-11-30-watercolorbot %}
+[wcb]: {% post_url 2017-11-30-watercolorbot %}
 
 
 
-{% javascript asciinema-player %}
-{% javascript codemirror %}
-{% javascript codemirror_python %}
-{% javascript codemirror_runmode %}
+<script src="{{ site.baseurl }}/assets/js/asciinema-player.js"></script>
+<script src="{{ site.baseurl }}/assets/js/codemirror.js"></script>
+<script src="{{ site.baseurl }}/assets/js/codemirror_python.js"></script>
+<script src="{{ site.baseurl }}/assets/js/codemirror_runmode.js"></script>
 
 
 <script>
@@ -339,4 +339,4 @@ window.klipse_settings = {
 	}
 };
 </script>
-{% javascript klipse.min %}
+<script src="{{ site.baseurl }}/assets/js/klipse.min.js"></script>

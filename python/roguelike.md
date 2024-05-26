@@ -12,7 +12,7 @@ What's A Roguelike?
 
 In the old days, there was a game called [Rogue](https://en.wikipedia.org/wiki/Rogue_(video_game)). It looked like this:
 
-{% img rogue.png alt:"via Wikipedia" %}
+<img src="{{site.baseurl}}/assets/img/rogue.png"  alt="via Wikipedia" />
 
 The player's character is the little yellow smiley face. Wikipedia says:
 
@@ -20,7 +20,7 @@ The player's character is the little yellow smiley face. Wikipedia says:
 
 A lot of the ideas originally found in Rogue have since spread to tons of other video games, and we call those games **roguelikes**. Here's one called Brogue:
 
-{% img Brimstonebattle.png width:800 height:459 %}
+<img src="{{site.baseurl}}/assets/img/Brimstonebattle.png" width="800" height="459" />
 
 Here's a super cool one called Cogmind:
 
@@ -181,9 +181,9 @@ Here's a list of some of my favorite roguelikes (in no particular order):
 
 
 
-{% javascript codemirror %}
-{% javascript codemirror_python %}
-{% javascript codemirror_runmode %}
+<script src="{{ site.baseurl }}/assets/js/codemirror.js"></script>
+<script src="{{ site.baseurl }}/assets/js/codemirror_python.js"></script>
+<script src="{{ site.baseurl }}/assets/js/codemirror_runmode.js"></script>
 
 <script>
 var textAreas = document.getElementsByTagName("textarea");
@@ -205,5 +205,5 @@ window.klipse_settings = {
 	}
 };
 </script>
-{% javascript asciinema-player %}
-{% javascript klipse.min %}
+<script src="{{ site.baseurl }}/assets/js/asciinema-player.js"></script>
+<script src="{{ site.baseurl }}/assets/js/klipse.min.js"></script>

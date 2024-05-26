@@ -3,18 +3,18 @@ layout: post
 title:  "Quinto: Resurrecting an Abandoned Board Game"
 ---
 
-{% stylesheet quinto %}
+<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/quinto.css" />
 
 I played an old board game called Quinto when I was visiting a friend this past Thanksgiving. I developed a strange fixation on the game and wrote a program that lets you play it against a computer opponent. I'd like to show you that program, and also tell you about the tools I used to build it.
 
-I'll start by teaching you how to play the game. Don't worry, there are just like three rules. If you'd like to skip ahead, [here's the game]({{site.baseurl}}/quinto) and [here's the box]({% asset_path quinto.jpg %}).
+I'll start by teaching you how to play the game. Don't worry, there are just like three rules. If you'd like to skip ahead, [here's the game]({{site.baseurl}}/quinto) and [here's the box]({{site.baseurl}}/assets/img/quinto.jpg).
 
 How It's Played
 ==============
 
 Quinto is basically Scrabble, except with numbers instead of letters.
 
-<img src="{% asset_path quinto_board.jpg %}" title="Image credit: Board Game Museum YouTube account" />
+<img src="{{site.baseurl}}/assets/img/quinto_board.jpg" title="Image credit: Board Game Museum YouTube account" />
 
 In Scrabble, your goal is to place several tiles in a row or column, and have them spell a word; you get extra points if your freshly placed tiles contact multiple pre-existing words. Quinto's the same thing, except that instead of trying to make words, **you're trying to make a run of tiles whose sum is a multiple of five**. For example, this move would earn you 20 points.
 
@@ -173,7 +173,7 @@ IntelliJ and Cursive
 
 My favorite feature of Cursive is its REPL integration. Lisp programmers are used to this sort of thing, and often have `comment` blocks in their programs where they stash chunks of code that are useful for debugging. I never understood what that was all about until I tried doing it myself, and now I do this constantly: you just move the cursor over one of those blocks of code, press a keybinding, and you immediately see the result without leaving your editor. It makes for an incredibly tight feedback loop.
 
-Here's what that looks like in action—I recorded this video when I was working on the code featured in my [Drunkard's Walk]({{site.baseurl}}{% post_url 2016-10-31-procedural-dungeon-generation-drunkards-walk-in-clojurescript %}) post.
+Here's what that looks like in action—I recorded this video when I was working on the code featured in my [Drunkard's Walk]({% post_url 2016-10-31-procedural-dungeon-generation-drunkards-walk-in-clojurescript %}) post.
 
 <iframe class="youtube-embed" width="560" height="315" src="https://www.youtube.com/embed/Ilfk_OpXKgc?rel=0&amp;start=1603" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
@@ -237,7 +237,7 @@ Appendix B: Quintus Origin Story
 
 The Quinto box looks like this:
 
-{% img quinto_box.jpg width:286 height:400 %}
+<img src="{{ site.baseurl }}/assets/img/quinto_box.jpg" width="286" height="400" />
 
 Those Roman(?) dudes, combined with the name Quinto, reminded me of Latin class. I took Latin in middle school because my mom heard it would help my SAT scores. My teacher, Mr. Brunner, assigned me the "Latin name" Quintus.
 
@@ -247,11 +247,11 @@ In middle school English, I had a teacher named Rick Riordan. I loved his class.
 
 And so imagine my surprise when I googled Mr. Brunner and learned that he was a character in the book. He's Percy's Latin teacher. Pierce Brosnan plays him in the movie.
 
-{% img brunner_normal.png width:700 height:298 %}
+<img src="{{site.baseurl}}/assets/img/brunner_normal.png" width="700" height="298 />
 
 Except it turns out that Mr. Brunner is actually a centaur in disguise named Chiron.
 
-{% img brunner_centaur.jpg width:467 height:300 %}
+<img src="{{ site.baseurl }}/assets/img/brunner_centaur.jpg" width="467" height="300" />
 
 So that's what I think about when I think about Quinto.
 
@@ -260,5 +260,5 @@ So that's what I think about when I think about Quinto.
 [^3]: The built-in version of `instrument` [does not verify that your `fdef`s' `:ret` type annotations are respected](https://www.reddit.com/r/Clojure/comments/7g4fl0/are_return_types_a_black_eye_for_clojure/dqglxv5/?context=3). [Orchestra](https://github.com/jeaye/orchestra) has a drop-in replacement for `instrument` that solves this problem nicely.
 [^4]: Later on, when I was tracking down a few performance issues, I realized that one of these asserts was getting run in the bottom of a hot loop; moving the assert somewhere less sensitive fixed my performance problem. [Classic](https://thedailywtf.com/articles/The-Speedup-Loop).
 
-{% javascript quinto %}
+<script src="{{ site.baseurl }}/assets/js/quinto.js"></script>
 <script type="text/javascript">quinto.core.main()</script>

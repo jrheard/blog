@@ -10,7 +10,7 @@ What's a pen plotter?
 
 A pen plotter is an electronic gadget that holds a pen and draws stuff with it. The particular pen plotter we'll be using is called an [AxiDraw](http://axidraw.com), and it looks like this:
 
-{% img axidraw.jpg width:720 height:540 %}
+<img src="{{ site.baseurl }}/assets/img/axidraw.jpg" width="720" height="540" />
 
 The basic idea is that the device holds a pen, we put a piece of paper under the pen, and you write a computer program that tells the plotter to move the pen around so that it draws stuff on the piece of paper.
 
@@ -118,11 +118,11 @@ Advanced: Games!
 
 Last year, some students and I figured out [how to write games that can run on a WaterColorBot](https://blog.jrheard.com/watercolorbot#interactivity). Here's the text adventure I wrote:
 
-{% img waterventure.gif %}
+<img src="{{ site.baseurl }}/assets/img/waterventure.gif" />
 
 And here's the Minesweeper game a student wrote:
 
-{% img minesweeper.gif %}
+<img src="{{ site.baseurl }}/assets/img/minesweeper.gif" />
 
 You can do the same thing on an AxiDraw, since it's like a much simpler WaterColorBot!
 
@@ -146,9 +146,9 @@ You're welcome to read [my text adventure's source code](https://github.com/jrhe
 
 
 
-{% javascript codemirror %}
-{% javascript codemirror_python %}
-{% javascript codemirror_runmode %}
+<script src="{{ site.baseurl }}/assets/js/codemirror.js"></script>
+<script src="{{ site.baseurl }}/assets/js/codemirror_python.js"></script>
+<script src="{{ site.baseurl }}/assets/js/codemirror_runmode.js"></script>
 <script>
 var textAreas = document.getElementsByTagName("textarea");
 var pres = document.querySelectorAll("pre.cm-s-friendship-bracelet");

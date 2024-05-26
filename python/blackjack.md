@@ -30,7 +30,7 @@ Representing a Card
 
 Here's what a five of diamonds looks like in real life:
 
-{% img five_of_diamonds.png width:295px height:400px %}
+<img src="{{site.baseurl}}/assets/img/five_of_diamonds.png" width="295px" height="400px" />
 
 Here's what a five of diamonds looks like in a Python program:
 
@@ -236,9 +236,9 @@ Our test program won't be able to handle your program once you've added more fea
 
 
 
-{% javascript codemirror %}
-{% javascript codemirror_python %}
-{% javascript codemirror_runmode %}
+<script src="{{ site.baseurl }}/assets/js/codemirror.js"></script>
+<script src="{{ site.baseurl }}/assets/js/codemirror_python.js"></script>
+<script src="{{ site.baseurl }}/assets/js/codemirror_runmode.js"></script>
 
 <script>
 var textAreas = document.getElementsByTagName("textarea");
@@ -260,5 +260,5 @@ window.klipse_settings = {
 	}
 };
 </script>
-{% javascript asciinema-player %}
-{% javascript klipse.min %}
+<script src="{{ site.baseurl }}/assets/js/asciinema-player.js"></script>
+<script src="{{ site.baseurl }}/assets/js/klipse.min.js"></script>

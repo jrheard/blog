@@ -166,5 +166,5 @@ window.klipse_settings = {
 };
 
 </script>
-{% javascript asciinema-player %}
-{% javascript klipse.min %}
+<script src="{{ site.baseurl }}/assets/js/asciinema-player.js"></script>
+<script src="{{ site.baseurl }}/assets/js/klipse.min.js"></script>

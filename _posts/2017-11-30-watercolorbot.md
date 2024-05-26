@@ -7,7 +7,7 @@ I'm spending the 2017-18 school year volunteering in a few tech classes in a loc
 
 When we started talking about potential projects, Tamara mentioned that she had a [WaterColorBot](http://watercolorbot.com/) that she'd like to have the students use in some way. Here's a picture from its official website:
 
-{% img wcb_pristine.jpg width:720 height:540 %}
+<img src="{{ site.baseurl }}/assets/img/wcb_pristine.jpg" width="720" height="540" />
 
 She'd already had a lot of success using the bot in another intro-to-programming course via a block-based language called [Snap](https://github.com/evil-mad/WaterColorBlocks), but she wasn't sure how to talk to the bot via Python.
 
@@ -44,7 +44,7 @@ Here's one student's program in action:
 
 The library also uses Python's built-in [`turtle`](https://docs.python.org/3.3/library/turtle.html?highlight=turtle) module to show you what your program will do.
 
-{% img wcb_turtle.gif %}
+<img src="{{ site.baseurl }}/assets/img/wcb_turtle.gif" />
 
 This saves users a lot of potential frustration, and also a bunch of paint.
 
@@ -55,19 +55,19 @@ To be honest, this library is a pretty insane way to control the bot. It's needl
 
 As a teaching aid, though, it's been a total success, because it lets students flex their burgeoning Python skills and actually make a real thing in the process! We've been blown away by the stuff our students have created. Here's an N64 logo in seven hundred and fifty hand-crafted lines of Python:
 
-{% img wcb_1.JPG %}
+<img src="{{ site.baseurl }}/assets/img/wcb_1.JPG" />
 
 This clock depicts the time at which the program was run:
 
-{% img wcb_2.JPG %}
+<img src="{{ site.baseurl }}/assets/img/wcb_2.JPG" />
 
 This student drew her image from scratch in Paint or something, using only straight lines and simple curves so it would paint well on the bot, and then translated it into Python:
 
-{% img wcb_3.JPG %}
+<img src="{{ site.baseurl }}/assets/img/wcb_3.JPG" />
 
 And here's a nice windowsill cat.
 
-{% img wcb_4.JPG %}
+<img src="{{ site.baseurl }}/assets/img/wcb_4.JPG" />
 
 These kids haven't yet learned how to use lists/dicts or how to make their own functions, and they're already making cool programs like these!
 
@@ -76,11 +76,11 @@ Interactivity
 
 Once I finished writing the library, I thought it might be fun to use the bot as a "display" for a video game. As a proof of concept, I wrote an embarrassingly basic [text adventure](https://github.com/jrheard/waterventure/blob/master/waterventure.py) that uses the bot as a mini-map, painting in new rooms as you wander around the game world.
 
-{% img waterventure.gif %}
+<img src="{{ site.baseurl }}/assets/img/waterventure.gif" />
 
 My favorite part about it is that once you've beaten the game, you end up with a completed map: a (slightly splotched) physical artifact that serves as proof of your victory.
 
-{% img waterventure.jpg width:740 height:510 %}
+<img src="{{ site.baseurl }}/assets/img/waterventure.jpg" width="740" height="510" />
 
 If you're interested in making a game that runs on a watercoloring robot, here are some design constraints to keep in mind:
 * You've got an _extremely_ finite amount of screen real estate (one page of printer paper)
@@ -89,7 +89,7 @@ If you're interested in making a game that runs on a watercoloring robot, here a
 
 Anyway, I thought the idea of an interactive watercolor program was interesting, so I showed the text adventure to the students. A few of them liked the idea and made their projects interactive too. Here's me losing at one student's Minesweeper:
 
-{% img minesweeper.gif %}
+<img src="{{ site.baseurl }}/assets/img/minesweeper.gif" />
 
 This student has never used a two-dimensional array before, and he wrote a fully-functioning version of Minesweeper that runs on a watercoloring robot.
 
@@ -99,7 +99,7 @@ Drawing text/numbers on the bot is kind of a hassle in general and can make for 
 
 Here's another student's implementation of Go:
 
-{% img go.gif %}
+<img src="{{ site.baseurl }}/assets/img/go.gif" />
 
 We didn't want to stop the game after every move to swap out pens, so his program represents white pieces as squares and black pieces as triangles.
 
