@@ -204,10 +204,10 @@ You should try using [Hypothesis][hypothesis] the next time you're writing tests
 
 
 
-<script src="{{ site.baseurl }}/assets/js/asciinema-player.js"></script>
-<script src="{{ site.baseurl }}/assets/js/codemirror.js"></script>
-<script src="{{ site.baseurl }}/assets/js/codemirror_python.js"></script>
-<script src="{{ site.baseurl }}/assets/js/codemirror_runmode.js"></script>
+<script src="{{ site.baseurl }}/assets/js/asciinema-player.js?v={{ site.time }}"></script>
+<script src="{{ site.baseurl }}/assets/js/codemirror.js?v={{ site.time }}"></script>
+<script src="{{ site.baseurl }}/assets/js/codemirror_python.js?v={{ site.time }}"></script>
+<script src="{{ site.baseurl }}/assets/js/codemirror_runmode.js?v={{ site.time }}"></script>
 
 
 <script>

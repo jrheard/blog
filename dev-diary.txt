@@ -253,3 +253,4 @@ and i fixed my banner!
 done with that too!
 
 all that's left is cachebusting js!
+and i think i'm done with that too!!

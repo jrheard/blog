@@ -236,9 +236,9 @@ Our test program won't be able to handle your program once you've added more fea
 
 
 
-<script src="{{ site.baseurl }}/assets/js/codemirror.js"></script>
-<script src="{{ site.baseurl }}/assets/js/codemirror_python.js"></script>
-<script src="{{ site.baseurl }}/assets/js/codemirror_runmode.js"></script>
+<script src="{{ site.baseurl }}/assets/js/codemirror.js?v={{ site.time }}"></script>
+<script src="{{ site.baseurl }}/assets/js/codemirror_python.js?v={{ site.time }}"></script>
+<script src="{{ site.baseurl }}/assets/js/codemirror_runmode.js?v={{ site.time }}"></script>
 
 <script>
 var textAreas = document.getElementsByTagName("textarea");
@@ -260,5 +260,5 @@ window.klipse_settings = {
 	}
 };
 </script>
-<script src="{{ site.baseurl }}/assets/js/asciinema-player.js"></script>
-<script src="{{ site.baseurl }}/assets/js/klipse.min.js"></script>
+<script src="{{ site.baseurl }}/assets/js/asciinema-player.js?v={{ site.time }}"></script>
+<script src="{{ site.baseurl }}/assets/js/klipse.min.js?v={{ site.time }}"></script>

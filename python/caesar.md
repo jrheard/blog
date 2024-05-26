@@ -265,9 +265,9 @@ You can do this however you want. Be creative! My solution involved using [this 
 
 If you'd like to figure out how to open a text file in Python and get all the lines out of it, Google around until you find a solution - you can always ask me for help if you get stuck, but I think you'd be surprised how far you can get by just Googling stuff!
 
-<script src="{{ site.baseurl }}/assets/js/codemirror.js"></script>
-<script src="{{ site.baseurl }}/assets/js/codemirror_python.js"></script>
-<script src="{{ site.baseurl }}/assets/js/codemirror_runmode.js"></script>
+<script src="{{ site.baseurl }}/assets/js/codemirror.js?v={{ site.time }}"></script>
+<script src="{{ site.baseurl }}/assets/js/codemirror_python.js?v={{ site.time }}"></script>
+<script src="{{ site.baseurl }}/assets/js/codemirror_runmode.js?v={{ site.time }}"></script>
 
 <script>
 var textAreas = document.getElementsByTagName("textarea");
@@ -289,5 +289,5 @@ window.klipse_settings = {
 	}
 };
 </script>
-<script src="{{ site.baseurl }}/assets/js/asciinema-player.js"></script>
-<script src="{{ site.baseurl }}/assets/js/klipse.min.js"></script>
+<script src="{{ site.baseurl }}/assets/js/asciinema-player.js?v={{ site.time }}"></script>
+<script src="{{ site.baseurl }}/assets/js/klipse.min.js?v={{ site.time }}"></script>

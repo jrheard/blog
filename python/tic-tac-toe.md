@@ -244,9 +244,9 @@ Remember to follow this class's [style guide](https://docs.google.com/document/d
 
 
 
-<script src="{{ site.baseurl }}/assets/js/codemirror.js"></script>
-<script src="{{ site.baseurl }}/assets/js/codemirror_python.js"></script>
-<script src="{{ site.baseurl }}/assets/js/codemirror_runmode.js"></script>
+<script src="{{ site.baseurl }}/assets/js/codemirror.js?v={{ site.time }}"></script>
+<script src="{{ site.baseurl }}/assets/js/codemirror_python.js?v={{ site.time }}"></script>
+<script src="{{ site.baseurl }}/assets/js/codemirror_runmode.js?v={{ site.time }}"></script>
 <script>
 var textAreas = document.getElementsByTagName("textarea");
 var pres = document.querySelectorAll("pre.cm-s-friendship-bracelet");
@@ -268,5 +268,5 @@ window.klipse_settings = {
 	}
 };
 </script>
-<script src="{{ site.baseurl }}/assets/js/asciinema-player.js"></script>
-<script src="{{ site.baseurl }}/assets/js/klipse.min.js"></script>
+<script src="{{ site.baseurl }}/assets/js/asciinema-player.js?v={{ site.time }}"></script>
+<script src="{{ site.baseurl }}/assets/js/klipse.min.js?v={{ site.time }}"></script>

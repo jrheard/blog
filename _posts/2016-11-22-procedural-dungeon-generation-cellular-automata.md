@@ -10,7 +10,7 @@ To that end, we'll be using a [cellular automaton](http://natureofcode.com/book/
 
 <div id="cellular-example"></div>
 
-<script src="{{ site.baseurl }}/assets/js/cellular-blog.js"></script>
+<script src="{{ site.baseurl }}/assets/js/cellular-blog.js?v={{ site.time }}"></script>
 <script>
 voke.world.visualize.cellular_example()
 </script>
@@ -296,7 +296,7 @@ This seems like a good stopping point for now, though. We've written some code t
 [^1]: Can we talk about how crazy this is? How many blogs have you ever seen with interactive code snippets like this? [KLIPSE](https://github.com/viebel/klipse/) rules. It's super-easy to use, *and* it can run python, ruby, javascript, plus [other languages too](http://blog.klipse.tech/klipse/2016/09/09/klipse-languages.html). Give it a shot in your blog!
 [^2]: This algorithm will seem very familiar to you if you've ever seen [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life).
 
-<script src="{{ site.baseurl }}/assets/js/seedrandom.min.js"></script>
+<script src="{{ site.baseurl }}/assets/js/seedrandom.min.js?v={{ site.time }}"></script>
 
 <script>
 voke.world.visualize.cellular_tool()

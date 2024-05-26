@@ -86,5 +86,5 @@ window.klipse_settings = {
 };
 
 </script>
-<script src="{{ site.baseurl }}/assets/js/asciinema-player.js"></script>
-<script src="{{ site.baseurl }}/assets/js/klipse.min.js"></script>
+<script src="{{ site.baseurl }}/assets/js/asciinema-player.js?v={{ site.time }}"></script>
+<script src="{{ site.baseurl }}/assets/js/klipse.min.js?v={{ site.time }}"></script>

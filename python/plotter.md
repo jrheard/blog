@@ -146,9 +146,9 @@ You're welcome to read [my text adventure's source code](https://github.com/jrhe
 
 
 
-<script src="{{ site.baseurl }}/assets/js/codemirror.js"></script>
-<script src="{{ site.baseurl }}/assets/js/codemirror_python.js"></script>
-<script src="{{ site.baseurl }}/assets/js/codemirror_runmode.js"></script>
+<script src="{{ site.baseurl }}/assets/js/codemirror.js?v={{ site.time }}"></script>
+<script src="{{ site.baseurl }}/assets/js/codemirror_python.js?v={{ site.time }}"></script>
+<script src="{{ site.baseurl }}/assets/js/codemirror_runmode.js?v={{ site.time }}"></script>
 <script>
 var textAreas = document.getElementsByTagName("textarea");
 var pres = document.querySelectorAll("pre.cm-s-friendship-bracelet");

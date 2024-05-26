@@ -260,5 +260,5 @@ So that's what I think about when I think about Quinto.
 [^3]: The built-in version of `instrument` [does not verify that your `fdef`s' `:ret` type annotations are respected](https://www.reddit.com/r/Clojure/comments/7g4fl0/are_return_types_a_black_eye_for_clojure/dqglxv5/?context=3). [Orchestra](https://github.com/jeaye/orchestra) has a drop-in replacement for `instrument` that solves this problem nicely.
 [^4]: Later on, when I was tracking down a few performance issues, I realized that one of these asserts was getting run in the bottom of a hot loop; moving the assert somewhere less sensitive fixed my performance problem. [Classic](https://thedailywtf.com/articles/The-Speedup-Loop).
 
-<script src="{{ site.baseurl }}/assets/js/quinto.js"></script>
+<script src="{{ site.baseurl }}/assets/js/quinto.js?v={{ site.time }}"></script>
 <script type="text/javascript">quinto.core.main()</script>
