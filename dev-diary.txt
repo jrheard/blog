@@ -292,3 +292,37 @@ which i don't like
 what if i remove the pagination plugin for now?
 
 yeah that fixed it!!
+
+ok cool
+
+i'm still curious about what a python blog generator could look like though
+the main open question rn is markdown parsing
+my jekyll blog uses kramdown
+which is a superset of markdown?
+do i need a python lib to do that too? are those available?
+what is kramdown?
+
+so far i can't see anything in kramdown that i need that isn't in markdown
+i want to do a side by side comparison of kramdown parsing vs python lib parsing on one of my posts' markdown
+first i have to pick a python lib
+
+looks like there are four options
+mistletoe
+marko
+markdown
+mistune
+
+marko has no stars to speak of
+mistletoe low stars
+markdown and mistune decent stars
+
+i'm inclined to go with markdown, it's old but still getting frequent updates
+
+ok the kramdown ruby lib is doing some weird selective escaping of certain characters
+and i can't figure out how to get it to stop
+so that makes doing a diff a bit difficult
+but it looks like it generates the same output as the python markdown lib overall
+which is interesting!!
+
+so i think if i wanted to, i could write a python blog app after all :)
+we'll see!!!
