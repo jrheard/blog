@@ -380,3 +380,8 @@ that worked :)
 ok that doesn't have anything to do with the blog but whatever
 it was helpful to take notes somewhere
 ok gonna poke at frankly now
+
+nvm actually
+i played around with setting the repo up for a few hours and that was fun
+but the idea of reimplementing jekyll actually sounds a lot less fun now that i know it's a waste of time
+so nvm!
