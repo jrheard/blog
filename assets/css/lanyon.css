@@ -480,7 +480,7 @@ a.button {
 	color:#ffffff !important;
 	font-family:Courier New;
 	font-size:15px;
--webkit-user-select: none; /* Chrome/Safari */        
+-webkit-user-select: none; /* Chrome/Safari */
 -moz-user-select: none; /* Firefox */
 -ms-user-select: none;
 	padding:11px 23px;

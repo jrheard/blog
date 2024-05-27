@@ -301,4 +301,3 @@ This seems like a good stopping point for now, though. We've written some code t
 <script>
 voke.world.visualize.cellular_tool()
 </script>
-

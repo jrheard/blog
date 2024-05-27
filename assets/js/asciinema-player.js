@@ -1210,4 +1210,3 @@ B(c);a=null!=a&&(a.m&64||q===a.G)?P(U,a):a;a=D.c(a,Gl);return wy(a)}}(b,c,a)],nu
 })();
 
 //# sourceMappingURL=asciinema-player.js.map
-
