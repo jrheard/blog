@@ -1,18 +1,7 @@
-# Permalinks
-#
-permalink: /:title
-
-# Setup
 title: "jrheard's blog"
 url: http://blog.jrheard.com
-
 baseurl: ''
-
-# Custom vars
-version: 1.0.0
-
-assets:
-  digest: true
+permalink: /:title
 
 # Build settings
 markdown: kramdown

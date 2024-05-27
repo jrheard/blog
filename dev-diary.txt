@@ -326,3 +326,57 @@ which is interesting!!
 
 so i think if i wanted to, i could write a python blog app after all :)
 we'll see!!!
+
+now i'm wishing i didn't trash that TODO file
+did i keep it on another branch?
+
+yes i did!
+here's what it had:
+
+	jotting down some features so i don't forget them
+	    * cache busting
+	    * there are a bunch of assorted files at the root dir of the git repo, they seem to get moved to the output dir wholesale -
+			i'll prob want to put these in a different dir in the git repo for sanity?
+	    * drafts
+	    * staging site gets draft, live site doesn't
+	    * theme - just unapologetically steal lanyon html+css(+js? is there any?) with credit
+	    * rss feed
+	    * switching back and forth between markdown and html - apparently i use kramdown? does regular markdown do this? is there a kra
+	down equivalent for python?
+
+	other stuff
+	    * gh actions for tests + mypy
+	    * mypy vscode extension
+	    * dependabot?
+	    * poetry?
+		* precommit?
+		* pydantic? not sure what i'd even be validating but worth keeping in mind i guess
+		* pytest or unittest? prob unittest for the sake of time, could always convert later to see what that's like
+	    * what else?
+
+===
+
+5/27
+
+cool cool
+
+so in all the upgrades yesterday my taskwarrior on my linode got upgraded to 2.6.1
+but my taskwarrior on my rpi is 2.5.1
+and they disagree with what to show when running task on the same data dir
+so i'm trying to build and install taskwarrior 2.6.1 on my rpi
+
+first i'm going through the INSTALL file and installing all the deps it lists
+DONE gotta uninstall taskwarrior 2.5.1 via apt
+
+  $ tar xzf task-X.Y.Z.tar.gz                   [1]
+  $ cd task-X.Y.Z                               [2]
+  $ cmake -DCMAKE_BUILD_TYPE=release .          [3]
+  $ make                                        [4]
+  $ sudo make install                           [5]
+  $ cd .. ; rm -r task-X.Y.Z                    [6]
+
+that worked :)
+
+ok that doesn't have anything to do with the blog but whatever
+it was helpful to take notes somewhere
+ok gonna poke at frankly now
