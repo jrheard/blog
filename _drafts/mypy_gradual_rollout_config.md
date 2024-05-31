@@ -6,7 +6,7 @@ klipse: false
 
 I'm going to be introducing [mypy](https://mypy-lang.org/) at work soon. My plan is to start small with my immediate team and then grow adoption from there. I did this about five years ago at my last job and it went pretty well, and I've been putting some thought into what I'll do differently this time. I'll leave some notes on that at the end of this post.
 
-Anyway: one great thing about mypy is that you can introduce it **gradually**. You don't have to annotate your **entire** codebase 100% perfectly before you can start to use mypy; instead, you can just point it at a few files or directories to start off, and then slowly let it start to see more and more files/directories over time.
+One great thing about mypy is that you can introduce it **gradually**. You don't have to annotate your **entire** codebase 100% perfectly before you can start to use mypy - instead you can just point it at a few files or directories to start off, and then slowly allow it to see more and more files/directories over time.
 
 That's exactly how I did it at my last job, but when I sat down to set mypy up again this time, I realized that I had completely forgotten how to configure it to behave the way I wanted. It took me a few hours of flailing around to figure out what I'd done last time, so that's why I'm writing this post. Hopefully this helps someone else.
 
