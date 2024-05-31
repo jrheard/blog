@@ -61,6 +61,11 @@ There's still some code at the edges that turns the filesystem into those dicts 
 
 This is the same thing as ["functional core, imperative shell"](https://www.destroyallsoftware.com/screencasts/catalog/functional-core-imperative-shell)[^2], which is the idea that the bulk of your program should be pure functions with a thin layer at the edges for actually interacting with the real world. I'll write more about this in the future too, but long story short, I think that this is a very good idea.
 
+TODO dependency inversion
+
+couple quotes
+
+conclusion
 
 
 

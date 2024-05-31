@@ -9,6 +9,10 @@ title: Home
   {% for post in site.posts %}
   <div class="post-listing">
     <a class="post-link" href="{{ site.baseurl }}{{ post.url }}">
+      {% if post.draft %}
+      DRAFT:
+      {% endif %}
+      <!-- TODO mark draft automatically?-->
       {{ post.title }}
     </a>
 
