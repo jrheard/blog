@@ -247,7 +247,7 @@ In middle school English, I had a teacher named Rick Riordan. I loved his class.
 
 And so imagine my surprise when I googled Mr. Brunner and learned that he was a character in the book. He's Percy's Latin teacher. Pierce Brosnan plays him in the movie.
 
-<img src="{{site.baseurl}}/assets/img/brunner_normal.png" width="700" height="298 />
+<img src="{{ site.baseurl }}/assets/img/brunner_normal.png" width="700" height="298" />
 
 Except it turns out that Mr. Brunner is actually a centaur in disguise named Chiron.
 
