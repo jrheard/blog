@@ -1,6 +1,7 @@
 ---
 layout: page
 title:  "Madison CS 3-4: Guess My Number"
+python_snippets: true
 ---
 
 In this project, you'll write a guess-my-number game. When you're done, it'll look something like this:
@@ -86,5 +87,6 @@ window.klipse_settings = {
 };
 
 </script>
-<script src="{{ site.baseurl }}/assets/js/asciinema-player.js?v={{ site.time }}"></script>
 <script src="{{ site.baseurl }}/assets/js/klipse.min.js?v={{ site.time }}"></script>
+
+<script src="{{ site.baseurl }}/assets/js/asciinema-player.js?v={{ site.time }}"></script>

@@ -1,6 +1,7 @@
 ---
 layout: page
 title:  "Madison CS 3-4: Password Generator"
+python_snippets: true
 ---
 
 For this project, you'll write a program that prints a randomly generated password like "Fj3io19aA" to the screen and then exits. Every time you run the program, it'll print out a different password, like this:
@@ -96,17 +97,5 @@ Notes
 
 [starter-code]: {{site.baseurl}}/python/password_generator_starter_code.py
 
-<script>
-window.klipse_settings = {
-	selector_eval_python_client: '.py',
-	codemirror_options_in: {
-		theme: "friendship-bracelet"
-	},
-	codemirror_options_out: {
-		theme: "friendship-bracelet"
-	}
-};
 
-</script>
 <script src="{{ site.baseurl }}/assets/js/asciinema-player.js?v={{ site.time }}"></script>
-<script src="{{ site.baseurl }}/assets/js/klipse.min.js?v={{ site.time }}"></script>

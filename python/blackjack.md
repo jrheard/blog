@@ -224,3 +224,5 @@ In real life, Blackjack can be much more complicated than the version we've buil
 Our test program won't be able to handle your program once you've added more features to it, so be sure to submit your finished Blackjack program **before** adding new features to it. Once you've submitted the simple version of the program, we'll have a saved copy of it and you can go ahead and add more features to it.
 
 [starter-code]: {{site.baseurl}}/python/blackjack_starter_code.py
+
+<script src="{{ site.baseurl }}/assets/js/asciinema-player.js?v={{ site.time }}"></script>

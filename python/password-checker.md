@@ -1,6 +1,7 @@
 ---
 layout: page
 title:  "Madison CS 3-4: Password Checker"
+python_snippets: true
 ---
 
 In a previous project, we wrote a [password generator]({{site.baseurl}}/python/password-generator). Our generator created random passwords that met the PPS standard, which is: passwords should be **at least 8 characters long, and they should include at least 3 of these 4 categories: number, uppercase letter, lowercase letter, symbol.**
@@ -154,17 +155,4 @@ The part about descriptive variable names is really important! For instance:
 
 [starter-code]: {{site.baseurl}}/python/password_checker_starter_code.py
 
-<script>
-window.klipse_settings = {
-	selector_eval_python_client: '.py',
-	codemirror_options_in: {
-		theme: "friendship-bracelet"
-	},
-	codemirror_options_out: {
-		theme: "friendship-bracelet"
-	}
-};
-
-</script>
 <script src="{{ site.baseurl }}/assets/js/asciinema-player.js?v={{ site.time }}"></script>
-<script src="{{ site.baseurl }}/assets/js/klipse.min.js?v={{ site.time }}"></script>
