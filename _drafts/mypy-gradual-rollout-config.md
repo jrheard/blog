@@ -4,6 +4,8 @@ title:  "Configuring Mypy and VS Code for Gradual Adoption in a Preexisting Code
 klipse: false
 ---
 
+TODO rewrite this to compare+contrast the rollout approaches for mypy vs pyright; point out that you can also do the pyright approach with mypy, but you can't do the thing i wanted to do with mypy with pyright; say something along the lines of "this exposes my plan to the whole org immediately; sure hope they like it!" - or don't say that i guess
+
 I'm going to be introducing [mypy](https://mypy-lang.org/) at work soon. My plan is to start small with my immediate team and then grow adoption from there. I did this about five years ago at my last job and it went pretty well, and I've been putting some thought into what I'll do differently this time. I'll leave some notes on that at the end of this post.
 
 One great thing about mypy is that you can introduce it **gradually**. You don't have to annotate your **entire** codebase 100% perfectly before you can start to use mypy - instead you can just point it at a few files or directories to start off, and then slowly allow it to see more and more files/directories over time.
