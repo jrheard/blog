@@ -1,7 +1,6 @@
 ---
 layout: post
 title:  "Configuring Mypy and VS Code for Gradual Adoption in a Preexisting Codebase"
-klipse: false
 ---
 
 TODO rewrite this to compare+contrast the rollout approaches for mypy vs pyright; point out that you can also do the pyright approach with mypy, but you can't do the thing i wanted to do with mypy with pyright; say something along the lines of "this exposes my plan to the whole org immediately; sure hope they like it!" - or don't say that i guess

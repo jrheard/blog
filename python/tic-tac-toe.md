@@ -1,6 +1,7 @@
 ---
 layout: page
 title:  "Madison CS 3-4: Tic-Tac-Toe"
+python_snippets: true
 ---
 
 In this project, you'll write a program that lets you play a game of tic-tac-toe against a computer opponent.
@@ -243,30 +244,4 @@ Remember to follow this class's [style guide](https://docs.google.com/document/d
 [starter-code]: {{site.baseurl}}/python/tictactoe_starter_code.py
 
 
-
-<script src="{{ site.baseurl }}/assets/js/codemirror.js?v={{ site.time }}"></script>
-<script src="{{ site.baseurl }}/assets/js/codemirror_python.js?v={{ site.time }}"></script>
-<script src="{{ site.baseurl }}/assets/js/codemirror_runmode.js?v={{ site.time }}"></script>
-<script>
-var textAreas = document.getElementsByTagName("textarea");
-var pres = document.querySelectorAll("pre.cm-s-friendship-bracelet");
-
-for (var i = 0; i < textAreas.length; i++) {
-	CodeMirror.runMode(textAreas[i].value, "python", pres[i]);
-}
-</script>
-
-
-<script>
-window.klipse_settings = {
-	selector_eval_python_client: '.py',
-	codemirror_options_in: {
-		theme: "friendship-bracelet"
-	},
-	codemirror_options_out: {
-		theme: "friendship-bracelet"
-	}
-};
-</script>
 <script src="{{ site.baseurl }}/assets/js/asciinema-player.js?v={{ site.time }}"></script>
-<script src="{{ site.baseurl }}/assets/js/klipse.min.js?v={{ site.time }}"></script>

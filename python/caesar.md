@@ -1,6 +1,7 @@
 ---
 layout: page
 title:  "Madison CS 3-4: Caesar Cipher"
+python_snippets: true
 ---
 
 In this project, you'll write a program that takes a **plaintext** sentence like `THE WEATHER IS NICE TODAY` and converts it to a **ciphertext** sentence like `GUR JRNGURE VF AVPR GBQNL`. The program can also convert ciphertext *back* to plaintext, when given the right **key**.
@@ -264,30 +265,3 @@ This is my favorite one: enhance your program's "brute force" mode so that it ca
 You can do this however you want. Be creative! My solution involved using [this text file](https://svnweb.freebsd.org/csrg/share/dict/words?revision=61569&view=co), which is a list of all of the English words in the 1934 edition of Webster's Second International Dictionary.
 
 If you'd like to figure out how to open a text file in Python and get all the lines out of it, Google around until you find a solution - you can always ask me for help if you get stuck, but I think you'd be surprised how far you can get by just Googling stuff!
-
-<script src="{{ site.baseurl }}/assets/js/codemirror.js?v={{ site.time }}"></script>
-<script src="{{ site.baseurl }}/assets/js/codemirror_python.js?v={{ site.time }}"></script>
-<script src="{{ site.baseurl }}/assets/js/codemirror_runmode.js?v={{ site.time }}"></script>
-
-<script>
-var textAreas = document.getElementsByTagName("textarea");
-var pres = document.querySelectorAll("pre.cm-s-friendship-bracelet");
-
-for (var i = 0; i < textAreas.length; i++) {
-	CodeMirror.runMode(textAreas[i].value, "python", pres[i]);
-}
-</script>
-
-<script>
-window.klipse_settings = {
-	selector_eval_python_client: '.py',
-	codemirror_options_in: {
-		theme: "friendship-bracelet"
-	},
-	codemirror_options_out: {
-		theme: "friendship-bracelet"
-	}
-};
-</script>
-<script src="{{ site.baseurl }}/assets/js/asciinema-player.js?v={{ site.time }}"></script>
-<script src="{{ site.baseurl }}/assets/js/klipse.min.js?v={{ site.time }}"></script>

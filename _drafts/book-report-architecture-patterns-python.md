@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Book Report: Architecture Patterns with Python"
-klipse: false
+python_snippets: true
 ---
 
 I recently read [Architecture Patterns with Python](https://www.cosmicpython.com/). The book's primary focus is on how to structure programs so that they stay simple and maintainable as they grow: that's my specific favorite programming topic, so of course I liked it. I'm probably not going to use the exact techniques that the authors recommend in this book, but they discussed some cool ideas that reminded me of things I've run into at past jobs, and the book's [available to read for free online](https://www.cosmicpython.com/book/preface.html), so what's not to like?
@@ -93,30 +93,3 @@ This book was pretty decent, I'd give it 3.5 stars. I'm not going to go write an
 [^1]: I have Scott Wlaschin's "Domain Modeling Made Functional" on my desk, and am hoping that that book'll be the one that finally makes DDD click for me. I love his talks on YouTube, I need to go back and watch them all. Brilliant guy.
 
 [^2]: Oh my gosh, I just found out as I was writing this that Scott Wlaschin just [gave a talk on this exact topic](https://www.youtube.com/watch?v=P1vES9AgfC4)! Added it to my watchlist!
-
-
-<!-- TODO turn this into something i can just include-->
-<!-- TODO can i make, like, a directive out of this textarea/pre thing? -->
-
-<script src="{{ site.baseurl }}/assets/js/codemirror.js?v={{ site.time }}"></script>
-<script src="{{ site.baseurl }}/assets/js/codemirror_python.js?v={{ site.time }}"></script>
-<script src="{{ site.baseurl }}/assets/js/codemirror_runmode.js?v={{ site.time }}"></script>
-<script>
-var textAreas = document.getElementsByTagName("textarea");
-var pres = document.querySelectorAll("pre.cm-s-friendship-bracelet");
-
-for (var i = 0; i < textAreas.length; i++) {
-	CodeMirror.runMode(textAreas[i].value, "python", pres[i]);
-}
-
-window.klipse_settings = {
-	selector_eval_python_client: '.py',
-	codemirror_options_in: {
-		theme: "friendship-bracelet"
-	},
-	codemirror_options_out: {
-		theme: "friendship-bracelet"
-	}
-};
-</script>
-<script src="{{ site.baseurl }}/assets/js/klipse.min.js?v={{ site.time }}"></script>

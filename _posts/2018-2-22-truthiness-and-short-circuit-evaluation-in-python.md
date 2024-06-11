@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Truthiness and Short-Circuit Evaluation in Python"
+python_snippets: true
 ---
 
 <style>
@@ -310,33 +311,3 @@ num == (5 or 6 or 7)
 
 
 [wcb]: {% post_url 2017-11-30-watercolorbot %}
-
-
-
-<script src="{{ site.baseurl }}/assets/js/asciinema-player.js?v={{ site.time }}"></script>
-<script src="{{ site.baseurl }}/assets/js/codemirror.js?v={{ site.time }}"></script>
-<script src="{{ site.baseurl }}/assets/js/codemirror_python.js?v={{ site.time }}"></script>
-<script src="{{ site.baseurl }}/assets/js/codemirror_runmode.js?v={{ site.time }}"></script>
-
-
-<script>
-var textAreas = document.getElementsByTagName("textarea");
-var pres = document.querySelectorAll("pre.cm-s-friendship-bracelet");
-
-for (var i = 0; i < textAreas.length; i++) {
-	CodeMirror.runMode(textAreas[i].value, "python", pres[i]);
-}
-</script>
-
-<script>
-window.klipse_settings = {
-	selector_eval_python_client: '.py',
-	codemirror_options_in: {
-		theme: "friendship-bracelet"
-	},
-	codemirror_options_out: {
-		theme: "friendship-bracelet"
-	}
-};
-</script>
-<script src="{{ site.baseurl }}/assets/js/klipse.min.js?v={{ site.time }}"></script>

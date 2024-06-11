@@ -10,14 +10,14 @@ layout: default
 
 
 <div class="message">
-	{% if page.klipse %}
+	{% if page.cljs_klipse %}
 	<p>The snippets on this page are powered by <a href="https://github.com/viebel/klipse">KLIPSE</a>.</p>
 	{% endif %}
 	<p>If you've found an error or have a suggestion, please open an issue or pull request on <a
 			href="https://github.com/jrheard/blog">GitHub</a>.</p>
 </div>
 
-{% if page.klipse %}
+{% if page.cljs_klipse %}
 <script>
 	window.klipse_settings = {
 		selector: '.cljs',
@@ -31,4 +31,28 @@ layout: default
 	};
 </script>
 <script src="{{ site.baseurl }}/assets/js/klipse.js?v={{ site.time }}"></script>
+{% elsif page.python_snippets %}
+<script src="{{ site.baseurl }}/assets/js/codemirror.js?v={{ site.time }}"></script>
+<script src="{{ site.baseurl }}/assets/js/codemirror_python.js?v={{ site.time }}"></script>
+<script src="{{ site.baseurl }}/assets/js/codemirror_runmode.js?v={{ site.time }}"></script>
+<script>
+	var textAreas = document.getElementsByTagName("textarea");
+	var pres = document.querySelectorAll("pre.cm-s-friendship-bracelet");
+
+	for (var i = 0; i < textAreas.length; i++) {
+		CodeMirror.runMode(textAreas[i].value, "python", pres[i]);
+	}
+
+	window.klipse_settings = {
+		selector_eval_python_client: '.py',
+		codemirror_options_in: {
+			theme: "friendship-bracelet"
+		},
+		codemirror_options_out: {
+			theme: "friendship-bracelet"
+		}
+	};
+</script>
+<script src="{{ site.baseurl }}/assets/js/klipse.min.js?v={{ site.time }}"></script>
+
 {% endif %}

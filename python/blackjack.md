@@ -1,6 +1,7 @@
 ---
 layout: page
 title:  "Madison CS 3-4: Blackjack"
+python_snippets: true
 ---
 
 In this project, you'll write a Python program that lets a user play Blackjack.
@@ -223,42 +224,3 @@ In real life, Blackjack can be much more complicated than the version we've buil
 Our test program won't be able to handle your program once you've added more features to it, so be sure to submit your finished Blackjack program **before** adding new features to it. Once you've submitted the simple version of the program, we'll have a saved copy of it and you can go ahead and add more features to it.
 
 [starter-code]: {{site.baseurl}}/python/blackjack_starter_code.py
-
-
-
-
-
-
-
-
-
-
-
-
-
-<script src="{{ site.baseurl }}/assets/js/codemirror.js?v={{ site.time }}"></script>
-<script src="{{ site.baseurl }}/assets/js/codemirror_python.js?v={{ site.time }}"></script>
-<script src="{{ site.baseurl }}/assets/js/codemirror_runmode.js?v={{ site.time }}"></script>
-
-<script>
-var textAreas = document.getElementsByTagName("textarea");
-var pres = document.querySelectorAll("pre.cm-s-friendship-bracelet");
-
-for (var i = 0; i < textAreas.length; i++) {
-	CodeMirror.runMode(textAreas[i].value, "python", pres[i]);
-}
-</script>
-
-<script>
-window.klipse_settings = {
-	selector_eval_python_client: '.py',
-	codemirror_options_in: {
-		theme: "friendship-bracelet"
-	},
-	codemirror_options_out: {
-		theme: "friendship-bracelet"
-	}
-};
-</script>
-<script src="{{ site.baseurl }}/assets/js/asciinema-player.js?v={{ site.time }}"></script>
-<script src="{{ site.baseurl }}/assets/js/klipse.min.js?v={{ site.time }}"></script>

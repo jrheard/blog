@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Procedural Dungeon Generation: A Drunkard's Walk in ClojureScript"
-klipse: true
+cljs_klipse: true
 ---
 
 <style>
