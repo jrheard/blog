@@ -38,7 +38,7 @@ This brings us to our next topic, which is extremely related:
 
 ## Dependency Inversion Principle
 
-This term was new to me, and is my favorite idea from the whole book. It's easiest to explain by contrast to the previous example. Most of the codebases I've worked in have used models like this as their core primitives:
+This term was new to me, and is my favorite idea from the whole book. It's easiest to explain by contrast to the previous example. Most of the codebases I've worked in have used models like this as their core primitives instead of going with the approach you saw above:
 
 <textarea class="hidden">
 class OrderLine(ORMBaseClass):
@@ -48,7 +48,7 @@ class OrderLine(ORMBaseClass):
 </textarea>
 <pre class="cm-s-friendship-bracelet"></pre>
 
-In a system like this, the vast majority of your code operates directly on these database-focused models, which makes it a lot harder to reliably write pure functions. Instead, you tend to end up with code that's littered with lots of little reads+writes to the database. Code written this way is hard to unit test (because you have to patch out all of those database interactions), and tends to grow in complexity over time as maintainers add more and more little reads and writes, because what's the harm in just one more?
+In a system like this, the vast majority of your code operates directly on these database-focused models, which makes it a lot harder to reliably write pure functions. Instead, you tend to end up with code that's littered with lots of little reads+writes to the database. Code written this way is hard to unit test (because you have to patch out all of those database interactions), and it tends to grow in complexity over time as maintainers add more and more little reads and writes, because what's the harm in just one more?
 
 The dependency inversion principle is the idea that instead of using database-focused models as the core primitives of your system, you should use simple pure-Python data structures like the frozen dataclass you saw earlier, and _your database models should be derived from those pure-Python models_. [To put it another way](https://www.cosmicpython.com/book/chapter_02_repository.html#_inverting_the_dependency_orm_depends_on_model):
 
@@ -58,7 +58,7 @@ I'd love to work in a system like this someday :)
 
 ## Pure Functions
 
-Pure functions come up now and then throughout the book, although I don't remember the authors spending much time addressing the topic head-on. That's OK, because the book does a great job of showing them in action.
+Pure functions[^2] come up now and then throughout the book, although I don't remember the authors spending much time addressing the topic head-on. That's OK, because the book does a great job of showing them in action.
 
 For instance, [Chapter 3](https://www.cosmicpython.com/book/chapter_03_abstractions.html) focuses on a program for syncing files between two directories, and the authors trying to figure out how to make it easy to test. At first, the whole program is concerned with operating directly on the file system, and so in all their tests they have to spin up some temporary directories and write a bunch of files to them and call the program and examine what it did to the temporary directories. Ick!
 
@@ -82,7 +82,7 @@ In order to test the sync algorithm, the authors don't have to read from and wri
 
 There's still some code at the edges of their program that a) examines the file system to create those input dicts and b) modifies the file system based off of the instructions in those output commands, but that's an unavoidable fact of life; the main thing that matters is that the bulk of the program is now side-effect-free. Lovely!
 
-This approach is often called ["functional core, imperative shell"](https://www.destroyallsoftware.com/screencasts/catalog/functional-core-imperative-shell)[^2], which is the idea that the bulk of your program should be pure functions with a thin layer at the edges for actually interacting with the real world. I like this idea very much 🙂
+This approach is often called ["functional core, imperative shell"](https://www.destroyallsoftware.com/screencasts/catalog/functional-core-imperative-shell)[^3], which is the idea that the bulk of your program should be pure functions with a thin layer at the edges for actually interacting with the real world. I like this idea very much 🙂
 
 
 ## Conclusion
@@ -92,4 +92,6 @@ This book was pretty decent, I'd give it 3.5 stars. I'm not going to go write an
 
 [^1]: I have Scott Wlaschin's "Domain Modeling Made Functional" on my desk, and am hoping that that book'll be the one that finally makes DDD click for me. I love his talks on YouTube, I need to go back and watch them all. Brilliant guy.
 
-[^2]: Oh my gosh, I just found out as I was writing this that Scott Wlaschin just [gave a talk on this exact topic](https://www.youtube.com/watch?v=P1vES9AgfC4)! Added it to my watchlist!
+[^2]: I actually don't have a favorite resource that explains pure functions; they're a simple concept, but I'm never quite satisfied with the explanations I find online. I've written about them in internal docs at my past couple of jobs, and hope to do one last writeup on this blog one of these days; in the meantime, [this post](https://tylerayoung.com/2022/03/16/write-more-pure-functions/) is pretty good!
+
+[^3]: Oh my gosh, I just found out as I was writing this that Scott Wlaschin just [gave a talk on this exact topic](https://www.youtube.com/watch?v=P1vES9AgfC4)! Added it to my watchlist!
