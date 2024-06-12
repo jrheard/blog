@@ -32,7 +32,7 @@ class OrderLine:
 </textarea>
 <pre class="cm-s-friendship-bracelet"></pre>
 
-I **also** recommend doing this. The important thing here is that this class doesn't know anything about a database/ORM - it's just a simple dataclass that refers to some other simple dataclasses. It's really easy to write nice, easy-to-test pure functions that operate on data like this.
+I **also** recommend doing this. The important thing here is that this class doesn't know anything about a database/ORM - it's just a simple dataclass that refers to some other simple dataclasses. It's really easy to write nice, easy-to-test pure functions that operate on data like this. In an ideal world, this is what **all** of your core primitives would look like.
 
 This brings us to our next topic, which is extremely related:
 
@@ -48,7 +48,7 @@ class OrderLine(ORMBaseClass):
 </textarea>
 <pre class="cm-s-friendship-bracelet"></pre>
 
-In a system like this, the vast majority of your code operates directly on these database-focused models, which makes it a lot harder to reliably write pure functions. Instead, you tend to end up with code that's littered with lots of little reads+writes to the database. Code like that is hard to unit test (because you have to patch out all of those database interactions), and tends to grow in complexity over time as maintainers add more and more little reads and writes because what's the harm in just one more?
+In a system like this, the vast majority of your code operates directly on these database-focused models, which makes it a lot harder to reliably write pure functions. Instead, you tend to end up with code that's littered with lots of little reads+writes to the database. Code written this way is hard to unit test (because you have to patch out all of those database interactions), and tends to grow in complexity over time as maintainers add more and more little reads and writes, because what's the harm in just one more?
 
 The dependency inversion principle is the idea that instead of using database-focused models as the core primitives of your system, you should use simple pure-Python data structures like the frozen dataclass you saw earlier, and _your database models should be derived from those pure-Python models_. [To put it another way](https://www.cosmicpython.com/book/chapter_02_repository.html#_inverting_the_dependency_orm_depends_on_model):
 
@@ -78,16 +78,16 @@ And to go along with that, their program now returns a list of operations that i
 </textarea>
 <pre class="cm-s-friendship-bracelet"></pre>
 
-In order to test the sync algorithm, the authors don't have to read from and write to the file system any more - they can just pass a couple of dicts into the program, examine the data that it returns as output, and check to see if the program _wants_ to do the right thing. The dicts and tuples that their tests use are trivial to construct, no side effects (or, God forbid, mocking/patching) necessary.
+In order to test the sync algorithm, the authors don't have to read from and write to the file system any more - they can just pass a couple of dicts into the program, examine the data that it returns as output, and check to see if the program _wants_ to do the right thing. The dicts and tuples that their tests use are trivial to construct, no side effects or mocking/patching necessary.
 
-There's still some code at the edges that turns the filesystem into those dicts and turns those commands into side effects, but that's an unavoidable fact of life; the main thing that matters is that the bulk of the program is now side-effect-free. Lovely!
+There's still some code at the edges of their program that a) examines the file system to create those input dicts and b) modifies the file system based off of the instructions in those output commands, but that's an unavoidable fact of life; the main thing that matters is that the bulk of the program is now side-effect-free. Lovely!
 
-This is the same thing as ["functional core, imperative shell"](https://www.destroyallsoftware.com/screencasts/catalog/functional-core-imperative-shell)[^2], which is the idea that the bulk of your program should be pure functions with a thin layer at the edges for actually interacting with the real world.
+This approach is often called ["functional core, imperative shell"](https://www.destroyallsoftware.com/screencasts/catalog/functional-core-imperative-shell)[^2], which is the idea that the bulk of your program should be pure functions with a thin layer at the edges for actually interacting with the real world. I like this idea very much 🙂
 
 
 ## Conclusion
 
-This book was pretty decent, I'd give it 3.5 stars. I'm not going to go write an event-driven microservice-based system with lots of DDD techniques, but it was fun to hear the authors talk about those things, and I enjoyed their treatment of the topics above!
+This book was pretty decent, I'd give it 3.5 stars. I'm not going to go write an event-driven microservice-based system with lots of DDD techniques, but it was fun to hear the authors talk about those topics, and I enjoyed their treatment of the ideas above!
 
 
 [^1]: I have Scott Wlaschin's "Domain Modeling Made Functional" on my desk, and am hoping that that book'll be the one that finally makes DDD click for me. I love his talks on YouTube, I need to go back and watch them all. Brilliant guy.
