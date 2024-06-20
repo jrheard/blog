@@ -4,7 +4,7 @@ title:  "Book Report: Architecture Patterns with Python"
 python_snippets: true
 ---
 
-I recently read [Architecture Patterns with Python](https://www.cosmicpython.com/). The book's primary focus is on how to structure programs so that they stay simple and maintainable as they grow: that's my specific favorite programming topic, so of course I liked it. I'm probably not going to use the exact techniques that the authors recommend in this book, but they discussed some cool ideas that reminded me of things I've run into at past jobs, and the book's [available to read for free online](https://www.cosmicpython.com/book/preface.html), so what's not to like?
+I recently read [Architecture Patterns with Python](https://www.cosmicpython.com/). The book's primary focus is on how to structure programs so that they stay simple and maintainable as they grow: that's my specific favorite programming topic, so of course I liked it. I'm probably not going to use the exact techniques that the authors recommend in this book, but they discussed some cool ideas that reminded me of things I've run into at past jobs, and the book's [available for free online](https://www.cosmicpython.com/book/preface.html), so what's not to like?
 
 <img src="{{site.baseurl}}/assets/img/architecture_patterns_with_python.jpg" />
 
@@ -12,7 +12,7 @@ The book discusses domain-driven design and an event-driven architecture (potent
 
 ## Side Notes
 * It was a relatively fast read - nice clear prose, nice short chapters.
-* I didn't walk away from the book knowing much more about DDD than I did before, but that's OK[^1].
+* I didn't walk away from the book having become a total expert in DDD, but that's OK[^1].
 * The authors were careful to not wholeheartedly recommend microservices, which I appreciated.
 * Each chapter had a short pros/cons table at the end with some really frank discussion of whether or not the technique discussed in that chapter could be worth applying in your own work. Many of the "cons" sections looked something like this, and I appreciated their candor:
   * "We’ve been at pains to point out that each pattern comes at a cost. Each layer of indirection has a price in terms of complexity and duplication in our code and will be confusing to programmers who’ve never seen these patterns before."
@@ -92,6 +92,6 @@ This book was pretty decent, I'd give it 3.5 stars. I'm not going to go write an
 
 [^1]: I have Scott Wlaschin's "Domain Modeling Made Functional" on my desk, and am hoping that that book'll be the one that finally makes DDD click for me. I love his talks on YouTube, I need to go back and watch them all. Brilliant guy.
 
-[^2]: I actually don't have a favorite resource that explains pure functions; they're a simple concept, but I'm never quite satisfied with the explanations I find online. I've written about them in internal docs at my past couple of jobs, and hope to do one last writeup on this blog one of these days; in the meantime, [this post](https://tylerayoung.com/2022/03/16/write-more-pure-functions/) is pretty good!
+[^2]: For more info about pure functions: I love the talk "[Hoist Your IO](https://www.youtube.com/watch?v=PBQN62oUnN8)", and [this refactoring exercise](https://youtu.be/vK1DazRK_a0?si=c4onwoql5J7RH1Ty&t=2368) is a great companion piece. [This post](https://tylerayoung.com/2022/03/16/write-more-pure-functions/) is pretty good, too!
 
 [^3]: Oh my gosh, I just found out as I was writing this that Scott Wlaschin just [gave a talk on this exact topic](https://www.youtube.com/watch?v=P1vES9AgfC4)! Added it to my watchlist!
