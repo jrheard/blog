@@ -12,7 +12,7 @@ The book discusses domain-driven design and an event-driven architecture (potent
 
 ## Side Notes
 * It was a relatively fast read - nice clear prose, nice short chapters.
-* I didn't walk away from the book having become a total expert in DDD, but that's OK[^1].
+* The book didn't make me a total expert in DDD, but that's OK[^1].
 * The authors were careful to not wholeheartedly recommend microservices, which I appreciated.
 * Each chapter had a short pros/cons table at the end with some really frank discussion of whether or not the technique discussed in that chapter could be worth applying in your own work. Many of the "cons" sections looked something like this, and I appreciated their candor:
   * "We’ve been at pains to point out that each pattern comes at a cost. Each layer of indirection has a price in terms of complexity and duplication in our code and will be confusing to programmers who’ve never seen these patterns before."
@@ -28,7 +28,7 @@ The book recommends using "value objects" to represent core primitive business c
 class OrderLine:
     order_id: OrderReference
     sku: ProductReference
-    qty: Quantity
+    quantity: Quantity
 </textarea>
 <pre class="cm-s-friendship-bracelet"></pre>
 
@@ -38,13 +38,13 @@ This brings us to our next topic, which is extremely related:
 
 ## Dependency Inversion Principle
 
-This term was new to me, and is my favorite idea from the whole book. It's easiest to explain by contrast to the previous example. Most of the codebases I've worked in have used models like this as their core primitives instead of going with the approach you saw above:
+This term was new to me, and is my favorite idea from the whole book. It's easiest to explain by contrast to the previous example. Most of the codebases I've worked in have used models like the one you see below as their core primitives instead of going with the approach you saw above:
 
 <textarea class="hidden">
 class OrderLine(ORMBaseClass):
 	order_id = orm.ForeignKey(Order)
 	sku = orm.ForeignKey(Product)
-	qty = orm.IntegerField()
+	quantity = orm.IntegerField()
 </textarea>
 <pre class="cm-s-friendship-bracelet"></pre>
 
@@ -60,7 +60,7 @@ I'd love to work in a system like this someday :)
 
 Pure functions[^2] come up now and then throughout the book, although I don't remember the authors spending much time addressing the topic head-on. That's OK, because the book does a great job of showing them in action.
 
-For instance, [Chapter 3](https://www.cosmicpython.com/book/chapter_03_abstractions.html) focuses on a program for syncing files between two directories, and the authors trying to figure out how to make it easy to test. At first, the whole program is concerned with operating directly on the file system, and so in all their tests they have to spin up some temporary directories and write a bunch of files to them and call the program and examine what it did to the temporary directories. Ick!
+For instance, [Chapter 3](https://www.cosmicpython.com/book/chapter_03_abstractions.html) focuses on a program for syncing files between two directories, and the authors are trying to figure out how to make it easy to test. At first, the whole program is concerned with operating directly on the file system, and so in all their tests they have to spin up some temporary directories and write a bunch of files to them and call the program and then examine what it did to the temporary directories. Ick!
 
 Then they propose a different approach: "[w]e’re going to separate _what_ we want to do from _how_ to do it". They change the core of their program so that it takes two dicts as input, each representing the files in a directory:
 
@@ -90,7 +90,7 @@ This approach is often called ["functional core, imperative shell"](https://www.
 This book was pretty decent, I'd give it 3.5 stars. I'm not going to go write an event-driven microservice-based system with lots of DDD techniques, but it was fun to hear the authors talk about those topics, and I enjoyed their treatment of the ideas above!
 
 
-[^1]: I have Scott Wlaschin's "Domain Modeling Made Functional" on my desk, and am hoping that that book'll be the one that finally makes DDD click for me. I love his talks on YouTube, I need to go back and watch them all. Brilliant guy.
+[^1]: I have Scott Wlaschin's "[Domain Modeling Made Functional](https://pragprog.com/titles/swdddf/domain-modeling-made-functional/)" on my desk, and am hoping that that book'll be the one that finally makes DDD click for me. I love his talks on YouTube, I need to go back and watch them all. Brilliant guy.
 
 [^2]: For more info about pure functions: I love the talk "[Hoist Your IO](https://www.youtube.com/watch?v=PBQN62oUnN8)", and [this refactoring exercise](https://youtu.be/vK1DazRK_a0?si=c4onwoql5J7RH1Ty&t=2368) is a great companion piece. [This post](https://tylerayoung.com/2022/03/16/write-more-pure-functions/) is pretty good, too!
 
