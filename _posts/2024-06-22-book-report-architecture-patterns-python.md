@@ -38,7 +38,9 @@ This brings us to our next topic, which is extremely related:
 
 ## Dependency Inversion Principle
 
-This term was new to me, and is my favorite idea from the whole book. It's easiest to explain by contrast to the previous example. Most of the codebases I've worked in have used models like the one you see below as their core primitives instead of going with the approach you saw above:
+This term was new to me. Apparently it's an OO thing (it's the D in SOLID?), and I don't find the original formulation super helpful, but the authors translate it into a technique that I find very compelling. It's easiest to demonstrate that technique by contrast to the previous example.
+
+Instead of using the "value object" technique, most of the codebases I've worked in have used models like this to represent their core primitives:
 
 <textarea class="hidden">
 class OrderLine(ORMBaseClass):
@@ -50,7 +52,7 @@ class OrderLine(ORMBaseClass):
 
 In a system like this, the vast majority of your code operates directly on these database-focused models, which makes it a lot harder to reliably write pure functions. Instead, you tend to end up with code that's littered with lots of little reads+writes to the database. Code written this way is hard to unit test (because you have to patch out all of those database interactions), and it tends to grow in complexity over time as maintainers add more and more little reads and writes, because what's the harm in just one more?
 
-The dependency inversion principle is the idea that instead of using database-focused models as the core primitives of your system, you should use simple pure-Python data structures like the frozen dataclass you saw earlier, and _your database models should be derived from those pure-Python models_. [To put it another way](https://www.cosmicpython.com/book/chapter_02_repository.html#_inverting_the_dependency_orm_depends_on_model):
+The authors say that instead of using database-focused models as the core primitives of your system, you should use simple pure-Python data structures like the frozen dataclass you saw earlier, and _your database models should be derived from those pure-Python models_. [To put it another way](https://www.cosmicpython.com/book/chapter_02_repository.html#_inverting_the_dependency_orm_depends_on_model):
 
 > The ORM imports (or "depends on" or "knows about") the domain model, and not the other way around.
 
