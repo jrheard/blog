@@ -210,13 +210,6 @@ def test_notify_closest_scooter(send_email_mock, _request_mock):
 
 Which of these two worlds would you rather live in?
 
-## Smells To Watch Out For
-
-* If a function takes no inputs, it's probably impure.
-* If a function has no output, it's probably impure.
-* If a function is async, it's probably impure.
-* If you need to use mocks when testing a function, it's probably impure.
-
 ## How To Write Them
 
 It's easiest to write pure functions when you're working with "[plain data](https://blog.jrheard.com/book-report-architecture-patterns-python#value-objects)", i.e. stuff that doesn't have an active connection to the database. You can still make a function pure even if it's operating on database models, though! As long as your function follows the two rules we talked about earlier (i.e. it exercises restraint and doesn't read from or write to the database), it's pure.
@@ -233,6 +226,13 @@ If you apply this technique repeatedly, you end up with a program that's primari
 
 Programs written this way contain lots of little functions that can each be easily understood, modified, and tested. As you do your daily work, think about how you can nudge your program a little bit closer toward being shaped like this! 😎
 
+
+## Appendix: Smells To Watch Out For
+
+* If a function takes no inputs, it's probably impure.
+* If a function has no output, it's probably impure.
+* If a function is async, it's probably impure.
+* If you need to use mocks when testing a function, it's probably impure.
 
 ## References
 * [Hoist Your I/O](https://www.youtube.com/watch?v=PBQN62oUnN8)
