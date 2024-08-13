@@ -112,7 +112,7 @@ def notify_closest_scooter(
 
 We have to put away some our tools when we write pure functions: we can't read from the database, we can't check what time it is, we can't pull an API key from a global config object. What do we get in return?
 
-The primary benefit of pure functions is that they are simple enough to fit into your head. In order to understand what a pure function does, you just need to look at these things:
+The primary benefit of pure functions is that they are **simple enough to fit into your head**. In order to understand what a pure function does, you just need to look at these things:
 
 * What are the function's inputs?
 * What are the function's outputs?
@@ -135,7 +135,7 @@ By contrast, let's think about impure functions. Here are *some of* the things t
 * What is the phase of the moon as seen from Mars?
     * _Which_ moon?
 
-When working with pure functions, you can think about the function in isolation and don't have to worry about fitting the rest of the program into your head. I've heard this described as "local reasoning" (which pure functions enable you to do), as opposed to "global reasoning" (which impure code *forces* you to do).
+When working with pure functions, you can think about the function in isolation and don't have to worry about fitting the rest of the program into your head. I've heard this described as "**local reasoning**" (which pure functions enable you to do), as opposed to "global reasoning" (which impure code *forces* you to do).
 
 ## Secondary Benefits
 
@@ -216,7 +216,7 @@ It's easiest to write pure functions when you're working with "[plain data](http
 
 I'll bet that a lot of functions in your codebase are just one or two tweaks away from purity. As you get in the habit of looking for side effects, you'll get better at identifying them and yanking them out of the middle of your program.
 
-In [my last post](https://blog.jrheard.com/book-report-architecture-patterns-python), I mentioned a chapter of the book "Architecture Patterns with Python" where the authors transformed the middle of a program into pure code. They did it by following these steps:
+In [my last post](https://blog.jrheard.com/book-report-architecture-patterns-python#pure-functions), I mentioned a chapter of the book "Architecture Patterns with Python" where the authors transformed the middle of a program into pure code. They did it by following these steps:
 
 1. Load up the data that your pure code will need.
 2. Pass that data to a pure function that returns a **decision** about the side effects that the program should perform.

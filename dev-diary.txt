@@ -385,3 +385,10 @@ nvm actually
 i played around with setting the repo up for a few hours and that was fun
 but the idea of reimplementing jekyll actually sounds a lot less fun now that i know it's a waste of time
 so nvm!
+
+===
+
+8/12/24
+
+pure fns TODOs
+	mention refactoring exercise video directly in the text of the post?
