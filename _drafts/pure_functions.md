@@ -135,7 +135,7 @@ By contrast, let's think about impure functions. Here are *some of* the things t
 * What is the phase of the moon as seen from Mars?
     * _Which_ moon?
 
-When working with pure functions, you can think about the function in isolation and don't have to worry about fitting the rest of the program into your head. I've heard this described as "local reasoning" (which pure functions enable you to do), as opposed to "global reasoning" (which impure functions *force* you to do).
+When working with pure functions, you can think about the function in isolation and don't have to worry about fitting the rest of the program into your head. I've heard this described as "local reasoning" (which pure functions enable you to do), as opposed to "global reasoning" (which impure code *forces* you to do).
 
 ## Secondary Benefits
 
