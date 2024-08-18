@@ -391,4 +391,12 @@ so nvm!
 8/12/24
 
 pure fns TODOs
-	mention refactoring exercise video directly in the text of the post?
+	add example code/data snippet before steps 1/2/3 of functional core imperative shell?
+		TODO generally revisit this section - make it clear that i've left the scooter example behind
+
+===
+
+8/18
+
+ok yeah let's revisit the last third of the pure fns post
+	TODO clearly show data snippets from ch3 of architecture book as well as wlaschin talk
