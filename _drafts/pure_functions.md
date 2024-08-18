@@ -117,7 +117,7 @@ The primary benefit of pure functions is that they are **simple enough to fit in
 * What are the function's inputs?
 * What are the function's outputs?
 
-By contrast, let's think about impure functions. Here are *some of* the things that you need to think about when you're reading an impure function:
+By contrast, here are *some of* the things that you need to think about when you're reading an impure function:
 
 * What are the function's inputs?
     * When the function has finished running, what state will the inputs be in?
@@ -214,7 +214,7 @@ Which of these two worlds would you rather live in?
 
 It's easiest to write pure functions when you're working with "[plain data](https://blog.jrheard.com/book-report-architecture-patterns-python#value-objects)", i.e. stuff that doesn't have an active connection to the database. You can still make a function pure even if it's operating on database models, though! As long as your function follows the two rules we talked about earlier, it's pure.
 
-I'll bet that a lot of functions in your codebase are just one or two tweaks away from purity. As you get in the habit of looking for side effects, you'll get better at identifying them and yanking them out of the middle of your program.
+I'll bet that a lot of functions in your codebase are just one or two tweaks away from purity. As you get in the habit of looking for side effects, you'll get better at identifying them and moving them out of the functions you're working in.
 
 Notice that the goal isn't to fully eliminate side effects - if we did that, our programs wouldn't do anything except make the room warm. The important thing is to move the side effects out of the **middle** of the program, and nudge them closer toward the beginning or end. Programs that use lots of pure functions look like this:
 
@@ -259,7 +259,7 @@ Prefer pure functions when writing new code, and keep an eye out for ways to rem
 ## References
 * [Hoist Your I/O](https://www.youtube.com/watch?v=PBQN62oUnN8)
 * [Functional Core, Imperative Shell](https://www.youtube.com/watch?v=P1vES9AgfC4) (Scott Wlaschin version)
-* [This refactoring exercise](https://www.youtube.com/watch?v=vK1DazRK_a0&t=2368s) from "Solving Problems the Clojure Way"
+* [This refactoring exercise](https://www.youtube.com/watch?v=vK1DazRK_a0&t=2368s) from "Solving Problems the Clojure Way" - I love the visualization technique the presenter uses, it makes it really easy to follow the side effects as they get moved or eliminated.
 * [Functional Programming in C++](https://archive.is/zPtaC) (by John Carmack!!)
 
 
