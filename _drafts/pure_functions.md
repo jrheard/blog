@@ -4,7 +4,7 @@ title:  "Pure Functions"
 python_snippets: true
 ---
 
-The hardest problem in software engineering (aside from choosing _which program to write_) is keeping your program simple enough for maintainers to confidently read, understand, and make changes to. This problem is called "**managing complexity**", and there are lots of famous quotes about it[^1]. Managing complexity is easy when a program is small, but it gets exponentially harder as years pass, the program gets bigger, the engineering organization gets bigger too, and the program's original authors leave.
+The hardest problem in software engineering (aside from choosing _which program to write_) is keeping your program simple enough for maintainers to confidently read, understand, and make changes to. This problem is called "**managing complexity**," and there are lots of famous quotes about it[^1]. Managing complexity is easy when a program is small, but it gets exponentially harder as years pass, the program gets bigger, the engineering organization gets bigger too, and the program's original authors leave.
 
 Pure functions are **my favorite tool** for managing complexity. Let's talk about what they are and why they're so effective. Note: I'll be showing examples in Python, but you can write pure functions in **any** programming language.
 
@@ -212,7 +212,7 @@ Which of these two worlds would you rather live in?
 
 ## Pure Functions In Practice
 
-It's easiest to write pure functions when you're working with "[plain data](https://blog.jrheard.com/book-report-architecture-patterns-python#value-objects)", i.e. stuff that doesn't have an active connection to the database. You can still make a function pure even if it's operating on database models, though! As long as your function follows the two rules we talked about earlier, it's pure.
+It's easiest to write pure functions when you're working with "[plain data](https://blog.jrheard.com/book-report-architecture-patterns-python#value-objects)," i.e. stuff that doesn't have an active connection to the database. You can still make a function pure even if it's operating on database models, though! As long as your function follows the two rules we talked about earlier, it's pure.
 
 I'll bet that a lot of functions in your codebase are just one or two tweaks away from purity. As you get in the habit of looking for side effects, you'll get better at identifying them and moving them out of the functions you're working in.
 
@@ -228,7 +228,7 @@ This technique is called "functional core, imperative shell." Let's look at a co
 
 ## What Returning A Decision Looks Like
 
-In Chapter 3 of ["Architecture Patterns with Python"](https://www.cosmicpython.com/book/chapter_03_abstractions.html), the authors are working on a program that syncs the contents of two directories. At first, they write function called `sync()` that performs a bunch of side effects and returns nothing; this function works fine, but is pretty complicated, plus it's difficult to test.
+In Chapter 3 of ["Architecture Patterns with Python,"](https://www.cosmicpython.com/book/chapter_03_abstractions.html) the authors are working on a program that syncs the contents of two directories. At first, they write function called `sync()` that performs a bunch of side effects and returns nothing; this function works fine, but is pretty complicated, plus it's difficult to test.
 
 The authors replace it with a pure function called `determine_actions()` that returns **a list of actions that the program should take**. Here's an example return value:
 
