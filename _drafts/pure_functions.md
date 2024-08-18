@@ -216,17 +216,19 @@ It's easiest to write pure functions when you're working with "[plain data](http
 
 I'll bet that a lot of functions in your codebase are just one or two tweaks away from purity. As you get in the habit of looking for side effects, you'll get better at identifying them and moving them out of the functions you're working in.
 
-Notice that the goal isn't to fully eliminate side effects - if we did that, our programs wouldn't do anything except make the room warm. The important thing is to move the side effects out of the **middle** of the program, and nudge them closer toward the beginning or end. Programs that use lots of pure functions look like this:
+Notice that the goal isn't to fully eliminate side effects - if we did that, our program wouldn't do anything except make the room warm. The important thing is to move the side effects out of the **middle** of the program, and nudge them closer toward the beginning or end.
+
+Programs that use lots of pure functions look like this:
 
 1. A small amount of impure code that loads up data to pass to your pure code.
 2. A bunch of pure code that executes your program's business logic and returns **data representing a decision** about the side effects we should perform.
 3. A small amount of impure code that performs those side effects.
 
-This technique is called "functional core, imperative shell". Let's look at a couple of examples of how to apply it.
+This technique is called "functional core, imperative shell." Let's look at a couple of examples of how to apply it.
 
 ## What Returning A Decision Looks Like
 
-In Chapter 3 of ["Architecture Patterns with Python"](https://blog.jrheard.com/book-report-architecture-patterns-python#pure-functions), the authors are working on a program that syncs the contents of two directories. At first, they write function called `sync()` that performs a bunch of side effects and returns nothing; this function works fine, but is pretty complicated, plus it's difficult to test.
+In Chapter 3 of ["Architecture Patterns with Python"](https://www.cosmicpython.com/book/chapter_03_abstractions.html), the authors are working on a program that syncs the contents of two directories. At first, they write function called `sync()` that performs a bunch of side effects and returns nothing; this function works fine, but is pretty complicated, plus it's difficult to test.
 
 The authors replace it with a pure function called `determine_actions()` that returns **a list of actions that the program should take**. Here's an example return value:
 
