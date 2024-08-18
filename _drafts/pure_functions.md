@@ -218,9 +218,9 @@ I'll bet that a lot of functions in your codebase are just one or two tweaks awa
 
 Notice that the goal isn't to fully eliminate side effects - if we did that, our programs wouldn't do anything except make the room warm. The important thing is to move the side effects out of the **middle** of the program, and nudge them closer toward the beginning or end. Programs that use lots of pure functions look like this:
 
-1. A small amount of side-effecty code that loads up data to pass to your pure code.
+1. A small amount of impure code that loads up data to pass to your pure code.
 2. A bunch of pure code that executes your program's business logic and returns **data representing a decision** about the side effects we should perform.
-3. A small amount of side-effecty code that performs those side effects.
+3. A small amount of impure code that performs those side effects.
 
 This technique is called "functional core, imperative shell". Let's look at a couple of examples of how to apply it.
 
