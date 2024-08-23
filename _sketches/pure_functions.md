@@ -1,3 +1,5 @@
+# TODO turn the second half of this into a standalone post about functional core
+
 ---
 layout: post
 title:  "Pure Functions"
@@ -210,13 +212,46 @@ def test_notify_closest_scooter(send_email_mock, _request_mock):
 
 Which of these two worlds would you rather live in?
 
-## General Advice
+## Pure Functions In Practice
 
-It's easiest to write pure functions when you're working with "[plain data](https://blog.jrheard.com/book-report-architecture-patterns-python#value-objects)," i.e. stuff that doesn't have an active connection to the database. You can still make a function pure even if it's operating on database models, though: as long as your function follows the two rules we talked about earlier, it's pure!
+It's easiest to write pure functions when you're working with "[plain data](https://blog.jrheard.com/book-report-architecture-patterns-python#value-objects)," i.e. stuff that doesn't have an active connection to the database. You can still make a function pure even if it's operating on database models, though! As long as your function follows the two rules we talked about earlier, it's pure.
 
-I'll bet that a lot of functions in your codebase are just one or two tweaks away from purity. As you get in the habit of looking for side effects, you'll get better at identifying them and eliminating them. For example: does your function _really_ need to modify its inputs and return `None`? What if it left its inputs unmodified and returned a value instead?
+I'll bet that a lot of functions in your codebase are just one or two tweaks away from purity. As you get in the habit of looking for side effects, you'll get better at identifying them and moving them out of the functions you're working in.
 
-Of course, not _every_ side effect can be removed. We write and run programs because they do stuff! For now, just focus on finding and eliminating the side effects that **don't need to happen** (and the ones that don't need to happen in **this specific function**). Next time we'll talk about how to handle the side effects that remain!
+Notice that the goal isn't to fully eliminate side effects - if we did that, our program wouldn't do anything except make the room warm. The important thing is to move the side effects out of the **middle** of the program, and nudge them closer toward the beginning or end.
+
+Programs that use lots of pure functions look like this:
+
+1. A small amount of impure code that loads up data to pass to your pure code.
+2. A bunch of pure code that executes your program's business logic and returns **data representing a decision** about the side effects we should perform.
+3. A small amount of impure code that performs those side effects.
+
+This technique is called "functional core, imperative shell." Let's look at a couple of examples of how to apply it.
+
+## What Returning A Decision Looks Like
+
+In Chapter 3 of ["Architecture Patterns with Python,"](https://www.cosmicpython.com/book/chapter_03_abstractions.html) the authors are working on a program that syncs the contents of two directories. At first, they write function called `sync()` that performs a bunch of side effects and returns nothing; this function works fine, but is pretty complicated, plus it's difficult to test.
+
+The authors replace it with a pure function called `determine_actions()` that returns **a list of actions that the program should take**. Here's an example return value:
+
+<textarea class="hidden">
+[
+    ("COPY", "sourcepath", "destpath"),
+    ("MOVE", "old", "new"),
+]
+</textarea>
+<pre class="cm-s-friendship-bracelet"></pre>
+
+All that's left is a) a bit of code that loads up data to pass to `determine_actions()`, and b) a bit of code that examines the output of `determine_actions()` and modifies the file system accordingly. The bulk of their system is now made up of pure code that's easy to understand and test.
+
+In Scott Wlaschin's [great talk on functional core / imperative shell](https://www.youtube.com/watch?v=P1vES9AgfC4), he walks through a similar example. He starts off with a program that interleaves side effects with its business logic; after a few tweaks, he ends up with a pure function that returns an enum with variants like `UpdateCustomerDecision.DO_NOTHING` or `UpdateCustomerDecision.UPDATE_CUSTOMER_AND_SEND_EMAIL`, combined with a small amount of impure code at the start and end of the program.
+
+## Conclusion
+
+I'm not saying that you should replace every five-line impure function in your system with three two-line functions. Use your own judgment! Just remember that pure functions make programs easier to understand, modify, and test.
+
+Prefer pure functions when writing new code, and keep an eye out for ways to remove side effects from pre-existing code!
+
 
 ## Appendix: Smells To Watch Out For
 
