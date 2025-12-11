@@ -40,7 +40,9 @@ If you've got a WaterColorBot lying around, you can use this library too! Just c
 
 Here's one student's program in action:
 
-<div style='position:relative;padding-bottom:54%;margin-bottom:15px;'><iframe src='https://gfycat.com/ifr/ColdBigAzurevase' frameborder='0' scrolling='no' width='100%' height='100%' style='position:absolute;top:0;left:0' allowfullscreen></iframe></div>
+<video autoplay loop muted playsinline>
+    <source src="/assets/img/watercolorbot.mp4" type="video/mp4">
+</video>
 
 The library also uses Python's built-in [`turtle`](https://docs.python.org/3.3/library/turtle.html?highlight=turtle) module to show you what your program will do.
 

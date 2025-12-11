@@ -627,3 +627,7 @@ div.function-spec {
 div.function-spec p:last-child {
 	margin-bottom: 0;
 }
+
+video {
+	display: block;
+	margin: 20px auto;
